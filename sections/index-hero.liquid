@@ -91,6 +91,73 @@
       </div>
     {% endif %}
   </div>
+
+  {% comment %} Bottom Info Block {% endcomment %}
+  <div class="tequila-hero-bottom-info">
+    <div class="tequila-hero-bottom-wrapper">
+      <div class="tequila-hero-steps">
+        <div class="tequila-hero-step">
+          <div class="tequila-hero-step-icon">
+            {% if section.settings.step1_icon != blank %}
+              {{
+                section.settings.step1_icon
+                | image_url: width: 30, height: 30
+                | image_tag: alt: 'Step 1 Icon', loading: 'lazy'
+              }}
+            {% endif %}
+          </div>
+          <div class="tequila-hero-step-text">
+            <span>{{ section.settings.step1_text | default: 'SELECT BOTTLE' }}</span>
+          </div>
+        </div>
+
+        <div class="tequila-hero-step">
+          <div class="tequila-hero-step-icon">
+            {% if section.settings.step2_icon != blank %}
+              {{
+                section.settings.step2_icon
+                | image_url: width: 30, height: 30
+                | image_tag: alt: 'Step 2 Icon', loading: 'lazy'
+              }}
+            {% endif %}
+          </div>
+          <div class="tequila-hero-step-text">
+            <span>{{ section.settings.step2_text | default: 'PERSONALIZE LABEL' }}</span>
+          </div>
+        </div>
+
+        <div class="tequila-hero-step">
+          <div class="tequila-hero-step-icon">
+            {% if section.settings.step3_icon != blank %}
+              {{
+                section.settings.step3_icon
+                | image_url: width: 30, height: 30
+                | image_tag: alt: 'Step 3 Icon', loading: 'lazy'
+              }}
+            {% endif %}
+          </div>
+          <div class="tequila-hero-step-text">
+            <span>{{ section.settings.step3_text | default: 'PLACE ORDER' }}</span>
+          </div>
+        </div>
+
+        <div class="tequila-hero-step">
+          <div class="tequila-hero-step-icon">
+            {% if section.settings.step4_icon != blank %}
+              {{
+                section.settings.step4_icon
+                | image_url: width: 30, height: 30
+                | image_tag: alt: 'Step 4 Icon', loading: 'lazy'
+              }}
+            {% endif %}
+          </div>
+          <div class="tequila-hero-step-text">
+            <span>{{ section.settings.step4_text | default: 'ENJOY' }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 
 <style>
@@ -258,6 +325,82 @@
     object-fit: cover;
   }
 
+  /* Bottom Info Block Styles */
+  #{{ section.id }} .tequila-hero-bottom-info {
+    background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 30px 0;
+  }
+
+  #{{ section.id }} .tequila-hero-bottom-wrapper {
+    max-width: var(--tequila-hero-max-width);
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  #{{ section.id }} .tequila-hero-steps {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+
+  #{{ section.id }} .tequila-hero-step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    flex: 1;
+    min-width: 150px;
+  }
+
+  #{{ section.id }} .tequila-hero-step-icon {
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: rgba(124, 201, 181, 0.1);
+    border: 2px solid var(--tequila-hero-highlight-color);
+  }
+
+  #{{ section.id }} .tequila-hero-step-icon img {
+    width: 30px;
+    height: 30px;
+    object-fit: contain;
+  }
+
+  #{{ section.id }} .tequila-hero-step-icon svg {
+    width: 30px;
+    height: 30px;
+    color: var(--tequila-hero-highlight-color);
+  }
+
+  #{{ section.id }} .tequila-hero-step-text {
+    color: var(--tequila-hero-title-color);
+    font-weight: 600;
+    font-size: 14px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+  }
+
+  @media (max-width: 767px) {
+    #{{ section.id }} .tequila-hero-steps {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
+      justify-items: center;
+    }
+
+    #{{ section.id }} .tequila-hero-step {
+      min-width: auto;
+    }
+  }
+
   @media (min-width: 768px) {
     #{{ section.id }}.tequila-hero-section {
       padding-top: var(--tequila-hero-padding-top-desktop);
@@ -297,6 +440,29 @@
     #{{ section.id }} .tequila-hero-leaf-left img,
     #{{ section.id }} .tequila-hero-leaf-right img {
       width: 300px;
+    }
+
+    #{{ section.id }} .tequila-hero-bottom-info {
+      padding: 40px 0;
+    }
+
+    #{{ section.id }} .tequila-hero-step-text {
+      font-size: 16px;
+    }
+
+    #{{ section.id }} .tequila-hero-step-icon {
+      width: 70px;
+      height: 70px;
+    }
+
+    #{{ section.id }} .tequila-hero-step-icon img {
+      width: 35px;
+      height: 35px;
+    }
+
+    #{{ section.id }} .tequila-hero-step-icon svg {
+      width: 35px;
+      height: 35px;
     }
   }
 
@@ -522,6 +688,54 @@
       "type": "text",
       "id": "custom_classes",
       "label": "Custom CSS Classes"
+    },
+    {
+      "type": "header",
+      "content": "Bottom Info Steps"
+    },
+    {
+      "type": "image_picker",
+      "id": "step1_icon",
+      "label": "Step 1 Icon"
+    },
+    {
+      "type": "text",
+      "id": "step1_text",
+      "label": "Step 1 Text",
+      "default": "SELECT BOTTLE"
+    },
+    {
+      "type": "image_picker",
+      "id": "step2_icon",
+      "label": "Step 2 Icon"
+    },
+    {
+      "type": "text",
+      "id": "step2_text",
+      "label": "Step 2 Text",
+      "default": "PERSONALIZE LABEL"
+    },
+    {
+      "type": "image_picker",
+      "id": "step3_icon",
+      "label": "Step 3 Icon"
+    },
+    {
+      "type": "text",
+      "id": "step3_text",
+      "label": "Step 3 Text",
+      "default": "PLACE ORDER"
+    },
+    {
+      "type": "image_picker",
+      "id": "step4_icon",
+      "label": "Step 4 Icon"
+    },
+    {
+      "type": "text",
+      "id": "step4_text",
+      "label": "Step 4 Text",
+      "default": "ENJOY"
     }
   ],
   "presets": [
