@@ -1,0 +1,23 @@
+{
+  "name": "tequilla",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "shopify theme dev --store=52d468-3.myshopify.com --theme 180632486167",
+    "push": "shopify theme push --store=52d468-3.myshopify.com --theme 180632486167",
+    "pull": "shopify theme pull --store=52d468-3.myshopify.com --theme 180632486167"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sergio-nezhigay/tequilla.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sergio-nezhigay/tequilla/issues"
+  },
+  "homepage": "https://github.com/sergio-nezhigay/tequilla#readme",
+  "description": ""
+}
