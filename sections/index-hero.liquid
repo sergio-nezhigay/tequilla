@@ -98,9 +98,9 @@
       <div class="tequila-hero-steps">
         <div class="tequila-hero-step">
           <div class="tequila-hero-step-icon">
-            {% if section.settings.step1_icon != blank %}
+            {% if section.settings.step_icon != blank %}
               {{
-                section.settings.step1_icon
+                section.settings.step_icon
                 | image_url: width: 30, height: 30
                 | image_tag: alt: 'Step 1 Icon', loading: 'lazy'
               }}
@@ -113,11 +113,11 @@
 
         <div class="tequila-hero-step">
           <div class="tequila-hero-step-icon">
-            {% if section.settings.step2_icon != blank %}
+            {% if section.settings.step_icon != blank %}
               {{
-                section.settings.step2_icon
+                section.settings.step_icon
                 | image_url: width: 30, height: 30
-                | image_tag: alt: 'Step 2 Icon', loading: 'lazy'
+                | image_tag: alt: 'Step 1 Icon', loading: 'lazy'
               }}
             {% endif %}
           </div>
@@ -128,11 +128,11 @@
 
         <div class="tequila-hero-step">
           <div class="tequila-hero-step-icon">
-            {% if section.settings.step3_icon != blank %}
+            {% if section.settings.step_icon != blank %}
               {{
-                section.settings.step3_icon
+                section.settings.step_icon
                 | image_url: width: 30, height: 30
-                | image_tag: alt: 'Step 3 Icon', loading: 'lazy'
+                | image_tag: alt: 'Step 1 Icon', loading: 'lazy'
               }}
             {% endif %}
           </div>
@@ -143,11 +143,11 @@
 
         <div class="tequila-hero-step">
           <div class="tequila-hero-step-icon">
-            {% if section.settings.step4_icon != blank %}
+            {% if section.settings.step_icon != blank %}
               {{
-                section.settings.step4_icon
+                section.settings.step_icon
                 | image_url: width: 30, height: 30
-                | image_tag: alt: 'Step 4 Icon', loading: 'lazy'
+                | image_tag: alt: 'Step 1 Icon', loading: 'lazy'
               }}
             {% endif %}
           </div>
@@ -349,7 +349,8 @@
 
   #{{ section.id }} .tequila-hero-step {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    gap: 40px;
     align-items: center;
     text-align: center;
     flex: 1;
@@ -695,8 +696,8 @@
     },
     {
       "type": "image_picker",
-      "id": "step1_icon",
-      "label": "Step 1 Icon"
+      "id": "step_icon",
+      "label": "Step Icon"
     },
     {
       "type": "text",
@@ -704,33 +705,21 @@
       "label": "Step 1 Text",
       "default": "SELECT BOTTLE"
     },
-    {
-      "type": "image_picker",
-      "id": "step2_icon",
-      "label": "Step 2 Icon"
-    },
+
     {
       "type": "text",
       "id": "step2_text",
       "label": "Step 2 Text",
       "default": "PERSONALIZE LABEL"
     },
-    {
-      "type": "image_picker",
-      "id": "step3_icon",
-      "label": "Step 3 Icon"
-    },
+
     {
       "type": "text",
       "id": "step3_text",
       "label": "Step 3 Text",
       "default": "PLACE ORDER"
     },
-    {
-      "type": "image_picker",
-      "id": "step4_icon",
-      "label": "Step 4 Icon"
-    },
+
     {
       "type": "text",
       "id": "step4_text",

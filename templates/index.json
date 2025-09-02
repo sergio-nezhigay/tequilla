@@ -39,7 +39,12 @@
         "padding_bottom_desktop": 100,
         "padding_top_mobile": 130,
         "padding_bottom_mobile": 0,
-        "custom_classes": ""
+        "custom_classes": "",
+        "step_icon": "shopify://shop_images/im_92849612-19a2-4a3f-8046-88e711ce7b0a.png",
+        "step1_text": "SELECT BOTTLE",
+        "step2_text": "PERSONALIZE LABEL",
+        "step3_text": "PLACE ORDER",
+        "step4_text": "ENJOY"
       }
     }
   },
