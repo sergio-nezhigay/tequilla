@@ -10,8 +10,40 @@
 {
   "sections": {
     "index_hero": {
-      "type": "index-hero"
+      "type": "index-hero",
+      "settings": {
+        "main_title": "THE BEST BOTTLE IS",
+        "highlighted_text": "YOUR BOTTLE",
+        "description": "<p>At InBarrel, we don't just help you buy the best tequila ever—we help you create the best tequila ever!</p>",
+        "primary_button_text": "CREATE YOUR OWN TEQUILA",
+        "primary_button_url": "shopify://collections",
+        "secondary_button_text": "SCHEDULE A CALL!",
+        "secondary_button_url": "shopify://collections/all",
+        "create_tequila_image": "shopify://shop_images/round_bottle_1.webp",
+        "left_leaf_image": "shopify://shop_images/from_lo.webp",
+        "right_leaf_image": "shopify://shop_images/from_l.webp",
+        "background_color": "#f5f5f5",
+        "title_color": "#000000",
+        "highlight_color": "#7cc9b5",
+        "description_color": "#666666",
+        "primary_button_bg": "#7cc9b5",
+        "primary_button_color": "#000000",
+        "secondary_button_bg": "#f4a261",
+        "secondary_button_color": "#000000",
+        "title_size_desktop": 80,
+        "title_size_mobile": 36,
+        "description_size_desktop": 18,
+        "description_size_mobile": 16,
+        "max_width": "1440px",
+        "padding_top_desktop": 80,
+        "padding_bottom_desktop": 80,
+        "padding_top_mobile": 60,
+        "padding_bottom_mobile": 60,
+        "custom_classes": ""
+      }
     }
   },
-  "order": ["index_hero"]
+  "order": [
+    "index_hero"
+  ]
 }
