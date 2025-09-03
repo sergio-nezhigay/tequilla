@@ -48,9 +48,47 @@
         "step3_text": "PLACE ORDER",
         "step4_text": "ENJOY"
       }
+    },
+    "index_video_hero": {
+      "type": "index-video-hero",
+      "settings": {
+        "max_width": "1440",
+        "padding_top_desktop": 100,
+        "padding_bottom_desktop": 0,
+        "padding_top_mobile": 40,
+        "padding_bottom_mobile": 0,
+        "section_background": "linear-gradient(180deg, rgba(241, 241, 238, 1), rgba(245, 240, 235, 1) 100%)",
+        "custom_classes": "",
+        "title_part1": "SEE HOW",
+        "title_part2": "EASY",
+        "title_part3": "IT IS TO",
+        "title_part4": "CREATE YOUR",
+        "title_part5": "CUSTOM BOTTLE.",
+        "title_color_part1": "#090909",
+        "title_color_part2": "#67b7a8",
+        "title_color_part3": "#090909",
+        "title_color_part4": "#ffb793",
+        "title_color_part5": "#090909",
+        "title_size_desktop": 60,
+        "title_size_mobile": 30,
+        "video_thumbnail": "shopify://shop_images/Generated_Image_September_03_2025_-_1_40PM.webp",
+        "video_url": "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+        "play_button_aria_label": "Play video",
+        "play_button_bg_color": "#f1f1ee",
+        "play_button_icon_color": "#121212",
+        "cta_text": "Create your own tequila",
+        "cta_url": "shopify://collections/all",
+        "cta_background": "linear-gradient(90deg, rgba(103, 211, 204, 1), rgba(103, 211, 204, 1) 100%)",
+        "cta_text_color": "#090909",
+        "cta_hover_background": "linear-gradient(90deg, rgba(255, 183, 147, 1), rgba(255, 155, 127, 1) 100%)",
+        "cta_hover_text_color": "#090909",
+        "cta_font_size_desktop": 18,
+        "cta_font_size_mobile": 16
+      }
     }
   },
   "order": [
-    "index_hero"
+    "index_hero",
+    "index_video_hero"
   ]
 }

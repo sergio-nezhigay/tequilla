@@ -1,0 +1,577 @@
+{% assign section_id = 'section-' | append: section.id %}
+
+<section id="{{ section_id }}" class="tequila-video-hero {{ section.settings.custom_classes }}">
+  <div class="tequila-video-hero__container">
+    <div class="tequila-video-hero__content">
+      <h2 class="tequila-video-hero__title">
+        <span class="tequila-video-hero__title-part1">{{ section.settings.title_part1 }}</span>
+        <span class="tequila-video-hero__title-part2">{{ section.settings.title_part2 }}</span>
+        <span class="tequila-video-hero__title-part3">{{ section.settings.title_part3 }}</span>
+        <span class="tequila-video-hero__title-part4">{{ section.settings.title_part4 }}</span>
+        <span class="tequila-video-hero__title-part5">{{ section.settings.title_part5 }}</span>
+      </h2>
+
+      <div class="tequila-video-hero__video-wrapper">
+        {% if section.settings.video_thumbnail != blank %}
+          {% assign video_img = section.settings.video_thumbnail %}
+          {{
+            video_img
+            | image_url: width: 1440
+            | image_tag:
+              loading: 'lazy',
+              widths: '375, 550, 750, 1100, 1440',
+              sizes: '(min-width: 768px) 1440px, 100vw',
+              class: 'tequila-video-hero__thumbnail'
+          }}
+        {% endif %}
+
+        <button class="tequila-video-hero__play-btn" aria-label="{{ section.settings.play_button_aria_label }}">
+          <svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="30" cy="30" r="30" fill="{{ section.settings.play_button_bg_color }}"/>
+            <path d="M24 20L40 30L24 40V20Z" fill="{{ section.settings.play_button_icon_color }}"/>
+          </svg>
+        </button>
+
+        {% if section.settings.video_url != blank %}
+          <div class="tequila-video-hero__video-modal" style="display: none;">
+            <div class="tequila-video-hero__video-modal-content">
+              <button class="tequila-video-hero__close-btn" aria-label="Close video">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M18 6L6 18M6 6L18 18" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+              </button>
+              <div class="tequila-video-hero__video-container"></div>
+            </div>
+          </div>
+        {% endif %}
+      </div>
+
+      {% if section.settings.cta_text != blank %}
+        <a href="{{ section.settings.cta_url }}" class="tequila-video-hero__cta">
+          {{ section.settings.cta_text }}
+        </a>
+      {% endif %}
+    </div>
+  </div>
+</section>
+
+<style>
+  :root {
+    --hero-padding-top-desktop: {{ section.settings.padding_top_desktop }}px;
+    --hero-padding-bottom-desktop: {{ section.settings.padding_bottom_desktop }}px;
+    --hero-padding-top-mobile: {{ section.settings.padding_top_mobile }}px;
+    --hero-padding-bottom-mobile: {{ section.settings.padding_bottom_mobile }}px;
+    --hero-max-width: {{ section.settings.max_width }}px;
+    --hero-title-size-desktop: {{ section.settings.title_size_desktop }}px;
+    --hero-title-size-mobile: {{ section.settings.title_size_mobile }}px;
+    --hero-title-line-height: 1.2;
+    --hero-cta-padding: 16px 40px;
+    --hero-cta-radius: 30px;
+    --hero-video-radius: 20px;
+  }
+
+  #{{ section_id }} {
+    padding-top: var(--hero-padding-top-mobile);
+    padding-bottom: var(--hero-padding-bottom-mobile);
+    background: {{ section.settings.section_background }};
+  }
+
+  #{{ section_id }} .tequila-video-hero__container {
+    max-width: var(--hero-max-width);
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  #{{ section_id }} .tequila-video-hero__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  #{{ section_id }} .tequila-video-hero__title {
+    font-size: var(--hero-title-size-mobile);
+    font-weight: 700;
+    line-height: var(--hero-title-line-height);
+    margin: 0 0 40px 0;
+    text-transform: uppercase;
+    letter-spacing: -0.02em;
+  }
+
+  #{{ section_id }} .tequila-video-hero__title-part1 {
+    color: {{ section.settings.title_color_part1 }};
+  }
+
+  #{{ section_id }} .tequila-video-hero__title-part2 {
+    color: {{ section.settings.title_color_part2 }};
+  }
+
+  #{{ section_id }} .tequila-video-hero__title-part3 {
+    color: {{ section.settings.title_color_part3 }};
+  }
+
+  #{{ section_id }} .tequila-video-hero__title-part4 {
+    color: {{ section.settings.title_color_part4 }};
+  }
+
+  #{{ section_id }} .tequila-video-hero__title-part5 {
+    color: {{ section.settings.title_color_part5 }};
+  }
+
+  .tequila-video-hero__video-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto 40px;
+    border-radius: var(--hero-video-radius);
+    overflow: hidden;
+    background: #000;
+  }
+
+  .tequila-video-hero__thumbnail {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .tequila-video-hero__play-btn {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 60px;
+    height: 60px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    z-index: 2;
+  }
+
+  .tequila-video-hero__play-btn:hover {
+    transform: translate(-50%, -50%) scale(1.1);
+    opacity: 0.9;
+  }
+
+  #{{ section_id }} .tequila-video-hero__cta {
+    display: inline-block;
+    padding: var(--hero-cta-padding);
+    background: {{ section.settings.cta_background }};
+    color: {{ section.settings.cta_text_color }};
+    text-decoration: none;
+    border-radius: var(--hero-cta-radius);
+    font-size: {{ section.settings.cta_font_size_mobile }}px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+  }
+
+  #{{ section_id }} .tequila-video-hero__cta:hover {
+    background: {{ section.settings.cta_hover_background }};
+    color: {{ section.settings.cta_hover_text_color }};
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+  }
+
+  .tequila-video-hero__video-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+  }
+
+  .tequila-video-hero__video-modal-content {
+    position: relative;
+    width: 100%;
+    max-width: 1200px;
+  }
+
+  .tequila-video-hero__close-btn {
+    position: absolute;
+    top: -40px;
+    right: 0;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    z-index: 10000;
+  }
+
+  .tequila-video-hero__video-container {
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+    overflow: hidden;
+    border-radius: var(--hero-video-radius);
+  }
+
+  .tequila-video-hero__video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+  }
+
+  @media (min-width: 768px) {
+    #{{ section_id }} {
+      padding-top: var(--hero-padding-top-desktop);
+      padding-bottom: var(--hero-padding-bottom-desktop);
+    }
+
+    #{{ section_id }} .tequila-video-hero__container {
+      padding: 0 40px;
+    }
+
+    #{{ section_id }} .tequila-video-hero__title {
+      font-size: var(--hero-title-size-desktop);
+      margin: 0 0 60px 0;
+    }
+
+    .tequila-video-hero__video-wrapper {
+      margin: 0 auto 60px;
+    }
+
+    .tequila-video-hero__play-btn {
+      width: 80px;
+      height: 80px;
+    }
+
+    .tequila-video-hero__play-btn svg {
+      width: 80px;
+      height: 80px;
+    }
+
+    #{{ section_id }} .tequila-video-hero__cta {
+      font-size: {{ section.settings.cta_font_size_desktop }}px;
+    }
+  }
+
+  @media (min-width: 1440px) {
+    #{{ section_id }} .tequila-video-hero__container {
+      padding: 0;
+    }
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const sectionId = '{{ section_id }}';
+    const videoUrl = '{{ section.settings.video_url }}';
+    const section = document.getElementById(sectionId);
+
+    if (!section || !videoUrl) return;
+
+    const playBtn = section.querySelector('.tequila-video-hero__play-btn');
+    const modal = section.querySelector('.tequila-video-hero__video-modal');
+    const closeBtn = section.querySelector('.tequila-video-hero__close-btn');
+    const videoContainer = section.querySelector('.tequila-video-hero__video-container');
+
+    if (!playBtn || !modal) return;
+
+    function getVideoId(url) {
+      const match = url.match(
+        /(?:youtube\.com\/(?:[^\/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/)([^"&?\/\s]{11})/
+      );
+      return match ? match[1] : null;
+    }
+
+    function openVideo() {
+      const videoId = getVideoId(videoUrl);
+      if (videoId) {
+        const iframe = document.createElement('iframe');
+        iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0`;
+        iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
+        iframe.allowFullscreen = true;
+        videoContainer.innerHTML = '';
+        videoContainer.appendChild(iframe);
+        modal.style.display = 'flex';
+        document.body.style.overflow = 'hidden';
+      }
+    }
+
+    function closeVideo() {
+      modal.style.display = 'none';
+      videoContainer.innerHTML = '';
+      document.body.style.overflow = '';
+    }
+
+    playBtn.addEventListener('click', openVideo);
+
+    if (closeBtn) {
+      closeBtn.addEventListener('click', closeVideo);
+    }
+
+    modal.addEventListener('click', function (e) {
+      if (e.target === modal) {
+        closeVideo();
+      }
+    });
+
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && modal.style.display === 'flex') {
+        closeVideo();
+      }
+    });
+  });
+</script>
+
+{% schema %}
+{
+  "name": "Tequila Video Hero",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Section Layout"
+    },
+    {
+      "type": "text",
+      "id": "max_width",
+      "label": "Max Width (px)",
+      "default": "1440"
+    },
+    {
+      "type": "range",
+      "id": "padding_top_desktop",
+      "label": "Padding Top Desktop",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_desktop",
+      "label": "Padding Bottom Desktop",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mobile",
+      "label": "Padding Top Mobile",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mobile",
+      "label": "Padding Bottom Mobile",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 40
+    },
+    {
+      "type": "color_background",
+      "id": "section_background",
+      "label": "Section Background",
+      "default": "linear-gradient(180deg, #F5F0EB 0%, #F5F0EB 100%)"
+    },
+    {
+      "type": "text",
+      "id": "custom_classes",
+      "label": "Custom CSS Classes"
+    },
+    {
+      "type": "header",
+      "content": "Title Settings"
+    },
+    {
+      "type": "text",
+      "id": "title_part1",
+      "label": "Title Part 1",
+      "default": "SEE HOW "
+    },
+    {
+      "type": "text",
+      "id": "title_part2",
+      "label": "Title Part 2 (Highlight)",
+      "default": "EASY"
+    },
+    {
+      "type": "text",
+      "id": "title_part3",
+      "label": "Title Part 3",
+      "default": " IT IS TO "
+    },
+    {
+      "type": "text",
+      "id": "title_part4",
+      "label": "Title Part 4 (Highlight)",
+      "default": "CREATE YOUR"
+    },
+    {
+      "type": "text",
+      "id": "title_part5",
+      "label": "Title Part 5",
+      "default": " CUSTOM BOTTLE."
+    },
+    {
+      "type": "color",
+      "id": "title_color_part1",
+      "label": "Title Color Part 1",
+      "default": "#1C1C1C"
+    },
+    {
+      "type": "color",
+      "id": "title_color_part2",
+      "label": "Title Color Part 2 (Highlight)",
+      "default": "#67D3CC"
+    },
+    {
+      "type": "color",
+      "id": "title_color_part3",
+      "label": "Title Color Part 3",
+      "default": "#1C1C1C"
+    },
+    {
+      "type": "color",
+      "id": "title_color_part4",
+      "label": "Title Color Part 4 (Highlight)",
+      "default": "#FF9B7F"
+    },
+    {
+      "type": "color",
+      "id": "title_color_part5",
+      "label": "Title Color Part 5",
+      "default": "#1C1C1C"
+    },
+    {
+      "type": "range",
+      "id": "title_size_desktop",
+      "label": "Title Size Desktop",
+      "min": 24,
+      "max": 72,
+      "step": 2,
+      "unit": "px",
+      "default": 48
+    },
+    {
+      "type": "range",
+      "id": "title_size_mobile",
+      "label": "Title Size Mobile",
+      "min": 18,
+      "max": 48,
+      "step": 2,
+      "unit": "px",
+      "default": 28
+    },
+    {
+      "type": "header",
+      "content": "Video Settings"
+    },
+    {
+      "type": "image_picker",
+      "id": "video_thumbnail",
+      "label": "Video Thumbnail"
+    },
+    {
+      "type": "text",
+      "id": "video_url",
+      "label": "YouTube Video URL",
+      "info": "Enter full YouTube URL"
+    },
+    {
+      "type": "text",
+      "id": "play_button_aria_label",
+      "label": "Play Button Aria Label",
+      "default": "Play video"
+    },
+    {
+      "type": "color",
+      "id": "play_button_bg_color",
+      "label": "Play Button Background",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "color",
+      "id": "play_button_icon_color",
+      "label": "Play Button Icon Color",
+      "default": "#1C1C1C"
+    },
+    {
+      "type": "header",
+      "content": "CTA Button"
+    },
+    {
+      "type": "text",
+      "id": "cta_text",
+      "label": "CTA Text",
+      "default": "CREATE YOUR OWN TEQUILA"
+    },
+    {
+      "type": "url",
+      "id": "cta_url",
+      "label": "CTA Link"
+    },
+    {
+      "type": "color_background",
+      "id": "cta_background",
+      "label": "CTA Background",
+      "default": "linear-gradient(90deg, #67D3CC 0%, #67D3CC 100%)"
+    },
+    {
+      "type": "color",
+      "id": "cta_text_color",
+      "label": "CTA Text Color",
+      "default": "#1C1C1C"
+    },
+    {
+      "type": "color_background",
+      "id": "cta_hover_background",
+      "label": "CTA Hover Background",
+      "default": "linear-gradient(90deg, #FF9B7F 0%, #FF9B7F 100%)"
+    },
+    {
+      "type": "color",
+      "id": "cta_hover_text_color",
+      "label": "CTA Hover Text Color",
+      "default": "#1C1C1C"
+    },
+    {
+      "type": "range",
+      "id": "cta_font_size_desktop",
+      "label": "CTA Font Size Desktop",
+      "min": 12,
+      "max": 24,
+      "step": 1,
+      "unit": "px",
+      "default": 14
+    },
+    {
+      "type": "range",
+      "id": "cta_font_size_mobile",
+      "label": "CTA Font Size Mobile",
+      "min": 10,
+      "max": 20,
+      "step": 1,
+      "unit": "px",
+      "default": 12
+    }
+  ],
+  "presets": [
+    {
+      "name": "Tequila Video Hero"
+    }
+  ]
+}
+{% endschema %}
