@@ -56,9 +56,9 @@
     --hero-title-size-desktop: {{ section.settings.title_size_desktop }}px;
     --hero-title-size-mobile: {{ section.settings.title_size_mobile }}px;
     --hero-title-line-height: 1.2;
-    --hero-cta-padding: 16px 40px;
+    --hero-cta-padding: 28px 10px;
     --hero-cta-radius: 30px;
-    --hero-video-radius: 20px;
+    --hero-video-radius: 60px;
   }
 
   #{{ section_id }} {
@@ -82,11 +82,10 @@
 
   #{{ section_id }} .tequila-video-hero__title {
     font-size: var(--hero-title-size-mobile);
-    font-weight: 700;
     line-height: var(--hero-title-line-height);
-    margin: 0 0 40px 0;
+    margin: 0 0 10px 0;
     text-transform: uppercase;
-    letter-spacing: -0.02em;
+    letter-spacing: 0;
   }
 
   #{{ section_id }} .tequila-video-hero__title-part1 {
@@ -113,8 +112,11 @@
     position: relative;
     width: 100%;
     max-width: 800px;
-    margin: 0 auto 40px;
-    border-radius: var(--hero-video-radius);
+    margin: 0 auto 20px;
+    border-top-left-radius: var(--hero-video-radius);
+    border-bottom-right-radius: var(--hero-video-radius);
+    border-top-right-radius: 0;
+    border-bottom-left-radius: 0;
     overflow: hidden;
     background: #000;
   }
@@ -147,16 +149,17 @@
   #{{ section_id }} .tequila-video-hero__cta {
     display: inline-block;
     padding: var(--hero-cta-padding);
+    width: 100%;
     background: {{ section.settings.cta_background }};
     color: {{ section.settings.cta_text_color }};
     text-decoration: none;
-    border-radius: var(--hero-cta-radius);
+    border-radius: 90px;
     font-size: {{ section.settings.cta_font_size_mobile }}px;
-    font-weight: 600;
+    line-height: 1.2;
     text-transform: uppercase;
-    letter-spacing: 0.5px;
+    letter-spacing: 0;
     transition: all 0.3s ease;
-    border: 2px solid transparent;
+    border: 2px solid #090909;
   }
 
   #{{ section_id }} .tequila-video-hero__cta:hover {
@@ -177,7 +180,7 @@
 
   .tequila-video-hero__video-container {
     position: relative;
-    padding-bottom: 56.25%;
+    padding-bottom: 61.73%; /* 350 / 216 = 1.62 */
     height: 0;
     overflow: hidden;
     border-radius: var(--hero-video-radius);
