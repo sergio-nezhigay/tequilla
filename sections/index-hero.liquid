@@ -200,8 +200,8 @@
     line-height: 1.0;
     font-weight: 900;
     color: var(--tequila-hero-title-color);
-
-    margin: 0 0 10px 0;
+    max-width: 850px;
+    margin: 0 auto 10px auto;
     text-transform: uppercase;
     letter-spacing: 0;
   }
@@ -215,7 +215,7 @@
     line-height: 1.65;
     color: var(--tequila-hero-description-color);
     margin: 0 0 20px 0;
-    max-width: 500px;
+    max-width: 614px;
     margin-left: auto;
     margin-right: auto;
     opacity: 0.8;
@@ -233,10 +233,11 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    padding: 30px 30px;
+    padding: 28px 30px;
     border-radius: 50px;
     text-decoration: none;
     font-size: 16px;
+    letter-spacing: 0;
     text-transform: uppercase;
     line-height: 1.2;
     transition: all 0.3s ease;
@@ -376,13 +377,12 @@
       overflow-x: auto;
       justify-content: flex-start;
     }
-    #{{ section.id }} .tequila-hero-step {
-      min-width: 140px;
-
-    }
   }
 
   @media (min-width: 768px) {
+      #{{ section.id }} .tequila-hero-wrapper {
+    margin-bottom: 0;
+  }
     #{{ section.id }}.tequila-hero-section {
       padding-top: var(--tequila-hero-padding-top-desktop);
       padding-bottom: var(--tequila-hero-padding-bottom-desktop);
