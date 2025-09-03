@@ -31,17 +31,19 @@
                     >
                   {% endif %}
 
-                  {% assign logo_alt = block.settings.logo.alt | default: 'Logo' %}
-                  {{
-                    block.settings.logo
-                    | image_url: width: 200, height: 80
-                    | image_tag:
-                      alt: logo_alt,
-                      class: 'logo-image',
-                      loading: 'lazy',
-                      sizes: '(max-width: 767px) 120px, 160px',
-                      widths: '120, 160, 200, 240, 320'
-                  }}
+                  <div class="logo-image-wrapper">
+                    {% assign logo_alt = block.settings.logo.alt | default: 'Logo' %}
+                    {{
+                      block.settings.logo
+                      | image_url: width: 200, height: 80
+                      | image_tag:
+                        alt: logo_alt,
+                        class: 'logo-image',
+                        loading: 'lazy',
+                        sizes: '(max-width: 767px) 120px, 160px',
+                        widths: '120, 160, 200, 240, 320'
+                    }}
+                  </div>
 
                   {% if block.settings.link != blank %}
                     </a>
@@ -130,31 +132,24 @@
     background-color: #ffffff;
     border-radius: 30px;
     border: 1px solid #090909;
-    transition: all 0.3s ease;
     height: 101px;
     min-width: 229px;
   }
 
-  #{{ section_id }} .logo-carousel-item:hover {
-    transform: translateY(-2px);
-  }
-
-  #{{ section_id }} .logo-link {
-    display: block;
-    width: 100%;
-    height: 100%;
+  #{{ section_id }} .logo-image-wrapper {
     display: flex;
     align-items: center;
     justify-content: center;
+    padding: 30px 34px;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
   }
 
   #{{ section_id }} .logo-image {
     max-width: 100%;
-    max-height: 40px;
-    width: auto;
-    height: auto;
+    max-height: 100%;
     object-fit: contain;
-    transition: all 0.3s ease;
   }
 
   @media (max-width: 767px) {
@@ -183,9 +178,6 @@
       min-width: 120px;
     }
 
-    #{{ section_id }} .logo-image {
-      max-height: 32px;
-    }
   }
 
   @media (max-width: 480px) {
@@ -197,10 +189,6 @@
       height: 101px;
       min-width: 229px;
     }
-
-    #{{ section_id }} .logo-image {
-      max-height: 28px;
-    }
   }
 </style>
 
@@ -209,52 +197,7 @@
     const carousel = document.querySelector('#{{ section_id }} .logo-carousel-wrapper');
     if (!carousel) return;
 
-    let isScrolling = false;
-    let scrollTimeout;
-
-    function smoothScroll() {
-      if (isScrolling) return;
-
-      isScrolling = true;
-      const scrollWidth = carousel.scrollWidth;
-      const clientWidth = carousel.clientWidth;
-
-      if (scrollWidth <= clientWidth) {
-        isScrolling = false;
-        return;
-      }
-
-      const scrollStep = 1;
-      const scrollDelay = 50;
-
-      function scroll() {
-        if (carousel.scrollLeft >= scrollWidth - clientWidth) {
-          carousel.scrollLeft = 0;
-        } else {
-          carousel.scrollLeft += scrollStep;
-        }
-
-        scrollTimeout = setTimeout(scroll, scrollDelay);
-      }
-
-      scrollTimeout = setTimeout(scroll, 2000);
-    }
-
-    carousel.addEventListener('mouseenter', function () {
-      clearTimeout(scrollTimeout);
-      isScrolling = false;
-    });
-
-    carousel.addEventListener('mouseleave', function () {
-      if (window.innerWidth > 768) {
-        setTimeout(smoothScroll, 1000);
-      }
-    });
-
-    if (window.innerWidth > 768) {
-      setTimeout(smoothScroll, 3000);
-    }
-
+    // Touch/mouse drag scrolling
     let startX = 0;
     let scrollLeft = 0;
     let isDown = false;
@@ -264,8 +207,6 @@
       carousel.style.cursor = 'grabbing';
       startX = e.pageX - carousel.offsetLeft;
       scrollLeft = carousel.scrollLeft;
-      clearTimeout(scrollTimeout);
-      isScrolling = false;
     });
 
     carousel.addEventListener('mouseleave', function () {
@@ -276,28 +217,14 @@
     carousel.addEventListener('mouseup', function () {
       isDown = false;
       carousel.style.cursor = 'grab';
-      if (window.innerWidth > 768) {
-        setTimeout(smoothScroll, 1000);
-      }
     });
 
     carousel.addEventListener('mousemove', function (e) {
       if (!isDown) return;
       e.preventDefault();
       const x = e.pageX - carousel.offsetLeft;
-      const walk = (x - startX) * 2;
+      const walk = (x - startX) * 1.5;
       carousel.scrollLeft = scrollLeft - walk;
-    });
-
-    carousel.addEventListener('touchstart', function () {
-      clearTimeout(scrollTimeout);
-      isScrolling = false;
-    });
-
-    carousel.addEventListener('touchend', function () {
-      if (window.innerWidth > 768) {
-        setTimeout(smoothScroll, 1000);
-      }
     });
   });
 </script>
