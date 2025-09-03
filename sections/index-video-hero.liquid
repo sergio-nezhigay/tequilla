@@ -245,13 +245,12 @@
 <script>
   document.addEventListener('DOMContentLoaded', function () {
     const sectionId = '{{ section_id }}';
-    const videoUrl = '{{ section.settings.video_url }}';
+    const videoUrl = {{ section.settings.video_url | json }};
     const section = document.getElementById(sectionId);
 
     if (!section || !videoUrl) return;
 
     const playBtn = section.querySelector('.tequila-video-hero__play-btn');
-    const videoWrapper = section.querySelector('.tequila-video-hero__video-wrapper');
     const videoContainer = section.querySelector('.tequila-video-hero__video-container');
     const thumbnail = section.querySelector('.tequila-video-hero__thumbnail');
 
@@ -268,11 +267,15 @@
       const videoId = getVideoId(videoUrl);
       if (videoId) {
         const iframe = document.createElement('iframe');
-        iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0`;
-        iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
-        iframe.allowFullscreen = true;
+        iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0&mute=1`;
+        iframe.setAttribute(
+          'allow',
+          'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'
+        );
+        iframe.setAttribute('allowfullscreen', '');
         videoContainer.innerHTML = '';
         videoContainer.appendChild(iframe);
+
         // Hide thumbnail and play button
         if (thumbnail) thumbnail.style.display = 'none';
         playBtn.style.display = 'none';
