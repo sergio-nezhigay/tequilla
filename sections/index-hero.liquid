@@ -110,7 +110,7 @@
             {% if section.settings.step_icon != blank %}
               {{
                 section.settings.step_icon
-                | image_url: width: 30, height: 30
+                | image_url: width: 41, height: 29
                 | image_tag: alt: 'Step Icon', loading: 'lazy'
               }}
             {% endif %}
@@ -203,8 +203,8 @@
   #{{ section.id }} .tequila-hero-wrapper {
     max-width: var(--tequila-hero-max-width);
     outline: 1px dotted blue;
-    margin: 0 auto;
-    padding: 0 20px;
+    margin: 0 auto 10px;
+    padding: 0 21px;
     position: relative;
     height: 100%;
     display: flex;
@@ -222,12 +222,12 @@
 
   #{{ section.id }} .tequila-hero-title {
     font-size: var(--tequila-hero-title-size-mobile);
-    line-height: 1.1;
+    line-height: 1.0;
     font-weight: 900;
     color: var(--tequila-hero-title-color);
-    margin: 0 0 24px 0;
+    margin: 0 0 10px 0;
     text-transform: uppercase;
-    letter-spacing: -0.02em;
+    letter-spacing: 0;
   }
 
   #{{ section.id }} .tequila-hero-title-highlight {
@@ -236,19 +236,20 @@
 
   #{{ section.id }} .tequila-hero-description {
     font-size: var(--tequila-hero-description-size-mobile);
-    line-height: 1.5;
+    line-height: 1.65;
     color: var(--tequila-hero-description-color);
-    margin: 0 0 32px 0;
+    margin: 0 0 20px 0;
     max-width: 500px;
     margin-left: auto;
     margin-right: auto;
+    opacity: 0.8;
   }
 
   #{{ section.id }} .tequila-hero-buttons {
     display: flex;
     flex-direction: column;
-    gap: 16px;
-    margin-bottom: 40px;
+    gap: 10px;
+    margin-bottom: 28px;
     align-items: center;
   }
 
@@ -256,16 +257,15 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    padding: 16px 32px;
+    padding: 30px 30px;
     border-radius: 50px;
     text-decoration: none;
-    font-weight: 600;
     font-size: 16px;
     text-transform: uppercase;
-    letter-spacing: 0.5px;
+    line-height: 1.2;
     transition: all 0.3s ease;
-    min-width: 250px;
-    border: 2px solid transparent;
+    width: 100%;
+    border: 2px solid #090909;
   }
 
   #{{ section.id }} .tequila-hero-btn-primary {
@@ -289,7 +289,7 @@
   }
 
   #{{ section.id }} .tequila-hero-create-image {
-    margin: 20px 0;
+    margin: 0 -97px;
   }
 
   #{{ section.id }} .tequila-hero-create-image img {
@@ -343,7 +343,6 @@
   #{{ section.id }} .tequila-hero-bottom-wrapper {
     max-width: var(--tequila-hero-max-width);
     margin: 0 auto;
-    padding: 0 20px;
   }
 
   #{{ section.id }} .tequila-hero-steps {
@@ -351,19 +350,40 @@
     justify-content: space-between;
     align-items: center;
     gap: 20px;
-    flex-wrap: nowrap; /* Prevent wrapping */
-    overflow-x: auto;  /* Enable horizontal scroll */
-    -webkit-overflow-scrolling: touch; /* Smooth scroll on iOS */
-    scrollbar-width: thin;
-    scrollbar-color: var(--tequila-hero-highlight-color) #eee;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none; /* Firefox */
   }
+
+  /* Hide scrollbar for Chrome, Safari and Opera */
+  #{{ section.id }} .tequila-hero-steps::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Hide scrollbar for IE, Edge */
+  #{{ section.id }} .tequila-hero-steps {
+    -ms-overflow-style: none;
+  }
+
+      #{{ section.id }} .tequila-hero-step-text {
+        font-family: 'Futura Hv BT', 'Roundo', sans-serif ;
+        font-weight: 900;
+        font-size: 24px;
+        line-height: 1;
+        text-transform: uppercase;
+        letter-spacing: 0;
+        color: #090909
+    }
 
   #{{ section.id }} .tequila-hero-step {
     display: flex;
     align-items: center;
+    gap: 20px;
     flex: 0 0 auto;
     min-width: 180px;
   }
+
 
   /* Optional: Hide scroll bar on Webkit browsers for cleaner look */
   #{{ section.id }} .tequila-hero-steps::-webkit-scrollbar {
@@ -435,9 +455,7 @@
       padding: 40px 0;
     }
 
-    #{{ section.id }} .tequila-hero-step-text {
-      font-size: 16px;
-    }
+
 
     #{{ section.id }} .tequila-hero-step-icon {
         display: flex;
@@ -448,14 +466,11 @@
     }
 
     #{{ section.id }} .tequila-hero-step-icon img {
-      width: 35px;
-      height: 35px;
+      width: 41px;
+      height: 29px;
+      display: block;
     }
 
-    #{{ section.id }} .tequila-hero-step-icon svg {
-      width: 35px;
-      height: 35px;
-    }
   }
 
   @media (min-width: 1200px) {
@@ -657,9 +672,9 @@
       "id": "padding_top_desktop",
       "label": "Padding Top Desktop (px)",
       "min": 0,
-      "max": 200,
-      "step": 10,
-      "default": 80
+      "max": 150,
+      "step": 2,
+      "default": 126
     },
     {
       "type": "range",

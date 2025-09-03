@@ -48,12 +48,17 @@ h6 {
   line-height: 1.2;
 }
 
+a,
 button,
 .navbar,
 .header__menu-item {
   font-family: 'Futura Hv BT', 'Roundo', sans-serif;
   font-weight: 900;
   text-transform: uppercase;
+}
+
+p {
+  margin: 0;
 }
 
 .product-card-wrapper .card,
