@@ -44,11 +44,11 @@
           {% assign create_image_alt = section.settings.create_tequila_image.alt | default: 'Create Your Tequila' %}
           {{
             section.settings.create_tequila_image
-            | image_url: width: 800, height: 400
+            | image_url: width: 1101, height: 570
             | image_tag:
               alt: create_image_alt,
               loading: 'lazy',
-              sizes: '(max-width: 768px) 100vw, 800px',
+              sizes: '(max-width: 768px) 100vw, 1101px',
               widths: '400, 600, 800, 1000'
           }}
         </div>
@@ -75,11 +75,11 @@
         {% assign left_leaf_alt = section.settings.left_leaf_image.alt | default: 'Decorative Leaf' %}
         {{
           section.settings.left_leaf_image
-          | image_url: width: 400, height: 600
+          | image_url: width: 439, height: 738
           | image_tag:
             alt: left_leaf_alt,
             loading: 'lazy',
-            sizes: '(max-width: 768px) 150px, 400px',
+            sizes: '(max-width: 768px) 150px, 439px',
             widths: '150, 200, 300, 400'
         }}
       </div>
@@ -90,11 +90,11 @@
         {% assign right_leaf_alt = section.settings.right_leaf_image.alt | default: 'Decorative Leaf' %}
         {{
           section.settings.right_leaf_image
-          | image_url: width: 400, height: 600
+          | image_url: width: 439, height: 738
           | image_tag:
             alt: right_leaf_alt,
             loading: 'lazy',
-            sizes: '(max-width: 768px) 150px, 400px',
+            sizes: '(max-width: 768px) 150px, 439px',
             widths: '150, 200, 300, 400'
         }}
       </div>
@@ -217,7 +217,8 @@
     position: relative;
     z-index: 3;
     width: 100%;
-    max-width: 800px;
+    max-width: 1101px;
+    outline: 1px dotted green;
   }
 
   #{{ section.id }} .tequila-hero-title {
@@ -225,6 +226,7 @@
     line-height: 1.0;
     font-weight: 900;
     color: var(--tequila-hero-title-color);
+
     margin: 0 0 10px 0;
     text-transform: uppercase;
     letter-spacing: 0;
@@ -316,7 +318,6 @@
   #{{ section.id }} .tequila-hero-leaf-right {
     display: none;
     position: absolute;
-    top: 0;
     bottom: 0;
     z-index: 5;
   }
@@ -329,15 +330,13 @@
     right: -100px;
   }
 
-  #{{ section.id }} .tequila-hero-leaf-left img,
-  #{{ section.id }} .tequila-hero-leaf-right img {
-    width: 200px;
-    height: 100%;
-    object-fit: cover;
-  }
+
 
   #{{ section.id }} .tequila-hero-bottom-info {
     padding: 30px 0;
+    max-width: 1240px;
+    margin: 0 auto;
+    outline: 1px dotted red;
   }
 
   #{{ section.id }} .tequila-hero-bottom-wrapper {
@@ -414,22 +413,38 @@
       padding-bottom: var(--tequila-hero-padding-bottom-desktop);
       min-height: 600px;
     }
+      #{{ section.id }} .tequila-hero-create-image {
+    margin: 0;
+  }
+    #{{ section.id }} .tequila-hero-step {
+      gap: 40px;
+    }
+      #{{ section.id }} .tequila-hero-btn {
+      width: auto;
+    font-size: 18px;
+    min-width: 368px;
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+        #{{ section.id }} .tequila-hero-btn.tequila-hero-btn-primary {
+    min-width: 379px;
+  }
 
     #{{ section.id }} .tequila-hero-title {
       font-size: var(--tequila-hero-title-size-desktop);
-      margin-bottom: 32px;
+      margin-bottom: 10px;
     }
 
     #{{ section.id }} .tequila-hero-description {
       font-size: var(--tequila-hero-description-size-desktop);
-      margin-bottom: 48px;
+      margin-bottom: 20px;
     }
 
     #{{ section.id }} .tequila-hero-buttons {
       flex-direction: row;
-      gap: 24px;
+      gap: 18px;
       justify-content: center;
-      margin-bottom: 60px;
+      margin-bottom: 16px;
     }
 
     #{{ section.id }} .tequila-hero-bottle img {
@@ -448,7 +463,8 @@
 
     #{{ section.id }} .tequila-hero-leaf-left img,
     #{{ section.id }} .tequila-hero-leaf-right img {
-      width: 300px;
+      width: 439px;
+      height: 778px;
     }
 
     #{{ section.id }} .tequila-hero-bottom-info {
@@ -461,8 +477,6 @@
         display: flex;
         align-items: center;
         justify-content: center;
-      width: 70px;
-      height: 70px;
     }
 
     #{{ section.id }} .tequila-hero-step-icon img {
@@ -484,7 +498,8 @@
 
     #{{ section.id }} .tequila-hero-leaf-left img,
     #{{ section.id }} .tequila-hero-leaf-right img {
-      width: 400px;
+      width: 439px;
+      height: 778px;
     }
   }
 </style>
@@ -627,7 +642,7 @@
       "label": "Title Size Desktop (px)",
       "min": 40,
       "max": 120,
-      "step": 4,
+      "step": 2,
       "default": 80
     },
     {
@@ -636,7 +651,7 @@
       "label": "Title Size Mobile (px)",
       "min": 24,
       "max": 60,
-      "step": 4,
+      "step": 2,
       "default": 36
     },
     {
