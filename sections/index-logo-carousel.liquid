@@ -82,7 +82,6 @@
   #{{ section_id }} .logo-carousel-container {
     max-width: var(--logo-carousel-max-width);
     margin: 0 auto;
-    padding: 0 20px;
   }
 
   #{{ section_id }} .logo-carousel-title {
@@ -117,8 +116,8 @@
 
   #{{ section_id }} .logo-carousel-track {
     display: flex;
-    gap: 40px;
-    padding: 20px 0;
+    gap: 10px;
+    padding-top: 50px;
     width: max-content;
     align-items: center;
   }
@@ -129,18 +128,15 @@
     align-items: center;
     justify-content: center;
     background-color: #ffffff;
-    border-radius: 12px;
-    padding: 20px 30px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
-    border: 1px solid #f0f0f0;
+    border-radius: 30px;
+    border: 1px solid #090909;
     transition: all 0.3s ease;
-    height: 80px;
-    min-width: 160px;
+    height: 101px;
+    min-width: 229px;
   }
 
   #{{ section_id }} .logo-carousel-item:hover {
     transform: translateY(-2px);
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
   }
 
   #{{ section_id }} .logo-link {
@@ -158,22 +154,13 @@
     width: auto;
     height: auto;
     object-fit: contain;
-    filter: grayscale(100%) opacity(0.7);
     transition: all 0.3s ease;
-  }
-
-  #{{ section_id }} .logo-carousel-item:hover .logo-image {
-    filter: grayscale(0%) opacity(1);
   }
 
   @media (max-width: 767px) {
     #{{ section_id }} {
       padding-top: var(--logo-carousel-padding-top-mobile);
       padding-bottom: var(--logo-carousel-padding-bottom-mobile);
-    }
-
-    #{{ section_id }} .logo-carousel-container {
-      padding: 0 16px;
     }
 
     #{{ section_id }} .logo-carousel-title {
@@ -188,11 +175,10 @@
 
     #{{ section_id }} .logo-carousel-track {
       gap: 24px;
-      padding: 16px 0;
+      padding-top: 32px;
     }
 
     #{{ section_id }} .logo-carousel-item {
-      padding: 16px 24px;
       height: 70px;
       min-width: 120px;
     }
@@ -204,13 +190,12 @@
 
   @media (max-width: 480px) {
     #{{ section_id }} .logo-carousel-track {
-      gap: 20px;
+      gap: 10px;
     }
 
     #{{ section_id }} .logo-carousel-item {
-      padding: 12px 20px;
-      height: 60px;
-      min-width: 100px;
+      height: 101px;
+      min-width: 229px;
     }
 
     #{{ section_id }} .logo-image {
