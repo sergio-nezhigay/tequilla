@@ -320,9 +320,9 @@
 
   #{{ section.id }} .tequila-hero-steps {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
-    gap: 20px;
+    gap: 0;
     flex-wrap: nowrap;
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
@@ -352,9 +352,9 @@
   #{{ section.id }} .tequila-hero-step {
     display: flex;
     align-items: center;
-    gap: 20px;
+    gap: 15px;
     flex: 0 0 auto;
-    min-width: 180px;
+    min-width: auto;
   }
 
 
@@ -377,7 +377,8 @@
       justify-content: flex-start;
     }
     #{{ section.id }} .tequila-hero-step {
-      min-width: 180px;
+      min-width: 140px;
+
     }
   }
 
@@ -391,7 +392,7 @@
     margin: 0;
   }
     #{{ section.id }} .tequila-hero-step {
-      gap: 40px;
+      gap: 15px;
     }
       #{{ section.id }} .tequila-hero-btn {
       width: auto;
