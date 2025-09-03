@@ -53,9 +53,9 @@
       "type": "index-video-hero",
       "settings": {
         "max_width": "1440",
-        "padding_top_desktop": 100,
+        "padding_top_desktop": 90,
         "padding_bottom_desktop": 0,
-        "padding_top_mobile": 40,
+        "padding_top_mobile": 30,
         "padding_bottom_mobile": 0,
         "section_background": "linear-gradient(180deg, rgba(241, 241, 238, 1), rgba(245, 240, 235, 1) 100%)",
         "custom_classes": "",
