@@ -33,16 +33,7 @@
         </button>
 
         {% if section.settings.video_url != blank %}
-          <div class="tequila-video-hero__video-modal" style="display: none;">
-            <div class="tequila-video-hero__video-modal-content">
-              <button class="tequila-video-hero__close-btn" aria-label="Close video">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M18 6L6 18M6 6L18 18" stroke="white" stroke-width="2" stroke-linecap="round"/>
-                </svg>
-              </button>
-              <div class="tequila-video-hero__video-container"></div>
-            </div>
-          </div>
+          <div class="tequila-video-hero__video-container"></div>
         {% endif %}
       </div>
 
@@ -176,34 +167,12 @@
   }
 
   .tequila-video-hero__video-modal {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.9);
-    z-index: 9999;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 20px;
+    display: none !important;
   }
 
-  .tequila-video-hero__video-modal-content {
-    position: relative;
-    width: 100%;
-    max-width: 1200px;
-  }
-
+  .tequila-video-hero__video-modal-content,
   .tequila-video-hero__close-btn {
-    position: absolute;
-    top: -40px;
-    right: 0;
-    background: transparent;
-    border: none;
-    cursor: pointer;
-    padding: 10px;
-    z-index: 10000;
+    display: none !important;
   }
 
   .tequila-video-hero__video-container {
@@ -273,11 +242,11 @@
     if (!section || !videoUrl) return;
 
     const playBtn = section.querySelector('.tequila-video-hero__play-btn');
-    const modal = section.querySelector('.tequila-video-hero__video-modal');
-    const closeBtn = section.querySelector('.tequila-video-hero__close-btn');
+    const videoWrapper = section.querySelector('.tequila-video-hero__video-wrapper');
     const videoContainer = section.querySelector('.tequila-video-hero__video-container');
+    const thumbnail = section.querySelector('.tequila-video-hero__thumbnail');
 
-    if (!playBtn || !modal) return;
+    if (!playBtn || !videoContainer) return;
 
     function getVideoId(url) {
       const match = url.match(
@@ -286,7 +255,7 @@
       return match ? match[1] : null;
     }
 
-    function openVideo() {
+    function playInlineVideo() {
       const videoId = getVideoId(videoUrl);
       if (videoId) {
         const iframe = document.createElement('iframe');
@@ -295,34 +264,13 @@
         iframe.allowFullscreen = true;
         videoContainer.innerHTML = '';
         videoContainer.appendChild(iframe);
-        modal.style.display = 'flex';
-        document.body.style.overflow = 'hidden';
+        // Hide thumbnail and play button
+        if (thumbnail) thumbnail.style.display = 'none';
+        playBtn.style.display = 'none';
       }
     }
 
-    function closeVideo() {
-      modal.style.display = 'none';
-      videoContainer.innerHTML = '';
-      document.body.style.overflow = '';
-    }
-
-    playBtn.addEventListener('click', openVideo);
-
-    if (closeBtn) {
-      closeBtn.addEventListener('click', closeVideo);
-    }
-
-    modal.addEventListener('click', function (e) {
-      if (e.target === modal) {
-        closeVideo();
-      }
-    });
-
-    document.addEventListener('keydown', function (e) {
-      if (e.key === 'Escape' && modal.style.display === 'flex') {
-        closeVideo();
-      }
-    });
+    playBtn.addEventListener('click', playInlineVideo);
   });
 </script>
 
