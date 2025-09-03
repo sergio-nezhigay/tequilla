@@ -26,9 +26,9 @@
         {% endif %}
 
         <button class="tequila-video-hero__play-btn" aria-label="{{ section.settings.play_button_aria_label }}">
-          <svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="30" cy="30" r="30" fill="{{ section.settings.play_button_bg_color }}"/>
-            <path d="M24 20L40 30L24 40V20Z" fill="{{ section.settings.play_button_icon_color }}"/>
+          <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="16" cy="16" r="16" fill="{{ section.settings.play_button_bg_color }}"/>
+            <path d="M12 9L23 16L12 23V9Z" fill="{{ section.settings.play_button_icon_color }}"/>
           </svg>
         </button>
 
@@ -86,6 +86,7 @@
     margin: 0 0 10px 0;
     text-transform: uppercase;
     letter-spacing: 0;
+    max-width: 950px;
   }
 
   #{{ section_id }} .tequila-video-hero__title-part1 {
@@ -111,7 +112,7 @@
   .tequila-video-hero__video-wrapper {
     position: relative;
     width: 100%;
-    max-width: 800px;
+    max-width: 1214px;
     margin: 0 auto 20px;
     border-top-left-radius: var(--hero-video-radius);
     border-bottom-right-radius: var(--hero-video-radius);
@@ -132,8 +133,8 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 60px;
-    height: 60px;
+    width: 32px;
+    height: 32px;
     background: transparent;
     border: none;
     cursor: pointer;
@@ -207,25 +208,30 @@
 
     #{{ section_id }} .tequila-video-hero__title {
       font-size: var(--hero-title-size-desktop);
-      margin: 0 0 60px 0;
+      margin: 0 0 30px 0;
     }
 
     .tequila-video-hero__video-wrapper {
-      margin: 0 auto 60px;
+      margin: 0 auto 30px;
+      border-top-left-radius: 130px;
+      border-bottom-right-radius: 130px;
     }
 
     .tequila-video-hero__play-btn {
-      width: 80px;
-      height: 80px;
+      width: 44px;
+      height: 44px;
     }
 
     .tequila-video-hero__play-btn svg {
-      width: 80px;
-      height: 80px;
+      width: 44px;
+      height: 44px;
     }
 
     #{{ section_id }} .tequila-video-hero__cta {
       font-size: {{ section.settings.cta_font_size_desktop }}px;
+      width: auto;
+      padding-left: 78px;
+      padding-right: 78px;
     }
   }
 
