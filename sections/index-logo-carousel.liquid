@@ -1,0 +1,496 @@
+{% assign section_id = section.id %}
+{% assign custom_classes = section.settings.custom_classes %}
+
+<section
+  id="{{ section_id }}"
+  class="logo-carousel-section {% if custom_classes != blank %}{{ custom_classes }}{% endif %}"
+>
+  <div class="logo-carousel-container">
+    {% if section.settings.title != blank %}
+      <h2 class="logo-carousel-title">{{ section.settings.title }}</h2>
+    {% endif %}
+
+    {% if section.settings.description != blank %}
+      <div class="logo-carousel-description">{{ section.settings.description }}</div>
+    {% endif %}
+
+    <div class="logo-carousel-wrapper">
+      <div class="logo-carousel-track">
+        {% for block in section.blocks %}
+          {% case block.type %}
+            {% when 'logo_item' %}
+              <div class="logo-carousel-item" {{ block.shopify_attributes }}>
+                {% if block.settings.logo != blank %}
+                  {% if block.settings.link != blank %}
+                    <a
+                      href="{{ block.settings.link }}"
+                      class="logo-link"
+                      {% if block.settings.open_new_tab %}
+                        target="_blank"
+                      {% endif %}
+                    >
+                  {% endif %}
+
+                  {% assign logo_alt = block.settings.logo.alt | default: 'Logo' %}
+                  {{
+                    block.settings.logo
+                    | image_url: width: 200, height: 80
+                    | image_tag:
+                      alt: logo_alt,
+                      class: 'logo-image',
+                      loading: 'lazy',
+                      sizes: '(max-width: 767px) 120px, 160px',
+                      widths: '120, 160, 200, 240, 320'
+                  }}
+
+                  {% if block.settings.link != blank %}
+                    </a>
+                  {% endif %}
+                {% endif %}
+              </div>
+          {% endcase %}
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  :root {
+    --logo-carousel-bg: {{ section.settings.background_color }};
+    --logo-carousel-max-width: {{ section.settings.max_width }}px;
+    --logo-carousel-padding-top-desktop: {{ section.settings.padding_top_desktop }}px;
+    --logo-carousel-padding-bottom-desktop: {{ section.settings.padding_bottom_desktop }}px;
+    --logo-carousel-padding-top-mobile: {{ section.settings.padding_top_mobile }}px;
+    --logo-carousel-padding-bottom-mobile: {{ section.settings.padding_bottom_mobile }}px;
+    --logo-carousel-title-color: {{ section.settings.title_color }};
+    --logo-carousel-description-color: {{ section.settings.description_color }};
+    --logo-carousel-title-size-desktop: {{ section.settings.title_size_desktop }}px;
+    --logo-carousel-title-size-mobile: {{ section.settings.title_size_mobile }}px;
+    --logo-carousel-description-size-desktop: {{ section.settings.description_size_desktop }}px;
+    --logo-carousel-description-size-mobile: {{ section.settings.description_size_mobile }}px;
+  }
+
+  #{{ section_id }} {
+    background-color: var(--logo-carousel-bg);
+    padding-top: var(--logo-carousel-padding-top-desktop);
+    padding-bottom: var(--logo-carousel-padding-bottom-desktop);
+    width: 100%;
+    overflow: hidden;
+  }
+
+  #{{ section_id }} .logo-carousel-container {
+    max-width: var(--logo-carousel-max-width);
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  #{{ section_id }} .logo-carousel-title {
+    color: var(--logo-carousel-title-color);
+    font-size: var(--logo-carousel-title-size-desktop);
+    text-align: center;
+    margin-bottom: 20px;
+    font-weight: 600;
+    line-height: 1.2;
+  }
+
+  #{{ section_id }} .logo-carousel-description {
+    color: var(--logo-carousel-description-color);
+    font-size: var(--logo-carousel-description-size-desktop);
+    text-align: center;
+    margin-bottom: 40px;
+    line-height: 1.4;
+  }
+
+  #{{ section_id }} .logo-carousel-wrapper {
+    width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    scroll-behavior: smooth;
+  }
+
+  #{{ section_id }} .logo-carousel-wrapper::-webkit-scrollbar {
+    display: none;
+  }
+
+  #{{ section_id }} .logo-carousel-track {
+    display: flex;
+    gap: 40px;
+    padding: 20px 0;
+    width: max-content;
+    align-items: center;
+  }
+
+  #{{ section_id }} .logo-carousel-item {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #ffffff;
+    border-radius: 12px;
+    padding: 20px 30px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    border: 1px solid #f0f0f0;
+    transition: all 0.3s ease;
+    height: 80px;
+    min-width: 160px;
+  }
+
+  #{{ section_id }} .logo-carousel-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  }
+
+  #{{ section_id }} .logo-link {
+    display: block;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  #{{ section_id }} .logo-image {
+    max-width: 100%;
+    max-height: 40px;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    filter: grayscale(100%) opacity(0.7);
+    transition: all 0.3s ease;
+  }
+
+  #{{ section_id }} .logo-carousel-item:hover .logo-image {
+    filter: grayscale(0%) opacity(1);
+  }
+
+  @media (max-width: 767px) {
+    #{{ section_id }} {
+      padding-top: var(--logo-carousel-padding-top-mobile);
+      padding-bottom: var(--logo-carousel-padding-bottom-mobile);
+    }
+
+    #{{ section_id }} .logo-carousel-container {
+      padding: 0 16px;
+    }
+
+    #{{ section_id }} .logo-carousel-title {
+      font-size: var(--logo-carousel-title-size-mobile);
+      margin-bottom: 16px;
+    }
+
+    #{{ section_id }} .logo-carousel-description {
+      font-size: var(--logo-carousel-description-size-mobile);
+      margin-bottom: 32px;
+    }
+
+    #{{ section_id }} .logo-carousel-track {
+      gap: 24px;
+      padding: 16px 0;
+    }
+
+    #{{ section_id }} .logo-carousel-item {
+      padding: 16px 24px;
+      height: 70px;
+      min-width: 120px;
+    }
+
+    #{{ section_id }} .logo-image {
+      max-height: 32px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    #{{ section_id }} .logo-carousel-track {
+      gap: 20px;
+    }
+
+    #{{ section_id }} .logo-carousel-item {
+      padding: 12px 20px;
+      height: 60px;
+      min-width: 100px;
+    }
+
+    #{{ section_id }} .logo-image {
+      max-height: 28px;
+    }
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const carousel = document.querySelector('#{{ section_id }} .logo-carousel-wrapper');
+    if (!carousel) return;
+
+    let isScrolling = false;
+    let scrollTimeout;
+
+    function smoothScroll() {
+      if (isScrolling) return;
+
+      isScrolling = true;
+      const scrollWidth = carousel.scrollWidth;
+      const clientWidth = carousel.clientWidth;
+
+      if (scrollWidth <= clientWidth) {
+        isScrolling = false;
+        return;
+      }
+
+      const scrollStep = 1;
+      const scrollDelay = 50;
+
+      function scroll() {
+        if (carousel.scrollLeft >= scrollWidth - clientWidth) {
+          carousel.scrollLeft = 0;
+        } else {
+          carousel.scrollLeft += scrollStep;
+        }
+
+        scrollTimeout = setTimeout(scroll, scrollDelay);
+      }
+
+      scrollTimeout = setTimeout(scroll, 2000);
+    }
+
+    carousel.addEventListener('mouseenter', function () {
+      clearTimeout(scrollTimeout);
+      isScrolling = false;
+    });
+
+    carousel.addEventListener('mouseleave', function () {
+      if (window.innerWidth > 768) {
+        setTimeout(smoothScroll, 1000);
+      }
+    });
+
+    if (window.innerWidth > 768) {
+      setTimeout(smoothScroll, 3000);
+    }
+
+    let startX = 0;
+    let scrollLeft = 0;
+    let isDown = false;
+
+    carousel.addEventListener('mousedown', function (e) {
+      isDown = true;
+      carousel.style.cursor = 'grabbing';
+      startX = e.pageX - carousel.offsetLeft;
+      scrollLeft = carousel.scrollLeft;
+      clearTimeout(scrollTimeout);
+      isScrolling = false;
+    });
+
+    carousel.addEventListener('mouseleave', function () {
+      isDown = false;
+      carousel.style.cursor = 'grab';
+    });
+
+    carousel.addEventListener('mouseup', function () {
+      isDown = false;
+      carousel.style.cursor = 'grab';
+      if (window.innerWidth > 768) {
+        setTimeout(smoothScroll, 1000);
+      }
+    });
+
+    carousel.addEventListener('mousemove', function (e) {
+      if (!isDown) return;
+      e.preventDefault();
+      const x = e.pageX - carousel.offsetLeft;
+      const walk = (x - startX) * 2;
+      carousel.scrollLeft = scrollLeft - walk;
+    });
+
+    carousel.addEventListener('touchstart', function () {
+      clearTimeout(scrollTimeout);
+      isScrolling = false;
+    });
+
+    carousel.addEventListener('touchend', function () {
+      if (window.innerWidth > 768) {
+        setTimeout(smoothScroll, 1000);
+      }
+    });
+  });
+</script>
+
+{% schema %}
+{
+  "name": "Logo Carousel",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Section Title",
+      "default": "Our Partners"
+    },
+    {
+      "type": "range",
+      "id": "title_size_desktop",
+      "label": "Title Size Desktop",
+      "min": 16,
+      "max": 48,
+      "step": 2,
+      "default": 32,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "title_size_mobile",
+      "label": "Title Size Mobile",
+      "min": 14,
+      "max": 36,
+      "step": 2,
+      "default": 24,
+      "unit": "px"
+    },
+    {
+      "type": "color",
+      "id": "title_color",
+      "label": "Title Color",
+      "default": "#000000"
+    },
+    {
+      "type": "richtext",
+      "id": "description",
+      "label": "Section Description"
+    },
+    {
+      "type": "range",
+      "id": "description_size_desktop",
+      "label": "Description Size Desktop",
+      "min": 12,
+      "max": 24,
+      "step": 1,
+      "default": 16,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "description_size_mobile",
+      "label": "Description Size Mobile",
+      "min": 12,
+      "max": 20,
+      "step": 1,
+      "default": 14,
+      "unit": "px"
+    },
+    {
+      "type": "color",
+      "id": "description_color",
+      "label": "Description Color",
+      "default": "#666666"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background Color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "text",
+      "id": "max_width",
+      "label": "Max Width (px)",
+      "default": "1440",
+      "info": "Maximum width of the section content"
+    },
+    {
+      "type": "range",
+      "id": "padding_top_desktop",
+      "label": "Padding Top Desktop",
+      "min": 0,
+      "max": 200,
+      "step": 4,
+      "default": 60,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_desktop",
+      "label": "Padding Bottom Desktop",
+      "min": 0,
+      "max": 200,
+      "step": 4,
+      "default": 60,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mobile",
+      "label": "Padding Top Mobile",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "default": 40,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mobile",
+      "label": "Padding Bottom Mobile",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "default": 40,
+      "unit": "px"
+    },
+    {
+      "type": "text",
+      "id": "custom_classes",
+      "label": "Custom CSS Classes",
+      "info": "Add custom CSS classes to the main wrapper"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "logo_item",
+      "name": "Logo Item",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "logo",
+          "label": "Logo Image"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Logo Link"
+        },
+        {
+          "type": "checkbox",
+          "id": "open_new_tab",
+          "label": "Open link in new tab",
+          "default": false
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Logo Carousel",
+      "blocks": [
+        {
+          "type": "logo_item"
+        },
+        {
+          "type": "logo_item"
+        },
+        {
+          "type": "logo_item"
+        },
+        {
+          "type": "logo_item"
+        },
+        {
+          "type": "logo_item"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

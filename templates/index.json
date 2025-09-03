@@ -85,10 +85,98 @@
         "cta_font_size_desktop": 18,
         "cta_font_size_mobile": 16
       }
+    },
+    "index_logo_carousel": {
+      "type": "index-logo-carousel",
+      "blocks": {
+        "logo_item_FEAkVX": {
+          "type": "logo_item",
+          "settings": {
+            "logo": "shopify://shop_images/seeking-alpha-logo-vector_1.webp",
+            "link": "",
+            "open_new_tab": false
+          }
+        },
+        "logo_item_8ate4t": {
+          "type": "logo_item",
+          "settings": {
+            "logo": "shopify://shop_images/morningstar-600px.bb30655_1.webp",
+            "link": "",
+            "open_new_tab": false
+          }
+        },
+        "logo_item_CPnGAq": {
+          "type": "logo_item",
+          "settings": {
+            "logo": "shopify://shop_images/pr-newswire-logo-full-color-rgb_1.webp",
+            "link": "",
+            "open_new_tab": false
+          }
+        },
+        "logo_item_pxxWeU": {
+          "type": "logo_item",
+          "settings": {
+            "logo": "shopify://shop_images/Benzinga-Logo_1.webp",
+            "link": "",
+            "open_new_tab": false
+          }
+        },
+        "logo_item_Gd8brV": {
+          "type": "logo_item",
+          "settings": {
+            "logo": "shopify://shop_images/facebook-albertlea_1.webp",
+            "link": "",
+            "open_new_tab": false
+          }
+        },
+        "logo_item_MJmerj": {
+          "type": "logo_item",
+          "settings": {
+            "logo": "shopify://shop_images/Yahoo__Finance_logo_2021_1.webp",
+            "link": "",
+            "open_new_tab": false
+          }
+        },
+        "logo_item_XVKwbz": {
+          "type": "logo_item",
+          "settings": {
+            "logo": "shopify://shop_images/AFN.L_BIG-193f1c87_1.webp",
+            "link": "",
+            "open_new_tab": false
+          }
+        }
+      },
+      "block_order": [
+        "logo_item_FEAkVX",
+        "logo_item_8ate4t",
+        "logo_item_CPnGAq",
+        "logo_item_pxxWeU",
+        "logo_item_Gd8brV",
+        "logo_item_MJmerj",
+        "logo_item_XVKwbz"
+      ],
+      "settings": {
+        "title": "",
+        "title_size_desktop": 32,
+        "title_size_mobile": 24,
+        "title_color": "#000000",
+        "description": "",
+        "description_size_desktop": 16,
+        "description_size_mobile": 14,
+        "description_color": "#666666",
+        "background_color": "#f1f1ee",
+        "max_width": "1440",
+        "padding_top_desktop": 0,
+        "padding_bottom_desktop": 0,
+        "padding_top_mobile": 0,
+        "padding_bottom_mobile": 0,
+        "custom_classes": ""
+      }
     }
   },
   "order": [
     "index_hero",
-    "index_video_hero"
+    "index_video_hero",
+    "index_logo_carousel"
   ]
 }
