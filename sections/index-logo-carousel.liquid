@@ -15,7 +15,7 @@
     {% endif %}
 
     <div class="logo-carousel-wrapper">
-      <div class="logo-carousel-track">
+      <div class="logo-carousel-track" data-speed="{{ section.settings.scroll_speed }}">
         {% for block in section.blocks %}
           {% case block.type %}
             {% when 'logo_item' %}
@@ -105,23 +105,32 @@
 
   #{{ section_id }} .logo-carousel-wrapper {
     width: 100%;
-    overflow-x: auto;
-    overflow-y: hidden;
-    scrollbar-width: none;
-    -ms-overflow-style: none;
-    scroll-behavior: smooth;
-  }
-
-  #{{ section_id }} .logo-carousel-wrapper::-webkit-scrollbar {
-    display: none;
+    overflow: hidden;
+    mask: linear-gradient(90deg, transparent 0%, white 5%, white 95%, transparent 100%);
+    -webkit-mask: linear-gradient(90deg, transparent 0%, white 5%, white 95%, transparent 100%);
   }
 
   #{{ section_id }} .logo-carousel-track {
     display: flex;
-    gap: 10px;
+    gap: 40px;
     padding-top: 50px;
-    width: max-content;
     align-items: center;
+    width: max-content;
+    animation: marquee linear infinite;
+    animation-duration: calc(var(--marquee-duration, 30s));
+  }
+
+  #{{ section_id }} .logo-carousel-track:hover {
+    animation-play-state: {% if section.settings.pause_on_hover %}paused{% else %}running{% endif %};
+  }
+
+  @keyframes marquee {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-50%);
+    }
   }
 
   #{{ section_id }} .logo-carousel-item {
@@ -177,7 +186,6 @@
       height: 70px;
       min-width: 120px;
     }
-
   }
 
   @media (max-width: 480px) {
@@ -194,37 +202,52 @@
 
 <script>
   document.addEventListener('DOMContentLoaded', function () {
-    const carousel = document.querySelector('#{{ section_id }} .logo-carousel-wrapper');
-    if (!carousel) return;
+    const track = document.querySelector('#{{ section_id }} .logo-carousel-track');
+    if (!track) return;
 
-    // Touch/mouse drag scrolling
-    let startX = 0;
-    let scrollLeft = 0;
-    let isDown = false;
+    // Create infinite marquee by duplicating content
+    function createInfiniteMarquee() {
+      const originalItems = track.children;
+      const itemsArray = Array.from(originalItems);
 
-    carousel.addEventListener('mousedown', function (e) {
-      isDown = true;
-      carousel.style.cursor = 'grabbing';
-      startX = e.pageX - carousel.offsetLeft;
-      scrollLeft = carousel.scrollLeft;
-    });
+      // Clone all items to create seamless loop
+      itemsArray.forEach((item) => {
+        const clone = item.cloneNode(true);
+        track.appendChild(clone);
+      });
 
-    carousel.addEventListener('mouseleave', function () {
-      isDown = false;
-      carousel.style.cursor = 'grab';
-    });
+      // Calculate animation duration based on content width and speed
+      const trackWidth = track.scrollWidth / 2; // Divide by 2 since we doubled the content
+      const speed = parseInt(track.dataset.speed) || 50; // pixels per second
+      const duration = trackWidth / speed;
 
-    carousel.addEventListener('mouseup', function () {
-      isDown = false;
-      carousel.style.cursor = 'grab';
-    });
+      // Set CSS custom property for animation duration
+      track.style.setProperty('--marquee-duration', duration + 's');
+    }
 
-    carousel.addEventListener('mousemove', function (e) {
-      if (!isDown) return;
-      e.preventDefault();
-      const x = e.pageX - carousel.offsetLeft;
-      const walk = (x - startX) * 1.5;
-      carousel.scrollLeft = scrollLeft - walk;
+    // Initialize infinite marquee
+    createInfiniteMarquee();
+
+    // Recalculate on window resize
+    let resizeTimeout;
+    window.addEventListener('resize', function () {
+      clearTimeout(resizeTimeout);
+      resizeTimeout = setTimeout(function () {
+        // Reset and recreate
+        track.style.animation = 'none';
+        const clones = track.querySelectorAll(
+          '.logo-carousel-item:nth-child(n+' + (Math.floor(track.children.length / 2) + 1) + ')'
+        );
+        clones.forEach((clone) => clone.remove());
+
+        createInfiniteMarquee();
+
+        // Restart animation
+        requestAnimationFrame(() => {
+          track.style.animation = 'marquee linear infinite';
+          track.style.animationDuration = 'calc(var(--marquee-duration))';
+        });
+      }, 250);
     });
   });
 </script>
@@ -310,6 +333,23 @@
       "label": "Max Width (px)",
       "default": "1440",
       "info": "Maximum width of the section content"
+    },
+    {
+      "type": "range",
+      "id": "scroll_speed",
+      "label": "Scroll Speed",
+      "min": 10,
+      "max": 100,
+      "step": 5,
+      "default": 50,
+      "unit": "px",
+      "info": "Speed of the marquee animation in pixels per second"
+    },
+    {
+      "type": "checkbox",
+      "id": "pause_on_hover",
+      "label": "Pause animation on hover",
+      "default": true
     },
     {
       "type": "range",
