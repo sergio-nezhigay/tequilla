@@ -13,7 +13,8 @@
       "type": "index-hero",
       "settings": {
         "main_title": "THE BEST BOTTLE IS",
-        "highlighted_text": "YOUR BOTTLE",
+        "highlighted_text": "YOUR",
+        "highlighted_text_2": "BOTTLE",
         "description": "<p>At InBarrel, we don't just help you buy the best tequila ever—we help you create the best tequila ever!</p>",
         "primary_button_text": "CREATE YOUR OWN TEQUILA",
         "primary_button_url": "shopify://collections",
@@ -25,6 +26,7 @@
         "background_color": "#f1f1ee",
         "title_color": "#090909",
         "highlight_color": "#67b7a8",
+        "highlight_color_2": "#f4a261",
         "description_color": "#090909",
         "primary_button_bg": "#67b7a8",
         "primary_button_color": "#090909",
