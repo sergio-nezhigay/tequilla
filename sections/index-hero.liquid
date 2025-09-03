@@ -105,64 +105,87 @@
   <div class="tequila-hero-bottom-info">
     <div class="tequila-hero-bottom-wrapper">
       <div class="tequila-hero-steps">
+        <!-- Icon before first step -->
+        <div class="tequila-hero-step-icon">
+          {% if section.settings.step_icon != blank %}
+            {{
+              section.settings.step_icon
+              | image_url: width: 41, height: 29
+              | image_tag: alt: 'Step Icon', loading: 'lazy'
+            }}
+          {% endif %}
+        </div>
+
+        <!-- Step 1 -->
         <div class="tequila-hero-step">
-          <div class="tequila-hero-step-icon">
-            {% if section.settings.step_icon != blank %}
-              {{
-                section.settings.step_icon
-                | image_url: width: 41, height: 29
-                | image_tag: alt: 'Step Icon', loading: 'lazy'
-              }}
-            {% endif %}
-          </div>
           <div class="tequila-hero-step-text">
             <span>{{ section.settings.step1_text | default: 'SELECT BOTTLE' }}</span>
           </div>
         </div>
 
+        <!-- Icon between steps -->
+        <div class="tequila-hero-step-icon">
+          {% if section.settings.step_icon != blank %}
+            {{
+              section.settings.step_icon
+              | image_url: width: 41, height: 29
+              | image_tag: alt: 'Step Icon', loading: 'lazy'
+            }}
+          {% endif %}
+        </div>
+
+        <!-- Step 2 -->
         <div class="tequila-hero-step">
-          <div class="tequila-hero-step-icon">
-            {% if section.settings.step_icon != blank %}
-              {{
-                section.settings.step_icon
-                | image_url: width: 30, height: 30
-                | image_tag: alt: 'Step 1 Icon', loading: 'lazy'
-              }}
-            {% endif %}
-          </div>
           <div class="tequila-hero-step-text">
             <span>{{ section.settings.step2_text | default: 'PERSONALIZE LABEL' }}</span>
           </div>
         </div>
 
+        <!-- Icon between steps -->
+        <div class="tequila-hero-step-icon">
+          {% if section.settings.step_icon != blank %}
+            {{
+              section.settings.step_icon
+              | image_url: width: 41, height: 29
+              | image_tag: alt: 'Step Icon', loading: 'lazy'
+            }}
+          {% endif %}
+        </div>
+
+        <!-- Step 3 -->
         <div class="tequila-hero-step">
-          <div class="tequila-hero-step-icon">
-            {% if section.settings.step_icon != blank %}
-              {{
-                section.settings.step_icon
-                | image_url: width: 30, height: 30
-                | image_tag: alt: 'Step 1 Icon', loading: 'lazy'
-              }}
-            {% endif %}
-          </div>
           <div class="tequila-hero-step-text">
             <span>{{ section.settings.step3_text | default: 'PLACE ORDER' }}</span>
           </div>
         </div>
 
+        <!-- Icon between steps -->
+        <div class="tequila-hero-step-icon">
+          {% if section.settings.step_icon != blank %}
+            {{
+              section.settings.step_icon
+              | image_url: width: 41, height: 29
+              | image_tag: alt: 'Step Icon', loading: 'lazy'
+            }}
+          {% endif %}
+        </div>
+
+        <!-- Step 4 -->
         <div class="tequila-hero-step">
-          <div class="tequila-hero-step-icon">
-            {% if section.settings.step_icon != blank %}
-              {{
-                section.settings.step_icon
-                | image_url: width: 30, height: 30
-                | image_tag: alt: 'Step 1 Icon', loading: 'lazy'
-              }}
-            {% endif %}
-          </div>
           <div class="tequila-hero-step-text">
             <span>{{ section.settings.step4_text | default: 'ENJOY' }}</span>
           </div>
+        </div>
+
+        <!-- Icon after last step -->
+        <div class="tequila-hero-step-icon">
+          {% if section.settings.step_icon != blank %}
+            {{
+              section.settings.step_icon
+              | image_url: width: 41, height: 29
+              | image_tag: alt: 'Step Icon', loading: 'lazy'
+            }}
+          {% endif %}
         </div>
       </div>
     </div>
