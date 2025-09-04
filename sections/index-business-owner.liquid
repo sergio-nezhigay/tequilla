@@ -1,6 +1,14 @@
+{% assign header_chunks = '[{"text": "Are you a ", "color": "#090909"}, {"text": "business", "color": "#67B7A8"}, {"text": "owner", "color": "#FFB793"}, {"text": "!", "color": "#090909"}]' %}
+
+{% assign step1_chunks = '[{"text": "1. ", "color": "#090909"}, {"text": "Book a Free ", "color": "#FFB793"}, {"text": "Design Call", "color": "#090909"}]' %}
+{% assign step1_details = "We'll learn about your occasion, style, and message." %}
+{% assign step2_chunks = '[{"text": "2. We Create Your", "color": "#090909"}, {"text": "Custom Bottle", "color": "#67B7A8"}]' %}
+{% assign step2_details = 'Our team crafts your label and fills it with premium tequila.' %}
+{% assign step3_chunks = '[{"text": "3. You Deliver a ", "color": "#090909"}, {"text": "Gift to Remember", "color": "#FFB793"}]' %}
+{% assign step3_details = "Whether it's for a wedding, a client, or your home bar—this is a gift that stands out." %}
+
 <section id="{{ section.id }}" class="business-owner-section">
   <div class="page-width">
-    {% assign header_chunks = '[{"text": "Are you a ", "color": "#090909"}, {"text": "business", "color": "#67B7A8"}, {"text": "owner", "color": "#FFB793"}, {"text": "!", "color": "#090909"}]' %}
     {% render 'heading-colored',
       text_chunks: header_chunks,
       tag: 'h2',
@@ -92,20 +100,17 @@
           </div>
       {% endcase %}
     {% endfor %}
-    {% assign step1_chunks = '[{"text": "1. ", "color": "#090909"}, {"text": "Book a Free ", "color": "#FFB793"}, {"text": "Design Call", "color": "#090909"}]' %}
-    {% assign step1_details = "We'll learn about your occasion, style, and message." %}
+
     <div class="row">
       <div>{% render 'heading-colored', text_chunks: step1_chunks %}</div>
       <div>{{ step1_details }}</div>
     </div>
-    {% assign step2_chunks = '[{"text": "2. We Create Your", "color": "#090909"}, {"text": "Custom Bottle", "color": "#67B7A8"}]' %}
-    {% assign step2_details = 'Our team crafts your label and fills it with premium tequila.' %}
+
     <div class="row">
       <div>{% render 'heading-colored', text_chunks: step2_chunks %}</div>
       <div>{{ step2_details }}</div>
     </div>
-    {% assign step3_chunks = '[{"text": "3. You Deliver a ", "color": "#090909"}, {"text": "Gift to Remember", "color": "#FFB793"}]' %}
-    {% assign step3_details = "Whether it's for a wedding, a client, or your home bar—this is a gift that stands out." %}
+
     <div class="row">
       <div>{% render 'heading-colored', text_chunks: step3_chunks %}</div>
       <div>{{ step3_details }}</div>
@@ -250,68 +255,6 @@
       "unit": "px",
       "label": "Padding bottom",
       "default": 50
-    },
-    {
-      "type": "header",
-      "content": "Text Chunks"
-    },
-    {
-      "type": "text",
-      "id": "text_1",
-      "label": "Text chunk 1",
-      "default": "Are you a "
-    },
-    {
-      "type": "color",
-      "id": "color_1",
-      "label": "Color for text chunk 1",
-      "default": "#333333"
-    },
-    {
-      "type": "text",
-      "id": "text_2",
-      "label": "Text chunk 2",
-      "default": "BUSINESS OWNER"
-    },
-    {
-      "type": "color",
-      "id": "color_2",
-      "label": "Color for text chunk 2",
-      "default": "#FF6B35"
-    },
-    {
-      "type": "text",
-      "id": "text_3",
-      "label": "Text chunk 3",
-      "default": "?"
-    },
-    {
-      "type": "color",
-      "id": "color_3",
-      "label": "Color for text chunk 3",
-      "default": "#333333"
-    },
-    {
-      "type": "text",
-      "id": "text_4",
-      "label": "Text chunk 4"
-    },
-    {
-      "type": "color",
-      "id": "color_4",
-      "label": "Color for text chunk 4",
-      "default": "#333333"
-    },
-    {
-      "type": "text",
-      "id": "text_5",
-      "label": "Text chunk 5"
-    },
-    {
-      "type": "color",
-      "id": "color_5",
-      "label": "Color for text chunk 5",
-      "default": "#333333"
     }
   ],
   "blocks": [
@@ -405,14 +348,6 @@
   "presets": [
     {
       "name": "Business Owner Section",
-      "settings": {
-        "text_1": "Are you a ",
-        "color_1": "#333333",
-        "text_2": "BUSINESS OWNER",
-        "color_2": "#FF6B35",
-        "text_3": "?",
-        "color_3": "#333333"
-      },
       "blocks": [
         {
           "type": "description"
