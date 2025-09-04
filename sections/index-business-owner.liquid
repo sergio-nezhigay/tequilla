@@ -10,6 +10,10 @@
           <div class="business-owner-description" {{ block.shopify_attributes }}>
             {{ block.settings.description }}
           </div>
+        {% when 'description_2' %}
+          <div class="business-owner-description" {{ block.shopify_attributes }}>
+            {{ block.settings.description_2 }}
+          </div>
         {% when 'images_grid' %}
           <div class="business-owner-images" {{ block.shopify_attributes }}>
             <div class="images-grid">
@@ -298,6 +302,18 @@
           "type": "richtext",
           "id": "description",
           "label": "Description text"
+        }
+      ]
+    },
+    {
+      "type": "description_2",
+      "name": "Description 2",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "richtext",
+          "id": "description_2",
+          "label": "Second description text"
         }
       ]
     },
