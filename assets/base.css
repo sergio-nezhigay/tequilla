@@ -3733,7 +3733,7 @@ details-disclosure > details {
   }
 }
 
-@font-face {
+/*@font-face {
   font-family: 'Roundo';
   src: url('{{ "Roundo-Medium.woff2" | asset_url }}') format('woff2'),
     url('{{ "Roundo-Medium.woff" | asset_url }}') format('woff');
@@ -3749,4 +3749,30 @@ details-disclosure > details {
   font-weight: 900;
   font-style: normal;
   font-display: swap;
+}*/
+
+.button-cta {
+  display: inline-block;
+  background: #67b7a8;
+  color: #090909;
+  border: 2.5px solid #090909;
+  border-radius: 32px;
+  font-family: 'Futura Hv BT', 'Roundo', Arial, sans-serif;
+  font-size: 20px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  padding: 18px 32px;
+  margin: 0 auto;
+  box-shadow: none;
+  transition: background 0.3s, color 0.3s;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.button-cta:hover,
+.button-cta:focus {
+  background: #ffb793;
+  color: #090909;
+  border-color: #090909;
 }
