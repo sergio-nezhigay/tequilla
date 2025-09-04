@@ -27,7 +27,7 @@
   {% assign chunks_array = chunks_content | split: '}, {' %}
 
   <{{ heading_tag }}
-    class="business-owner-heading{% if heading_class != blank %} {{ heading_class }}{% endif %}"
+    class="colored-heading{% if heading_class != blank %} {{ heading_class }}{% endif %}"
     {% if heading_style != blank %}
       style="{{ heading_style }}"
     {% endif %}
@@ -62,22 +62,10 @@
     .business-owner-text-chunk {
       text-transform: uppercase;
     }
-
-    @media screen and (max-width: 749px) {
-      .business-owner-heading {
-        font-size: 30px;
-      }
-    }
-
-    @media screen and (min-width: 750px) {
-      .business-owner-heading {
-        font-size: 60px;
-      }
-    }
   </style>
 {% elsif heading %}
   <{{ heading_tag }}
-    class="business-owner-heading{% if heading_class != blank %} {{ heading_class }}{% endif %}"
+    class="colored-heading{% if heading_class != blank %} {{ heading_class }}{% endif %}"
     {% if heading_style != blank %}
       style="{{ heading_style }}"
     {% endif %}

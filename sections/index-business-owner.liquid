@@ -9,12 +9,7 @@
 
 <section id="{{ section.id }}" class="business-owner-section">
   <div class="page-width">
-    {% render 'heading-colored',
-      text_chunks: header_chunks,
-      tag: 'h2',
-      style: 'margin-top: 40px; text-align: center;',
-      class: 'page-header'
-    %}
+    {% render 'heading-colored', text_chunks: header_chunks, tag: 'h2', class: 'page-header' %}
 
     {% for block in section.blocks %}
       {% case block.type %}
@@ -23,7 +18,7 @@
             {{ block.settings.description }}
           </div>
         {% when 'description_2' %}
-          <div class="business-owner-description" {{ block.shopify_attributes }}>
+          <div class="business-owner-description-2 " {{ block.shopify_attributes }}>
             {{ block.settings.description_2 }}
           </div>
         {% when 'images_grid' %}
@@ -102,17 +97,17 @@
     {% endfor %}
 
     <div class="row">
-      <div>{% render 'heading-colored', text_chunks: step1_chunks %}</div>
+      <div>{% render 'heading-colored', text_chunks: step1_chunks, tag: 'h2' %}</div>
       <div>{{ step1_details }}</div>
     </div>
 
     <div class="row">
-      <div>{% render 'heading-colored', text_chunks: step2_chunks %}</div>
+      <div>{% render 'heading-colored', text_chunks: step2_chunks, tag: 'h2' %}</div>
       <div>{{ step2_details }}</div>
     </div>
 
     <div class="row">
-      <div>{% render 'heading-colored', text_chunks: step3_chunks %}</div>
+      <div>{% render 'heading-colored', text_chunks: step3_chunks, tag: 'h2' %}</div>
       <div>{{ step3_details }}</div>
     </div>
     <!-- Add CTA button at the bottom -->
@@ -123,25 +118,40 @@
 </section>
 
 <style>
-  #{{ section.id }} .page-header {
+  #{{ section.id }} .page-width {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 55px 20px 55px;
+    outline: 1px solid red;
+  }
+    #{{ section.id }} .page-header {
     max-width: 306px;
     text-align: center;
-    margin: 0 auto;
+    margin: 0 auto 10px;
   }
 
   #{{ section.id }}.business-owner-section {
-    padding: {{ section.settings.padding_top }}px 0 {{ section.settings.padding_bottom }}px 0;
     color: #090909;
   }
 
   #{{ section.id }} .business-owner-description {
-    margin-top: 10px;
+    margin-bottom: 10px;
     font-size: 18px;
+    opacity: 0.8;
     line-height: 1.65;
+    text-align: center;
+  }
+  #{{ section.id }} .business-owner-description-2 {
+    margin-bottom: 23px;
+    font-size: 18px;
+    font-weight: 400;
+    opacity: 0.8;
+    line-height: 1.65;
+    text-align: center;
   }
 
   #{{ section.id }} .business-owner-images {
-    margin-top: 40px;
+    margin-bottom: 20px;
   }
 
   #{{ section.id }} .images-grid {
@@ -153,7 +163,12 @@
   }
 
   #{{ section.id }} .image-item {
-    text-align: center;
+      aspect-ratio: 350 / 312;
+      display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  overflow: visible;
   }
 
   #{{ section.id }} .image-item--with-overlay {
@@ -168,7 +183,7 @@
     z-index: 10;
     transform: translateX(-50%);
     height: auto;
-    width: 22%;
+    width: 21.5%;
   }
 
   #{{ section.id }} .bottle-overlay img {
@@ -178,18 +193,24 @@
   }
 
   #{{ section.id }} .image-item img {
-    width: 100%;
-    height: auto;
+    object-fit: cover;
+  width: 100%;
+  height: 100%;
     border-radius: var(--media-radius);
     box-shadow: var(--media-shadow-horizontal-offset) var(--media-shadow-vertical-offset) var(--media-shadow-blur-radius) rgba(var(--color-shadow), var(--media-shadow-opacity));
   }
 
   #{{ section.id }} .image-text {
     margin-top: 15px;
-    font-size: 16px;
-    line-height: 1.4;
-    color: #333333;
+    font-size: 18px;
+    line-height: 1.5;
+    opacity: 0.8;
     font-weight: 500;
+    text-align: center;
+  }
+
+  #{{ section.id }} .row .colored-heading {
+    font-size: 20px;
   }
 
 
@@ -240,26 +261,6 @@
     {
       "type": "header",
       "content": "Section Spacing"
-    },
-    {
-      "type": "range",
-      "id": "padding_top",
-      "min": 0,
-      "max": 200,
-      "step": 5,
-      "unit": "px",
-      "label": "Padding top",
-      "default": 50
-    },
-    {
-      "type": "range",
-      "id": "padding_bottom",
-      "min": 0,
-      "max": 200,
-      "step": 5,
-      "unit": "px",
-      "label": "Padding bottom",
-      "default": 50
     }
   ],
   "blocks": [
