@@ -12,28 +12,11 @@
       </h2>
 
       <div class="tequila-video-hero__video-wrapper">
-        {% if section.settings.video_thumbnail != blank %}
-          {% assign video_img = section.settings.video_thumbnail %}
-          {{
-            video_img
-            | image_url: width: 1440
-            | image_tag:
-              loading: 'lazy',
-              widths: '375, 550, 750, 1100, 1440',
-              sizes: '(min-width: 768px) 1440px, 100vw',
-              class: 'tequila-video-hero__thumbnail'
-          }}
-        {% endif %}
-
-        <button class="tequila-video-hero__play-btn" aria-label="{{ section.settings.play_button_aria_label }}">
-          <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="16" cy="16" r="16" fill="{{ section.settings.play_button_bg_color }}"/>
-            <path d="M12 9L23 16L12 23V9Z" fill="{{ section.settings.play_button_icon_color }}"/>
-          </svg>
-        </button>
-
-        {% if section.settings.video_url != blank %}
-          <div class="tequila-video-hero__video-container"></div>
+        {% if section.settings.uploaded_video != blank %}
+          <video controls width="100%">
+            <source src="{{ section.settings.uploaded_video }}" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
         {% endif %}
       </div>
 
@@ -122,30 +105,8 @@
     background: #000;
   }
 
-  .tequila-video-hero__thumbnail {
-    width: 100%;
-    height: auto;
-    display: block;
-  }
 
-  .tequila-video-hero__play-btn {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 32px;
-    height: 32px;
-    background: transparent;
-    border: none;
-    cursor: pointer;
-    transition: transform 0.3s ease, opacity 0.3s ease;
-    z-index: 2;
-  }
 
-  .tequila-video-hero__play-btn:hover {
-    transform: translate(-50%, -50%) scale(1.1);
-    opacity: 0.9;
-  }
 
   #{{ section_id }} .tequila-video-hero__cta {
     display: inline-block;
@@ -170,32 +131,6 @@
     box-shadow: 0 10px 20px rgba(0,0,0,0.1);
   }
 
-  .tequila-video-hero__video-modal {
-    display: none !important;
-  }
-
-  .tequila-video-hero__video-modal-content,
-  .tequila-video-hero__close-btn {
-    display: none !important;
-  }
-
-  .tequila-video-hero__video-container {
-    position: relative;
-    padding-bottom: 61.73%; /* 350 / 216 = 1.62 */
-    height: 0;
-    overflow: hidden;
-    border-radius: var(--hero-video-radius);
-  }
-
-  .tequila-video-hero__video-container iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    border: none;
-  }
-
   @media (min-width: 768px) {
     #{{ section_id }} {
       padding-top: var(--hero-padding-top-desktop);
@@ -217,16 +152,6 @@
       border-bottom-right-radius: 130px;
     }
 
-    .tequila-video-hero__play-btn {
-      width: 73.5px;
-      height: 73.5px;
-    }
-
-    .tequila-video-hero__play-btn svg {
-      width: 73.5px;
-      height: 73.5px;
-    }
-
     #{{ section_id }} .tequila-video-hero__cta {
       font-size: {{ section.settings.cta_font_size_desktop }}px;
       width: auto;
@@ -241,50 +166,6 @@
     }
   }
 </style>
-
-<script>
-  document.addEventListener('DOMContentLoaded', function () {
-    const sectionId = '{{ section_id }}';
-    const videoUrl = {{ section.settings.video_url | json }};
-    const section = document.getElementById(sectionId);
-
-    if (!section || !videoUrl) return;
-
-    const playBtn = section.querySelector('.tequila-video-hero__play-btn');
-    const videoContainer = section.querySelector('.tequila-video-hero__video-container');
-    const thumbnail = section.querySelector('.tequila-video-hero__thumbnail');
-
-    if (!playBtn || !videoContainer) return;
-
-    function getVideoId(url) {
-      const match = url.match(
-        /(?:youtube\.com\/(?:[^\/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/)([^"&?\/\s]{11})/
-      );
-      return match ? match[1] : null;
-    }
-
-    function playInlineVideo() {
-      const videoId = getVideoId(videoUrl);
-      if (videoId) {
-        const iframe = document.createElement('iframe');
-        iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0&mute=1`;
-        iframe.setAttribute(
-          'allow',
-          'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'
-        );
-        iframe.setAttribute('allowfullscreen', '');
-        videoContainer.innerHTML = '';
-        videoContainer.appendChild(iframe);
-
-        // Hide thumbnail and play button
-        if (thumbnail) thumbnail.style.display = 'none';
-        playBtn.style.display = 'none';
-      }
-    }
-
-    playBtn.addEventListener('click', playInlineVideo);
-  });
-</script>
 
 {% schema %}
 {
@@ -439,38 +320,16 @@
       "type": "header",
       "content": "Video Settings"
     },
-    {
-      "type": "image_picker",
-      "id": "video_thumbnail",
-      "label": "Video Thumbnail"
-    },
-    {
-      "type": "text",
-      "id": "video_url",
-      "label": "YouTube Video URL",
-      "info": "Enter full YouTube URL"
-    },
-    {
-      "type": "text",
-      "id": "play_button_aria_label",
-      "label": "Play Button Aria Label",
-      "default": "Play video"
-    },
-    {
-      "type": "color",
-      "id": "play_button_bg_color",
-      "label": "Play Button Background",
-      "default": "#FFFFFF"
-    },
-    {
-      "type": "color",
-      "id": "play_button_icon_color",
-      "label": "Play Button Icon Color",
-      "default": "#1C1C1C"
-    },
+
     {
       "type": "header",
       "content": "CTA Button"
+    },
+    {
+      "type": "url",
+      "id": "uploaded_video",
+      "label": "Video File",
+      "info": "Upload your MP4 file to Files section and paste the URL here"
     },
     {
       "type": "text",
