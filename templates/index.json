@@ -175,6 +175,12 @@
     "index_business_owner": {
       "type": "index-business-owner",
       "blocks": {
+        "description_p6AdQN": {
+          "type": "description",
+          "settings": {
+            "description": "<p>Whether you're looking to impress clients, celebrate teams, create bottles for events or even create your own brand</p>"
+          }
+        },
         "images_grid_HqwNA4": {
           "type": "images_grid",
           "settings": {
@@ -185,17 +191,11 @@
             "image_3": "shopify://shop_images/Rectangle_43.webp",
             "text_3": "White glove design support from our team"
           }
-        },
-        "description_p6AdQN": {
-          "type": "description",
-          "settings": {
-            "description": "<p>Whether you're looking to impress clients, celebrate teams, create bottles for events or even create your own brand</p>"
-          }
         }
       },
       "block_order": [
-        "images_grid_HqwNA4",
-        "description_p6AdQN"
+        "description_p6AdQN",
+        "images_grid_HqwNA4"
       ],
       "settings": {
         "show_heading": true,
