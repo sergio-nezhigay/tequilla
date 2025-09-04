@@ -72,6 +72,7 @@
         "title_size_desktop": 60,
         "title_size_mobile": 30,
         "uploaded_video": "https://cdn.shopify.com/videos/c/o/v/8b5353e9f64043ae8b09b0b9809fe738.mp4",
+        "video_thumbnail": "shopify://shop_images/Generated_Image_September_03_2025_-_1_40PM.webp",
         "cta_text": "Create your own tequila",
         "cta_url": "shopify://collections/all",
         "cta_background": "linear-gradient(90deg, rgba(103, 211, 204, 1), rgba(103, 211, 204, 1) 100%)",
