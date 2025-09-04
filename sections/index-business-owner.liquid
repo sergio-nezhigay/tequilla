@@ -7,7 +7,7 @@
     {% for block in section.blocks %}
       {% case block.type %}
         {% when 'description' %}
-          <div class="business-owner-description rte" {{ block.shopify_attributes }}>
+          <div class="business-owner-description" {{ block.shopify_attributes }}>
             {{ block.settings.description }}
           </div>
       {% endcase %}
@@ -24,15 +24,16 @@
 
   #{{ section.id }}.business-owner-section {
     padding: {{ section.settings.padding_top }}px 0 {{ section.settings.padding_bottom }}px 0;
+    color: #090909;
   }
 
   #{{ section.id }} .business-owner-description {
-    margin-top: 2rem;
-    font-size: 1.6rem;
-    line-height: 1.6;
+    margin-top: 10px;
+    font-size: 18px;
+    line-height: 1.65;
   }
 
-  @media screen and (min-width: 750px) {
+  @media screen and (min-width: 768px) {
     #{{ section.id }}.business-owner-section {
       padding: {{ section.settings.padding_top | times: 1.2 }}px 0 {{ section.settings.padding_bottom | times: 1.2 }}px 0;
     }
