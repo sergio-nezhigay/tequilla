@@ -174,6 +174,17 @@
     },
     "index_business_owner": {
       "type": "index-business-owner",
+      "blocks": {
+        "description_p6AdQN": {
+          "type": "description",
+          "settings": {
+            "description": "<p>Whether you're looking to impress clients, celebrate teams, create bottles for events or even create your own brand</p>"
+          }
+        }
+      },
+      "block_order": [
+        "description_p6AdQN"
+      ],
       "settings": {
         "show_heading": true,
         "padding_top": 50,
