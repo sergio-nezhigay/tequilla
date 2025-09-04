@@ -10,6 +10,64 @@
           <div class="business-owner-description" {{ block.shopify_attributes }}>
             {{ block.settings.description }}
           </div>
+        {% when 'images_grid' %}
+          <div class="business-owner-images" {{ block.shopify_attributes }}>
+            <div class="images-grid">
+              {% if block.settings.image_1 != blank %}
+                <div class="image-item">
+                  {{
+                    block.settings.image_1
+                    | image_url: width: 400
+                    | image_tag:
+                      loading: 'lazy',
+                      widths: '200, 300, 400, 500',
+                      sizes: '(min-width: 990px) 320px, (min-width: 750px) 250px, 200px',
+                      alt: block.settings.image_1.alt
+                    | escape
+                  }}
+                  {% if block.settings.text_1 != blank %}
+                    <p class="image-text">{{ block.settings.text_1 }}</p>
+                  {% endif %}
+                </div>
+              {% endif %}
+
+              {% if block.settings.image_2 != blank %}
+                <div class="image-item">
+                  {{
+                    block.settings.image_2
+                    | image_url: width: 400
+                    | image_tag:
+                      loading: 'lazy',
+                      widths: '200, 300, 400, 500',
+                      sizes: '(min-width: 990px) 320px, (min-width: 750px) 250px, 200px',
+                      alt: block.settings.image_2.alt
+                    | escape
+                  }}
+                  {% if block.settings.text_2 != blank %}
+                    <p class="image-text">{{ block.settings.text_2 }}</p>
+                  {% endif %}
+                </div>
+              {% endif %}
+
+              {% if block.settings.image_3 != blank %}
+                <div class="image-item">
+                  {{
+                    block.settings.image_3
+                    | image_url: width: 400
+                    | image_tag:
+                      loading: 'lazy',
+                      widths: '200, 300, 400, 500',
+                      sizes: '(min-width: 990px) 320px, (min-width: 750px) 250px, 200px',
+                      alt: block.settings.image_3.alt
+                    | escape
+                  }}
+                  {% if block.settings.text_3 != blank %}
+                    <p class="image-text">{{ block.settings.text_3 }}</p>
+                  {% endif %}
+                </div>
+              {% endif %}
+            </div>
+          </div>
       {% endcase %}
     {% endfor %}
   </div>
@@ -33,9 +91,55 @@
     line-height: 1.65;
   }
 
-  @media screen and (min-width: 768px) {
-    #{{ section.id }}.business-owner-section {
-      padding: {{ section.settings.padding_top | times: 1.2 }}px 0 {{ section.settings.padding_bottom | times: 1.2 }}px 0;
+  #{{ section.id }} .business-owner-images {
+    margin-top: 40px;
+  }
+
+  #{{ section.id }} .images-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  #{{ section.id }} .image-item {
+    text-align: center;
+  }
+
+  #{{ section.id }} .image-item img {
+    width: 100%;
+    height: auto;
+    border-radius: var(--media-radius);
+    box-shadow: var(--media-shadow-horizontal-offset) var(--media-shadow-vertical-offset) var(--media-shadow-blur-radius) rgba(var(--color-shadow), var(--media-shadow-opacity));
+  }
+
+  #{{ section.id }} .image-text {
+    margin-top: 15px;
+    font-size: 16px;
+    line-height: 1.4;
+    color: #333333;
+    font-weight: 500;
+  }
+
+  @media screen and (min-width: 750px) {
+    #{{ section.id }} .business-owner-images {
+      margin-top: 60px;
+    }
+
+    #{{ section.id }} .images-grid {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+    }
+
+    #{{ section.id }} .image-text {
+      font-size: 18px;
+    }
+  }
+
+  @media screen and (min-width: 990px) {
+    #{{ section.id }} .images-grid {
+      gap: 40px;
     }
   }
 </style>
@@ -157,6 +261,58 @@
           "label": "Description text"
         }
       ]
+    },
+    {
+      "type": "images_grid",
+      "name": "Images Grid",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "header",
+          "content": "Image 1"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_1",
+          "label": "Image 1"
+        },
+        {
+          "type": "text",
+          "id": "text_1",
+          "label": "Text for image 1",
+          "default": "Custom messaging, and special details."
+        },
+        {
+          "type": "header",
+          "content": "Image 2"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_2",
+          "label": "Image 2"
+        },
+        {
+          "type": "text",
+          "id": "text_2",
+          "label": "Text for image 2",
+          "default": "Perfect for corporate gifting, hospitality, and brand activations."
+        },
+        {
+          "type": "header",
+          "content": "Image 3"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_3",
+          "label": "Image 3"
+        },
+        {
+          "type": "text",
+          "id": "text_3",
+          "label": "Text for image 3",
+          "default": "White glove design support from our team"
+        }
+      ]
     }
   ],
   "presets": [
@@ -169,7 +325,15 @@
         "color_2": "#FF6B35",
         "text_3": "?",
         "color_3": "#333333"
-      }
+      },
+      "blocks": [
+        {
+          "type": "description"
+        },
+        {
+          "type": "images_grid"
+        }
+      ]
     }
   ]
 }

@@ -175,6 +175,17 @@
     "index_business_owner": {
       "type": "index-business-owner",
       "blocks": {
+        "images_grid_HqwNA4": {
+          "type": "images_grid",
+          "settings": {
+            "image_1": "shopify://shop_images/from_l-Photoroom_1.png",
+            "text_1": "Add logos, custom messaging, and special details.",
+            "image_2": "shopify://shop_images/Rectangle_43a.webp",
+            "text_2": "Perfect for corporate gifting, hospitality, and brand activations.",
+            "image_3": "shopify://shop_images/Rectangle_43.webp",
+            "text_3": "White glove design support from our team"
+          }
+        },
         "description_p6AdQN": {
           "type": "description",
           "settings": {
@@ -183,6 +194,7 @@
         }
       },
       "block_order": [
+        "images_grid_HqwNA4",
         "description_p6AdQN"
       ],
       "settings": {
