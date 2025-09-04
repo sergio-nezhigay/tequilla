@@ -181,6 +181,12 @@
             "description": "<p>Whether you're looking to impress clients, celebrate teams, create bottles for events or even create your own brand</p>"
           }
         },
+        "description_2_GJ8NMX": {
+          "type": "description_2",
+          "settings": {
+            "description_2": "<p>We’ll guide you through every detail — from design to delivery.</p>"
+          }
+        },
         "images_grid_HqwNA4": {
           "type": "images_grid",
           "settings": {
@@ -196,6 +202,7 @@
       },
       "block_order": [
         "description_p6AdQN",
+        "description_2_GJ8NMX",
         "images_grid_HqwNA4"
       ],
       "settings": {
