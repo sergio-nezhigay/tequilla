@@ -13,10 +13,37 @@
 
       <div class="tequila-video-hero__video-wrapper">
         {% if section.settings.uploaded_video != blank %}
-          <video controls width="100%">
-            <source src="{{ section.settings.uploaded_video }}" type="video/mp4">
-            Your browser does not support the video tag.
-          </video>
+          <div class="tequila-video-hero__video-container">
+            {% if section.settings.video_thumbnail != blank %}
+              <div class="tequila-video-hero__thumbnail" data-video-trigger>
+                {{
+                  section.settings.video_thumbnail
+                  | image_url: width: 1214
+                  | image_tag:
+                    alt: 'Video thumbnail',
+                    loading: 'lazy',
+                    widths: '375, 750, 1100, 1214',
+                    sizes: '(max-width: 767px) 100vw, (max-width: 1199px) 90vw, 1214px'
+                }}
+                <div class="tequila-video-hero__play-button">
+                  <svg width="80" height="80" viewBox="0 0 80 80" fill="none">
+                    <circle cx="40" cy="40" r="40" fill="rgba(255, 255, 255, 0.9)"/>
+                    <path d="M32 24L56 40L32 56V24Z" fill="#1C1C1C"/>
+                  </svg>
+                </div>
+              </div>
+            {% endif %}
+            <video
+              class="tequila-video-hero__video"
+              {% unless section.settings.video_thumbnail %}
+                controls
+              {% endunless %}
+              width="100%"
+            >
+              <source src="{{ section.settings.uploaded_video }}" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+          </div>
         {% endif %}
       </div>
 
@@ -105,8 +132,60 @@
     background: #000;
   }
 
+  .tequila-video-hero__video-container {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1.618 / 1;
 
+  }
 
+  .tequila-video-hero__video,
+  .tequila-video-hero__thumbnail img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+   }
+
+  .tequila-video-hero__thumbnail {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .tequila-video-hero__thumbnail.hidden {
+    display: none;
+  }
+
+  .tequila-video-hero__thumbnail img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .tequila-video-hero__play-button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    opacity: 0.9;
+  }
+
+  .tequila-video-hero__play-button:hover {
+    transform: translate(-50%, -50%) scale(1.1);
+    opacity: 1;
+  }
+
+  .tequila-video-hero__play-button svg {
+    filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.3));
+  }
 
   #{{ section_id }} .tequila-video-hero__cta {
     display: inline-block;
@@ -158,6 +237,11 @@
       padding-left: 78px;
       padding-right: 78px;
     }
+
+    .tequila-video-hero__play-button svg {
+      width: 100px;
+      height: 100px;
+    }
   }
 
   @media (min-width: 1440px) {
@@ -166,6 +250,28 @@
     }
   }
 </style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const videoTriggers = document.querySelectorAll('[data-video-trigger]');
+
+    videoTriggers.forEach((trigger) => {
+      trigger.addEventListener('click', function () {
+        const videoContainer = this.parentElement;
+        const video = videoContainer.querySelector('video');
+
+        if (video) {
+          // Hide thumbnail
+          this.classList.add('hidden');
+
+          // Add controls and play video
+          video.setAttribute('controls', '');
+          video.play().catch((e) => console.log('Video play failed:', e));
+        }
+      });
+    });
+  });
+</script>
 
 {% schema %}
 {
@@ -320,16 +426,21 @@
       "type": "header",
       "content": "Video Settings"
     },
-
-    {
-      "type": "header",
-      "content": "CTA Button"
-    },
     {
       "type": "url",
       "id": "uploaded_video",
       "label": "Video File",
       "info": "Upload your MP4 file to Files section and paste the URL here"
+    },
+    {
+      "type": "image_picker",
+      "id": "video_thumbnail",
+      "label": "Video Thumbnail Image",
+      "info": "Upload a thumbnail image that will show before the video plays"
+    },
+    {
+      "type": "header",
+      "content": "CTA Button"
     },
     {
       "type": "text",
