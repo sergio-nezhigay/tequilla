@@ -1,0 +1,56 @@
+{% assign text_chunks = '' %}
+{% if section.settings.text_1 != blank %}
+  {% assign chunk_1 = '{"text": "'
+    | append: section.settings.text_1
+    | append: '", "color": "'
+    | append: section.settings.color_1
+    | append: '"}'
+  %}
+  {% assign text_chunks = text_chunks | append: chunk_1 %}
+{% endif %}
+{% if section.settings.text_2 != blank %}
+  {% assign chunk_2 = '{"text": "'
+    | append: section.settings.text_2
+    | append: '", "color": "'
+    | append: section.settings.color_2
+    | append: '"}'
+  %}
+  {% assign text_chunks = text_chunks | append: ', ' | append: chunk_2 %}
+{% endif %}
+{% if section.settings.text_3 != blank %}
+  {% assign chunk_3 = '{"text": "'
+    | append: section.settings.text_3
+    | append: '", "color": "'
+    | append: section.settings.color_3
+    | append: '"}'
+  %}
+  {% assign text_chunks = text_chunks | append: ', ' | append: chunk_3 %}
+{% endif %}
+{% if section.settings.text_4 != blank %}
+  {% assign chunk_4 = '{"text": "'
+    | append: section.settings.text_4
+    | append: '", "color": "'
+    | append: section.settings.color_4
+    | append: '"}'
+  %}
+  {% assign text_chunks = text_chunks | append: ', ' | append: chunk_4 %}
+{% endif %}
+{% if section.settings.text_5 != blank %}
+  {% assign chunk_5 = '{"text": "'
+    | append: section.settings.text_5
+    | append: '", "color": "'
+    | append: section.settings.color_5
+    | append: '"}'
+  %}
+  {% assign text_chunks = text_chunks | append: ', ' | append: chunk_5 %}
+{% endif %}
+{% assign text_chunks_json = '[' | append: text_chunks | append: ']' %}
+
+{% if text_chunks_json != blank and text_chunks_json != '[]' %}
+  {% render 'heading-colored',
+    text_chunks: text_chunks_json,
+    tag: section.settings.heading_tag,
+    style: style,
+    class: class
+  %}
+{% endif %}

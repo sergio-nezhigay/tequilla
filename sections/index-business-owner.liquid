@@ -1,0 +1,175 @@
+<section id="{{ section.id }}" class="business-owner-section">
+  <div class="page-width">
+    {% if section.settings.show_heading %}
+      {% render 'heading-wrapper', section: section, class: 'page-header' %}
+    {% endif %}
+
+    {% for block in section.blocks %}
+      {% case block.type %}
+        {% when 'description' %}
+          <div class="business-owner-description rte" {{ block.shopify_attributes }}>
+            {{ block.settings.description }}
+          </div>
+      {% endcase %}
+    {% endfor %}
+  </div>
+</section>
+
+<style>
+  #{{ section.id }} .page-header {
+    max-width: 306px;
+    text-align: center;
+    margin: 0 auto;
+  }
+
+  #{{ section.id }}.business-owner-section {
+    padding: {{ section.settings.padding_top }}px 0 {{ section.settings.padding_bottom }}px 0;
+  }
+
+  #{{ section.id }} .business-owner-description {
+    margin-top: 2rem;
+    font-size: 1.6rem;
+    line-height: 1.6;
+  }
+
+  @media screen and (min-width: 750px) {
+    #{{ section.id }}.business-owner-section {
+      padding: {{ section.settings.padding_top | times: 1.2 }}px 0 {{ section.settings.padding_bottom | times: 1.2 }}px 0;
+    }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Business Owner Section",
+  "class": "section",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "header",
+      "content": "Heading Settings"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_heading",
+      "label": "Show heading",
+      "default": true
+    },
+    {
+      "type": "header",
+      "content": "Section Spacing"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 200,
+      "step": 5,
+      "unit": "px",
+      "label": "Padding top",
+      "default": 50
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 200,
+      "step": 5,
+      "unit": "px",
+      "label": "Padding bottom",
+      "default": 50
+    },
+    {
+      "type": "header",
+      "content": "Text Chunks"
+    },
+    {
+      "type": "text",
+      "id": "text_1",
+      "label": "Text chunk 1",
+      "default": "Are you a "
+    },
+    {
+      "type": "color",
+      "id": "color_1",
+      "label": "Color for text chunk 1",
+      "default": "#333333"
+    },
+    {
+      "type": "text",
+      "id": "text_2",
+      "label": "Text chunk 2",
+      "default": "BUSINESS OWNER"
+    },
+    {
+      "type": "color",
+      "id": "color_2",
+      "label": "Color for text chunk 2",
+      "default": "#FF6B35"
+    },
+    {
+      "type": "text",
+      "id": "text_3",
+      "label": "Text chunk 3",
+      "default": "?"
+    },
+    {
+      "type": "color",
+      "id": "color_3",
+      "label": "Color for text chunk 3",
+      "default": "#333333"
+    },
+    {
+      "type": "text",
+      "id": "text_4",
+      "label": "Text chunk 4"
+    },
+    {
+      "type": "color",
+      "id": "color_4",
+      "label": "Color for text chunk 4",
+      "default": "#333333"
+    },
+    {
+      "type": "text",
+      "id": "text_5",
+      "label": "Text chunk 5"
+    },
+    {
+      "type": "color",
+      "id": "color_5",
+      "label": "Color for text chunk 5",
+      "default": "#333333"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "description",
+      "name": "Description",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "richtext",
+          "id": "description",
+          "label": "Description text"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Business Owner Section",
+      "settings": {
+        "text_1": "Are you a ",
+        "color_1": "#333333",
+        "text_2": "BUSINESS OWNER",
+        "color_2": "#FF6B35",
+        "text_3": "?",
+        "color_3": "#333333"
+      }
+    }
+  ]
+}
+{% endschema %}

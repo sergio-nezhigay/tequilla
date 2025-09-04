@@ -1,0 +1,87 @@
+{% comment %}
+  Renders a heading element with customizable tag and styling
+  Supports both single text and multiple colored text chunks
+
+  Accepts:
+  - heading: {String} The heading text (for single text)
+  - text_chunks: {String} JSON string of array with objects containing 'text' and 'color' properties
+  - tag: {String} HTML tag to use (default: 'h1')
+  - style: {String} Inline CSS styles
+
+  Usage:
+  Single text:
+  {% render 'business-owner-heading', heading: 'My Title', tag: 'h2' %}
+
+  Multiple colored chunks:
+  {% assign chunks = '[{"text": "Are you a ", "color": "#333"}, {"text": "business owner", "color": "#ff6b35"}, {"text": "?", "color": "#333"}]' %}
+  {% render 'business-owner-heading', text_chunks: chunks, tag: 'h2' %}
+{% endcomment %}
+
+{% assign heading_tag = tag | default: 'h1' %}
+{% assign heading_style = style | default: '' %}
+{% assign heading_class = class | default: '' %}
+
+{% if text_chunks %}
+  {% comment %} Remove brackets and split by chunk delimiters {% endcomment %}
+  {% assign chunks_content = text_chunks | remove: '[' | remove: ']' %}
+  {% assign chunks_array = chunks_content | split: '}, {' %}
+
+  <{{ heading_tag }}
+    class="business-owner-heading{% if heading_class != blank %} {{ heading_class }}{% endif %}"
+    {% if heading_style != blank %}
+      style="{{ heading_style }}"
+    {% endif %}
+  >
+    {% for chunk in chunks_array %}
+      {% comment %} Clean up chunk and extract text and color {% endcomment %}
+      {% assign clean_chunk = chunk | remove: '{' | remove: '}' | strip %}
+      {% assign text_part = clean_chunk | split: '", "color":' | first | remove: '"text": "' %}
+      {% assign color_part = clean_chunk | split: '"color": "' | last | remove: '"' %}
+
+      {% if text_part != blank %}
+        <span
+          class="business-owner-text-chunk"
+          {% if color_part != blank %}
+            style="color: {{ color_part }};"
+          {% endif %}
+        >
+          {{- text_part -}}
+        </span>
+      {% endif %}
+    {% endfor %}
+  </{{ heading_tag }}>
+
+  <style>
+    .business-owner-heading {
+      font-family: 'Futura Hv BT', 'Roundo', sans-serif;
+      font-weight: 900;
+      line-height: 1.2;
+      margin: 0 0 1rem 0;
+    }
+
+    .business-owner-text-chunk {
+      text-transform: uppercase;
+    }
+
+    @media screen and (max-width: 749px) {
+      .business-owner-heading {
+        font-size: 30px;
+      }
+    }
+
+    @media screen and (min-width: 750px) {
+      .business-owner-heading {
+        font-size: 60px;
+      }
+    }
+  </style>
+{% elsif heading %}
+  <{{ heading_tag }}
+    class="business-owner-heading{% if heading_class != blank %} {{ heading_class }}{% endif %}"
+    {% if heading_style != blank %}
+      style="{{ heading_style }}"
+    {% endif %}
+  >
+    {{ heading }}
+  </{{ heading_tag }}>
+{% endif %}

@@ -171,11 +171,30 @@
         "padding_bottom_mobile": 0,
         "custom_classes": ""
       }
+    },
+    "index_business_owner": {
+      "type": "index-business-owner",
+      "settings": {
+        "show_heading": true,
+        "padding_top": 50,
+        "padding_bottom": 50,
+        "text_1": "Are you a",
+        "color_1": "#090909",
+        "text_2": "BUSINESS",
+        "color_2": "#67b7a8",
+        "text_3": "OWNER",
+        "color_3": "#ffb793",
+        "text_4": "?",
+        "color_4": "#090909",
+        "text_5": "",
+        "color_5": "#333333"
+      }
     }
   },
   "order": [
     "index_hero",
     "index_video_hero",
-    "index_logo_carousel"
+    "index_logo_carousel",
+    "index_business_owner"
   ]
 }
