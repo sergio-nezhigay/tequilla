@@ -184,6 +184,7 @@
         "images_grid_HqwNA4": {
           "type": "images_grid",
           "settings": {
+            "bottle_overlay_image": "shopify://shop_images/bottle.png",
             "image_1": "shopify://shop_images/from_l-Photoroom_1.png",
             "text_1": "Add logos, custom messaging, and special details.",
             "image_2": "shopify://shop_images/Rectangle_43a.webp",

@@ -14,7 +14,7 @@
           <div class="business-owner-images" {{ block.shopify_attributes }}>
             <div class="images-grid">
               {% if block.settings.image_1 != blank %}
-                <div class="image-item">
+                <div class="image-item image-item--with-overlay">
                   {{
                     block.settings.image_1
                     | image_url: width: 400
@@ -25,6 +25,20 @@
                       alt: block.settings.image_1.alt
                     | escape
                   }}
+                  {% if block.settings.bottle_overlay_image != blank %}
+                    <div class="bottle-overlay">
+                      {{
+                        block.settings.bottle_overlay_image
+                        | image_url: width: 300
+                        | image_tag:
+                          loading: 'lazy',
+                          widths: '150, 200, 250, 300',
+                          sizes: '(min-width: 990px) 200px, (min-width: 750px) 150px, 120px',
+                          alt: block.settings.bottle_overlay_image.alt
+                        | escape
+                      }}
+                    </div>
+                  {% endif %}
                   {% if block.settings.text_1 != blank %}
                     <p class="image-text">{{ block.settings.text_1 }}</p>
                   {% endif %}
@@ -107,6 +121,27 @@
     text-align: center;
   }
 
+  #{{ section.id }} .image-item--with-overlay {
+    position: relative;
+    overflow: visible;
+  }
+
+  #{{ section.id }} .bottle-overlay {
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    z-index: 10;
+    transform: translateX(-50%);
+    height: auto;
+    width: 22%;
+  }
+
+  #{{ section.id }} .bottle-overlay img {
+    width: 100%;
+    height: auto;
+    max-width: 120px;
+  }
+
   #{{ section.id }} .image-item img {
     width: 100%;
     height: auto;
@@ -135,11 +170,15 @@
     #{{ section.id }} .image-text {
       font-size: 18px;
     }
-  }
 
-  @media screen and (min-width: 990px) {
-    #{{ section.id }} .images-grid {
-      gap: 40px;
+    #{{ section.id }} .bottle-overlay {
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    #{{ section.id }} .bottle-overlay img {
+      max-width: 150px;
     }
   }
 </style>
@@ -267,6 +306,16 @@
       "name": "Images Grid",
       "limit": 1,
       "settings": [
+        {
+          "type": "header",
+          "content": "Bottle Overlay"
+        },
+        {
+          "type": "image_picker",
+          "id": "bottle_overlay_image",
+          "label": "Bottle overlay image",
+          "info": "This bottle will appear overlapping the first image"
+        },
         {
           "type": "header",
           "content": "Image 1"
