@@ -1,8 +1,10 @@
-{% comment %} Convert pipe-separated format to JSON chunks {% endcomment %}
-{% assign header_text = 'Are you a |#090909---business|#67B7A8---owner|#FFB793---!|#090909' %}
-{% assign step1_text = '1. |#090909---Book a Free |#FFB793---Design Call|#090909' %}
-{% assign step2_text = '2. We Create Your|#090909---Custom Bottle|#67B7A8' %}
-{% assign step3_text = '3. You Deliver a |#090909---Gift to Remember|#FFB793' %}
+{% assign header_text = section.settings.header_text %}
+{% assign step1_text = section.settings.step1_text %}
+{% assign step2_text = section.settings.step2_text %}
+{% assign step3_text = section.settings.step3_text %}
+{% assign step1_details = section.settings.step1_details %}
+{% assign step2_details = section.settings.step2_details %}
+{% assign step3_details = section.settings.step3_details %}
 
 {% comment %} Helper function to convert pipe format to JSON chunks {% endcomment %}
 {% assign header_chunks = header_text | split: '---' %}
@@ -80,10 +82,6 @@
   {% endif %}
 {% endfor %}
 {% assign step3_json = step3_json | append: ']' %}
-
-{% assign step1_details = "We'll learn about your occasion, style, and message." %}
-{% assign step2_details = 'Our team crafts your label and fills it with premium tequila.' %}
-{% assign step3_details = "Whether it's for a wedding, a client, or your home bar—this is a gift that stands out." %}
 
 <section id="{{ section.id }}" class="business-owner-section">
   <div class="page-width">
@@ -189,7 +187,9 @@
       <div class="step-details">{{ step3_details }}</div>
     </div>
 
-    <a href="/collections/all" class="button-cta"> CREATE YOUR OWN TEQUILA </a>
+    <a href="{{ section.settings.cta_link }}" class="button-cta">
+      {{ section.settings.cta_text }}
+    </a>
   </div>
 </section>
 
@@ -370,8 +370,62 @@
       "default": true
     },
     {
+      "type": "text",
+      "id": "header_text",
+      "label": "Header Text",
+      "default": "Are you a |#090909---business|#67B7A8---owner|#FFB793---!|#090909"
+    },
+    {
+      "type": "text",
+      "id": "step1_text",
+      "label": "Step 1 Text",
+      "default": "1. |#090909---Book a Free |#FFB793---Design Call|#090909"
+    },
+    {
+      "type": "text",
+      "id": "step2_text",
+      "label": "Step 2 Text",
+      "default": "2. We Create Your|#090909---Custom Bottle|#67B7A8"
+    },
+    {
+      "type": "text",
+      "id": "step3_text",
+      "label": "Step 3 Text",
+      "default": "3. You Deliver a |#090909---Gift to Remember|#FFB793"
+    },
+    {
+      "type": "text",
+      "id": "step1_details",
+      "label": "Step 1 Details",
+      "default": "We'll learn about your occasion, style, and message."
+    },
+    {
+      "type": "text",
+      "id": "step2_details",
+      "label": "Step 2 Details",
+      "default": "Our team crafts your label and fills it with premium tequila."
+    },
+    {
+      "type": "text",
+      "id": "step3_details",
+      "label": "Step 3 Details",
+      "default": "Whether it's for a wedding, a client, or your home bar—this is a gift that stands out."
+    },
+    {
       "type": "header",
       "content": "Section Spacing"
+    },
+    {
+      "type": "text",
+      "id": "cta_text",
+      "label": "CTA Button Text",
+      "default": "CREATE YOUR OWN TEQUILA"
+    },
+    {
+      "type": "url",
+      "id": "cta_link",
+      "label": "CTA Button Link",
+      "default": "/collections/all"
     }
   ],
   "blocks": [
