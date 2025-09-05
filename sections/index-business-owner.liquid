@@ -1,15 +1,93 @@
-{% assign header_chunks = '[{"text": "Are you a ", "color": "#090909"}, {"text": "business", "color": "#67B7A8"}, {"text": "owner", "color": "#FFB793"}, {"text": "!", "color": "#090909"}]' %}
+{% comment %} Convert pipe-separated format to JSON chunks {% endcomment %}
+{% assign header_text = 'Are you a |#090909---business|#67B7A8---owner|#FFB793---!|#090909' %}
+{% assign step1_text = '1. |#090909---Book a Free |#FFB793---Design Call|#090909' %}
+{% assign step2_text = '2. We Create Your|#090909---Custom Bottle|#67B7A8' %}
+{% assign step3_text = '3. You Deliver a |#090909---Gift to Remember|#FFB793' %}
 
-{% assign step1_chunks = '[{"text": "1. ", "color": "#090909"}, {"text": "Book a Free ", "color": "#FFB793"}, {"text": "Design Call", "color": "#090909"}]' %}
+{% comment %} Helper function to convert pipe format to JSON chunks {% endcomment %}
+{% assign header_chunks = header_text | split: '---' %}
+{% assign header_json = '[' %}
+{% for chunk in header_chunks %}
+  {% assign parts = chunk | split: '|' %}
+  {% if parts.size == 2 %}
+    {% assign text = parts[0] %}
+    {% assign color = parts[1] %}
+    {% if forloop.index > 1 %}{% assign header_json = header_json | append: ', ' %}{% endif %}
+    {% assign header_json = header_json
+      | append: '{"text": "'
+      | append: text
+      | append: '", "color": "'
+      | append: color
+      | append: '"}'
+    %}
+  {% endif %}
+{% endfor %}
+{% assign header_json = header_json | append: ']' %}
+
+{% assign step1_chunks = step1_text | split: '---' %}
+{% assign step1_json = '[' %}
+{% for chunk in step1_chunks %}
+  {% assign parts = chunk | split: '|' %}
+  {% if parts.size == 2 %}
+    {% assign text = parts[0] %}
+    {% assign color = parts[1] %}
+    {% if forloop.index > 1 %}{% assign step1_json = step1_json | append: ', ' %}{% endif %}
+    {% assign step1_json = step1_json
+      | append: '{"text": "'
+      | append: text
+      | append: '", "color": "'
+      | append: color
+      | append: '"}'
+    %}
+  {% endif %}
+{% endfor %}
+{% assign step1_json = step1_json | append: ']' %}
+
+{% assign step2_chunks = step2_text | split: '---' %}
+{% assign step2_json = '[' %}
+{% for chunk in step2_chunks %}
+  {% assign parts = chunk | split: '|' %}
+  {% if parts.size == 2 %}
+    {% assign text = parts[0] %}
+    {% assign color = parts[1] %}
+    {% if forloop.index > 1 %}{% assign step2_json = step2_json | append: ', ' %}{% endif %}
+    {% assign step2_json = step2_json
+      | append: '{"text": "'
+      | append: text
+      | append: '", "color": "'
+      | append: color
+      | append: '"}'
+    %}
+  {% endif %}
+{% endfor %}
+{% assign step2_json = step2_json | append: ']' %}
+
+{% assign step3_chunks = step3_text | split: '---' %}
+{% assign step3_json = '[' %}
+{% for chunk in step3_chunks %}
+  {% assign parts = chunk | split: '|' %}
+  {% if parts.size == 2 %}
+    {% assign text = parts[0] %}
+    {% assign color = parts[1] %}
+    {% if forloop.index > 1 %}{% assign step3_json = step3_json | append: ', ' %}{% endif %}
+    {% assign step3_json = step3_json
+      | append: '{"text": "'
+      | append: text
+      | append: '", "color": "'
+      | append: color
+      | append: '"}'
+    %}
+  {% endif %}
+{% endfor %}
+{% assign step3_json = step3_json | append: ']' %}
+
 {% assign step1_details = "We'll learn about your occasion, style, and message." %}
-{% assign step2_chunks = '[{"text": "2. We Create Your", "color": "#090909"}, {"text": "Custom Bottle", "color": "#67B7A8"}]' %}
 {% assign step2_details = 'Our team crafts your label and fills it with premium tequila.' %}
-{% assign step3_chunks = '[{"text": "3. You Deliver a ", "color": "#090909"}, {"text": "Gift to Remember", "color": "#FFB793"}]' %}
 {% assign step3_details = "Whether it's for a wedding, a client, or your home bar—this is a gift that stands out." %}
 
 <section id="{{ section.id }}" class="business-owner-section">
   <div class="page-width">
-    {% render 'heading-colored', text_chunks: header_chunks, tag: 'h2', class: 'page-header' %}
+    {% render 'heading-colored', text_chunks: header_json, tag: 'h2', class: 'page-header' %}
 
     {% for block in section.blocks %}
       {% case block.type %}
@@ -97,17 +175,17 @@
     {% endfor %}
 
     <div class="row">
-      <div>{% render 'heading-colored', text_chunks: step1_chunks, tag: 'h2' %}</div>
+      <div>{% render 'heading-colored', text_chunks: step1_json, tag: 'h2' %}</div>
       <div>{{ step1_details }}</div>
     </div>
 
     <div class="row">
-      <div>{% render 'heading-colored', text_chunks: step2_chunks, tag: 'h2' %}</div>
+      <div>{% render 'heading-colored', text_chunks: step2_json, tag: 'h2' %}</div>
       <div>{{ step2_details }}</div>
     </div>
 
     <div class="row">
-      <div>{% render 'heading-colored', text_chunks: step3_chunks, tag: 'h2' %}</div>
+      <div>{% render 'heading-colored', text_chunks: step3_json, tag: 'h2' %}</div>
       <div>{{ step3_details }}</div>
     </div>
     <!-- Add CTA button at the bottom -->
