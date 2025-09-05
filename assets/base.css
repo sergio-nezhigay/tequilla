@@ -3803,6 +3803,7 @@ details-disclosure > details {
 .colored-heading {
   font-size: 30px;
   line-height: 1.2;
+  text-transform: uppercase;
 }
 @media screen and (min-width: 768px) {
   .colored-heading {

@@ -23,7 +23,7 @@
             {% endif %}
 
             {% if section.settings.button_text != blank %}
-              <a href="{{ section.settings.button_link }}" class="tps-button">
+              <a href="{{ section.settings.button_link }}" class=" button-cta">
                 {{ section.settings.button_text }}
               </a>
             {% endif %}
@@ -46,8 +46,8 @@
         </div>
       </div>
       <div class="tps-tasting-section">
-        {% if section.settings.tasting_title != blank %}
-          <h3 class="tps-tasting-title">
+        {% if section.settings.tasting_title_accent != blank %}
+          <h3 class="tps-tasting-title colored-heading">
             <span class="tps-tasting-accent">{{ section.settings.tasting_title_accent }}</span>
             {{ section.settings.tasting_title_main }}
           </h3>
@@ -110,8 +110,6 @@
     --tps-text-dark: #090909;
     --tps-text-light: #666666;
     --tps-white: #ffffff;
-    --tps-border-radius: 20px;
-    --tps-button-radius: 30px;
   }
 
   .tequila-product-showcase {
@@ -154,7 +152,8 @@
   .tps-inner-wrapper {
     display: flex;
     width: 100%;
-    gap: 96px;
+    gap: 10px;
+    margin-bottom: 79px;
   }
 
   .tps-content-side {
@@ -170,7 +169,6 @@
 
   .tps-header {
     max-width: 500px;
-    margin-bottom: 30px;
   }
 
   .tps-title {
@@ -197,44 +195,28 @@
     color: var(--tps-text-dark);
     text-transform: uppercase;
     letter-spacing: 0;
+    line-height: 1.2;
   }
 
   .tps-description {
-    font-size: 13px;
-    line-height: 1.5;
-    color: var(--tps-text-light);
-    margin-bottom: 20px;
-  }
-
-  .tps-button {
-    background: var(--tps-accent-color);
-    color: var(--tps-text-dark);
-    padding: 12px 30px;
-    border-radius: var(--tps-button-radius);
-    text-decoration: none;
-    display: inline-block;
-    font-size: 11px;
-    font-weight: 700;
-    text-transform: uppercase;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 1.65;
     letter-spacing: 0;
-    transition: all 0.3s ease;
-  }
-
-  .tps-button:hover {
-    background: #5eada0;
-    transform: translateY(-2px);
+    color: var(--tps-text-light);
+    margin-bottom: 30px;
   }
 
   .tps-tasting-section {
-    margin: 30px 0;
+    padding: 0 124px;
+    position: relative;
+    z-index: 1;
   }
 
   .tps-tasting-title {
-    font-size: 24px;
-    font-weight: 900;
-    margin: 0 0 10px;
+    margin: 0 0 30px;
     color: var(--tps-text-dark);
-    text-transform: uppercase;
+    text-align: center;
   }
 
   .tps-tasting-accent {
@@ -242,17 +224,20 @@
   }
 
   .tps-tasting-description {
-    font-size: 12px;
-    line-height: 1.5;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 1.65;
     color: var(--tps-text-light);
-    margin: 0 0 20px;
-    max-width: 420px;
+    margin: 0 auto 30px;
+    max-width: 740px;
+    text-align: center;
+    letter-spacing: 0;
   }
 
   .tps-tasting-notes {
     display: flex;
     gap: 20px;
-    margin-top: 20px;
+    margin: 0 auto;
   }
 
   .tps-note-item {
@@ -261,9 +246,8 @@
   }
 
   .tps-note-image {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
+    width: 250px;
+    height: 250px;
     overflow: hidden;
     margin: 0 auto 8px;
   }
@@ -319,7 +303,7 @@
   }
 
   .tps-image-side {
-    flex: 1;
+    flex: 0 0 46%;
     position: relative;
     padding-top: 75px;
     padding-right: 103px;
@@ -337,6 +321,15 @@
     width: 100%;
     height: auto;
     display: block;
+  }
+
+  .button-cta {
+    padding-left: 78px;
+    padding-right: 78px;
+    margin-left: 0;
+    margin-right: 0;
+    width: fit-content;
+    justify-content: flex-start;
   }
 
   @media (max-width: 768px) {
@@ -383,7 +376,6 @@
   }
 
   #section-{{ section.id }} .tps-title {
-    font-size: {{ section.settings.title_size_mobile }}px;
     color: {{ section.settings.title_color }};
   }
 
@@ -397,11 +389,6 @@
 
   #section-{{ section.id }} .tps-description {
     color: {{ section.settings.description_color }};
-  }
-
-  #section-{{ section.id }} .tps-button {
-    background-color: {{ section.settings.button_bg_color }};
-    color: {{ section.settings.button_text_color }};
   }
 
   #section-{{ section.id }} .tps-tasting-accent {
@@ -437,9 +424,6 @@
       padding-bottom: {{ section.settings.padding_bottom_desktop }}px;
     }
 
-    #section-{{ section.id }} .tps-title {
-      font-size: {{ section.settings.title_size_desktop }}px;
-    }
   }
 
   {% if section.settings.custom_css != blank %}
@@ -627,18 +611,6 @@
       "type": "url",
       "id": "button_link",
       "label": "Button Link"
-    },
-    {
-      "type": "color",
-      "id": "button_bg_color",
-      "label": "Button Background Color",
-      "default": "#6EBDB0"
-    },
-    {
-      "type": "color",
-      "id": "button_text_color",
-      "label": "Button Text Color",
-      "default": "#2C2C2C"
     },
     {
       "type": "header",
