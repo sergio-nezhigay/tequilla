@@ -221,12 +221,12 @@
     "index_product_showcase": {
       "type": "index-product-showcase",
       "blocks": {
-        "tasting_note_qCWEaw": {
+        "tasting_note_GtLCgt": {
           "type": "tasting_note",
           "settings": {
-            "note_image": "shopify://shop_images/image33.png",
-            "note_subtitle": "Finish",
-            "note_title": "Bright and silky"
+            "note_image": "shopify://shop_images/Caschuin-pit-for-Ancestral--tequila.png",
+            "note_subtitle": "Aroma",
+            "note_title": "ROASTED AGAVE"
           }
         },
         "tasting_note_YTKXnm": {
@@ -237,19 +237,19 @@
             "note_title": "Tropical fruit"
           }
         },
-        "tasting_note_GtLCgt": {
+        "tasting_note_qCWEaw": {
           "type": "tasting_note",
           "settings": {
-            "note_image": "shopify://shop_images/Caschuin-pit-for-Ancestral--tequila.png",
-            "note_subtitle": "Aroma",
-            "note_title": "ROASTED AGAVE"
+            "note_image": "shopify://shop_images/image33.png",
+            "note_subtitle": "Finish",
+            "note_title": "Bright and silky"
           }
         }
       },
       "block_order": [
-        "tasting_note_qCWEaw",
+        "tasting_note_GtLCgt",
         "tasting_note_YTKXnm",
-        "tasting_note_GtLCgt"
+        "tasting_note_qCWEaw"
       ],
       "settings": {
         "max_width": "1440",
@@ -274,8 +274,6 @@
         "description_color": "#090909",
         "button_text": "CREATE YOUR OWN TEQUILA",
         "button_link": "shopify://collections/all",
-        "button_bg_color": "#6ebdb0",
-        "button_text_color": "#2c2c2c",
         "tasting_title_accent": "TASTING",
         "tasting_title_main": "NOTES",
         "tasting_accent_color": "#6ebdb0",
