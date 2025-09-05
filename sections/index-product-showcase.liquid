@@ -142,8 +142,6 @@
 
   #section-{{ section.id }} .tps-wrapper {
     background: var(--tps-primary-bg);
-    border-radius: var(--tps-border-radius);
-    border: 3px solid #5ebdb0;
     min-height: 390px;
     position: relative;
     overflow: hidden;
@@ -199,15 +197,11 @@
     color: var(--tps-text-dark);
     font-weight: 900;
     text-transform: uppercase;
-  }
 
-  #section-{{ section.id }} .tps-title-main {
-    display: block;
   }
 
   #section-{{ section.id }} .tps-title-accent {
     color: var(--tps-accent-color);
-    display: block;
   }
 
   #section-{{ section.id }} .tps-subtitle {
@@ -353,25 +347,6 @@
     width: 46%;
   }
 
-  @media (max-width: 768px) {
-        #section-{{ section.id }} .tps-content-side {
-      padding: 0;
-    }
-    #section-{{ section.id }} .tps-container {
-      padding: 0 10px;
-    }
-    #section-{{ section.id }} .tps-inner-wrapper {
-      flex-direction: column-reverse;
-      gap: 20px;
-    }
-
-      #section-{{ section.id }} .tps-wrapper {
-    padding: 30px 10px;
-  }
-
-  #section-{{ section.id }} .tps-title {
-    font-size: 30px;
-  }
 
     #section-{{ section.id }} .tps-wrapper::before {
       top: 15px;
@@ -382,10 +357,6 @@
     #section-{{ section.id }} .tps-image-side {
       padding: 0;
       width: 100%;
-    }
-
-    #section-{{ section.id }} .tps-subtitle {
-      font-size: 14px;
     }
 
     #section-{{ section.id }} .tps-tasting-title {
@@ -400,6 +371,39 @@
     #section-{{ section.id }} .tps-footer-image-side {
       justify-content: flex-start;
     }
+
+  @media (max-width: 768px) {
+    #section-{{ section.id }} .tps-content-side {
+      padding: 0;
+    }
+    #section-{{ section.id }} .tps-header {
+            letter-spacing: 0;
+    }
+        #section-{{ section.id }} .tps-title {
+    font-size: 30px;
+    margin-bottom: 10px;
+  }
+
+    #section-{{ section.id }} .tps-container {
+      padding: 0 8.5px;
+    }
+    #section-{{ section.id }} .tps-inner-wrapper {
+      flex-direction: column-reverse;
+      gap: 20px;
+    }
+
+      #section-{{ section.id }} .tps-wrapper {
+    padding: 30px 10px;
+  }
+  #section-{{ section.id }} .tps-subtitle {
+    font-size: 20px;
+    max-width: 315px;
+  }
+  #section-{{ section.id }} .tps-description {
+    font-size: 18px;
+    margin-bottom: 20px;
+  }
+
   }
 </style>
 
