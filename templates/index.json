@@ -217,12 +217,80 @@
         "cta_text": "Book a Business Consultation",
         "cta_link": "shopify://collections/all"
       }
+    },
+    "index_product_showcase": {
+      "type": "index-product-showcase",
+      "blocks": {
+        "tasting_note_qCWEaw": {
+          "type": "tasting_note",
+          "settings": {
+            "note_image": "shopify://shop_images/image33.png",
+            "note_subtitle": "Finish",
+            "note_title": "Bright and silky"
+          }
+        },
+        "tasting_note_YTKXnm": {
+          "type": "tasting_note",
+          "settings": {
+            "note_image": "shopify://shop_images/1718193060-SunIch-web-Tropical-Fruits-3_bca0487d-d365-4f6f-abb0-ea90cd021d94.png",
+            "note_subtitle": "Flavor notes",
+            "note_title": "Tropical fruit"
+          }
+        },
+        "tasting_note_GtLCgt": {
+          "type": "tasting_note",
+          "settings": {
+            "note_image": "shopify://shop_images/Caschuin-pit-for-Ancestral--tequila.png",
+            "note_subtitle": "Aroma",
+            "note_title": "ROASTED AGAVE"
+          }
+        }
+      },
+      "block_order": [
+        "tasting_note_qCWEaw",
+        "tasting_note_YTKXnm",
+        "tasting_note_GtLCgt"
+      ],
+      "settings": {
+        "max_width": "1440",
+        "padding_top_mobile": 30,
+        "padding_bottom_mobile": 100,
+        "padding_top_desktop": 100,
+        "padding_bottom_desktop": 100,
+        "section_bg_color": "#fdd8c6",
+        "reverse_desktop": false,
+        "mobile_order": "image_first",
+        "title_line1": "PRODUCT",
+        "title_line2": "DESCRIPTION",
+        "title_size_mobile": 28,
+        "title_size_desktop": 48,
+        "title_color": "#2c2c2c",
+        "title_accent_color": "#6ebdb0",
+        "subtitle": "PREMIUM TEQUILA, UNMATCHED CRAFTSMANSHIP",
+        "subtitle_color": "#090909",
+        "description": "<p>Distilled in the heart of Jalisco, our tequila is:<br/>- 100% Blue Weber Agave<br/>- Crisp, smooth, and balanced<br/>- Bottled unaged for a clean, authentic blanco profile</p>",
+        "description_color": "#090909",
+        "button_text": "CREATE YOUR OWN TEQUILA",
+        "button_link": "shopify://collections/all",
+        "button_bg_color": "#6ebdb0",
+        "button_text_color": "#2c2c2c",
+        "tasting_title_accent": "TASTING",
+        "tasting_title_main": "NOTES",
+        "tasting_accent_color": "#6ebdb0",
+        "tasting_description": "Aromas of roasted agave, citrus peel, and pepper. Taste of tropical fruit, pineapple, mango, and coconut and is balanced by citrus and a touch of pepper. Bright and silky on the palate with a clean finish",
+        "footer_text_line1": "EVERY BOTTLE IS PERSONAL AND",
+        "footer_text_line2": "TASTES EXCEPTIONAL.",
+        "footer_emoji": "🥃",
+        "main_image": "shopify://shop_images/image.png",
+        "custom_css": ""
+      }
     }
   },
   "order": [
     "index_hero",
     "index_video_hero",
     "index_logo_carousel",
-    "index_business_owner"
+    "index_business_owner",
+    "index_product_showcase"
   ]
 }

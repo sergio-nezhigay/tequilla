@@ -1,0 +1,742 @@
+<!-- Markup -->
+<section id="section-{{ section.id }}" class="tequila-product-showcase">
+  <div class="tps-container" style="max-width: {{ section.settings.max_width }}px;">
+    <div class="tps-wrapper">
+      <div class="tps-content-side">
+        <div class="tps-header">
+          {% if section.settings.title != blank %}
+            <h2 class="tps-title">
+              <span class="tps-title-main">{{ section.settings.title_line1 }}</span>
+              <span class="tps-title-accent">{{ section.settings.title_line2 }}</span>
+            </h2>
+          {% endif %}
+
+          {% if section.settings.subtitle != blank %}
+            <h3 class="tps-subtitle">{{ section.settings.subtitle }}</h3>
+          {% endif %}
+
+          {% if section.settings.description != blank %}
+            <div class="tps-description">
+              {{ section.settings.description }}
+            </div>
+          {% endif %}
+
+          {% if section.settings.button_text != blank %}
+            <a href="{{ section.settings.button_link }}" class="tps-button">
+              {{ section.settings.button_text }}
+            </a>
+          {% endif %}
+        </div>
+
+        <div class="tps-tasting-section">
+          {% if section.settings.tasting_title != blank %}
+            <h3 class="tps-tasting-title">
+              <span class="tps-tasting-accent">{{ section.settings.tasting_title_accent }}</span>
+              {{ section.settings.tasting_title_main }}
+            </h3>
+          {% endif %}
+
+          {% if section.settings.tasting_description != blank %}
+            <p class="tps-tasting-description">{{ section.settings.tasting_description }}</p>
+          {% endif %}
+
+          <div class="tps-tasting-notes">
+            {% for block in section.blocks %}
+              {% if block.type == 'tasting_note' %}
+                <div class="tps-note-item" {{ block.shopify_attributes }}>
+                  {% if block.settings.note_image != blank %}
+                    <div class="tps-note-image">
+                      {{
+                        block.settings.note_image
+                        | image_url: width: 200
+                        | image_tag:
+                          widths: '100, 150, 200, 250, 300',
+                          sizes: '(max-width: 768px) 100px, 150px',
+                          alt: block.settings.note_title
+                      }}
+                    </div>
+                  {% endif %}
+                  {% if block.settings.note_subtitle != blank %}
+                    <span class="tps-note-subtitle">{{ block.settings.note_subtitle }}</span>
+                  {% endif %}
+                  {% if block.settings.note_title != blank %}
+                    <span class="tps-note-title">{{ block.settings.note_title }}</span>
+                  {% endif %}
+                </div>
+              {% endif %}
+            {% endfor %}
+          </div>
+        </div>
+
+        <div class="tps-footer">
+          {% if section.settings.footer_text_line1 != blank %}
+            <p class="tps-footer-text">
+              <span class="tps-footer-line1">{{ section.settings.footer_text_line1 }}</span>
+              {% if section.settings.footer_text_line2 != blank %}
+                <span class="tps-footer-line2">{{ section.settings.footer_text_line2 }}</span>
+              {% endif %}
+              {% if section.settings.footer_emoji != blank %}
+                <span class="tps-footer-emoji">{{ section.settings.footer_emoji }}</span>
+              {% endif %}
+            </p>
+          {% endif %}
+        </div>
+      </div>
+
+      <div class="tps-image-side">
+        {% if section.settings.main_image != blank %}
+          <div class="tps-main-image">
+            {{
+              section.settings.main_image
+              | image_url: width: 600
+              | image_tag:
+                widths: '300, 400, 500, 600, 700, 800',
+                sizes: '(max-width: 768px) 90vw, 500px',
+                alt: section.settings.title
+            }}
+          </div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Styles -->
+<style>
+  :root {
+    --tps-primary-bg: #f5d5cc;
+    --tps-accent-color: #6ebdb0;
+    --tps-text-dark: #2c2c2c;
+    --tps-text-light: #666666;
+    --tps-white: #ffffff;
+    --tps-border-radius: 20px;
+    --tps-button-radius: 30px;
+  }
+
+  .tequila-product-showcase {
+    background: var(--tps-primary-bg);
+    overflow: hidden;
+    position: relative;
+  }
+
+  .tps-container {
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  .tps-wrapper {
+    background: var(--tps-primary-bg);
+    border-radius: var(--tps-border-radius);
+    border: 3px solid #5ebdb0;
+    display: flex;
+    min-height: 390px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .tps-content-side {
+    flex: 1;
+    padding: 40px 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .tps-header {
+    margin-bottom: 30px;
+  }
+
+  .tps-title {
+    font-size: 48px;
+    line-height: 1.1;
+    margin: 0 0 10px;
+    color: var(--tps-text-dark);
+    font-weight: 900;
+    text-transform: uppercase;
+  }
+
+  .tps-title-main {
+    display: block;
+  }
+
+  .tps-title-accent {
+    color: var(--tps-accent-color);
+    display: block;
+  }
+
+  .tps-subtitle {
+    font-size: 16px;
+    font-weight: 700;
+    margin: 0 0 15px;
+    color: var(--tps-text-dark);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .tps-description {
+    font-size: 13px;
+    line-height: 1.5;
+    color: var(--tps-text-light);
+    margin-bottom: 20px;
+  }
+
+  .tps-button {
+    background: var(--tps-accent-color);
+    color: var(--tps-text-dark);
+    padding: 12px 30px;
+    border-radius: var(--tps-button-radius);
+    text-decoration: none;
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+  }
+
+  .tps-button:hover {
+    background: #5eada0;
+    transform: translateY(-2px);
+  }
+
+  .tps-tasting-section {
+    margin: 30px 0;
+  }
+
+  .tps-tasting-title {
+    font-size: 24px;
+    font-weight: 900;
+    margin: 0 0 10px;
+    color: var(--tps-text-dark);
+    text-transform: uppercase;
+  }
+
+  .tps-tasting-accent {
+    color: var(--tps-accent-color);
+  }
+
+  .tps-tasting-description {
+    font-size: 12px;
+    line-height: 1.5;
+    color: var(--tps-text-light);
+    margin: 0 0 20px;
+    max-width: 420px;
+  }
+
+  .tps-tasting-notes {
+    display: flex;
+    gap: 20px;
+    margin-top: 20px;
+  }
+
+  .tps-note-item {
+    text-align: center;
+    flex: 0 0 auto;
+  }
+
+  .tps-note-image {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin: 0 auto 8px;
+  }
+
+  .tps-note-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .tps-note-subtitle {
+    display: block;
+    font-size: 10px;
+    color: var(--tps-text-light);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 3px;
+  }
+
+  .tps-note-title {
+    display: block;
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--tps-text-dark);
+    text-transform: uppercase;
+  }
+
+  .tps-footer {
+    margin-top: auto;
+  }
+
+  .tps-footer-text {
+    font-size: 20px;
+    font-weight: 900;
+    margin: 0;
+    text-transform: uppercase;
+    line-height: 1.2;
+  }
+
+  .tps-footer-line1 {
+    color: var(--tps-text-dark);
+  }
+
+  .tps-footer-line2 {
+    color: var(--tps-accent-color);
+    display: inline;
+    margin-left: 5px;
+  }
+
+  .tps-footer-emoji {
+    font-size: 24px;
+    margin-left: 10px;
+  }
+
+  .tps-image-side {
+    flex: 0 0 500px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+  }
+
+  .tps-main-image {
+    max-width: 100%;
+    height: auto;
+    z-index: 1;
+    position: relative;
+  }
+
+  .tps-main-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  /* Mobile Styles */
+  @media (max-width: 1024px) {
+    .tps-wrapper {
+      flex-direction: column;
+      min-height: auto;
+    }
+
+    .tps-content-side {
+      padding: 30px 25px;
+    }
+
+    .tps-title {
+      font-size: 32px;
+    }
+
+    .tps-image-side {
+      flex: none;
+      width: 100%;
+      padding: 20px;
+    }
+
+    .tps-tasting-notes {
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .tps-note-image {
+      width: 100px;
+      height: 100px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .tps-title {
+      font-size: 28px;
+    }
+
+    .tps-subtitle {
+      font-size: 14px;
+    }
+
+    .tps-tasting-title {
+      font-size: 20px;
+    }
+
+    .tps-footer-text {
+      font-size: 16px;
+    }
+
+    .tps-content-side {
+      padding: 20px;
+    }
+  }
+</style>
+
+<!-- Dynamic Styles -->
+<style>
+  #section-{{ section.id }} {
+    padding-top: {{ section.settings.padding_top_mobile }}px;
+    padding-bottom: {{ section.settings.padding_bottom_mobile }}px;
+  }
+
+  #section-{{ section.id }} .tps-wrapper {
+    background-color: {{ section.settings.section_bg_color }};
+  }
+
+  #section-{{ section.id }} .tps-title {
+    font-size: {{ section.settings.title_size_mobile }}px;
+    color: {{ section.settings.title_color }};
+  }
+
+  #section-{{ section.id }} .tps-title-accent {
+    color: {{ section.settings.title_accent_color }};
+  }
+
+  #section-{{ section.id }} .tps-subtitle {
+    color: {{ section.settings.subtitle_color }};
+  }
+
+  #section-{{ section.id }} .tps-description {
+    color: {{ section.settings.description_color }};
+  }
+
+  #section-{{ section.id }} .tps-button {
+    background-color: {{ section.settings.button_bg_color }};
+    color: {{ section.settings.button_text_color }};
+  }
+
+  #section-{{ section.id }} .tps-tasting-accent {
+    color: {{ section.settings.tasting_accent_color }};
+  }
+
+  {% if section.settings.reverse_desktop %}
+    @media (min-width: 1025px) {
+      #section-{{ section.id }} .tps-wrapper {
+        flex-direction: row-reverse;
+      }
+    }
+  {% endif %}
+
+  {% if section.settings.mobile_order == 'image_first' %}
+    @media (max-width: 1024px) {
+      #section-{{ section.id }} .tps-wrapper {
+        flex-direction: column-reverse;
+      }
+    }
+  {% endif %}
+
+  @media (min-width: 769px) {
+    #section-{{ section.id }} {
+      padding-top: {{ section.settings.padding_top_desktop }}px;
+      padding-bottom: {{ section.settings.padding_bottom_desktop }}px;
+    }
+
+    #section-{{ section.id }} .tps-title {
+      font-size: {{ section.settings.title_size_desktop }}px;
+    }
+  }
+
+  {% if section.settings.custom_css != blank %}
+    {{ section.settings.custom_css }}
+  {% endif %}
+</style>
+
+<!-- Schema -->
+{% schema %}
+{
+  "name": "Tequila Product Section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Section Layout"
+    },
+    {
+      "type": "text",
+      "id": "max_width",
+      "label": "Maximum Width (px)",
+      "default": "1440"
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mobile",
+      "label": "Padding Top - Mobile",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "default": 30,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mobile",
+      "label": "Padding Bottom - Mobile",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "default": 30,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "padding_top_desktop",
+      "label": "Padding Top - Desktop",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "default": 50,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_desktop",
+      "label": "Padding Bottom - Desktop",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "default": 50,
+      "unit": "px"
+    },
+    {
+      "type": "color",
+      "id": "section_bg_color",
+      "label": "Section Background Color",
+      "default": "#F5D5CC"
+    },
+    {
+      "type": "checkbox",
+      "id": "reverse_desktop",
+      "label": "Reverse Layout on Desktop",
+      "default": false
+    },
+    {
+      "type": "select",
+      "id": "mobile_order",
+      "label": "Mobile Content Order",
+      "options": [
+        {
+          "value": "content_first",
+          "label": "Content First"
+        },
+        {
+          "value": "image_first",
+          "label": "Image First"
+        }
+      ],
+      "default": "content_first"
+    },
+    {
+      "type": "header",
+      "content": "Main Content"
+    },
+    {
+      "type": "text",
+      "id": "title_line1",
+      "label": "Title Line 1",
+      "default": "PRODUCT"
+    },
+    {
+      "type": "text",
+      "id": "title_line2",
+      "label": "Title Line 2 (Accent)",
+      "default": "DESCRIPTION"
+    },
+    {
+      "type": "range",
+      "id": "title_size_mobile",
+      "label": "Title Size - Mobile",
+      "min": 20,
+      "max": 60,
+      "step": 2,
+      "default": 28,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "title_size_desktop",
+      "label": "Title Size - Desktop",
+      "min": 30,
+      "max": 80,
+      "step": 2,
+      "default": 48,
+      "unit": "px"
+    },
+    {
+      "type": "color",
+      "id": "title_color",
+      "label": "Title Color",
+      "default": "#2C2C2C"
+    },
+    {
+      "type": "color",
+      "id": "title_accent_color",
+      "label": "Title Accent Color",
+      "default": "#6EBDB0"
+    },
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": "Subtitle",
+      "default": "PREMIUM TEQUILA, UNMATCHED CRAFTSMANSHIP"
+    },
+    {
+      "type": "color",
+      "id": "subtitle_color",
+      "label": "Subtitle Color",
+      "default": "#2C2C2C"
+    },
+    {
+      "type": "richtext",
+      "id": "description",
+      "label": "Description",
+      "default": "<p>Distilled in the heart of Jalisco, our tequila is:<br>- 100% Blue Weber Agave<br>- Crisp, smooth, and balanced<br>- Bottled unaged for a clean, authentic blanco profile</p>"
+    },
+    {
+      "type": "color",
+      "id": "description_color",
+      "label": "Description Color",
+      "default": "#666666"
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button Text",
+      "default": "CREATE YOUR OWN TEQUILA"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button Link"
+    },
+    {
+      "type": "color",
+      "id": "button_bg_color",
+      "label": "Button Background Color",
+      "default": "#6EBDB0"
+    },
+    {
+      "type": "color",
+      "id": "button_text_color",
+      "label": "Button Text Color",
+      "default": "#2C2C2C"
+    },
+    {
+      "type": "header",
+      "content": "Tasting Notes Section"
+    },
+    {
+      "type": "text",
+      "id": "tasting_title_accent",
+      "label": "Tasting Title Accent",
+      "default": "TASTING"
+    },
+    {
+      "type": "text",
+      "id": "tasting_title_main",
+      "label": "Tasting Title Main",
+      "default": "NOTES"
+    },
+    {
+      "type": "color",
+      "id": "tasting_accent_color",
+      "label": "Tasting Accent Color",
+      "default": "#6EBDB0"
+    },
+    {
+      "type": "textarea",
+      "id": "tasting_description",
+      "label": "Tasting Description",
+      "default": "Aromas of roasted agave, citrus peel, and pepper. Taste of tropical fruit, pineapple, mango, and coconut and is balanced by citrus and a touch of pepper. Bright and silky on the palate with a clean finish"
+    },
+    {
+      "type": "header",
+      "content": "Footer Text"
+    },
+    {
+      "type": "text",
+      "id": "footer_text_line1",
+      "label": "Footer Text Line 1",
+      "default": "EVERY BOTTLE IS PERSONAL AND"
+    },
+    {
+      "type": "text",
+      "id": "footer_text_line2",
+      "label": "Footer Text Line 2",
+      "default": "TASTES EXCEPTIONAL."
+    },
+    {
+      "type": "text",
+      "id": "footer_emoji",
+      "label": "Footer Emoji",
+      "default": "🥃"
+    },
+    {
+      "type": "header",
+      "content": "Main Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "main_image",
+      "label": "Main Product Image"
+    },
+    {
+      "type": "header",
+      "content": "Custom CSS"
+    },
+    {
+      "type": "text",
+      "id": "custom_css",
+      "label": "Custom CSS Classes"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "tasting_note",
+      "name": "Tasting Note",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "note_image",
+          "label": "Note Image"
+        },
+        {
+          "type": "text",
+          "id": "note_subtitle",
+          "label": "Note Subtitle",
+          "default": "Aroma"
+        },
+        {
+          "type": "text",
+          "id": "note_title",
+          "label": "Note Title",
+          "default": "ROASTED AGAVE"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Tequila Product Section",
+      "blocks": [
+        {
+          "type": "tasting_note",
+          "settings": {
+            "note_subtitle": "Aroma",
+            "note_title": "ROASTED AGAVE"
+          }
+        },
+        {
+          "type": "tasting_note",
+          "settings": {
+            "note_subtitle": "Flavor Profile",
+            "note_title": "TROPICAL FRUIT"
+          }
+        },
+        {
+          "type": "tasting_note",
+          "settings": {
+            "note_subtitle": "Finish",
+            "note_title": "BRIGHT AND SILKY"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
