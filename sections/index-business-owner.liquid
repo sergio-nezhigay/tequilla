@@ -176,20 +176,20 @@
 
     <div class="row">
       <div>{% render 'heading-colored', text_chunks: step1_json, tag: 'h2' %}</div>
-      <div>{{ step1_details }}</div>
+      <div class="step-details">{{ step1_details }}</div>
     </div>
 
     <div class="row">
       <div>{% render 'heading-colored', text_chunks: step2_json, tag: 'h2' %}</div>
-      <div>{{ step2_details }}</div>
+      <div class="step-details">{{ step2_details }}</div>
     </div>
 
     <div class="row">
       <div>{% render 'heading-colored', text_chunks: step3_json, tag: 'h2' %}</div>
-      <div>{{ step3_details }}</div>
+      <div class="step-details">{{ step3_details }}</div>
     </div>
     <!-- Add CTA button at the bottom -->
-    <div style="text-align: center; margin-top: 40px;">
+    <div>
       <a href="/collections/all" class="button-cta"> CREATE YOUR OWN TEQUILA </a>
     </div>
   </div>
@@ -199,7 +199,7 @@
   #{{ section.id }} .page-width {
     max-width: 1440px;
     margin: 0 auto;
-    padding: 55px 20px 55px;
+    padding: 55px 20px 0;
     outline: 1px solid red;
   }
     #{{ section.id }} .page-header {
@@ -210,6 +210,7 @@
 
   #{{ section.id }}.business-owner-section {
     color: #090909;
+    background-color: #f1f1ee;
   }
 
   #{{ section.id }} .business-owner-description {
@@ -287,8 +288,20 @@
     text-align: center;
   }
 
+  #{{ section.id }} .row {
+    border-bottom: 1px solid var(--color-black);
+    margin-bottom: 20px;
+  }
   #{{ section.id }} .row .colored-heading {
     font-size: 20px;
+    margin-bottom: 10px;
+  }
+  #{{ section.id }} .row .step-details {
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 1.65;
+    opacity: 0.8;
+    margin-bottom: 10px;
   }
 
 
