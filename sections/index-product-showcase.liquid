@@ -6,10 +6,13 @@
         <div class="tps-content-side">
           <div class="tps-header">
             {% if section.settings.title_line1 != blank %}
-              <h2 class="tps-title">
-                <span class="tps-title-main">{{ section.settings.title_line1 }}</span>
-                <span class="tps-title-accent">{{ section.settings.title_line2 }}</span>
-              </h2>
+              <h3 class="tps-footer-text ">
+                <span class="tps-footer-line1">{{ section.settings.footer_text_line1 }}</span>
+                {%- if section.settings.footer_text_line2 != blank -%}
+                  <span class="tps-footer-line2">{{ section.settings.footer_text_line2 }}</span>
+                {%- endif -%}
+                <span class="tps-footer-dot">.</span>
+              </h3>
             {% endif %}
 
             {% if section.settings.subtitle != blank %}
@@ -295,9 +298,9 @@
   .tps-footer-row {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    gap: 40px;
-    margin-top: 30px;
+    justify-content: center;
+    max-width: 900px;
+    margin: 0 auto;
   }
 
   .tps-footer {
@@ -306,10 +309,8 @@
   }
 
   .tps-footer-image-side {
-    flex: 0 0 200px;
     display: flex;
     align-items: center;
-    justify-content: flex-end;
   }
 
   .tps-footer-image {
@@ -320,6 +321,13 @@
   .tps-footer-image img {
     width: 100%;
     height: auto;
+    display: block;
+  }
+  .tps-footer-line1 {
+    color: var(--tps-text-dark);
+  }
+  .tps-footer-line2 {
+    color: var(--tps-accent-color);
     display: block;
   }
 
@@ -353,6 +361,8 @@
       flex-direction: column;
       gap: 20px;
       align-items: flex-start;
+      position: relative;
+      z-index: 1;
     }
     .tps-footer-image-side {
       justify-content: flex-start;

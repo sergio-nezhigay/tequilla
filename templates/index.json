@@ -280,8 +280,8 @@
         "tasting_description": "Aromas of roasted agave, citrus peel, and pepper. Taste of tropical fruit, pineapple, mango, and coconut and is balanced by citrus and a touch of pepper. Bright and silky on the palate with a clean finish",
         "footer_text_line1": "EVERY BOTTLE IS PERSONAL AND",
         "footer_text_line2": "TASTES EXCEPTIONAL.",
-        "footer_emoji": "🥃",
         "main_image": "shopify://shop_images/image.png",
+        "footer_image": "shopify://shop_images/Group_120.png",
         "custom_css": ""
       }
     }
