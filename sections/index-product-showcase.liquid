@@ -6,13 +6,10 @@
         <div class="tps-content-side">
           <div class="tps-header">
             {% if section.settings.title_line1 != blank %}
-              <h3 class="tps-footer-text ">
-                <span class="tps-footer-line1">{{ section.settings.footer_text_line1 }}</span>
-                {%- if section.settings.footer_text_line2 != blank -%}
-                  <span class="tps-footer-line2">{{ section.settings.footer_text_line2 }}</span>
-                {%- endif -%}
-                <span class="tps-footer-dot">.</span>
-              </h3>
+              <h2 class="tps-title">
+                <span class="tps-title-main">{{ section.settings.title_line1 }}</span>
+                <span class="tps-title-accent">{{ section.settings.title_line2 }}</span>
+              </h2>
             {% endif %}
 
             {% if section.settings.subtitle != blank %}
@@ -41,7 +38,7 @@
                 | image_url: width: 600
                 | image_tag:
                   widths: '300, 400, 500, 600, 700, 800',
-                  sizes: '(max-width: 768px) 90vw, 500px',
+                  sizes: '(max-width: 768px) 90vw, 50vw',
                   alt: section.settings.title
               }}
             </div>
@@ -94,9 +91,11 @@
             <p class="tps-footer-text ">
               <span class="tps-footer-line1">{{ section.settings.footer_text_line1 }}</span>
               {% if section.settings.footer_text_line2 != blank %}
-                <span class="tps-footer-line2">{{ section.settings.footer_text_line2 }}</span>
+                <span class="tps-footer-line2">
+                  {{- section.settings.footer_text_line2 -}}
+                  <span class="tps-footer-line1">.</span></span
+                >
               {% endif %}
-              <span class="tps-footer-line1">.</span>
             </p>
           {% endif %}
         </div>
@@ -299,8 +298,17 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    letter-spacing: 0;
     max-width: 900px;
     margin: 0 auto;
+    position: relative;
+    z-index: 1;
+  }
+
+  .tps-main-image img {
+    width: 100%;
+    height: auto;
+    display: block;
   }
 
   .tps-footer {
@@ -325,10 +333,17 @@
   }
   .tps-footer-line1 {
     color: var(--tps-text-dark);
+    letter-spacing: 0;
   }
   .tps-footer-line2 {
     color: var(--tps-accent-color);
-    display: block;
+
+    letter-spacing: 0;
+  }
+  .tps-image-side {
+    padding-right: 103px;
+    padding-top: 75px;
+    width: 46%;
   }
 
   @media (max-width: 768px) {
@@ -361,8 +376,6 @@
       flex-direction: column;
       gap: 20px;
       align-items: flex-start;
-      position: relative;
-      z-index: 1;
     }
     .tps-footer-image-side {
       justify-content: flex-start;
