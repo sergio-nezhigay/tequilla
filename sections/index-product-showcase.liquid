@@ -359,10 +359,6 @@
       width: 100%;
     }
 
-    #section-{{ section.id }} .tps-tasting-title {
-      font-size: 20px;
-    }
-
     #section-{{ section.id }} .tps-footer-row {
       flex-direction: column;
       gap: 20px;
@@ -395,6 +391,12 @@
       #section-{{ section.id }} .tps-wrapper {
     padding: 30px 10px;
   }
+      #section-{{ section.id }} .tps-tasting-title {
+   margin-bottom: 20px;
+  }
+      #section-{{ section.id }} .tps-tasting-section {
+    padding: 0;
+  }
   #section-{{ section.id }} .tps-subtitle {
     font-size: 20px;
     max-width: 315px;
@@ -403,6 +405,36 @@
     font-size: 18px;
     margin-bottom: 20px;
   }
+  #section-{{ section.id }} .tps-inner-wrapper {
+    margin-bottom: 40px;
+  }
+    #section-{{ section.id }} .tps-tasting-description {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+    #section-{{ section.id }} .tps-tasting-notes {
+    flex-direction: column;
+    align-items: center;
+    gap: 21px;
+  }
+    #section-{{ section.id }} .tps-note-image {
+    max-width: 250px;
+    width: 250px;
+  }
+    #section-{{ section.id }} .tps-footer-image-side {
+        display: none;
+  }
+    #section-{{ section.id }} .tps-note-title {
+        font-size: 20px;
+  }
+    #section-{{ section.id }} .tps-tasting-section {
+        margin-bottom: 20px;
+  }
+    #section-{{ section.id }} .tps-footer-text {
+       font-size: 20px;
+       text-align: center;
+  }
+
 
   }
 </style>
