@@ -206,7 +206,16 @@
         "images_grid_HqwNA4"
       ],
       "settings": {
-        "show_heading": true
+        "show_heading": true,
+        "header_text": "Are you a |#090909---business|#67B7A8---owner|#FFB793---!|#090909",
+        "step1_text": "1. |#090909---Book a Free |#FFB793---Design Call|#090909",
+        "step1_details": "We'll learn about your occasion, style, and message.",
+        "step2_text": "2. We Create Your|#090909---Custom Bottle|#67B7A8",
+        "step2_details": "Our team crafts your label and fills it with premium tequila.",
+        "step3_text": "3. You Deliver a |#090909---Gift to Remember|#FFB793",
+        "step3_details": "Whether it's for a wedding, a client, or your home bar—this is a gift that stands out.",
+        "cta_text": "Book a Business Consultation",
+        "cta_link": "shopify://collections/all"
       }
     }
   },
