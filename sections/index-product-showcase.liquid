@@ -85,16 +85,32 @@
         </div>
       </div>
 
-      <div class="tps-footer colored-heading">
-        {% if section.settings.footer_text_line1 != blank %}
-          <p class="tps-footer-text ">
-            <span class="tps-footer-line1">{{ section.settings.footer_text_line1 }}</span>
-            {% if section.settings.footer_text_line2 != blank %}
-              <span class="tps-footer-line2">{{ section.settings.footer_text_line2 }}</span>
-            {% endif %}
-            <span class="tps-footer-line1">.</span>
-          </p>
-        {% endif %}
+      <div class="tps-footer-row">
+        <div class="tps-footer colored-heading">
+          {% if section.settings.footer_text_line1 != blank %}
+            <p class="tps-footer-text ">
+              <span class="tps-footer-line1">{{ section.settings.footer_text_line1 }}</span>
+              {% if section.settings.footer_text_line2 != blank %}
+                <span class="tps-footer-line2">{{ section.settings.footer_text_line2 }}</span>
+              {% endif %}
+              <span class="tps-footer-line1">.</span>
+            </p>
+          {% endif %}
+        </div>
+        <div class="tps-footer-image-side">
+          {% if section.settings.footer_image != blank %}
+            <div class="tps-footer-image">
+              {{
+                section.settings.footer_image
+                | image_url: width: 200
+                | image_tag:
+                  widths: '100, 150, 200, 250',
+                  sizes: '(max-width: 768px) 100px, 150px',
+                  alt: section.settings.footer_text_line1
+              }}
+            </div>
+          {% endif %}
+        </div>
       </div>
     </div>
   </div>
@@ -276,53 +292,35 @@
     text-transform: uppercase;
   }
 
+  .tps-footer-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+    margin-top: 30px;
+  }
+
   .tps-footer {
-    z-index: 1;
-    position: relative;
+    flex: 1;
+    text-align: left;
   }
 
-  .tps-footer-line1 {
-    color: var(--tps-text-dark);
+  .tps-footer-image-side {
+    flex: 0 0 200px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
   }
 
-  .tps-footer-line2 {
-    color: var(--tps-accent-color);
-    display: inline;
-    margin-left: 5px;
-  }
-
-  .tps-image-side {
-    flex: 0 0 46%;
-    position: relative;
-    padding-top: 75px;
-    padding-right: 103px;
-    z-index: 1;
-  }
-
-  .tps-main-image {
-    max-width: 100%;
+  .tps-footer-image {
+    max-width: 200px;
     height: auto;
-    z-index: 1;
-    position: relative;
   }
 
-  .tps-main-image img {
+  .tps-footer-image img {
     width: 100%;
     height: auto;
     display: block;
-  }
-
-  .button-cta {
-    padding-left: 78px;
-    padding-right: 78px;
-    margin-left: 0;
-    margin-right: 0;
-    width: fit-content;
-    justify-content: flex-start;
-  }
-
-  .tps-footer-text {
-    text-align: center;
   }
 
   @media (max-width: 768px) {
@@ -349,6 +347,15 @@
 
     .tps-content-side {
       padding: 20px;
+    }
+
+    .tps-footer-row {
+      flex-direction: column;
+      gap: 20px;
+      align-items: flex-start;
+    }
+    .tps-footer-image-side {
+      justify-content: flex-start;
     }
   }
 </style>
@@ -654,6 +661,11 @@
       "type": "image_picker",
       "id": "main_image",
       "label": "Main Product Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "footer_image",
+      "label": "Footer Image"
     },
     {
       "type": "header",
