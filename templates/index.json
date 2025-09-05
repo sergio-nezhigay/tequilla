@@ -193,9 +193,9 @@
             "bottle_overlay_image": "shopify://shop_images/bottle.png",
             "image_1": "shopify://shop_images/from_l-Photoroom_1.png",
             "text_1": "Add logos, custom messaging, and special details.",
-            "image_2": "shopify://shop_images/Rectangle_43a.webp",
+            "image_2": "shopify://shop_images/Rectangle_43s.png",
             "text_2": "Perfect for corporate gifting, hospitality, and brand activations.",
-            "image_3": "shopify://shop_images/Rectangle_43.webp",
+            "image_3": "shopify://shop_images/Rectangle_43_697fd724-430e-4861-8da7-65c27395a9bf.png",
             "text_3": "White glove design support from our team"
           }
         }
@@ -206,19 +206,7 @@
         "images_grid_HqwNA4"
       ],
       "settings": {
-        "show_heading": true,
-        "padding_top": 50,
-        "padding_bottom": 50,
-        "text_1": "Are you a",
-        "color_1": "#090909",
-        "text_2": "BUSINESS",
-        "color_2": "#67b7a8",
-        "text_3": "OWNER",
-        "color_3": "#ffb793",
-        "text_4": "?",
-        "color_4": "#090909",
-        "text_5": "",
-        "color_5": "#333333"
+        "show_heading": true
       }
     }
   },

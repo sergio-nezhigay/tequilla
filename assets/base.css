@@ -3772,7 +3772,7 @@ details-disclosure > details {
   border: 2px solid #090909;
   border-radius: 90px;
   font-family: 'Futura Hv BT', 'Roundo', Arial, sans-serif;
-  font-size: 20px;
+  font-size: 16px;
   font-weight: bold;
   text-transform: uppercase;
   line-height: 1.2;
@@ -3785,9 +3785,11 @@ details-disclosure > details {
   text-decoration: none;
   cursor: pointer;
 }
-@media screen and (max-width: 767px) {
+@media screen and (min-width: 767px) {
   .button-cta {
-    font-size: 16px;
+    font-size: 18px;
+    width: fit-content;
+    padding: 28px 100px;
   }
 }
 
@@ -3801,4 +3803,9 @@ details-disclosure > details {
 .colored-heading {
   font-size: 30px;
   line-height: 1.2;
+}
+@media screen and (min-width: 768px) {
+  .colored-heading {
+    font-size: 60px;
+  }
 }
