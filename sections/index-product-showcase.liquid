@@ -86,9 +86,9 @@
       </div>
 
       <div class="tps-footer-row">
-        <div class="tps-footer colored-heading">
+        <div class="tps-footer ">
           {% if section.settings.footer_text_line1 != blank %}
-            <p class="tps-footer-text ">
+            <h3 class="tps-footer-text colored-heading">
               <span class="tps-footer-line1">{{ section.settings.footer_text_line1 }}</span>
               {% if section.settings.footer_text_line2 != blank %}
                 <span class="tps-footer-line2">
@@ -96,7 +96,7 @@
                   <span class="tps-footer-line1">.</span></span
                 >
               {% endif %}
-            </p>
+            </h3>
           {% endif %}
         </div>
         <div class="tps-footer-image-side">
