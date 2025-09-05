@@ -128,19 +128,19 @@
     --tps-white: #ffffff;
   }
 
-  .tequila-product-showcase {
+  #section-{{ section.id }}.tequila-product-showcase {
     background: var(--tps-primary-bg);
     overflow: hidden;
     position: relative;
   }
 
-  .tps-container {
+  #section-{{ section.id }} .tps-container {
     margin: 0 auto;
     padding: 0 112px;
     width: 100%;
   }
 
-  .tps-wrapper {
+  #section-{{ section.id }} .tps-wrapper {
     background: var(--tps-primary-bg);
     border-radius: var(--tps-border-radius);
     border: 3px solid #5ebdb0;
@@ -149,12 +149,12 @@
     overflow: hidden;
   }
 
-  .button-cta {
+  #section-{{ section.id }} .button-cta {
     margin-left: 0;
     margin-right: auto;
   }
 
-  .tps-wrapper::before {
+  #section-{{ section.id }} .tps-wrapper::before {
     content: '';
     position: absolute;
     top: 15px;
@@ -170,14 +170,14 @@
     border-radius: calc(var(--tps-border-radius) - 3px);
   }
 
-  .tps-inner-wrapper {
+  #section-{{ section.id }} .tps-inner-wrapper {
     display: flex;
     width: 100%;
     gap: 10px;
     margin-bottom: 79px;
   }
 
-  .tps-content-side {
+  #section-{{ section.id }} .tps-content-side {
     flex: 1;
     padding-top: 117px;
     padding-left: 103px;
@@ -188,11 +188,11 @@
     z-index: 1;
   }
 
-  .tps-header {
+  #section-{{ section.id }} .tps-header {
     max-width: 500px;
   }
 
-  .tps-title {
+  #section-{{ section.id }} .tps-title {
     font-size: 60px;
     line-height: 1.1;
     margin: 0 0 20px;
@@ -201,16 +201,16 @@
     text-transform: uppercase;
   }
 
-  .tps-title-main {
+  #section-{{ section.id }} .tps-title-main {
     display: block;
   }
 
-  .tps-title-accent {
+  #section-{{ section.id }} .tps-title-accent {
     color: var(--tps-accent-color);
     display: block;
   }
 
-  .tps-subtitle {
+  #section-{{ section.id }} .tps-subtitle {
     font-size: 30px;
     margin: 0 0 20px;
     color: var(--tps-text-dark);
@@ -219,7 +219,7 @@
     line-height: 1.2;
   }
 
-  .tps-description {
+  #section-{{ section.id }} .tps-description {
     font-size: 20px;
     font-weight: 400;
     line-height: 1.65;
@@ -228,24 +228,24 @@
     margin-bottom: 30px;
   }
 
-  .tps-tasting-section {
+  #section-{{ section.id }} .tps-tasting-section {
     padding: 0 124px;
     position: relative;
     z-index: 1;
     margin-bottom: 51px;
   }
 
-  .tps-tasting-title {
+  #section-{{ section.id }} .tps-tasting-title {
     margin: 0 0 30px;
     color: var(--tps-text-dark);
     text-align: center;
   }
 
-  .tps-tasting-accent {
+  #section-{{ section.id }} .tps-tasting-accent {
     color: var(--tps-accent-color);
   }
 
-  .tps-tasting-description {
+  #section-{{ section.id }} .tps-tasting-description {
     font-size: 20px;
     font-weight: 400;
     line-height: 1.65;
@@ -256,33 +256,33 @@
     letter-spacing: 0;
   }
 
-  .tps-tasting-notes {
+  #section-{{ section.id }} .tps-tasting-notes {
     display: flex;
     gap: 20px;
     justify-content: center;
   }
 
-  .tps-note-item {
+  #section-{{ section.id }} .tps-note-item {
     text-align: center;
     min-width: 0;
     max-width: 250px;
     flex: 1 1 auto;
   }
 
-  .tps-note-image {
+  #section-{{ section.id }} .tps-note-image {
     max-width: 250px;
     max-height: 250px;
     overflow: hidden;
     margin: 0 auto 10px;
   }
 
-  .tps-note-image img {
+  #section-{{ section.id }} .tps-note-image img {
     width: 100%;
     height: 100%;
     object-fit: cover;
   }
 
-  .tps-note-subtitle {
+  #section-{{ section.id }} .tps-note-subtitle {
     display: block;
     font-size: 16px;
     font-weight: 400;
@@ -292,7 +292,7 @@
     margin-bottom: 5px;
   }
 
-  .tps-note-title {
+  #section-{{ section.id }} .tps-note-title {
     display: block;
     font-size: 24px;
     line-height: 1.2;
@@ -301,7 +301,7 @@
     text-transform: uppercase;
   }
 
-  .tps-footer-row {
+  #section-{{ section.id }} .tps-footer-row {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -312,79 +312,93 @@
     z-index: 1;
   }
 
-  .tps-main-image img {
+  #section-{{ section.id }} .tps-main-image img {
     width: 100%;
     height: auto;
     display: block;
   }
 
-  .tps-footer {
+  #section-{{ section.id }} .tps-footer {
     flex: 1;
     text-align: left;
   }
 
-  .tps-footer-image-side {
+  #section-{{ section.id }} .tps-footer-image-side {
     display: flex;
     align-items: center;
   }
 
-  .tps-footer-image {
+  #section-{{ section.id }} .tps-footer-image {
     max-width: 200px;
     height: auto;
   }
 
-  .tps-footer-image img {
+  #section-{{ section.id }} .tps-footer-image img {
     width: 100%;
     height: auto;
     display: block;
   }
-  .tps-footer-line1 {
+  #section-{{ section.id }} .tps-footer-line1 {
     color: var(--tps-text-dark);
     letter-spacing: 0;
   }
-  .tps-footer-line2 {
+  #section-{{ section.id }} .tps-footer-line2 {
     color: var(--tps-accent-color);
 
     letter-spacing: 0;
   }
-  .tps-image-side {
+  #section-{{ section.id }} .tps-image-side {
     padding-right: 103px;
     padding-top: 75px;
     width: 46%;
   }
 
   @media (max-width: 768px) {
-    .tps-wrapper::before {
+    #section-{{ section.id }} .tps-container {
+      padding: 0 10px;
+    }
+    #section-{{ section.id }} .tps-inner-wrapper {
+      flex-direction: column-reverse;
+      gap: 20px;
+    }
+
+      #section-{{ section.id }} .tps-wrapper {
+    padding: 30px 10px;
+
+  }
+
+    #section-{{ section.id }} .tps-wrapper::before {
       top: 15px;
       left: 50px;
       right: 38px;
       bottom: 0px;
     }
-    .tps-image-side {
-      padding: 30px 10px 0;
+    #section-{{ section.id }} .tps-image-side {
+      padding: 0;
+      width: 100%;
     }
-    .tps-title {
+    #section-{{ section.id }} .tps-title {
       font-size: 28px;
     }
 
-    .tps-subtitle {
+    #section-{{ section.id }} .tps-subtitle {
       font-size: 14px;
     }
 
-    .tps-tasting-title {
+    #section-{{ section.id }} .tps-tasting-title {
       font-size: 20px;
     }
 
-    .tps-content-side {
+    #section-{{ section.id }} .tps-content-side {
       padding: 20px;
     }
 
-    .tps-footer-row {
+    #section-{{ section.id }} .tps-footer-row {
       flex-direction: column;
       gap: 20px;
       align-items: flex-start;
     }
-    .tps-footer-image-side {
+    #section-{{ section.id }} .tps-footer-image-side {
       justify-content: flex-start;
     }
   }
