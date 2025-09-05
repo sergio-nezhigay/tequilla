@@ -198,7 +198,6 @@
       max-width: 1440px;
       margin: 0 auto;
       padding: 55px 20px 0;
-      outline: 1px solid red;
     }
       #{{ section.id }} .page-header {
       max-width: 306px;
@@ -219,11 +218,11 @@
       text-align: center;
     }
     #{{ section.id }} .business-owner-description-2 {
-      margin-bottom: 23px;
+      margin-bottom: 41px;
       font-size: 18px;
       font-weight: 400;
       opacity: 0.8;
-      line-height: 1.65;
+      line-height: 1.2;
       text-align: center;
     }
 
@@ -255,12 +254,12 @@
 
     #{{ section.id }} .bottle-overlay {
       position: absolute;
-      top: -10px;
+      top: -15px;
       left: 50%;
       z-index: 10;
       transform: translateX(-50%);
       height: auto;
-      width: 21.5%;
+      width: 21.9%;
     }
 
     #{{ section.id }} .bottle-overlay img {
@@ -284,6 +283,8 @@
       opacity: 0.8;
       font-weight: 500;
       text-align: center;
+      letter-spacing: 0;
+      padding: 0 30px;
     }
 
     #{{ section.id }} .row {
@@ -343,9 +344,15 @@
      padding-bottom: 20px;
      margin-bottom: 30px;
     }
-        #{{ section.id }} .row .step-details {
+    #{{ section.id }} .row .colored-heading,
+    #{{ section.id }} .row .step-details {
+      width: 50%;
+      flex: 0 0 50%;
+    }
+    #{{ section.id }} .row .step-details {
       font-size: 20px;
       margin-bottom: 0;
+      text-align: right;
     }
   }
     }
@@ -373,7 +380,8 @@
       "type": "text",
       "id": "header_text",
       "label": "Header Text",
-      "default": "Are you a |#090909---business|#67B7A8---owner|#FFB793---!|#090909"
+      "default": "Are you a |#090909---business|#67B7A8---owner|#FFB793---!|#090909",
+      "info": "Format: text|color---text|color---... Example: Are you a |#090909---business|#67B7A8---owner|#FFB793---!|#090909"
     },
     {
       "type": "header",
@@ -383,7 +391,8 @@
       "type": "text",
       "id": "step1_text",
       "label": "Step 1 Text",
-      "default": "1. |#090909---Book a Free |#FFB793---Design Call|#090909"
+      "default": "1. |#090909---Book a Free |#FFB793---Design Call|#090909",
+      "info": "Format: text|color---text|color---... Use | for color, --- to separate chunks."
     },
     {
       "type": "text",
@@ -399,7 +408,8 @@
       "type": "text",
       "id": "step2_text",
       "label": "Step 2 Text",
-      "default": "2. We Create Your|#090909---Custom Bottle|#67B7A8"
+      "default": "2. We Create Your|#090909---Custom Bottle|#67B7A8",
+      "info": "Format: text|color---text|color---... Use | for color, --- to separate chunks."
     },
     {
       "type": "text",
@@ -415,7 +425,8 @@
       "type": "text",
       "id": "step3_text",
       "label": "Step 3 Text",
-      "default": "3. You Deliver a |#090909---Gift to Remember|#FFB793"
+      "default": "3. You Deliver a |#090909---Gift to Remember|#FFB793",
+      "info": "Format: text|color---text|color---... Use | for color, --- to separate chunks."
     },
     {
       "type": "text",
