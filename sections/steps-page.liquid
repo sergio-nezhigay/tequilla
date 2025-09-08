@@ -1,0 +1,741 @@
+<!-- Markup -->
+<div id="{{ section.id }}" class="tequila-steps-section {{ section.settings.custom_classes }}">
+  <div class="tequila-steps-container">
+    <!-- Header -->
+    {%- if section.settings.header_text != blank -%}
+      <div class="tequila-steps-header">
+        {{ section.settings.header_text }}
+      </div>
+    {%- endif -%}
+
+    <!-- Steps -->
+    <div class="tequila-steps-list">
+      {%- for block in section.blocks -%}
+        <div class="tequila-step" {{ block.shopify_attributes }}>
+          <div class="tequila-step-content">
+            <!-- Step Image -->
+            {%- if block.settings.image != blank -%}
+              <div class="tequila-step-image">
+                {{
+                  block.settings.image
+                  | image_url: width: 300
+                  | image_tag: loading: 'lazy', sizes: '(min-width: 768px) 300px, 150px', widths: '150, 300, 450, 600'
+                }}
+              </div>
+            {%- endif -%}
+
+            <!-- Step Text Content -->
+            <div class="tequila-step-text">
+              {%- if block.settings.step_number != blank -%}
+                <div class="tequila-step-number" style="color: {{ block.settings.step_number_color }};">
+                  {{ block.settings.step_number }}
+                </div>
+              {%- endif -%}
+
+              {%- if block.settings.step_title != blank -%}
+                <h3 class="tequila-step-title">
+                  {{ block.settings.step_title }}
+                </h3>
+              {%- endif -%}
+
+              {%- if block.settings.step_description != blank -%}
+                <div class="tequila-step-description">
+                  {{ block.settings.step_description }}
+                </div>
+              {%- endif -%}
+            </div>
+          </div>
+        </div>
+      {%- endfor -%}
+    </div>
+
+    <!-- CTA Button -->
+    {%- if section.settings.cta_text != blank and section.settings.cta_url != blank -%}
+      <div class="tequila-steps-cta">
+        <a href="{{ section.settings.cta_url }}" class="tequila-cta-button">
+          {{ section.settings.cta_text }}
+        </a>
+      </div>
+    {%- endif -%}
+  </div>
+</div>
+
+<!-- Styles -->
+<style>
+  #{{ section.id }} {
+    --section-bg: {{ section.settings.section_background | default: '#f5e6d3' }};
+    --max-width: {{ section.settings.max_width | default: '1200px' }};
+    --padding-top-mobile: {{ section.settings.padding_top_mobile | default: '40' }}px;
+    --padding-bottom-mobile: {{ section.settings.padding_bottom_mobile | default: '40' }}px;
+    --padding-top-desktop: {{ section.settings.padding_top_desktop | default: '80' }}px;
+    --padding-bottom-desktop: {{ section.settings.padding_bottom_desktop | default: '80' }}px;
+    --header-color: {{ section.settings.header_color | default: '#2c3e50' }};
+    --header-size-mobile: {{ section.settings.header_size_mobile | default: '24' }}px;
+    --header-size-desktop: {{ section.settings.header_size_desktop | default: '36' }}px;
+    --step-title-color: {{ section.settings.step_title_color | default: '#2c3e50' }};
+    --step-title-size-mobile: {{ section.settings.step_title_size_mobile | default: '18' }}px;
+    --step-title-size-desktop: {{ section.settings.step_title_size_desktop | default: '24' }}px;
+    --step-description-color: {{ section.settings.step_description_color | default: '#666' }};
+    --step-description-size-mobile: {{ section.settings.step_description_size_mobile | default: '14' }}px;
+    --step-description-size-desktop: {{ section.settings.step_description_size_desktop | default: '16' }}px;
+    --cta-bg: {{ section.settings.cta_bg | default: '#7fb069' }};
+    --cta-color: {{ section.settings.cta_color | default: '#fff' }};
+    --cta-size-mobile: {{ section.settings.cta_size_mobile | default: '16' }}px;
+    --cta-size-desktop: {{ section.settings.cta_size_desktop | default: '18' }}px;
+
+    background: var(--section-bg);
+    padding: var(--padding-top-mobile) 16px var(--padding-bottom-mobile);
+    width: 100%;
+  }
+
+  #{{ section.id }} .tequila-steps-container {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    position: relative;
+  }
+
+  #{{ section.id }} .tequila-steps-header {
+    text-align: center;
+    font-size: var(--header-size-mobile);
+    color: var(--header-color);
+    margin-bottom: 40px;
+    font-weight: 700;
+    line-height: 1.2;
+  }
+
+  #{{ section.id }} .tequila-steps-list {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    margin-bottom: 40px;
+  }
+
+  #{{ section.id }} .tequila-step {
+    width: 100%;
+  }
+
+  #{{ section.id }} .tequila-step-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    text-align: center;
+  }
+
+  #{{ section.id }} .tequila-step-image {
+    width: 150px;
+    height: 150px;
+    flex-shrink: 0;
+    overflow: hidden;
+    position: relative;
+  }
+
+  #{{ section.id }} .tequila-step-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  #{{ section.id }} .tequila-step-text {
+    flex: 1;
+  }
+
+  #{{ section.id }} .tequila-step-number {
+    font-size: 48px;
+    font-weight: 700;
+    margin-bottom: 8px;
+    line-height: 1;
+  }
+
+  #{{ section.id }} .tequila-step-title {
+    font-size: var(--step-title-size-mobile);
+    color: var(--step-title-color);
+    font-weight: 700;
+    margin: 0 0 12px 0;
+    line-height: 1.3;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  #{{ section.id }} .tequila-step-description {
+    font-size: var(--step-description-size-mobile);
+    color: var(--step-description-color);
+    line-height: 1.5;
+    margin: 0;
+  }
+
+  #{{ section.id }} .tequila-steps-cta {
+    text-align: center;
+    margin-top: 40px;
+  }
+
+  #{{ section.id }} .tequila-cta-button {
+    display: inline-block;
+    background: var(--cta-bg);
+    color: var(--cta-color);
+    padding: 12px 24px;
+    font-size: var(--cta-size-mobile);
+    font-weight: 600;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+  }
+
+  #{{ section.id }} .tequila-cta-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    opacity: 0.9;
+  }
+
+  /* Text Styling Classes */
+  #{{ section.id }} .text-normal { font-weight: normal; font-style: normal; }
+  #{{ section.id }} .text-bold { font-weight: bold; font-style: normal; }
+  #{{ section.id }} .text-cursive { font-weight: normal; font-style: italic; }
+
+  /* Desktop Styles */
+  @media (min-width: 768px) {
+    #{{ section.id }} {
+      padding: var(--padding-top-desktop) 24px var(--padding-bottom-desktop);
+    }
+
+    #{{ section.id }} .tequila-steps-header {
+      font-size: var(--header-size-desktop);
+      margin-bottom: 60px;
+    }
+
+    #{{ section.id }} .tequila-steps-list {
+      gap: 60px;
+      margin-bottom: 60px;
+    }
+
+    #{{ section.id }} .tequila-step:nth-child(even) .tequila-step-content {
+      flex-direction: row-reverse;
+    }
+
+    #{{ section.id }} .tequila-step:nth-child(odd) .tequila-step-content {
+      flex-direction: row;
+    }
+
+    #{{ section.id }} .tequila-step-content {
+      flex-direction: row;
+      align-items: center;
+      gap: 60px;
+      text-align: left;
+      max-width: 100%;
+    }
+
+    #{{ section.id }} .tequila-step:nth-child(even) .tequila-step-text {
+      text-align: right;
+    }
+
+    #{{ section.id }} .tequila-step-image {
+      width: 300px;
+      height: 300px;
+    }
+
+    #{{ section.id }} .tequila-step-number {
+      font-size: 64px;
+      margin-bottom: 12px;
+    }
+
+    #{{ section.id }} .tequila-step-title {
+      font-size: var(--step-title-size-desktop);
+      margin-bottom: 16px;
+    }
+
+    #{{ section.id }} .tequila-step-description {
+      font-size: var(--step-description-size-desktop);
+    }
+
+    #{{ section.id }} .tequila-cta-button {
+      padding: 16px 32px;
+      font-size: var(--cta-size-desktop);
+    }
+  }
+</style>
+
+<!-- Dynamic Styles for Custom Border Radius -->
+<style>
+  {%- for block in section.blocks -%}
+    #{{ section.id }} .tequila-step:nth-child({{ forloop.index }}) .tequila-step-image {
+      border-top-left-radius: {{ block.settings.border_tl_mobile | default: '8' }}px;
+      border-top-right-radius: {{ block.settings.border_tr_mobile | default: '20' }}px;
+      border-bottom-left-radius: {{ block.settings.border_bl_mobile | default: '20' }}px;
+      border-bottom-right-radius: {{ block.settings.border_br_mobile | default: '8' }}px;
+    }
+
+    @media (min-width: 768px) {
+      #{{ section.id }} .tequila-step:nth-child({{ forloop.index }}) .tequila-step-image {
+        border-top-left-radius: {{ block.settings.border_tl_desktop | default: '12' }}px;
+        border-top-right-radius: {{ block.settings.border_tr_desktop | default: '30' }}px;
+        border-bottom-left-radius: {{ block.settings.border_bl_desktop | default: '30' }}px;
+        border-bottom-right-radius: {{ block.settings.border_br_desktop | default: '12' }}px;
+      }
+    }
+  {%- endfor -%}
+
+  #{{ section.id }} .tequila-cta-button {
+    border-top-left-radius: {{ section.settings.cta_border_tl_mobile | default: '4' }}px;
+    border-top-right-radius: {{ section.settings.cta_border_tr_mobile | default: '12' }}px;
+    border-bottom-left-radius: {{ section.settings.cta_border_bl_mobile | default: '12' }}px;
+    border-bottom-right-radius: {{ section.settings.cta_border_br_mobile | default: '4' }}px;
+  }
+
+  @media (min-width: 768px) {
+    #{{ section.id }} .tequila-cta-button {
+      border-top-left-radius: {{ section.settings.cta_border_tl_desktop | default: '6' }}px;
+      border-top-right-radius: {{ section.settings.cta_border_tr_desktop | default: '18' }}px;
+      border-bottom-left-radius: {{ section.settings.cta_border_bl_desktop | default: '18' }}px;
+      border-bottom-right-radius: {{ section.settings.cta_border_br_desktop | default: '6' }}px;
+    }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Tequila Steps",
+  "settings": [
+    {
+      "type": "richtext",
+      "id": "header_text",
+      "label": "Header Text",
+      "default": "<p>FROM FIELD TO BOTTLE:<br>TRADITION IN EVERY STEP</p><p>The Tequila Making Process</p>"
+    },
+    {
+      "type": "color",
+      "id": "header_color",
+      "label": "Header Color",
+      "default": "#2c3e50"
+    },
+    {
+      "type": "range",
+      "id": "header_size_mobile",
+      "label": "Header Size (Mobile)",
+      "min": 16,
+      "max": 40,
+      "step": 2,
+      "unit": "px",
+      "default": 24
+    },
+    {
+      "type": "range",
+      "id": "header_size_desktop",
+      "label": "Header Size (Desktop)",
+      "min": 24,
+      "max": 60,
+      "step": 2,
+      "unit": "px",
+      "default": 36
+    },
+    {
+      "type": "color",
+      "id": "section_background",
+      "label": "Section Background",
+      "default": "#f5e6d3"
+    },
+    {
+      "type": "text",
+      "id": "max_width",
+      "label": "Max Width",
+      "default": "1200px"
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mobile",
+      "label": "Padding Top (Mobile)",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mobile",
+      "label": "Padding Bottom (Mobile)",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "padding_top_desktop",
+      "label": "Padding Top (Desktop)",
+      "min": 0,
+      "max": 200,
+      "step": 8,
+      "unit": "px",
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_desktop",
+      "label": "Padding Bottom (Desktop)",
+      "min": 0,
+      "max": 200,
+      "step": 8,
+      "unit": "px",
+      "default": 80
+    },
+    {
+      "type": "color",
+      "id": "step_title_color",
+      "label": "Step Title Color",
+      "default": "#2c3e50"
+    },
+    {
+      "type": "range",
+      "id": "step_title_size_mobile",
+      "label": "Step Title Size (Mobile)",
+      "min": 14,
+      "max": 32,
+      "step": 2,
+      "unit": "px",
+      "default": 18
+    },
+    {
+      "type": "range",
+      "id": "step_title_size_desktop",
+      "label": "Step Title Size (Desktop)",
+      "min": 18,
+      "max": 48,
+      "step": 2,
+      "unit": "px",
+      "default": 24
+    },
+    {
+      "type": "color",
+      "id": "step_description_color",
+      "label": "Step Description Color",
+      "default": "#666666"
+    },
+    {
+      "type": "range",
+      "id": "step_description_size_mobile",
+      "label": "Step Description Size (Mobile)",
+      "min": 12,
+      "max": 24,
+      "step": 1,
+      "unit": "px",
+      "default": 14
+    },
+    {
+      "type": "range",
+      "id": "step_description_size_desktop",
+      "label": "Step Description Size (Desktop)",
+      "min": 14,
+      "max": 28,
+      "step": 1,
+      "unit": "px",
+      "default": 16
+    },
+    {
+      "type": "text",
+      "id": "cta_text",
+      "label": "CTA Button Text",
+      "default": "CREATE YOUR OWN TEQUILA"
+    },
+    {
+      "type": "url",
+      "id": "cta_url",
+      "label": "CTA Button URL"
+    },
+    {
+      "type": "color",
+      "id": "cta_bg",
+      "label": "CTA Background Color",
+      "default": "#7fb069"
+    },
+    {
+      "type": "color",
+      "id": "cta_color",
+      "label": "CTA Text Color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "range",
+      "id": "cta_size_mobile",
+      "label": "CTA Font Size (Mobile)",
+      "min": 12,
+      "max": 24,
+      "step": 1,
+      "unit": "px",
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "cta_size_desktop",
+      "label": "CTA Font Size (Desktop)",
+      "min": 14,
+      "max": 28,
+      "step": 1,
+      "unit": "px",
+      "default": 18
+    },
+    {
+      "type": "header",
+      "content": "CTA Button Border Radius (Mobile)"
+    },
+    {
+      "type": "range",
+      "id": "cta_border_tl_mobile",
+      "label": "Top Left",
+      "min": 0,
+      "max": 50,
+      "step": 1,
+      "unit": "px",
+      "default": 4
+    },
+    {
+      "type": "range",
+      "id": "cta_border_tr_mobile",
+      "label": "Top Right",
+      "min": 0,
+      "max": 50,
+      "step": 1,
+      "unit": "px",
+      "default": 12
+    },
+    {
+      "type": "range",
+      "id": "cta_border_bl_mobile",
+      "label": "Bottom Left",
+      "min": 0,
+      "max": 50,
+      "step": 1,
+      "unit": "px",
+      "default": 12
+    },
+    {
+      "type": "range",
+      "id": "cta_border_br_mobile",
+      "label": "Bottom Right",
+      "min": 0,
+      "max": 50,
+      "step": 1,
+      "unit": "px",
+      "default": 4
+    },
+    {
+      "type": "header",
+      "content": "CTA Button Border Radius (Desktop)"
+    },
+    {
+      "type": "range",
+      "id": "cta_border_tl_desktop",
+      "label": "Top Left",
+      "min": 0,
+      "max": 50,
+      "step": 1,
+      "unit": "px",
+      "default": 6
+    },
+    {
+      "type": "range",
+      "id": "cta_border_tr_desktop",
+      "label": "Top Right",
+      "min": 0,
+      "max": 50,
+      "step": 1,
+      "unit": "px",
+      "default": 18
+    },
+    {
+      "type": "range",
+      "id": "cta_border_bl_desktop",
+      "label": "Bottom Left",
+      "min": 0,
+      "max": 50,
+      "step": 1,
+      "unit": "px",
+      "default": 18
+    },
+    {
+      "type": "range",
+      "id": "cta_border_br_desktop",
+      "label": "Bottom Right",
+      "min": 0,
+      "max": 50,
+      "step": 1,
+      "unit": "px",
+      "default": 6
+    },
+    {
+      "type": "text",
+      "id": "custom_classes",
+      "label": "Custom CSS Classes"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "step",
+      "name": "Step",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Step Image"
+        },
+        {
+          "type": "text",
+          "id": "step_number",
+          "label": "Step Number",
+          "default": "1."
+        },
+        {
+          "type": "color",
+          "id": "step_number_color",
+          "label": "Step Number Color",
+          "default": "#7fb069"
+        },
+        {
+          "type": "richtext",
+          "id": "step_title",
+          "label": "Step Title",
+          "default": "<p><span>LEAVES AGED</span><br><span>TO PERFECTION</span></p>"
+        },
+        {
+          "type": "richtext",
+          "id": "step_description",
+          "label": "Step Description",
+          "default": "<p>The jimador picks, weighing about 90 pounds or more each, are transported to the distillery. They are cleaned and cut into four to six pieces and placed in traditional stone ovens known as hornos.</p>"
+        },
+        {
+          "type": "header",
+          "content": "Image Border Radius (Mobile)"
+        },
+        {
+          "type": "range",
+          "id": "border_tl_mobile",
+          "label": "Top Left",
+          "min": 0,
+          "max": 100,
+          "step": 1,
+          "unit": "px",
+          "default": 8
+        },
+        {
+          "type": "range",
+          "id": "border_tr_mobile",
+          "label": "Top Right",
+          "min": 0,
+          "max": 100,
+          "step": 1,
+          "unit": "px",
+          "default": 20
+        },
+        {
+          "type": "range",
+          "id": "border_bl_mobile",
+          "label": "Bottom Left",
+          "min": 0,
+          "max": 100,
+          "step": 1,
+          "unit": "px",
+          "default": 20
+        },
+        {
+          "type": "range",
+          "id": "border_br_mobile",
+          "label": "Bottom Right",
+          "min": 0,
+          "max": 100,
+          "step": 1,
+          "unit": "px",
+          "default": 8
+        },
+        {
+          "type": "header",
+          "content": "Image Border Radius (Desktop)"
+        },
+        {
+          "type": "range",
+          "id": "border_tl_desktop",
+          "label": "Top Left",
+          "min": 0,
+          "max": 100,
+          "step": 1,
+          "unit": "px",
+          "default": 12
+        },
+        {
+          "type": "range",
+          "id": "border_tr_desktop",
+          "label": "Top Right",
+          "min": 0,
+          "max": 100,
+          "step": 1,
+          "unit": "px",
+          "default": 30
+        },
+        {
+          "type": "range",
+          "id": "border_bl_desktop",
+          "label": "Bottom Left",
+          "min": 0,
+          "max": 100,
+          "step": 1,
+          "unit": "px",
+          "default": 30
+        },
+        {
+          "type": "range",
+          "id": "border_br_desktop",
+          "label": "Bottom Right",
+          "min": 0,
+          "max": 100,
+          "step": 1,
+          "unit": "px",
+          "default": 12
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Tequila Steps",
+      "blocks": [
+        {
+          "type": "step",
+          "settings": {
+            "step_number": "1.",
+            "step_number_color": "#7fb069",
+            "step_title": "<p><span >LEAVES AGED</span><br><span >TO PERFECTION</span></p>",
+            "step_description": "<p>The piña (heart) of the blue agave plant may weigh 90 pounds or more. The leaves are cut off and the heart is harvested using traditional methods passed down for generations.</p>"
+          }
+        },
+        {
+          "type": "step",
+          "settings": {
+            "step_number": "2.",
+            "step_number_color": "#7fb069",
+            "step_title": "<p><span >SLOW COOKING</span><br><span >THE OLD WAY</span></p>",
+            "step_description": "<p>The jimador picks, weighing about 90 pounds or more each, are transported to the distillery. They are cleaned and cut into four to six pieces and placed in traditional stone ovens known as hornos.</p>"
+          }
+        },
+        {
+          "type": "step",
+          "settings": {
+            "step_number": "3.",
+            "step_number_color": "#7fb069",
+            "step_title": "<p><span>NATURAL MILLING</span><br><span >& FERMENTATION</span></p>",
+            "step_description": "<p>Once cooking time reaches 48 hours – 5 days vs 7 hours oven, the agave hearts are then put through a traditional crushing system and the extracted juice begins its six-day fermentation process.</p>"
+          }
+        },
+        {
+          "type": "step",
+          "settings": {
+            "step_number": "4.",
+            "step_number_color": "#7fb069",
+            "step_title": "<p><span >DOUBLE DISTILLED</span><br><span >FOR CLARITY</span></p>",
+            "step_description": "<p>The final distillation occurs following a traditional distiller who specifies which cuts are taken, distilling only the purest liquid that makes it through our quality standards.</p>"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
