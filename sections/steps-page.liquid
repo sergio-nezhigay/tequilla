@@ -1,47 +1,68 @@
-<!-- Markup -->
-<div id="{{ section.id }}" class="tequila-steps-section {{ section.settings.custom_classes }}">
-  <div class="tequila-steps-container">
-    <!-- Header -->
-    {%- if section.settings.header_text != blank -%}
-      <div class="tequila-steps-header">
-        {{ section.settings.header_text }}
+{%- assign section_id = section.id -%}
+
+<section id="{{ section_id }}" class="tequila-process-section {{ section.settings.custom_classes }}">
+  <div class="tequila-process-container">
+    {%- if section.settings.main_title != blank -%}
+      <div class="tequila-process-header">
+        <h2 class="main-title">{{ section.settings.main_title }}</h2>
+        {%- if section.settings.subtitle != blank -%}
+          <p class="subtitle">{{ section.settings.subtitle }}</p>
+        {%- endif -%}
       </div>
     {%- endif -%}
 
-    <!-- Steps -->
-    <div class="tequila-steps-list">
+    <div class="tequila-process-steps">
       {%- for block in section.blocks -%}
-        <div class="tequila-step" {{ block.shopify_attributes }}>
-          <div class="tequila-step-content">
-            <!-- Step Image -->
-            {%- if block.settings.image != blank -%}
-              <div class="tequila-step-image">
-                {{
-                  block.settings.image
-                  | image_url: width: 300
-                  | image_tag: loading: 'lazy', sizes: '(min-width: 768px) 300px, 150px', widths: '150, 300, 450, 600'
-                }}
-              </div>
-            {%- endif -%}
-
-            <!-- Step Text Content -->
-            <div class="tequila-step-text">
-              {%- if block.settings.step_number != blank -%}
-                <div class="tequila-step-number" style="color: {{ block.settings.step_number_color }};">
-                  {{ block.settings.step_number }}
-                </div>
+        {%- assign is_reverse = block.settings.reverse_layout -%}
+        <div class="process-step {{ block.type }}" {{ block.shopify_attributes }}>
+          <div class="step-content {% if is_reverse %}step-reverse{% endif %}">
+            <div class="step-image">
+              {%- if block.settings.image_desktop != blank or block.settings.image_mobile != blank -%}
+                <picture>
+                  {%- if block.settings.image_mobile != blank -%}
+                    <source
+                      media="(max-width: 768px)"
+                      srcset="
+                        {{ block.settings.image_mobile | image_url: width: 350 }} 350w,
+                        {{ block.settings.image_mobile | image_url: width: 700 }} 700w
+                      "
+                      sizes="(max-width: 390px) 320px, 350px"
+                    >
+                  {%- endif -%}
+                  {%- if block.settings.image_desktop != blank -%}
+                    <source
+                      media="(min-width: 769px)"
+                      srcset="
+                        {{ block.settings.image_desktop | image_url: width: 400 }} 400w,
+                        {{ block.settings.image_desktop | image_url: width: 600 }} 600w,
+                        {{ block.settings.image_desktop | image_url: width: 800 }} 800w
+                      "
+                      sizes="(max-width: 1200px) 350px, 400px"
+                    >
+                  {%- endif -%}
+                  {%- assign main_image = block.settings.image_desktop | default: block.settings.image_mobile -%}
+                  {%- if main_image != blank -%}
+                    {{
+                      main_image
+                      | image_url: width: 800
+                      | image_tag:
+                        alt: block.settings.image_alt,
+                        loading: 'lazy',
+                        width: main_image.width,
+                        height: main_image.height
+                    }}
+                  {%- endif -%}
+                </picture>
               {%- endif -%}
+            </div>
 
+            <div class="step-text">
+              <div class="step-number">{{ block.settings.step_number }}</div>
               {%- if block.settings.step_title != blank -%}
-                <h3 class="tequila-step-title">
-                  {{ block.settings.step_title }}
-                </h3>
+                <h3 class="step-title">{{ block.settings.step_title }}</h3>
               {%- endif -%}
-
               {%- if block.settings.step_description != blank -%}
-                <div class="tequila-step-description">
-                  {{ block.settings.step_description }}
-                </div>
+                <div class="step-description">{{ block.settings.step_description }}</div>
               {%- endif -%}
             </div>
           </div>
@@ -49,362 +70,360 @@
       {%- endfor -%}
     </div>
 
-    <!-- CTA Button -->
-    {%- if section.settings.cta_text != blank and section.settings.cta_url != blank -%}
-      <div class="tequila-steps-cta">
-        <a href="{{ section.settings.cta_url }}" class="tequila-cta-button">
+    {%- if section.settings.cta_text != blank -%}
+      <div class="tequila-process-cta">
+        <a href="{{ section.settings.cta_url | default: '#' }}" class="cta-button">
           {{ section.settings.cta_text }}
         </a>
       </div>
     {%- endif -%}
   </div>
-</div>
+</section>
 
-<!-- Styles -->
 <style>
-  #{{ section.id }} {
-    --section-bg: {{ section.settings.section_background | default: '#f5e6d3' }};
-    --max-width: {{ section.settings.max_width | default: '1200px' }};
-    --padding-top-mobile: {{ section.settings.padding_top_mobile | default: '40' }}px;
-    --padding-bottom-mobile: {{ section.settings.padding_bottom_mobile | default: '40' }}px;
-    --padding-top-desktop: {{ section.settings.padding_top_desktop | default: '80' }}px;
-    --padding-bottom-desktop: {{ section.settings.padding_bottom_desktop | default: '80' }}px;
-    --header-color: {{ section.settings.header_color | default: '#2c3e50' }};
-    --header-size-mobile: {{ section.settings.header_size_mobile | default: '24' }}px;
-    --header-size-desktop: {{ section.settings.header_size_desktop | default: '36' }}px;
-    --step-title-color: {{ section.settings.step_title_color | default: '#2c3e50' }};
-    --step-title-size-mobile: {{ section.settings.step_title_size_mobile | default: '18' }}px;
-    --step-title-size-desktop: {{ section.settings.step_title_size_desktop | default: '24' }}px;
-    --step-description-color: {{ section.settings.step_description_color | default: '#666' }};
-    --step-description-size-mobile: {{ section.settings.step_description_size_mobile | default: '14' }}px;
-    --step-description-size-desktop: {{ section.settings.step_description_size_desktop | default: '16' }}px;
-    --cta-bg: {{ section.settings.cta_bg | default: '#7fb069' }};
-    --cta-color: {{ section.settings.cta_color | default: '#fff' }};
-    --cta-size-mobile: {{ section.settings.cta_size_mobile | default: '16' }}px;
-    --cta-size-desktop: {{ section.settings.cta_size_desktop | default: '18' }}px;
+  #{{ section_id }} {
+    --section-padding-top-mobile: {{ section.settings.padding_top_mobile }}px;
+    --section-padding-bottom-mobile: {{ section.settings.padding_bottom_mobile }}px;
+    --section-padding-top-desktop: {{ section.settings.padding_top_desktop }}px;
+    --section-padding-bottom-desktop: {{ section.settings.padding_bottom_desktop }}px;
+    --section-bg-color: {{ section.settings.background_color }};
+    --main-title-color: {{ section.settings.main_title_color }};
+    --main-title-size-mobile: {{ section.settings.main_title_size_mobile }}px;
+    --main-title-size-desktop: {{ section.settings.main_title_size_desktop }}px;
+    --subtitle-color: {{ section.settings.subtitle_color }};
+    --subtitle-size-mobile: {{ section.settings.subtitle_size_mobile }}px;
+    --subtitle-size-desktop: {{ section.settings.subtitle_size_desktop }}px;
+    --step-title-color: {{ section.settings.step_title_color }};
+    --step-title-size-mobile: {{ section.settings.step_title_size_mobile }}px;
+    --step-title-size-desktop: {{ section.settings.step_title_size_desktop }}px;
+    --step-number-color: {{ section.settings.step_number_color }};
+    --step-description-color: {{ section.settings.step_description_color }};
+    --cta-bg-color: {{ section.settings.cta_bg_color }};
+    --cta-text-color: {{ section.settings.cta_text_color }};
+    --max-width: {{ section.settings.max_width }}px;
 
-    background: var(--section-bg);
-    padding: var(--padding-top-mobile) 16px var(--padding-bottom-mobile);
-    width: 100%;
-  }
-
-  #{{ section.id }} .tequila-steps-container {
-    max-width: var(--max-width);
-    margin: 0 auto;
+    padding-top: var(--section-padding-top-mobile);
+    padding-bottom: var(--section-padding-bottom-mobile);
+    background-color: var(--section-bg-color);
     position: relative;
   }
 
-  #{{ section.id }} .tequila-steps-header {
-    text-align: center;
-    font-size: var(--header-size-mobile);
-    color: var(--header-color);
-    margin-bottom: 40px;
-    font-weight: 700;
-    line-height: 1.2;
+  #{{ section_id }} .tequila-process-container {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 20px;
   }
 
-  #{{ section.id }} .tequila-steps-list {
+  #{{ section_id }} .tequila-process-header {
+    text-align: center;
+    margin-bottom: 40px;
+  }
+
+  #{{ section_id }} .main-title {
+    font-size: var(--main-title-size-mobile);
+    color: var(--main-title-color);
+    font-weight: bold;
+    margin: 0 0 16px 0;
+    line-height: 1.2;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+  }
+
+  #{{ section_id }} .subtitle {
+    font-size: var(--subtitle-size-mobile);
+    color: var(--subtitle-color);
+    margin: 0;
+    line-height: 1.4;
+  }
+
+  #{{ section_id }} .tequila-process-steps {
     display: flex;
     flex-direction: column;
     gap: 40px;
-    margin-bottom: 40px;
   }
 
-  #{{ section.id }} .tequila-step {
-    width: 100%;
+  #{{ section_id }} .process-step {
+    position: relative;
   }
 
-  #{{ section.id }} .tequila-step-content {
+  #{{ section_id }} .step-content {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 20px;
-    text-align: center;
+    gap: 24px;
   }
 
-  #{{ section.id }} .tequila-step-image {
-    width: 150px;
-    height: 150px;
-    flex-shrink: 0;
+  #{{ section_id }} .step-image {
+    width: 100%;
+    max-width: 320px;
+    border-radius: 20px;
     overflow: hidden;
     position: relative;
   }
 
-  #{{ section.id }} .tequila-step-image img {
+  #{{ section_id }} .step-image img {
     width: 100%;
-    height: 100%;
+    height: auto;
+    display: block;
     object-fit: cover;
   }
 
-  #{{ section.id }} .tequila-step-text {
+  #{{ section_id }} .step-text {
+    text-align: center;
     flex: 1;
+    max-width: 100%;
   }
 
-  #{{ section.id }} .tequila-step-number {
+  #{{ section_id }} .step-number {
     font-size: 48px;
-    font-weight: 700;
-    margin-bottom: 8px;
+    font-weight: bold;
+    color: var(--step-number-color);
+    margin-bottom: 16px;
     line-height: 1;
   }
 
-  #{{ section.id }} .tequila-step-title {
+  #{{ section_id }} .step-title {
     font-size: var(--step-title-size-mobile);
     color: var(--step-title-color);
-    font-weight: 700;
-    margin: 0 0 12px 0;
+    font-weight: bold;
+    margin: 0 0 16px 0;
     line-height: 1.3;
     text-transform: uppercase;
-    letter-spacing: 0.5px;
+    letter-spacing: 1px;
   }
 
-  #{{ section.id }} .tequila-step-description {
-    font-size: var(--step-description-size-mobile);
+  #{{ section_id }} .step-description {
+    font-size: 16px;
     color: var(--step-description-color);
-    line-height: 1.5;
+    line-height: 1.6;
     margin: 0;
   }
 
-  #{{ section.id }} .tequila-steps-cta {
+  #{{ section_id }} .tequila-process-cta {
     text-align: center;
-    margin-top: 40px;
+    margin-top: 50px;
   }
 
-  #{{ section.id }} .tequila-cta-button {
+  #{{ section_id }} .cta-button {
     display: inline-block;
-    background: var(--cta-bg);
-    color: var(--cta-color);
-    padding: 12px 24px;
-    font-size: var(--cta-size-mobile);
-    font-weight: 600;
+    background-color: var(--cta-bg-color);
+    color: var(--cta-text-color);
+    padding: 16px 32px;
+    border-radius: 25px;
     text-decoration: none;
+    font-weight: bold;
+    font-size: 16px;
     text-transform: uppercase;
-    letter-spacing: 0.5px;
+    letter-spacing: 1px;
     transition: all 0.3s ease;
   }
 
-  #{{ section.id }} .tequila-cta-button:hover {
+  #{{ section_id }} .cta-button:hover {
     transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-    opacity: 0.9;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
   }
 
-  /* Text Styling Classes */
-  #{{ section.id }} .text-normal { font-weight: normal; font-style: normal; }
-  #{{ section.id }} .text-bold { font-weight: bold; font-style: normal; }
-  #{{ section.id }} .text-cursive { font-weight: normal; font-style: italic; }
+  /* Rich text styling for different colors */
+  #{{ section_id }} .step-description p {
+    margin: 0 0 12px 0;
+  }
 
-  /* Desktop Styles */
-  @media (min-width: 768px) {
-    #{{ section.id }} {
-      padding: var(--padding-top-desktop) 24px var(--padding-bottom-desktop);
+  #{{ section_id }} .step-description p:last-child {
+    margin-bottom: 0;
+  }
+
+  #{{ section_id }} .step-description strong {
+    color: var(--step-number-color);
+    font-weight: bold;
+  }
+
+  #{{ section_id }} .step-description em {
+    color: var(--main-title-color);
+    font-style: italic;
+  }
+
+  /* Desktop styles */
+  @media screen and (min-width: 769px) {
+    #{{ section_id }} {
+      padding-top: var(--section-padding-top-desktop);
+      padding-bottom: var(--section-padding-bottom-desktop);
     }
 
-    #{{ section.id }} .tequila-steps-header {
-      font-size: var(--header-size-desktop);
+    #{{ section_id }} .tequila-process-container {
+      padding: 0 40px;
+    }
+
+    #{{ section_id }} .main-title {
+      font-size: var(--main-title-size-desktop);
+    }
+
+    #{{ section_id }} .subtitle {
+      font-size: var(--subtitle-size-desktop);
+    }
+
+    #{{ section_id }} .tequila-process-header {
       margin-bottom: 60px;
     }
 
-    #{{ section.id }} .tequila-steps-list {
+    #{{ section_id }} .tequila-process-steps {
       gap: 60px;
-      margin-bottom: 60px;
     }
 
-    #{{ section.id }} .tequila-step:nth-child(even) .tequila-step-content {
+    #{{ section_id }} .step-content {
+      flex-direction: row;
+      gap: 40px;
+      align-items: center;
+    }
+
+    #{{ section_id }} .step-content.step-reverse {
       flex-direction: row-reverse;
     }
 
-    #{{ section.id }} .tequila-step:nth-child(odd) .tequila-step-content {
-      flex-direction: row;
+    #{{ section_id }} .step-image {
+      max-width: 400px;
+      flex-shrink: 0;
     }
 
-    #{{ section.id }} .tequila-step-content {
-      flex-direction: row;
-      align-items: center;
-      gap: 60px;
+    #{{ section_id }} .step-text {
       text-align: left;
-      max-width: 100%;
+      max-width: none;
     }
 
-    #{{ section.id }} .tequila-step:nth-child(even) .tequila-step-text {
+    #{{ section_id }} .step-content.step-reverse .step-text {
       text-align: right;
     }
 
-    #{{ section.id }} .tequila-step-image {
-      width: 300px;
-      height: 300px;
-    }
-
-    #{{ section.id }} .tequila-step-number {
-      font-size: 64px;
-      margin-bottom: 12px;
-    }
-
-    #{{ section.id }} .tequila-step-title {
+    #{{ section_id }} .step-title {
       font-size: var(--step-title-size-desktop);
-      margin-bottom: 16px;
     }
 
-    #{{ section.id }} .tequila-step-description {
-      font-size: var(--step-description-size-desktop);
+    #{{ section_id }} .step-description {
+      font-size: 18px;
     }
 
-    #{{ section.id }} .tequila-cta-button {
-      padding: 16px 32px;
-      font-size: var(--cta-size-desktop);
+    #{{ section_id }} .step-number {
+      font-size: 72px;
     }
   }
-</style>
 
-<!-- Dynamic Styles for Custom Border Radius -->
-<style>
-  {%- for block in section.blocks -%}
-    #{{ section.id }} .tequila-step:nth-child({{ forloop.index }}) .tequila-step-image {
-      border-top-left-radius: {{ block.settings.border_tl_mobile | default: '8' }}px;
-      border-top-right-radius: {{ block.settings.border_tr_mobile | default: '20' }}px;
-      border-bottom-left-radius: {{ block.settings.border_bl_mobile | default: '20' }}px;
-      border-bottom-right-radius: {{ block.settings.border_br_mobile | default: '8' }}px;
+  @media screen and (min-width: 1200px) {
+    #{{ section_id }} .step-content {
+      gap: 80px;
     }
 
-    @media (min-width: 768px) {
-      #{{ section.id }} .tequila-step:nth-child({{ forloop.index }}) .tequila-step-image {
-        border-top-left-radius: {{ block.settings.border_tl_desktop | default: '12' }}px;
-        border-top-right-radius: {{ block.settings.border_tr_desktop | default: '30' }}px;
-        border-bottom-left-radius: {{ block.settings.border_bl_desktop | default: '30' }}px;
-        border-bottom-right-radius: {{ block.settings.border_br_desktop | default: '12' }}px;
-      }
-    }
-  {%- endfor -%}
-
-  #{{ section.id }} .tequila-cta-button {
-    border-top-left-radius: {{ section.settings.cta_border_tl_mobile | default: '4' }}px;
-    border-top-right-radius: {{ section.settings.cta_border_tr_mobile | default: '12' }}px;
-    border-bottom-left-radius: {{ section.settings.cta_border_bl_mobile | default: '12' }}px;
-    border-bottom-right-radius: {{ section.settings.cta_border_br_mobile | default: '4' }}px;
-  }
-
-  @media (min-width: 768px) {
-    #{{ section.id }} .tequila-cta-button {
-      border-top-left-radius: {{ section.settings.cta_border_tl_desktop | default: '6' }}px;
-      border-top-right-radius: {{ section.settings.cta_border_tr_desktop | default: '18' }}px;
-      border-bottom-left-radius: {{ section.settings.cta_border_bl_desktop | default: '18' }}px;
-      border-bottom-right-radius: {{ section.settings.cta_border_br_desktop | default: '6' }}px;
+    #{{ section_id }} .step-image {
+      max-width: 450px;
     }
   }
 </style>
 
 {% schema %}
 {
-  "name": "Tequila Steps",
+  "name": "Tequila Process Steps",
   "settings": [
     {
-      "type": "richtext",
-      "id": "header_text",
-      "label": "Header Text",
-      "default": "<p>FROM FIELD TO BOTTLE:<br>TRADITION IN EVERY STEP</p><p>The Tequila Making Process</p>"
-    },
-    {
-      "type": "color",
-      "id": "header_color",
-      "label": "Header Color",
-      "default": "#2c3e50"
-    },
-    {
-      "type": "range",
-      "id": "header_size_mobile",
-      "label": "Header Size (Mobile)",
-      "min": 16,
-      "max": 40,
-      "step": 2,
-      "unit": "px",
-      "default": 24
-    },
-    {
-      "type": "range",
-      "id": "header_size_desktop",
-      "label": "Header Size (Desktop)",
-      "min": 24,
-      "max": 60,
-      "step": 2,
-      "unit": "px",
-      "default": 36
-    },
-    {
-      "type": "color",
-      "id": "section_background",
-      "label": "Section Background",
-      "default": "#f5e6d3"
+      "type": "text",
+      "id": "main_title",
+      "label": "Main Title",
+      "default": "FROM FIELD TO BOTTLE: TRADITION IN EVERY STEP"
     },
     {
       "type": "text",
-      "id": "max_width",
-      "label": "Max Width",
-      "default": "1200px"
+      "id": "subtitle",
+      "label": "Subtitle",
+      "default": "The Tequila making process"
+    },
+    {
+      "type": "header",
+      "content": "Title Styling"
+    },
+    {
+      "type": "color",
+      "id": "main_title_color",
+      "label": "Main Title Color",
+      "default": "#2c2c2c"
     },
     {
       "type": "range",
-      "id": "padding_top_mobile",
-      "label": "Padding Top (Mobile)",
-      "min": 0,
-      "max": 100,
-      "step": 4,
-      "unit": "px",
-      "default": 40
+      "id": "main_title_size_mobile",
+      "label": "Main Title Size (Mobile)",
+      "min": 20,
+      "max": 50,
+      "step": 2,
+      "default": 24,
+      "unit": "px"
     },
     {
       "type": "range",
-      "id": "padding_bottom_mobile",
-      "label": "Padding Bottom (Mobile)",
-      "min": 0,
-      "max": 100,
-      "step": 4,
-      "unit": "px",
-      "default": 40
+      "id": "main_title_size_desktop",
+      "label": "Main Title Size (Desktop)",
+      "min": 24,
+      "max": 60,
+      "step": 2,
+      "default": 36,
+      "unit": "px"
+    },
+    {
+      "type": "color",
+      "id": "subtitle_color",
+      "label": "Subtitle Color",
+      "default": "#666666"
     },
     {
       "type": "range",
-      "id": "padding_top_desktop",
-      "label": "Padding Top (Desktop)",
-      "min": 0,
-      "max": 200,
-      "step": 8,
-      "unit": "px",
-      "default": 80
+      "id": "subtitle_size_mobile",
+      "label": "Subtitle Size (Mobile)",
+      "min": 14,
+      "max": 24,
+      "step": 1,
+      "default": 16,
+      "unit": "px"
     },
     {
       "type": "range",
-      "id": "padding_bottom_desktop",
-      "label": "Padding Bottom (Desktop)",
-      "min": 0,
-      "max": 200,
-      "step": 8,
-      "unit": "px",
-      "default": 80
+      "id": "subtitle_size_desktop",
+      "label": "Subtitle Size (Desktop)",
+      "min": 16,
+      "max": 28,
+      "step": 1,
+      "default": 18,
+      "unit": "px"
+    },
+    {
+      "type": "header",
+      "content": "Step Styling"
+    },
+    {
+      "type": "color",
+      "id": "step_number_color",
+      "label": "Step Number Color",
+      "default": "#7ECBC0"
     },
     {
       "type": "color",
       "id": "step_title_color",
       "label": "Step Title Color",
-      "default": "#2c3e50"
+      "default": "#2c2c2c"
     },
     {
       "type": "range",
       "id": "step_title_size_mobile",
       "label": "Step Title Size (Mobile)",
-      "min": 14,
-      "max": 32,
+      "min": 18,
+      "max": 36,
       "step": 2,
-      "unit": "px",
-      "default": 18
+      "default": 22,
+      "unit": "px"
     },
     {
       "type": "range",
       "id": "step_title_size_desktop",
       "label": "Step Title Size (Desktop)",
-      "min": 18,
-      "max": 48,
+      "min": 20,
+      "max": 40,
       "step": 2,
-      "unit": "px",
-      "default": 24
+      "default": 28,
+      "unit": "px"
     },
     {
       "type": "color",
@@ -413,24 +432,8 @@
       "default": "#666666"
     },
     {
-      "type": "range",
-      "id": "step_description_size_mobile",
-      "label": "Step Description Size (Mobile)",
-      "min": 12,
-      "max": 24,
-      "step": 1,
-      "unit": "px",
-      "default": 14
-    },
-    {
-      "type": "range",
-      "id": "step_description_size_desktop",
-      "label": "Step Description Size (Desktop)",
-      "min": 14,
-      "max": 28,
-      "step": 1,
-      "unit": "px",
-      "default": 16
+      "type": "header",
+      "content": "Call to Action"
     },
     {
       "type": "text",
@@ -445,123 +448,71 @@
     },
     {
       "type": "color",
-      "id": "cta_bg",
+      "id": "cta_bg_color",
       "label": "CTA Background Color",
-      "default": "#7fb069"
+      "default": "#7ECBC0"
     },
     {
       "type": "color",
-      "id": "cta_color",
+      "id": "cta_text_color",
       "label": "CTA Text Color",
-      "default": "#ffffff"
-    },
-    {
-      "type": "range",
-      "id": "cta_size_mobile",
-      "label": "CTA Font Size (Mobile)",
-      "min": 12,
-      "max": 24,
-      "step": 1,
-      "unit": "px",
-      "default": 16
-    },
-    {
-      "type": "range",
-      "id": "cta_size_desktop",
-      "label": "CTA Font Size (Desktop)",
-      "min": 14,
-      "max": 28,
-      "step": 1,
-      "unit": "px",
-      "default": 18
+      "default": "#2c2c2c"
     },
     {
       "type": "header",
-      "content": "CTA Button Border Radius (Mobile)"
+      "content": "Section Settings"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background Color",
+      "default": "#F5D5C8"
+    },
+    {
+      "type": "number",
+      "id": "max_width",
+      "label": "Max Width",
+      "default": 1200
     },
     {
       "type": "range",
-      "id": "cta_border_tl_mobile",
-      "label": "Top Left",
+      "id": "padding_top_mobile",
+      "label": "Padding Top (Mobile)",
       "min": 0,
-      "max": 50,
-      "step": 1,
-      "unit": "px",
-      "default": 4
+      "max": 100,
+      "step": 5,
+      "default": 40,
+      "unit": "px"
     },
     {
       "type": "range",
-      "id": "cta_border_tr_mobile",
-      "label": "Top Right",
+      "id": "padding_bottom_mobile",
+      "label": "Padding Bottom (Mobile)",
       "min": 0,
-      "max": 50,
-      "step": 1,
-      "unit": "px",
-      "default": 12
+      "max": 100,
+      "step": 5,
+      "default": 40,
+      "unit": "px"
     },
     {
       "type": "range",
-      "id": "cta_border_bl_mobile",
-      "label": "Bottom Left",
+      "id": "padding_top_desktop",
+      "label": "Padding Top (Desktop)",
       "min": 0,
-      "max": 50,
-      "step": 1,
-      "unit": "px",
-      "default": 12
+      "max": 150,
+      "step": 10,
+      "default": 80,
+      "unit": "px"
     },
     {
       "type": "range",
-      "id": "cta_border_br_mobile",
-      "label": "Bottom Right",
+      "id": "padding_bottom_desktop",
+      "label": "Padding Bottom (Desktop)",
       "min": 0,
-      "max": 50,
-      "step": 1,
-      "unit": "px",
-      "default": 4
-    },
-    {
-      "type": "header",
-      "content": "CTA Button Border Radius (Desktop)"
-    },
-    {
-      "type": "range",
-      "id": "cta_border_tl_desktop",
-      "label": "Top Left",
-      "min": 0,
-      "max": 50,
-      "step": 1,
-      "unit": "px",
-      "default": 6
-    },
-    {
-      "type": "range",
-      "id": "cta_border_tr_desktop",
-      "label": "Top Right",
-      "min": 0,
-      "max": 50,
-      "step": 1,
-      "unit": "px",
-      "default": 18
-    },
-    {
-      "type": "range",
-      "id": "cta_border_bl_desktop",
-      "label": "Bottom Left",
-      "min": 0,
-      "max": 50,
-      "step": 1,
-      "unit": "px",
-      "default": 18
-    },
-    {
-      "type": "range",
-      "id": "cta_border_br_desktop",
-      "label": "Bottom Right",
-      "min": 0,
-      "max": 50,
-      "step": 1,
-      "unit": "px",
-      "default": 6
+      "max": 150,
+      "step": 10,
+      "default": 80,
+      "unit": "px"
     },
     {
       "type": "text",
@@ -571,14 +522,9 @@
   ],
   "blocks": [
     {
-      "type": "step",
-      "name": "Step",
+      "type": "process_step",
+      "name": "Process Step",
       "settings": [
-        {
-          "type": "image_picker",
-          "id": "image",
-          "label": "Step Image"
-        },
         {
           "type": "text",
           "id": "step_number",
@@ -586,152 +532,77 @@
           "default": "1."
         },
         {
-          "type": "color",
-          "id": "step_number_color",
-          "label": "Step Number Color",
-          "default": "#7fb069"
-        },
-        {
-          "type": "richtext",
+          "type": "text",
           "id": "step_title",
           "label": "Step Title",
-          "default": "<p><span>LEAVES AGED</span><br><span>TO PERFECTION</span></p>"
+          "default": "AGAVES AGED TO PERFECTION"
         },
         {
           "type": "richtext",
           "id": "step_description",
           "label": "Step Description",
-          "default": "<p>The jimador picks, weighing about 90 pounds or more each, are transported to the distillery. They are cleaned and cut into four to six pieces and placed in traditional stone ovens known as hornos.</p>"
+          "default": "<p>Only mature Blue Weber Agaves - at least 8 years old - are harvested for our tequila. This long maturation period ensures the optimal balance of natural sugars that define exceptional flavor.</p>"
         },
         {
-          "type": "header",
-          "content": "Image Border Radius (Mobile)"
+          "type": "image_picker",
+          "id": "image_desktop",
+          "label": "Desktop Image"
         },
         {
-          "type": "range",
-          "id": "border_tl_mobile",
-          "label": "Top Left",
-          "min": 0,
-          "max": 100,
-          "step": 1,
-          "unit": "px",
-          "default": 8
+          "type": "image_picker",
+          "id": "image_mobile",
+          "label": "Mobile Image"
         },
         {
-          "type": "range",
-          "id": "border_tr_mobile",
-          "label": "Top Right",
-          "min": 0,
-          "max": 100,
-          "step": 1,
-          "unit": "px",
-          "default": 20
+          "type": "text",
+          "id": "image_alt",
+          "label": "Image Alt Text"
         },
         {
-          "type": "range",
-          "id": "border_bl_mobile",
-          "label": "Bottom Left",
-          "min": 0,
-          "max": 100,
-          "step": 1,
-          "unit": "px",
-          "default": 20
-        },
-        {
-          "type": "range",
-          "id": "border_br_mobile",
-          "label": "Bottom Right",
-          "min": 0,
-          "max": 100,
-          "step": 1,
-          "unit": "px",
-          "default": 8
-        },
-        {
-          "type": "header",
-          "content": "Image Border Radius (Desktop)"
-        },
-        {
-          "type": "range",
-          "id": "border_tl_desktop",
-          "label": "Top Left",
-          "min": 0,
-          "max": 100,
-          "step": 1,
-          "unit": "px",
-          "default": 12
-        },
-        {
-          "type": "range",
-          "id": "border_tr_desktop",
-          "label": "Top Right",
-          "min": 0,
-          "max": 100,
-          "step": 1,
-          "unit": "px",
-          "default": 30
-        },
-        {
-          "type": "range",
-          "id": "border_bl_desktop",
-          "label": "Bottom Left",
-          "min": 0,
-          "max": 100,
-          "step": 1,
-          "unit": "px",
-          "default": 30
-        },
-        {
-          "type": "range",
-          "id": "border_br_desktop",
-          "label": "Bottom Right",
-          "min": 0,
-          "max": 100,
-          "step": 1,
-          "unit": "px",
-          "default": 12
+          "type": "checkbox",
+          "id": "reverse_layout",
+          "label": "Reverse Layout (Desktop)",
+          "default": false
         }
       ]
     }
   ],
   "presets": [
     {
-      "name": "Tequila Steps",
+      "name": "Tequila Process Steps",
       "blocks": [
         {
-          "type": "step",
+          "type": "process_step",
           "settings": {
             "step_number": "1.",
-            "step_number_color": "#7fb069",
-            "step_title": "<p><span >LEAVES AGED</span><br><span >TO PERFECTION</span></p>",
-            "step_description": "<p>The piña (heart) of the blue agave plant may weigh 90 pounds or more. The leaves are cut off and the heart is harvested using traditional methods passed down for generations.</p>"
+            "step_title": "AGAVES AGED TO PERFECTION",
+            "step_description": "<p>Only mature Blue Weber Agaves - at least 8 years old - are harvested for our tequila. This long maturation period ensures the optimal balance of natural sugars that define exceptional flavor.</p>"
           }
         },
         {
-          "type": "step",
+          "type": "process_step",
           "settings": {
             "step_number": "2.",
-            "step_number_color": "#7fb069",
-            "step_title": "<p><span >SLOW COOKING</span><br><span >THE OLD WAY</span></p>",
-            "step_description": "<p>The jimador picks, weighing about 90 pounds or more each, are transported to the distillery. They are cleaned and cut into four to six pieces and placed in traditional stone ovens known as hornos.</p>"
+            "step_title": "SLOW COOKING THE OLD WAY",
+            "step_description": "<p>Agaves are slowly cooked for 48-72 hours in traditional ovens. This gentle process preserves the natural flavors of the agave, extracting maximum sweetness without bitter notes.</p>",
+            "reverse_layout": true
           }
         },
         {
-          "type": "step",
+          "type": "process_step",
           "settings": {
             "step_number": "3.",
-            "step_number_color": "#7fb069",
-            "step_title": "<p><span>NATURAL MILLING</span><br><span >& FERMENTATION</span></p>",
-            "step_description": "<p>Once cooking time reaches 48 hours – 5 days vs 7 hours oven, the agave hearts are then put through a traditional crushing system and the extracted juice begins its six-day fermentation process.</p>"
+            "step_title": "NATURAL MILLING & FERMENTATION",
+            "step_description": "<p>Once cooked, the agaves go through a 2-step milling process before being naturally fermented with traditional yeast. We use no artificial additives during this process to maintain purity and tradition.</p>"
           }
         },
         {
-          "type": "step",
+          "type": "process_step",
           "settings": {
             "step_number": "4.",
-            "step_number_color": "#7fb069",
-            "step_title": "<p><span >DOUBLE DISTILLED</span><br><span >FOR CLARITY</span></p>",
-            "step_description": "<p>The final distillation occurs following a traditional distiller who specifies which cuts are taken, distilling only the purest liquid that makes it through our quality standards.</p>"
+            "step_title": "DOUBLE DISTILLED FOR CLARITY",
+            "step_description": "<p>The final distillate is put through two distillation rounds - distilling to excellence ensures purity flavor with the distinctively smooth taste that sets our tequila apart.</p>",
+            "reverse_layout": true
           }
         }
       ]

@@ -1,15 +1,109 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "main": {
       "type": "main-page",
       "settings": {
-        "page": "our-tequila"
+        "padding_top": 36,
+        "padding_bottom": 36
       }
     },
     "steps": {
-      "type": "steps-page"
+      "type": "steps-page",
+      "blocks": {
+        "process_step_KzahrT": {
+          "type": "process_step",
+          "settings": {
+            "step_number": "1.",
+            "step_title": "AGAVES AGED TO PERFECTION",
+            "step_description": "<p>Only mature Blue Weber Agaves - at least 8 years old - are harvested for our tequila. This long maturation period ensures the optimal balance of natural sugars that define exceptional flavor.</p>",
+            "image_desktop": "shopify://shop_images/im_4703c68f-4c7f-4f56-82f8-b979a3a04132.png",
+            "image_mobile": "shopify://shop_images/im11.png",
+            "image_alt": "",
+            "reverse_layout": false
+          }
+        },
+        "process_step_yfxqXW": {
+          "type": "process_step",
+          "settings": {
+            "step_number": "2.",
+            "step_title": "Slow Cooking, the Old Way",
+            "step_description": "<p>Agaves are slowly baked for 18–24 hours in traditional ovens. This gentle process preserves the complexity of the agave and converts sugars without bitterness.</p>",
+            "image_desktop": "shopify://shop_images/im2.png",
+            "image_mobile": "shopify://shop_images/im12.png",
+            "image_alt": "",
+            "reverse_layout": true
+          }
+        },
+        "process_step_48NpxL": {
+          "type": "process_step",
+          "settings": {
+            "step_number": "3.",
+            "step_title": "Natural Milling & Fermentation",
+            "step_description": "<p>Once cooked, the agaves go through a 5-step milling process before being naturally fermented using an exclusive yeast strain — in a room harmonized with classical music, no less — over a period of 10+ days.</p>",
+            "image_desktop": "shopify://shop_images/im3.png",
+            "image_mobile": "shopify://shop_images/im13.png",
+            "image_alt": "",
+            "reverse_layout": false
+          }
+        },
+        "process_step_dp6HKy": {
+          "type": "process_step",
+          "settings": {
+            "step_number": "4.",
+            "step_title": "Double Distilled for Clarity",
+            "step_description": "<p>The final distillate is double-distilled in stainless steel — yielding a crystal-clear, elegant tequila with no additives, no shortcuts, and zero compromises.</p>",
+            "image_desktop": "shopify://shop_images/im4.png",
+            "image_mobile": "shopify://shop_images/im14.png",
+            "image_alt": "",
+            "reverse_layout": true
+          }
+        }
+      },
+      "block_order": [
+        "process_step_KzahrT",
+        "process_step_yfxqXW",
+        "process_step_48NpxL",
+        "process_step_dp6HKy"
+      ],
+      "settings": {
+        "main_title": "FROM FIELD TO BOTTLE: TRADITION IN EVERY STEP",
+        "subtitle": "The Tequila making process",
+        "main_title_color": "#2c2c2c",
+        "main_title_size_mobile": 24,
+        "main_title_size_desktop": 36,
+        "subtitle_color": "#666666",
+        "subtitle_size_mobile": 16,
+        "subtitle_size_desktop": 18,
+        "step_number_color": "#7ecbc0",
+        "step_title_color": "#2c2c2c",
+        "step_title_size_mobile": 22,
+        "step_title_size_desktop": 28,
+        "step_description_color": "#666666",
+        "cta_text": "CREATE YOUR OWN TEQUILA",
+        "cta_url": "",
+        "cta_bg_color": "#7ecbc0",
+        "cta_text_color": "#2c2c2c",
+        "background_color": "#f5d5c8",
+        "max_width": 1200,
+        "padding_top_mobile": 40,
+        "padding_bottom_mobile": 40,
+        "padding_top_desktop": 80,
+        "padding_bottom_desktop": 80,
+        "custom_classes": ""
+      }
     }
   },
-  "name": "Our Tequila",
-  "order": ["main", "steps"]
+  "order": [
+    "main",
+    "steps"
+  ]
 }
