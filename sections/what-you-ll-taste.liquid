@@ -26,9 +26,9 @@
 
                     <div class="taste-item-content">
                       {%- if block.settings.item_title != blank -%}
-                        <h3 class="taste-item-title">
+                        <span class="taste-item-title">
                           {{ block.settings.item_title }}
-                        </h3>
+                        </span>
                       {%- endif -%}
 
                       {%- if block.settings.item_description != blank -%}
@@ -223,14 +223,14 @@
 
   #what-you-ll-taste-{{ section.id }} .taste-item {
     display: flex;
-    gap: 16px;
+    flex-direction: column;
     align-items: flex-start;
   }
 
   #what-you-ll-taste-{{ section.id }} .taste-item-icon {
     flex-shrink: 0;
-    width: 24px;
-    height: 24px;
+    width: 40px;
+    height: 40px;
     color: var(--taste-accent-color);
   }
 
@@ -625,7 +625,7 @@
           "type": "html",
           "id": "icon_html",
           "label": "Icon HTML/SVG",
-          "default": "<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='currentColor'><circle cx='12' cy='12' r='3'/></svg>"
+          "default": "<svg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40' fill='currentColor'><circle cx='20' cy='20' r='18'/></svg>"
         },
         {
           "type": "richtext",
