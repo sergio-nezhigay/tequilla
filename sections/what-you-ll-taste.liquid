@@ -212,6 +212,27 @@
       background-repeat: repeat;
       opacity: 0.92;
     {%- endif -%}
+    position: relative; /* Ensure positioning for pseudo-element */
+  }
+
+  /* Add white overlay for more contrast */
+  #what-you-ll-taste-{{ section.id }} .what-you-ll-taste-card-inner::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(255, 255, 255, 0.3); /* Adjust opacity (0.3 here) for more/less white */
+    border-radius: inherit;
+    z-index: 1;
+    pointer-events: none; /* Allows interaction with content below */
+  }
+
+  /* Ensure content is above the overlay */
+  #what-you-ll-taste-{{ section.id }} .what-you-ll-taste-card-inner > * {
+    position: relative;
+    z-index: 2;
   }
 
   #what-you-ll-taste-{{ section.id }} .what-you-ll-taste-card-title {
