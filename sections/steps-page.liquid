@@ -168,28 +168,7 @@
     z-index: 2;
   }
 
-  /* Desktop styles */
-  @media screen and (min-width: 769px) {
-      #{{ section_id }}.tequila-process-section {
-      padding-left: 112px;
-      padding-right: 112px;
-  }
-    #{{ section_id }} .tequila-process-background {
-    border-radius: 30px;
-    padding: 50px 10px 51px;
-  }
-    #{{ section_id }} .tequila-process-background {
-      padding-top: var(--section-padding-top-desktop);
-      padding-bottom: var(--section-padding-bottom-desktop);
-    }
-    #{{ section_id }} .tequila-process-container {
-      padding-left: 0;
-      padding-right: 0;
-      margin-left: auto;
-      margin-right: auto;
-    }
-  }
-
+  /* Base (mobile-first) styles */
   #{{ section_id }} .tequila-process-header {
     text-align: center;
     margin-bottom: 10px;
@@ -266,7 +245,6 @@
     margin: 0 0 10px 0;
     line-height: 1.2;
     text-transform: uppercase;
-
   }
 
   #{{ section_id }} .step-description {
@@ -283,25 +261,6 @@
     text-align: center;
     margin-top: 20px;
   }
-
-  {% comment %}#{{ section_id }} .cta-button {
-    display: inline-block;
-    background-color: var(--cta-bg-color);
-    color: var(--cta-text-color);
-    padding: 16px 32px;
-    border-radius: 25px;
-    text-decoration: none;
-    font-weight: bold;
-    font-size: 16px;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    transition: all 0.3s ease;
-  }{% endcomment %}
-
-  {% comment %}#{{ section_id }} .cta-button:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
-  }{% endcomment %}
 
   /* Rich text styling for different colors */
   #{{ section_id }} .step-description p {
@@ -322,14 +281,39 @@
     font-style: italic;
   }
 
-  /* Desktop styles */
+  /* Tablet (768px - 1024px) */
+  @media screen and (min-width: 768px) and (max-width: 1024px) {
+    #{{ section_id }} .step-image {
+      max-width: 260px;
+    }
+  }
+
+  /* Desktop (>=769px) - consolidated */
   @media screen and (min-width: 769px) {
     #{{ section_id }} {
       padding-top: var(--section-padding-top-desktop);
       padding-bottom: var(--section-padding-bottom-desktop);
     }
 
+    #{{ section_id }}.tequila-process-section {
+      padding-left: 112px;
+      padding-right: 112px;
+    }
 
+    #{{ section_id }} .tequila-process-background {
+      border-radius: 30px;
+      /* larger horizontal padding on wide screens; will be overridden by larger breakpoints if needed */
+      padding: 50px 10px 51px;
+      padding-top: var(--section-padding-top-desktop);
+      padding-bottom: var(--section-padding-bottom-desktop);
+    }
+
+    #{{ section_id }} .tequila-process-container {
+      padding-left: 0;
+      padding-right: 0;
+      margin-left: auto;
+      margin-right: auto;
+    }
 
     #{{ section_id }} .main-title {
       font-size: var(--main-title-size-desktop);
@@ -357,11 +341,6 @@
       flex-direction: row-reverse;
     }
 
-    #{{ section_id }} .step-image {
-      max-width: 400px;
-      flex-shrink: 0;
-    }
-
     #{{ section_id }} .step-text {
       text-align: left;
       max-width: none;
@@ -374,14 +353,13 @@
     #{{ section_id }} .step-title {
       font-size: var(--step-title-size-desktop);
       line-height: 1;
-
       margin-bottom: 12px;
       max-width: 364px;
     }
+
     #{{ section_id }} .step-reverse .step-title {
       margin-left: auto;
     }
-
 
     #{{ section_id }} .step-description {
       font-size: 20px;
@@ -395,12 +373,14 @@
     #{{ section_id }} .tequila-process-cta {
       margin-top: 30px;
     }
+
     #{{ section_id }} .button-cta {
       padding-left: 80px;
       padding-right: 80px;
     }
   }
 
+  /* Large desktops (>=1200px) */
   @media screen and (min-width: 1200px) {
     #{{ section_id }} .step-content {
       gap: 20px;
@@ -409,14 +389,9 @@
     #{{ section_id }} .step-image {
       max-width: 392px;
     }
+
     #{{ section_id }} .tequila-process-background {
       padding: 50px 103px 51px;
-    }
-  }
-
-  @media screen and (min-width: 768px) and (max-width: 1024px) {
-    #{{ section_id }} .step-image {
-      max-width: 260px;
     }
   }
 </style>
