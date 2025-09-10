@@ -183,6 +183,14 @@
     padding: 100px 24px;
     backdrop-filter: blur(20px);
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+    {%- if section.settings.card_background_image != blank -%}
+      {%- assign card_bg_img = section.settings.card_background_image -%}
+      background-image: url({{ card_bg_img | image_url: width: 800 }});
+      background-size: crop;
+      background-position: center;
+      background-repeat: no-repeat;
+      opacity: 0.9;
+    {%- endif -%}
   }
 
   #what-you-ll-taste-{{ section.id }} .what-you-ll-taste-card-title {
@@ -421,6 +429,12 @@
       "id": "card_background",
       "label": "Card Background",
       "default": "rgba(255, 255, 255, 0.95)"
+    },
+    {
+      "type": "image_picker",
+      "id": "card_background_image",
+      "label": "Card Background Image",
+      "info": "Optional: Upload an image like 'bg-white paper' to use as background"
     },
     {
       "type": "richtext",
