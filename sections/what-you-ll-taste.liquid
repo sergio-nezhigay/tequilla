@@ -1,26 +1,8 @@
 <!-- Markup -->
 <section id="what-you-ll-taste-{{ section.id }}" class="what-you-ll-taste-section">
+  <!-- Content Wrapper -->
   <div class="what-you-ll-taste-container" style="max-width: {{ section.settings.max_width }}px;">
-    <!-- Background Image -->
-    {%- if section.settings.background_image != blank -%}
-      {%- assign bg_image = section.settings.background_image -%}
-      <div class="what-you-ll-taste-bg">
-        {{
-          bg_image
-          | image_url: width: 1440
-          | image_tag:
-            loading: 'lazy',
-            sizes: '(max-width: 768px) 100vw, 1440px',
-            widths: '375, 768, 1024, 1440',
-            class: 'what-you-ll-taste-bg-image'
-        }}
-      </div>
-    {%- endif -%}
-
-    <!-- Content Wrapper -->
-    <div
-      class="what-you-ll-taste-content what-you-ll-taste-content--reversed"
-    >
+    <div class="what-you-ll-taste-content what-you-ll-taste-content--reversed">
       <!-- Card Section -->
       <div class="what-you-ll-taste-card">
         <div class="what-you-ll-taste-card-inner">
@@ -102,6 +84,20 @@
         </div>
       </div>
     </div>
+    {%- if section.settings.background_image != blank -%}
+      {%- assign bg_image = section.settings.background_image -%}
+      <div class="what-you-ll-taste-bg">
+        {{
+          bg_image
+          | image_url: width: 1440
+          | image_tag:
+            loading: 'lazy',
+            sizes: '(max-width: 768px) 100vw, 1440px',
+            widths: '375, 768, 1024, 1440',
+            class: 'what-you-ll-taste-bg-image'
+        }}
+      </div>
+    {%- endif -%}
   </div>
 
   {%- if section.settings.custom_class != blank -%}
@@ -147,14 +143,22 @@
     width: 100%;
     margin: 0 auto;
     padding: 0 20px;
+    overflow: hidden;
   }
 
-
+  #what-you-ll-taste-{{ section.id }} .what-you-ll-taste-bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    width: 100%;
+    height: 100%;
+  }
 
   #what-you-ll-taste-{{ section.id }} .what-you-ll-taste-bg-image {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    display: block;
   }
 
   #what-you-ll-taste-{{ section.id }} .what-you-ll-taste-content {
@@ -289,10 +293,11 @@
     #what-you-ll-taste-{{ section.id }} {
       padding-top: var(--taste-padding-top-desktop);
       padding-bottom: var(--taste-padding-bottom-desktop);
+            padding: 0 112px;
     }
 
     #what-you-ll-taste-{{ section.id }} .what-you-ll-taste-container {
-      padding: 0 112px;
+
     }
 
     #what-you-ll-taste-{{ section.id }} .what-you-ll-taste-content {
