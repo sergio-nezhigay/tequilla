@@ -170,8 +170,17 @@
 
   /* Desktop styles */
   @media screen and (min-width: 769px) {
+      #{{ section_id }}.tequila-process-section {
+      padding-left: 112px;
+      padding-right: 112px;
+  }
     #{{ section_id }} .tequila-process-background {
-      padding: 50px 112px;
+    border-radius: 30px;
+    padding: 50px 103px 51px;
+  }
+    #{{ section_id }} .tequila-process-background {
+      padding-top: var(--section-padding-top-desktop);
+      padding-bottom: var(--section-padding-bottom-desktop);
     }
     #{{ section_id }} .tequila-process-container {
       padding-left: 0;
@@ -197,6 +206,7 @@
 
   #{{ section_id }} .subtitle {
     font-size: var(--subtitle-size-mobile);
+    font-weight: 400;
     color: var(--subtitle-color);
     margin: 0;
     line-height: 1.65;
@@ -246,6 +256,7 @@
     color: var(--step-number-color);
     margin-bottom: -10px;
     line-height: 1;
+    font-family: Futura Hv BT, Roundo, sans-serif;
   }
 
   #{{ section_id }} .step-title {
@@ -328,17 +339,17 @@
     }
 
     #{{ section_id }} .tequila-process-header {
-      margin-bottom: 60px;
+      margin-bottom: 30px;
     }
 
     #{{ section_id }} .tequila-process-steps {
-      gap: 60px;
+      gap: 50px;
     }
 
     #{{ section_id }} .step-content {
       flex-direction: row;
-      gap: 40px;
-      align-items: center;
+      gap: 20px;
+      align-items: flex-end;
     }
 
     #{{ section_id }} .step-content.step-reverse {
@@ -361,24 +372,35 @@
 
     #{{ section_id }} .step-title {
       font-size: var(--step-title-size-desktop);
+      line-height: 1;
+      margin-bottom: 12px;
     }
 
     #{{ section_id }} .step-description {
-      font-size: 18px;
+      font-size: 20px;
     }
 
     #{{ section_id }} .step-number {
-      font-size: 72px;
+      font-size: 80px;
+      line-height: 1;
+    }
+
+    #{{ section_id }} .tequila-process-cta {
+      margin-top: 30px;
+    }
+    #{{ section_id }} .button-cta {
+      padding-left: 80px;
+      padding-right: 80px;
     }
   }
 
   @media screen and (min-width: 1200px) {
     #{{ section_id }} .step-content {
-      gap: 80px;
+      gap: 20px;
     }
 
     #{{ section_id }} .step-image {
-      max-width: 450px;
+      max-width: 392px;
     }
   }
 </style>
