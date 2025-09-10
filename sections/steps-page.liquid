@@ -101,6 +101,7 @@
     --cta-bg-color: {{ section.settings.cta_bg_color }};
     --cta-text-color: {{ section.settings.cta_text_color }};
     --max-width: {{ section.settings.max_width }}px;
+    --step-strong-color: #67B7A8;
 
     padding-top: var(--section-padding-top-mobile);
     padding-bottom: var(--section-padding-bottom-mobile);
@@ -232,12 +233,12 @@
     margin-bottom: 0;
   }
 
-  #{{ section_id }} .step-description strong {
-    color: var(--step-number-color);
+  #{{ section_id }} strong {
+    color: var(--step-strong-color);
     font-weight: bold;
   }
 
-  #{{ section_id }} .step-description em {
+  #{{ section_id }} em {
     color: var(--main-title-color);
     font-style: italic;
   }
@@ -322,10 +323,10 @@
   "name": "Tequila Process Steps",
   "settings": [
     {
-      "type": "text",
+      "type": "richtext",
       "id": "main_title",
       "label": "Main Title",
-      "default": "FROM FIELD TO BOTTLE: TRADITION IN EVERY STEP"
+      "default": "<p><strong>Create</strong> a Tequila to <em>be remembered</em></p>"
     },
     {
       "type": "text",
