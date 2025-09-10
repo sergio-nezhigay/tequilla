@@ -344,7 +344,11 @@
           }
         }
       },
-      "block_order": ["block_ApXy79", "block_JczB79", "block_qJP74a"],
+      "block_order": [
+        "block_ApXy79",
+        "block_JczB79",
+        "block_qJP74a"
+      ],
       "name": "Create tequila",
       "settings": {
         "background_color": "#f1f1ee",
@@ -464,7 +468,11 @@
           }
         }
       },
-      "block_order": ["block_VrDQRN", "block_nC4JMj", "block_YjjXY4"],
+      "block_order": [
+        "block_VrDQRN",
+        "block_nC4JMj",
+        "block_YjjXY4"
+      ],
       "name": "Best bottle",
       "settings": {
         "background_color": "#f1f1ee",
@@ -564,6 +572,7 @@
     },
     "tequila_showcase_jH4Hfj": {
       "type": "tequila-showcase",
+      "disabled": true,
       "name": "Tequila Showcase",
       "settings": {
         "left_image": "shopify://shop_images/0fee1850135daabcaef427a0fbb2561527030cf5.jpg",
@@ -582,6 +591,7 @@
     },
     "bottle_with_text_w6tKtA": {
       "type": "bottle-with-text",
+      "disabled": true,
       "name": "Tagline Statement",
       "settings": {
         "bottle_image": "shopify://shop_images/2bfeb3ce7b287bb9e7b642e47af15460035b3ed8.png",
@@ -593,6 +603,7 @@
     },
     "corporate_contact_4Q7tWn": {
       "type": "corporate-contact",
+      "disabled": true,
       "name": "Project Contact",
       "settings": {
         "background_image": "shopify://shop_images/Group_72_e079e85a-c16c-4a26-9c3c-10afc37d6fa5.png",
