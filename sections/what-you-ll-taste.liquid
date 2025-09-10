@@ -32,9 +32,9 @@
                       {%- endif -%}
 
                       {%- if block.settings.item_description != blank -%}
-                        <div class="taste-item-description">
+                        <h3 class="taste-item-description">
                           {{ block.settings.item_description }}
-                        </div>
+                        </h3>
                       {%- endif -%}
                     </div>
                   </div>
@@ -247,15 +247,15 @@
     font-size: var(--taste-item-title-size-mobile);
     color: var(--taste-item-title-color);
     font-weight: 600;
-    margin: 0 0 4px 0;
+    margin: 0 0 5px 0;
     text-transform: uppercase;
-    letter-spacing: 0.5px;
+    letter-spacing: 0;
   }
 
   #what-you-ll-taste-{{ section.id }} .taste-item-description {
     font-size: var(--taste-item-text-size-mobile);
     color: var(--taste-item-text-color);
-    line-height: 1.5;
+    line-height: 1.4;
   }
 
   #what-you-ll-taste-{{ section.id }} .taste-item-description p {
