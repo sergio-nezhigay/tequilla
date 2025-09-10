@@ -19,8 +19,7 @@
 
     <!-- Content Wrapper -->
     <div
-      class="what-you-ll-taste-content {% if section.settings.layout_reversed %}what-you-ll-taste-content--reversed{% endif %}"
-      data-mobile-order="{{ section.settings.mobile_order }}"
+      class="what-you-ll-taste-content what-you-ll-taste-content--reversed"
     >
       <!-- Card Section -->
       <div class="what-you-ll-taste-card">
@@ -293,7 +292,7 @@
     border-radius: 12px;
   }
 
-  /* Mobile Order Variations */
+  /* Remove Mobile Order Variations */
   #what-you-ll-taste-{{ section.id }} .what-you-ll-taste-content[data-mobile-order="image-first"] {
     flex-direction: column-reverse;
   }
@@ -358,28 +357,6 @@
       "id": "max_width",
       "label": "Maximum Width (px)",
       "default": "1440"
-    },
-    {
-      "type": "checkbox",
-      "id": "layout_reversed",
-      "label": "Reverse Layout (Desktop)",
-      "default": false
-    },
-    {
-      "type": "select",
-      "id": "mobile_order",
-      "label": "Mobile Order",
-      "options": [
-        {
-          "value": "content-first",
-          "label": "Content First"
-        },
-        {
-          "value": "image-first",
-          "label": "Image First"
-        }
-      ],
-      "default": "content-first"
     },
     {
       "type": "header",
