@@ -67,41 +67,40 @@
             </div>
           {%- endif -%}
         </div>
-      </div>
-
-      <!-- Product Display -->
-      <div class="what-you-ll-taste-product">
-        {%- if section.settings.bottle_image != blank -%}
-          {%- assign bottle = section.settings.bottle_image -%}
-          {{
-            bottle
-            | image_url: width: 600
-            | image_tag:
-              loading: 'lazy',
-              sizes: '(max-width: 768px) 80vw, 600px',
-              widths: '300, 400, 500, 600',
-              class: 'what-you-ll-taste-bottle',
-              alt: section.settings.bottle_alt_text
-            | default: 'Product bottle'
-          }}
-        {%- endif -%}
-
-        {%- if section.settings.label_image != blank -%}
-          {%- assign label = section.settings.label_image -%}
-          <div class="what-you-ll-taste-label">
+        <!-- Product Display -->
+        <div class="what-you-ll-taste-product">
+          {%- if section.settings.bottle_image != blank -%}
+            {%- assign bottle = section.settings.bottle_image -%}
             {{
-              label
-              | image_url: width: 280
+              bottle
+              | image_url: width: 600
               | image_tag:
                 loading: 'lazy',
-                sizes: '(max-width: 768px) 200px, 280px',
-                widths: '200, 280',
-                class: 'what-you-ll-taste-label-image',
-                alt: section.settings.label_alt_text
-              | default: 'Product label'
+                sizes: '(max-width: 768px) 80vw, 600px',
+                widths: '300, 400, 500, 600',
+                class: 'what-you-ll-taste-bottle',
+                alt: section.settings.bottle_alt_text
+              | default: 'Product bottle'
             }}
-          </div>
-        {%- endif -%}
+          {%- endif -%}
+
+          {%- if section.settings.label_image != blank -%}
+            {%- assign label = section.settings.label_image -%}
+            <div class="what-you-ll-taste-label">
+              {{
+                label
+                | image_url: width: 280
+                | image_tag:
+                  loading: 'lazy',
+                  sizes: '(max-width: 768px) 200px, 280px',
+                  widths: '200, 280',
+                  class: 'what-you-ll-taste-label-image',
+                  alt: section.settings.label_alt_text
+                | default: 'Product label'
+              }}
+            </div>
+          {%- endif -%}
+        </div>
       </div>
     </div>
   </div>
@@ -176,14 +175,16 @@
   }
 
   #what-you-ll-taste-{{ section.id }} .what-you-ll-taste-card {
+    position: relative;
     width: 100%;
     max-width: 500px;
+    height: 80%;
   }
 
   #what-you-ll-taste-{{ section.id }} .what-you-ll-taste-card-inner {
     background: var(--taste-card-bg);
     border-radius: var(--taste-card-radius);
-    padding: 32px 24px;
+    padding: 100px 24px;
     backdrop-filter: blur(20px);
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
   }
@@ -262,9 +263,13 @@
   }
 
   #what-you-ll-taste-{{ section.id }} .what-you-ll-taste-product {
-    position: relative;
-    width: 280px;
-    height: auto;
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    {% comment %}width: 9%;{% endcomment %}
+    height: 80%;
+    z-index: 3;
   }
 
   #what-you-ll-taste-{{ section.id }} .what-you-ll-taste-bottle {
@@ -306,45 +311,15 @@
 
     #what-you-ll-taste-{{ section.id }} .what-you-ll-taste-content {
       flex-direction: row;
-      justify-content: space-between;
+      justify-content: center; /* Change from space-between */
       align-items: center;
-      gap: 60px;
-      min-height: 390px;
-    }
-
-    #what-you-ll-taste-{{ section.id }} .what-you-ll-taste-content--reversed {
-      flex-direction: row-reverse;
+      gap: 0; /* Remove gap since product is now absolute */
+      min-height: 650px;
     }
 
     #what-you-ll-taste-{{ section.id }} .what-you-ll-taste-card {
-      flex: 1;
+      flex: none;
       max-width: 600px;
-    }
-
-    #what-you-ll-taste-{{ section.id }} .what-you-ll-taste-card-inner {
-      padding: 48px 40px;
-    }
-
-    #what-you-ll-taste-{{ section.id }} .what-you-ll-taste-card-title {
-      font-size: var(--taste-title-size-desktop);
-      margin-bottom: 40px;
-    }
-
-    #what-you-ll-taste-{{ section.id }} .taste-item-title {
-      font-size: var(--taste-item-title-size-desktop);
-    }
-
-    #what-you-ll-taste-{{ section.id }} .taste-item-description {
-      font-size: var(--taste-item-text-size-desktop);
-    }
-
-    #what-you-ll-taste-{{ section.id }} .what-you-ll-taste-footer {
-      font-size: var(--taste-footer-size-desktop);
-    }
-
-    #what-you-ll-taste-{{ section.id }} .what-you-ll-taste-product {
-      width: 400px;
-      flex-shrink: 0;
     }
 
     #what-you-ll-taste-{{ section.id }} .what-you-ll-taste-label {
