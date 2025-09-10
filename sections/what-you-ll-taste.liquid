@@ -324,8 +324,12 @@
   #what-you-ll-taste-{{ section.id }} .what-you-ll-taste-bottle {
     width: 100%;
     height: 100%;
-    object-fit: contain; /* or 'cover' if you want it to crop */
+    object-fit: contain;
     display: block;
+    filter:
+      drop-shadow(0px 19px 41px rgba(0,0,0,0.10))
+      drop-shadow(0px 74px 74px rgba(0,0,0,0.09));
+    {% comment %}transform: rotate(-5deg);{% endcomment %}
   }
 
   #what-you-ll-taste-{{ section.id }} .what-you-ll-taste-label {
