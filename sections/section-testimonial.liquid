@@ -1,0 +1,193 @@
+{{ 'section-testimonial.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+  .section-testimonial{
+      background-color: {{ section.settings.background_color }};
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+  }
+  @media (max-width: 767px){
+      .section-testimonial{
+          padding-top: {{ section.settings.padding_top_mob }}px;
+          padding-bottom: {{ section.settings.padding_bottom_mob }}px;
+      }
+  }
+{%- endstyle -%}
+
+<section class="section-testimonial">
+  {% if section.settings.title != blank %}
+    <div class="title-testimonial">{{ section.settings.title }}</div>
+  {% endif %}
+  <div class="container-testimonialSwiper">
+    <div id="testimonialSwiper" class="swiper">
+      <div class="swiper-wrapper">
+        {% for block in section.blocks %}
+          <div class="swiper-slide slide1">
+            <div class="main-container-text-testimonialSwiper">
+              {% if block.settings.description != blank %}
+                <div class="description-testimonialSwiper">{{ block.settings.description }}</div>
+              {% endif %}
+
+              <div>
+                {% if block.settings.name_text != blank %}
+                  <div class="name-text-testimonialSwiper">{{ block.settings.name_text }}</div>
+                {% endif %}
+                {% if block.settings.title_text != blank %}
+                  <div class="title-testimonialSwiper">{{ block.settings.title_text }}</div>
+                {% endif %}
+              </div>
+            </div>
+            {% if block.settings.image_mob != blank %}
+              {{
+                block.settings.image
+                | image_url: width: block.settings.image.width
+                | image_tag: class: 'image-testimonialSwiper desktop_image'
+              }}
+              {{
+                block.settings.image_mob
+                | image_url: width: block.settings.image_mob.width
+                | image_tag: class: 'image-testimonialSwiper mob_image'
+              }}
+            {% else %}
+              {{
+                block.settings.image
+                | image_url: width: block.settings.image.width
+                | image_tag: class: 'image-testimonialSwiper'
+              }}
+            {% endif %}
+          </div>
+        {% endfor %}
+      </div>
+
+      <div class="swiper-pagination swiper-pagination-testimonial"></div>
+    </div>
+
+    <div class="swiper-button-next swiper-button-next-testimonial">
+      {{ 'button-slider.svg' | asset_url | img_tag }}
+    </div>
+    <div class="swiper-button-prev swiper-button-prev-testimonial">
+      {{ 'button-slider.svg' | asset_url | img_tag }}
+    </div>
+  </div>
+</section>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+<script>
+  const swiper = new Swiper('#testimonialSwiper', {
+    spaceBetween: 20,
+    navigation: {
+      nextEl: '.swiper-button-next-testimonial',
+      prevEl: '.swiper-button-prev-testimonial',
+    },
+    pagination: {
+      el: '.swiper-pagination-testimonial',
+      clickable: true,
+    },
+  });
+</script>
+
+{% schema %}
+{
+  "name": "Section testimonial",
+  "settings": [
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title"
+    },
+    {
+      "type": "header",
+      "content": "Desktop"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Padding top",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Padding bottom",
+      "default": 0
+    },
+    {
+      "type": "header",
+      "content": "Mobile"
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mob",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Padding top",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mob",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Padding bottom",
+      "default": 0
+    }
+  ],
+  "blocks": [
+    {
+      "type": "block",
+      "name": "Block",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image desktop"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_mob",
+          "label": "Image mobile"
+        },
+        {
+          "type": "richtext",
+          "id": "description",
+          "label": "Description"
+        },
+        {
+          "type": "richtext",
+          "id": "name_text",
+          "label": "Name"
+        },
+        {
+          "type": "richtext",
+          "id": "title_text",
+          "label": "Title"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Section testimonial"
+    }
+  ]
+}
+{% endschema %}

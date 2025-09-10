@@ -1,0 +1,103 @@
+.title-about-us em {
+  color: #67b7a8;
+  font-style: normal;
+}
+.title-about-us {
+  line-height: 50px;
+  font-family: Futura Hv BT, Roundo, sans-serif;
+  text-align: center;
+  font-weight: 400;
+  font-size: 60px;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+.description-about-us {
+  font-family: Roundo, Arial, sans-serif;
+  font-weight: 400;
+  font-size: 20px;
+  letter-spacing: 0;
+  text-align: center;
+  color: #090909cc;
+  padding: 20px 5px;
+}
+.main-button-about-us {
+  margin: 0 auto;
+  display: flex;
+  background: #67b7a8;
+  min-width: 319px;
+  width: fit-content;
+  min-height: 82px;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #090909;
+  border-radius: 90px;
+  font-family: Futura Hv BT, Roundo, sans-serif;
+  text-decoration: none;
+  color: #090909;
+  font-weight: 400;
+  font-size: 18px;
+  letter-spacing: 0;
+  text-transform: uppercase;
+  margin-top: 30px;
+  transition: background 0.3s, color 0.3s;
+}
+.main-button-about-us:hover,
+.main-button-about-us:focus {
+  background: #ffb793;
+  color: #090909;
+  border-color: #090909;
+}
+.container-about-us {
+  max-width: 886px;
+  margin: 0 auto;
+}
+.img-about-us-main {
+  border-top-left-radius: 130px;
+  border-bottom-right-radius: 130px;
+}
+@media (max-width: 1439px) {
+  .title-about-us {
+    font-size: 48px;
+  }
+  .description-about-us {
+    font-size: 15px;
+  }
+  .main-button-about-us {
+    min-width: 250px;
+    min-height: 70px;
+    font-size: 17px;
+  }
+  .img-about-us-main {
+    width: 100%;
+    object-fit: cover;
+  }
+}
+@media (max-width: 1024px) {
+  .container-about-us {
+    max-width: 550px;
+  }
+}
+@media (max-width: 768px) {
+  .title-about-us {
+    line-height: 29px;
+    font-size: 30px;
+  }
+  .img-about-us-main {
+    height: auto;
+    border-top-left-radius: 60px;
+    border-bottom-right-radius: 60px;
+  }
+  .description-about-us {
+    font-size: 18px;
+    padding: 10px 0;
+  }
+  .container-about-us {
+    padding: 0 20px;
+  }
+  .main-button-about-us {
+    min-width: 349px;
+    min-height: 79px;
+    font-size: 16px;
+    margin-top: 20px;
+  }
+}

@@ -1,0 +1,177 @@
+<section class="tagline-statement">
+  <div class="tagline-container">
+    <div class="tagline-bottle">
+      <img
+        src="{{ section.settings.bottle_image | image_url }}"
+        alt="{{ section.settings.bottle_image.alt | default: 'Product bottle' }}"
+        loading="lazy"
+      >
+    </div>
+
+    <div class="tagline-content">
+      <h2>
+        IT'S <span class="teal">{{ section.settings.line_1 | default: 'NOT JUST A GIFT' }}</span>.<br>
+        IT'S <span class="coral">{{ section.settings.line_2 | default: 'BRAND LOYALTY' }}</span>.<br>
+        IT'S <span class="teal">{{ section.settings.line_3 | default: 'WORD-OF-MOUTH' }}</span>.<br>
+        IT'S <span class="coral">{{ section.settings.line_4 | default: 'REFERRALS' }}</span>
+        <span class="black">WITHOUT ASKING</span>.
+      </h2>
+    </div>
+  </div>
+</section>
+
+<style>
+  .tagline-statement {
+    padding: 80px 0;
+  }
+
+  .tagline-container {
+    max-width: 1219px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 60px;
+  }
+
+  .tagline-bottle {
+    flex-shrink: 0;
+  }
+
+  .tagline-bottle img {
+    width: 72px;
+    height: 323px;
+    border-radius: 12px;
+    object-fit: cover;
+  }
+
+  .tagline-content {
+    flex: 1;
+    max-width: 1115px;
+  }
+
+  .tagline-content h2 {
+    font-family: 'Futura', 'Arial Black', sans-serif;
+    font-size: 60px;
+    font-weight: 400;
+    line-height: 1.2;
+    text-transform: uppercase;
+    color: #090909;
+    margin: 0;
+    letter-spacing: -1px;
+  }
+
+  .tagline-content .teal {
+    color: #67b7a8;
+  }
+
+  .tagline-content .coral {
+    color: #ffb793;
+  }
+
+  .tagline-content .black {
+    color: #090909;
+  }
+
+  @media (max-width: 1200px) {
+    .tagline-container {
+      padding: 0 40px;
+      gap: 40px;
+    }
+
+    .tagline-content h2 {
+      font-size: 50px;
+    }
+
+    .tagline-bottle img {
+      width: 60px;
+      height: 270px;
+    }
+  }
+
+  @media (max-width: 900px) {
+    .tagline-statement {
+      padding: 0 !important;
+    }
+
+    .tagline-container {
+      padding: 0 20px;
+      flex-direction: column;
+      gap: 5px;
+      text-align: center;
+    }
+
+    .tagline-content h2 {
+      font-size: 30px;
+      text-align: left;
+    }
+
+    .tagline-bottle img {
+      width: 50px;
+      height: 220px;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .tagline-content h2 {
+      font-size: 28px;
+      line-height: 1.3;
+    }
+
+    .tagline-bottle img {
+      width: 40px;
+      height: 180px;
+    }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Tagline Statement",
+  "tag": "section",
+  "class": "tagline-statement-section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Bottle Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "bottle_image",
+      "label": "Bottle Image"
+    },
+    {
+      "type": "header",
+      "content": "Tagline Text"
+    },
+    {
+      "type": "text",
+      "id": "line_1",
+      "label": "Line 1 (Teal)",
+      "default": "NOT JUST A GIFT"
+    },
+    {
+      "type": "text",
+      "id": "line_2",
+      "label": "Line 2 (Coral)",
+      "default": "BRAND LOYALTY"
+    },
+    {
+      "type": "text",
+      "id": "line_3",
+      "label": "Line 3 (Teal)",
+      "default": "WORD-OF-MOUTH"
+    },
+    {
+      "type": "text",
+      "id": "line_4",
+      "label": "Line 4 (Coral)",
+      "default": "REFERRALS"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Tagline Statement"
+    }
+  ]
+}
+{% endschema %}

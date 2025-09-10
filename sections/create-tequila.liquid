@@ -1,0 +1,149 @@
+{{ 'create-tequila.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+  .section-create-tequila{
+      background-color: {{ section.settings.background_color }};
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+  }
+  @media (max-width: 767px){
+      .section-create-tequila{
+          padding-top: {{ section.settings.padding_top_mob }}px;
+          padding-bottom: {{ section.settings.padding_bottom_mob }}px;
+      }
+  }
+{%- endstyle -%}
+
+<section class="section-create-tequila">
+  <div class="container-create-tequila">
+    {% if section.settings.title != blank %}
+      <div class="create-tequila-title">{{ section.settings.title }}</div>
+    {% endif %}
+    <div class="create-tequila-blocks">
+      {% for block in section.blocks %}
+        <div>
+          <div
+            class="create-tequila-background"
+            style="background-image: url({{ block.settings.background_image | image_url }});"
+          >
+            {% if block.settings.image != blank %}
+              {{ block.settings.image | image_url: width: block.settings.image.width | image_tag }}
+            {% endif %}
+          </div>
+          {% if block.settings.description != blank %}
+            <div class="create-tequila-description">
+              {{ block.settings.description }}
+            </div>
+          {% endif %}
+        </div>
+      {% endfor %}
+    </div>
+    {% if section.settings.text_btn != blank and section.settings.main_url != blank %}
+      <a class="create-tequila-button" href="{{ section.settings.main_url }}">{{ section.settings.text_btn }}</a>
+    {% endif %}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Create tequila",
+  "settings": [
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background"
+    },
+    {
+      "type": "richtext",
+      "id": "title",
+      "label": "Title"
+    },
+    {
+      "type": "text",
+      "id": "text_btn",
+      "label": "Text button"
+    },
+    {
+      "type": "url",
+      "id": "main_url",
+      "label": "Url button"
+    },
+    {
+      "type": "header",
+      "content": "Desktop"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Padding top",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Padding bottom",
+      "default": 0
+    },
+    {
+      "type": "header",
+      "content": "Mobile"
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mob",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Padding top",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mob",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Padding bottom",
+      "default": 0
+    }
+  ],
+  "blocks": [
+    {
+      "type": "block",
+      "name": "Block",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "background_image",
+          "label": "Background"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "richtext",
+          "id": "description",
+          "label": "description"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Create tequila"
+    }
+  ]
+}
+{% endschema %}

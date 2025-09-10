@@ -1,0 +1,128 @@
+{{ 'section-about-us.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+  .section-aout-us{
+      background-color: {{ section.settings.background_color }};
+  }
+  .container-about-us{
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+  }
+  @media (max-width: 767px){
+      .container-about-us{
+          padding-top: {{ section.settings.padding_top_mob }}px;
+          padding-bottom: {{ section.settings.padding_bottom_mob }}px;
+      }
+  }
+{%- endstyle -%}
+<section class="section-aout-us">
+  <div class="container-about-us">
+    {% if section.settings.title != blank %}
+      <div class="title-about-us">{{ section.settings.title }}</div>
+    {% endif %}
+    {% if section.settings.description != blank %}
+      <div class="description-about-us">{{ section.settings.description }}</div>
+    {% endif %}
+
+    {% if section.settings.main_img != blank %}
+      {{
+        section.settings.main_img
+        | image_url: width: section.settings.main_img.width
+        | image_tag: class: 'img-about-us-main'
+      }}
+    {% endif %}
+    {% if section.settings.text_btn != blank and section.settings.main_url != blank %}
+      <a class="main-button-about-us" href="{{ section.settings.main_url }}">{{ section.settings.text_btn }}</a>
+    {% endif %}
+  </div>
+</section>
+{% schema %}
+{
+  "name": "About us",
+  "settings": [
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background"
+    },
+    {
+      "type": "richtext",
+      "id": "title",
+      "label": "Title"
+    },
+    {
+      "type": "richtext",
+      "id": "description",
+      "label": "Description"
+    },
+    {
+      "type": "image_picker",
+      "id": "main_img",
+      "label": "Image"
+    },
+    {
+      "type": "text",
+      "id": "text_btn",
+      "label": "Text button"
+    },
+    {
+      "type": "url",
+      "id": "main_url",
+      "label": "Url button"
+    },
+    {
+      "type": "header",
+      "content": "Desktop"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Padding top",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Padding bottom",
+      "default": 0
+    },
+    {
+      "type": "header",
+      "content": "Mobile"
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mob",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Padding top",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mob",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Padding bottom",
+      "default": 0
+    }
+  ],
+  "presets": [
+    {
+      "name": "About us"
+    }
+  ]
+}
+{% endschema %}

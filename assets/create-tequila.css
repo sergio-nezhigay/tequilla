@@ -1,0 +1,116 @@
+.create-tequila-background {
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-position: center;
+}
+.create-tequila-blocks {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 20px;
+}
+.container-create-tequila {
+  max-width: 1216px;
+  margin: 0 auto;
+}
+.create-tequila-description em {
+  font-style: normal;
+  color: #67b7a8;
+}
+.create-tequila-description {
+  padding-top: 2px;
+  font-family: Roundo, Arial, sans-serif;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 150%;
+  letter-spacing: 0;
+  text-align: center;
+}
+.create-tequila-title em {
+  font-style: normal;
+  color: #ffb793;
+}
+.create-tequila-title strong {
+  color: #67b7a8;
+}
+.create-tequila-title {
+  font-family: Futura Hv BT, Roundo, sans-serif;
+  font-weight: 400;
+  font-size: 60px;
+  line-height: 120%;
+  letter-spacing: 0;
+  text-align: center;
+  text-transform: uppercase;
+  max-width: 680px;
+  margin: 0 auto;
+  padding-bottom: 22px;
+}
+.create-tequila-button {
+  min-width: 500px;
+  min-height: 82px;
+  background: #67b7a8;
+  border: 2px solid #090909;
+  width: fit-content;
+  margin: 0 auto;
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 90px;
+  font-family: Futura Hv BT, Roundo, sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 120%;
+  letter-spacing: 0;
+  text-transform: uppercase;
+  color: #090909;
+  text-decoration: none;
+  transition: background 0.3s, color 0.3s;
+}
+.create-tequila-button:hover,
+.create-tequila-button:focus {
+  background: #ffb793;
+  color: #090909;
+  border-color: #090909;
+}
+@media (max-width: 1439px) {
+  .container-create-tequila {
+    max-width: 950px;
+  }
+  .create-tequila-background {
+    background-size: 100% 90%;
+    border-top-right-radius: 300px;
+    border-top-left-radius: 300px;
+  }
+  .create-tequila-title {
+    font-size: 45px;
+  }
+}
+@media (max-width: 1023px) {
+  .container-create-tequila {
+    max-width: 680px;
+  }
+  .create-tequila-blocks {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media (max-width: 767px) {
+  .create-tequila-blocks {
+    grid-template-columns: 1fr;
+  }
+  .create-tequila-button {
+    min-width: 350px;
+    min-height: 79px;
+    font-size: 16px;
+    margin-top: 20px;
+  }
+  .create-tequila-title {
+    font-size: 30px;
+    padding-bottom: 13px;
+  }
+  .container-create-tequila {
+    padding: 0 20px;
+    max-width: 400px;
+  }
+}

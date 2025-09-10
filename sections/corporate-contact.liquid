@@ -1,0 +1,229 @@
+<style>
+  .project-contact {
+    background-color: {{ section.settings.background_color | default: '#fdd8c6' }};
+    {% if section.settings.background_image != blank %}
+      background-image: url('{{ section.settings.background_image | img_url: 'master' }}');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    {% endif %}
+    border-radius: 30px;
+    overflow: hidden;
+    padding: 50px 20px 51px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    box-sizing: border-box;
+    max-width: 1222px;
+    margin: 0 auto;
+  }
+
+  .project-contact__image {
+    width: 379px;
+    height: 420px;
+    border-radius: 300px 300px 10px 10px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin-bottom: 33px;
+    flex-shrink: 0;
+    display: block !important;
+  }
+
+  .project-contact__title {
+    font-family: 'Futura Hv BT', Arial, sans-serif;
+    font-size: 60px;
+    font-weight: 400;
+    line-height: 1.2;
+    color: {{ section.settings.text_color | default: 'rgba(9, 9, 9, 0.9)' }};
+    text-transform: uppercase;
+    margin: 0 0 20px;
+    max-width: 1175px;
+    width: 100%;
+  }
+
+  .project-contact__button {
+    background-color: {{ section.settings.button_background | default: '#67b7a8' }};
+    border: 2px solid #090909;
+    border-radius: 90px;
+    padding: 30px 80px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    min-width: 413px;
+    box-sizing: border-box;
+  }
+
+  .project-contact__button-text {
+    font-family: 'Futura Hv BT', Arial, sans-serif;
+    font-size: 18px;
+    font-weight: 900;
+    color: #090909;
+    text-transform: uppercase;
+    line-height: 1.2;
+    white-space: nowrap;
+    margin: 0;
+  }
+
+  .project-contact__button:hover {
+    background-color: #5ca399;
+    transform: translateY(-2px);
+  }
+
+  @media (max-width: 1300px) {
+    .project-contact {
+      border-radius: 0;
+      padding: 40px 20px 100px;
+    }
+
+    .project-contact__title {
+      font-size: 50px;
+    }
+
+    .project-contact__button {
+      min-width: 350px;
+      padding: 25px 60px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .project-contact {
+      min-height: 600px;
+      padding: 40px 20px 80px;
+    }
+
+    .project-contact__image {
+      width: 350px;
+      height: 387px;
+      margin-bottom: 20px;
+    }
+
+    .project-contact__title {
+      font-size: 36px;
+      margin-bottom: 40px;
+    }
+
+    .project-contact__button {
+      min-width: 280px;
+      padding: 20px 40px;
+    }
+
+    .project-contact__button-text {
+      font-size: 16px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .project-contact {
+      max-width: 370px;
+      margin: 0 auto;
+      min-height: 500px;
+      padding: 40px 10px ;
+      border-radius: 16px;
+    }
+
+    .project-contact__image {
+      width: 350px;
+      height: 387px;
+      margin-bottom: 20px;
+    }
+
+    .project-contact__title {
+      font-size: 30px;
+      margin-bottom: 10px;
+    }
+
+    .project-contact__button {
+      min-width: 350px;
+      height: 82px;
+      padding: 18px 35px;
+    }
+
+    .project-contact__button-text {
+      font-size: 18px;
+    }
+  }
+</style>
+
+<section class="project-contact">
+  {% if section.settings.image != blank %}
+    <div
+      class="project-contact__image"
+      style="background-image: url('{{ section.settings.image | img_url: '758x840' }}');"
+    ></div>
+  {% endif %}
+
+  {% if section.settings.title != blank %}
+    <h2 class="project-contact__title">{{ section.settings.title }}</h2>
+  {% endif %}
+
+  {% if section.settings.button_text != blank %}
+    <a href="{{ section.settings.button_url | default: '#' }}" class="project-contact__button">
+      <p class="project-contact__button-text">{{ section.settings.button_text }}</p>
+    </a>
+  {% endif %}
+</section>
+
+{% schema %}
+{
+  "name": "Project Contact",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "background_image",
+      "label": "Background Image",
+      "info": "Optional background image for the section"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Main Image",
+      "info": "Recommended size: 758x840px"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "Tell us about your project — we'll handle the rest."
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button Text",
+      "default": "Get In Touch"
+    },
+    {
+      "type": "url",
+      "id": "button_url",
+      "label": "Button URL"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background Color",
+      "default": "#fdd8c6"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text Color",
+      "default": "rgba(9, 9, 9, 0.9)"
+    },
+    {
+      "type": "color",
+      "id": "button_background",
+      "label": "Button Background Color",
+      "default": "#67b7a8"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Project Contact"
+    }
+  ]
+}
+{% endschema %}

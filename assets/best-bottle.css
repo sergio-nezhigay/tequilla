@@ -1,0 +1,160 @@
+.containe-best-bottle {
+  max-width: 1217px;
+  margin: 0 auto;
+}
+.title-best-bottle strong {
+  color: #67b7a8;
+}
+.title-best-bottle em {
+  color: #ffb793;
+  font-style: normal;
+}
+.title-best-bottle {
+  color: #090909;
+  font-family: Futura Hv BT, Roundo, sans-serif;
+  font-weight: 400;
+  font-size: 60px;
+  line-height: 120%;
+  letter-spacing: 0;
+  text-align: center;
+  text-transform: uppercase;
+  max-width: 840px;
+  margin: 0 auto;
+  padding-bottom: 20px;
+}
+.best-bottle-button {
+  min-width: 419px;
+  min-height: 82px;
+  background: #67b7a8;
+  width: fit-content;
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+  align-items: center;
+  margin-top: 30px;
+  border: 2px solid #090909;
+  border-radius: 90px;
+  font-family: Futura Hv BT, Roundo, sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 120%;
+  color: #090909;
+  letter-spacing: 0;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: background 0.3s, color 0.3s;
+}
+.best-bottle-button:hover,
+.best-bottle-button:focus {
+  background: #ffb793;
+  color: #090909;
+  border-color: #090909;
+}
+.image-best-bottle {
+  width: 100%;
+  object-fit: cover;
+  border-radius: 30px;
+}
+.container-block-best-bottle {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #090909;
+}
+.main-title-best-bottle {
+  font-family: Futura Hv BT, Roundo, sans-serif;
+  font-weight: 400;
+  font-size: 30px;
+  line-height: 120%;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+.main-title-best-bottle strong {
+  color: #67b7a8;
+}
+.main-title-best-bottle em {
+  font-style: normal;
+  color: #ffb793;
+}
+.main-description-best-bottle {
+  max-width: 606px;
+  font-family: Roundo, Arial, sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 165%;
+  letter-spacing: 0;
+  text-align: right;
+}
+.container-blocks-best-bottle {
+  gap: 20px;
+  display: grid;
+  padding-top: 20px;
+}
+.title-block-best-bottle {
+  color: #090909cc;
+  font-family: Roundo, Arial, sans-serif;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 120%;
+  letter-spacing: 0;
+  padding-top: 30px;
+}
+@media (max-width: 1439px) {
+  .containe-best-bottle {
+    max-width: 950px;
+  }
+  .title-best-bottle {
+    font-size: 45px;
+    max-width: 660px;
+  }
+  .main-title-best-bottle {
+    font-size: 27px;
+  }
+  .main-description-best-bottle {
+    max-width: 510px;
+    font-size: 16px;
+  }
+}
+@media (max-width: 1023px) {
+  .containe-best-bottle {
+    max-width: 700px;
+  }
+  .container-block-best-bottle {
+    gap: 20px;
+  }
+}
+@media (max-width: 767px) {
+  .title-block-best-bottle {
+    display: none;
+  }
+  .container-block-best-bottle {
+    flex-direction: column;
+    gap: 10px;
+    padding-bottom: 10px;
+  }
+  .main-title-best-bottle {
+    font-size: 20px;
+  }
+  .main-description-best-bottle {
+    font-size: 18px;
+    text-align: left;
+  }
+  .best-bottle-button {
+    min-width: 350px;
+    min-height: 79px;
+    font-size: 16px;
+    margin-top: 14px;
+  }
+  .containe-best-bottle {
+    max-width: 348px;
+  }
+  .image-best-bottle {
+    height: auto;
+    border-radius: 10px;
+  }
+  .title-best-bottle {
+    font-size: 30px;
+    max-width: 330px;
+    margin: 0 auto;
+  }
+}

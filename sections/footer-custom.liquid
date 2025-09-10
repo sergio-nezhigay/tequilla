@@ -1,0 +1,870 @@
+<style>
+  .shopify-section .site-footer {
+    --section-bg: {{ section.settings.background_color | default: '#f1f1ee' }};
+    --text-primary: {{ section.settings.text_color | default: '#090909' }};
+    --text-muted: {{ section.settings.text_muted | default: 'rgba(9,9,9,0.6)' }};
+    --text-highlight: {{ section.settings.highlight_color | default: '#67b7a8' }};
+    --border-color: {{ section.settings.border_color | default: '#090909' }};
+    --btn-bg: {{ section.settings.button_bg | default: '#67b7a8' }};
+    {% if section.settings.brand_texture %}
+    --brand-texture: url('{{ section.settings.brand_texture | img_url: width: 1600 }}');
+    {% else %}
+    --brand-texture: linear-gradient(120deg, #ffa89e 0%, #ffb3a6 20%, #ffc5a3 40%, #ffd1a1 60%, #ffe0b8 80%, #fff5e6 100%);
+    {% endif %}
+
+    position: relative;
+    width: 100%;
+    min-height: 600px;
+    background-color: var(--section-bg);
+    {% if section.settings.background_pattern %}
+    background-image: url('{{ section.settings.background_pattern | img_url: width: 1200 }}');
+    background-repeat: no-repeat;
+    background-position: center bottom;
+    background-size: contain;
+    {% endif %}
+    padding: 86px 0 0 0;
+  }
+
+  .shopify-section .site-footer .footer-content {
+    width: 100%;
+    max-width: 1328px;
+    margin: 0 auto;
+    padding: 0px 40px 0px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .shopify-section .site-footer .footer-links {
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .shopify-section .site-footer .footer-links h3 {
+    font-family: 'Futura Hv BT', 'Futura', sans-serif;
+    font-weight: 900;
+    font-size: 24px;
+    color: var(--text-primary);
+    text-transform: uppercase;
+    margin: 0 0 40px 0; /* Adjusted gap to match Figma */
+    line-height: 1.2;
+    text-align: left;
+  }
+
+  .shopify-section .site-footer .footer-links a {
+    display: block;
+    font-family: 'Roundo', sans-serif;
+    font-weight: 500;
+    font-size: 18px;
+    color: var(--text-primary);
+    text-decoration: none;
+    text-transform: uppercase;
+    line-height: 1.2;
+    margin-bottom: 27px;
+  }
+
+  .footer-links a:last-child {
+    margin-bottom: 0;
+  }
+
+  .footer-links a:last-of-type {
+    margin-bottom: 0 !important;
+  }
+
+
+
+  .shopify-section .site-footer .footer-links a:hover {
+    color: var(--text-highlight);
+  }
+
+  .shopify-section .site-footer .footer-newsletter {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 500px;
+    text-align: center;
+  }
+
+  .shopify-section .site-footer .footer-newsletter h3 {
+    font-family: 'Futura Hv BT', 'Futura', sans-serif;
+    font-weight: 900;
+    font-size: 24px;
+    color: var(--text-primary);
+    text-transform: uppercase;
+    margin: 0;
+    line-height: 1.2;
+  }
+
+  .shopify-section .site-footer .newsletter-form {
+    position: relative;
+    width: 500px;
+    height: 71px;
+    background: var(--section-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 90px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    margin-top: 30px;
+  }
+
+  .shopify-section .site-footer .newsletter-form input {
+    width: 100%;
+    height: 100%;
+    border: none;
+    background: transparent;
+    padding: 0 140px 0 30px;
+    font-family: 'Roundo', sans-serif;
+    font-size: 16px;
+    color: var(--text-primary);
+    outline: none;
+  }
+
+  .shopify-section .site-footer .newsletter-form input::placeholder {
+    color: var(--text-muted);
+  }
+
+  .shopify-section .site-footer .newsletter-form button {
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 100%;
+    width: 204px;
+    background: var(--btn-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 90px;
+    font-family: 'Futura Hv BT', 'Futura', sans-serif;
+    font-weight: 900;
+    font-size: 18px;
+    color: var(--text-primary);
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+  }
+
+  .shopify-section .site-footer .newsletter-form button:hover {
+    transform: translateY(-2px);
+  }
+
+  .shopify-section .site-footer .footer-contact {
+    width: 240px;
+    text-align: right;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+  }
+
+  .shopify-section .site-footer .footer-contact h3 {
+    font-family: 'Futura Hv BT', 'Futura', sans-serif;
+    font-weight: 900;
+    font-size: 24px;
+    color: var(--text-primary);
+    text-transform: uppercase;
+    margin: 0 0 40px 0;
+    line-height: 1.2;
+    text-align: right;
+  }
+
+  .shopify-section .site-footer .contact-info {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    align-items: flex-end;
+  }
+
+  .shopify-section .site-footer .contact-info span {
+    font-family: 'Roundo', sans-serif;
+    font-weight: 500;
+    font-size: 18px;
+    color: var(--text-primary);
+    text-transform: uppercase;
+    line-height: 1.2;
+  }
+
+  .shopify-section .site-footer .footer-bottom {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+
+  }
+
+  .shopify-section .site-footer .copyright {
+    font-family: 'Roundo', sans-serif;
+    font-weight: 300;
+    font-size: 16px;
+    color: rgba(9,9,9,0.8);
+    line-height: 1.2;
+    text-align: center;
+    text-transform: capitalize;
+  }
+
+  .shopify-section .site-footer .social-links {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+    margin-top: 24px;
+    justify-content: flex-end;
+  }
+
+  .shopify-section .site-footer .social-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    border: 2px solid var(--text-primary);
+    border-radius: 90px; /* Exact radius from Figma */
+    text-decoration: none;
+    transition: all 0.2s ease;
+    flex-shrink: 0;
+  }
+
+  .shopify-section .site-footer .social-link--fb {
+    border-color: var(--text-highlight);
+  }
+
+  .shopify-section .site-footer .social-link:hover {
+    box-shadow: 0 4px 12px rgba(9, 9, 9, 0.15);
+  }
+
+  .shopify-section .site-footer .social-link span {
+    font-family: 'Futura Hv BT', 'Futura', sans-serif;
+    font-weight: 900;
+    font-size: 20px;
+    text-transform: uppercase;
+    line-height: 1;
+  }
+
+  .shopify-section .site-footer .social-link--fb span {
+    color: var(--text-highlight);
+  }
+
+  .shopify-section .site-footer .social-link--default span {
+    color: var(--text-primary);
+  }
+
+  /* Footer Brand */
+  .shopify-section .site-footer .footer-brand {
+    width: 100%;
+    max-width: 1328px;
+    margin: 0 auto;
+    padding: 0;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .shopify-section .site-footer .footer-brand-text {
+    align-items: end;
+    font-family: 'Futura Hv BT', 'Futura', sans-serif;
+    font-weight: 400;
+    font-size: 280px;
+    text-transform: uppercase;
+    letter-spacing: -0.02em;
+    line-height: 0.8;
+    margin: 0;
+    width: 1300px;
+    height: 280px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: var(--brand-texture);
+    background-size: 100% 100%;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: local;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+    overflow: hidden;
+  }
+
+  .shopify-section .site-footer .footer-brand img,
+  .shopify-section .site-footer .footer-brand svg {
+    max-width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .shopify-section .site-footer .footer-brand svg {
+    fill: currentColor;
+  }
+
+  .shopify-section .site-footer .footer-sections {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 100%;
+    position: relative;
+    min-height: 180px;
+  }
+
+  /* Responsive */
+  @media (max-width: 1024px) {
+    .shopify-section .site-footer .footer-content {
+      padding: 60px 30px 80px;
+      flex-direction: column;
+    }
+
+    .shopify-section .site-footer .footer-sections {
+      flex-direction: column;
+      align-items: center;
+      gap: 50px;
+      min-height: auto;
+    }
+
+    .shopify-section .site-footer .footer-newsletter {
+      position: static;
+      transform: none;
+      width: 100%;
+      max-width: 500px;
+    }
+
+    .shopify-section .site-footer .footer-links,
+    .shopify-section .site-footer .footer-contact {
+      width: 100%;
+      text-align: center;
+      margin: 0;
+      align-items: center;
+    }
+
+    .shopify-section .site-footer .contact-info {
+      align-items: center;
+    }
+
+    .shopify-section .site-footer .social-links {
+      justify-content: center;
+    }
+
+    .shopify-section .site-footer .footer-brand-text {
+      font-size: 160px;
+      width: 800px;
+      height: 160px;
+      background-size: 100% 100%;
+    }
+
+    .shopify-section .site-footer .footer-brand img,
+    .shopify-section .site-footer .footer-brand svg {
+      max-width: 300px;
+    }
+  }
+
+  /* Large tablets and small desktops */
+  @media (max-width: 1200px) {
+    .shopify-section .site-footer .footer-brand-text {
+      font-size: 200px;
+      width: 1000px;
+      height: 200px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .shopify-section .site-footer {
+      padding: 48px 0 0px 0;
+      min-height: auto;
+    }
+
+    .shopify-section .site-footer .footer-content {
+      padding: 0 20px 0px;
+      max-width: 390px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .shopify-section .site-footer .footer-sections {
+      flex-direction: column;
+      align-items: center;
+      gap: 0;
+      min-height: auto;
+      width: 100%;
+      max-width: 350px;
+      order: 2;
+    }
+
+
+    .shopify-section .site-footer .footer-newsletter {
+      position: static;
+      transform: none;
+      width: 100%;
+      max-width: 350px;
+      order: 1;
+      margin-bottom: 20px;
+    }
+
+    .shopify-section .site-footer .footer-newsletter h3 {
+      font-size: 24px;
+      margin-bottom: 24px;
+      text-align: left;
+    }
+
+    .shopify-section .site-footer .newsletter-form {
+      width: 100%;
+      max-width: 350px;
+      height: auto;
+      flex-direction: column;
+      gap: 10px;
+      background: transparent;
+      border: none;
+      border-radius: 0;
+      padding: 0;
+      margin: 0;
+    }
+
+    .shopify-section .site-footer .newsletter-form input {
+      width: 100%;
+      height: 71px;
+      background: var(--section-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 90px;
+      padding: 0 24px;
+      font-size: 16px;
+      margin: 0;
+    }
+
+    .shopify-section .site-footer .newsletter-form button {
+      position: static;
+      width: 100%;
+      height: 71px;
+      background: var(--btn-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 90px;
+      font-size: 18px;
+      margin: 0;
+    }
+
+    /* Links section - second */
+    .shopify-section .site-footer .footer-links {
+      width: 100%;
+      text-align: left;
+      align-items: flex-start;
+      order: 2;
+      margin-bottom: 25px;
+    }
+
+    .shopify-section .site-footer .footer-links h3 {
+      font-size: 24px;
+      margin-bottom: 24px;
+      text-align: left;
+    }
+
+    .shopify-section .site-footer .footer-links a {
+      font-size: 18px;
+      margin-bottom: 16px;
+      text-align: left;
+      display: block;
+    }
+
+    .shopify-section .site-footer .footer-links a:last-child {
+      margin-bottom: 0;
+    }
+
+    /* Contact section - third */
+    .shopify-section .site-footer .footer-contact {
+      width: 100%;
+      text-align: left;
+      align-items: flex-start;
+      order: 3;
+      margin-bottom: 24px;
+    }
+
+    .shopify-section .site-footer .footer-contact h3 {
+      font-size: 24px;
+      text-align: left;
+      margin-bottom: 20px;
+    }
+
+    .shopify-section .site-footer .contact-info {
+      align-items: flex-start;
+      text-align: left;
+      gap: 8px;
+      margin-bottom: 24px;
+    }
+
+    .shopify-section .site-footer .contact-info span {
+      font-size: 18px;
+      text-align: left;
+    }
+
+    .shopify-section .site-footer .social-links {
+      justify-content: flex-start;
+      margin: 0;
+      gap: 14px;
+    }
+
+    .shopify-section .site-footer .social-link {
+      width: 40px;
+      height: 40px;
+      border: 2px solid var(--text-primary);
+    }
+
+    .shopify-section .site-footer .social-link span {
+      font-size: 20px;
+    }
+
+    /* Copyright - fourth */
+    .shopify-section .site-footer .footer-bottom {
+      order: 4;
+      margin: 24px 0 0px 0;
+      width: 100%;
+    }
+
+    .shopify-section .site-footer .copyright {
+      font-size: 16px;
+      text-align: center;
+      color: rgba(9,9,9,0.8);
+    }
+
+    /* Brand text - last */
+    .shopify-section .site-footer .footer-brand {
+      order: 5;
+      margin: 0;
+      width: 100%;
+      padding: 0;
+      overflow: hidden;
+    }
+
+    .shopify-section .site-footer .footer-brand-text {
+      font-size: 85px;
+      line-height: 1;
+      text-align: center;
+      width: 100vw;
+      max-width: none;
+      height: auto;
+      display: block;
+      background-size: 100vw auto;
+      margin: 0;
+      padding: 0px;
+      letter-spacing: -0.01em;
+      font-weight: 400;
+      white-space: nowrap;
+    }
+  }
+
+  /* Extra small mobile devices */
+  @media (max-width: 375px) {
+    .shopify-section .site-footer .footer-content {
+      max-width: 335px;
+      padding: 0 20px 0px;
+    }
+
+    .shopify-section .site-footer .footer-sections {
+      max-width: 315px;
+    }
+
+    .shopify-section .site-footer .footer-newsletter {
+      max-width: 315px;
+    }
+
+    .shopify-section .site-footer .newsletter-form {
+      max-width: 315px;
+    }
+
+    .shopify-section .site-footer .footer-brand-text {
+      font-size: 56px;
+      width: 100vw;
+      background-size: 100vw auto;
+      margin: 0 -20px;
+      padding: 0 20px;
+    }
+  }
+
+  .shopify-section .site-footer .footer-brand-text {
+    align-items: end !important;
+  }
+</style>
+
+<footer class="site-footer" data-section-id="{{ section.id }}">
+  <div class="footer-content">
+    <div class="footer-sections">
+      <div class="footer-links">
+        <h3>{{ section.settings.links_title | default: 'Links' }}</h3>
+        {% for block in section.blocks %}
+          {% if block.type == 'navigation_link' %}
+            <a href="{{ block.settings.url | default: '#' }}" {{ block.shopify_attributes }}>
+              {{ block.settings.label | default: 'Link' }}
+            </a>
+          {% endif %}
+        {% endfor %}
+      </div>
+
+      <div class="footer-newsletter">
+        <h3>{{ section.settings.newsletter_title | default: "Let's work together" }}</h3>
+        {% form 'customer' %}
+          <div class="newsletter-form">
+            <input
+              type="email"
+              name="contact[email]"
+              placeholder="{{ section.settings.email_placeholder | default: 'Email' }}"
+              required
+            >
+            <button type="submit">
+              {{ section.settings.submit_text | default: 'Submit' }}
+            </button>
+          </div>
+        {% endform %}
+      </div>
+
+      <div class="footer-contact">
+        <h3>{{ section.settings.contact_title | default: 'Contact us' }}</h3>
+        <div class="contact-info">
+          {% if section.settings.contact_email %}
+            <span>{{ section.settings.contact_email }}</span>
+          {% endif %}
+          {% if section.settings.contact_address %}
+            <span>{{ section.settings.contact_address }}</span>
+          {% endif %}
+        </div>
+
+        <div class="social-links">
+          {% for block in section.blocks %}
+            {% if block.type == 'social_link' %}
+              <a
+                href="{{ block.settings.url | default: '#' }}"
+                class="social-link {% if block.settings.highlight %}social-link--fb{% else %}social-link--default{% endif %}"
+                target="_blank"
+                rel="noopener"
+                {{ block.shopify_attributes }}
+              >
+                <span>{{ block.settings.label | default: 'social' }}</span>
+              </a>
+            {% endif %}
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <div class="copyright">
+      {{ section.settings.copyright }}
+    </div>
+  </div>
+
+  <div class="footer-brand">
+    <h1 class="footer-brand-text">{{ section.settings.brand_text | default: 'InBarrel' }}</h1>
+  </div>
+</footer>
+
+{% schema %}
+{
+  "name": "Footer",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Brand Background"
+    },
+    {
+      "type": "text",
+      "id": "brand_text",
+      "label": "Brand Text",
+      "default": "InBarrel"
+    },
+    {
+      "type": "image_picker",
+      "id": "brand_texture",
+      "label": "Brand Text Texture Image",
+      "info": "Upload texture image for brand text. If not provided, default gradient will be used."
+    },
+    {
+      "type": "image_picker",
+      "id": "background_pattern",
+      "label": "Background Pattern"
+    },
+    {
+      "type": "header",
+      "content": "Content Sections"
+    },
+    {
+      "type": "text",
+      "id": "links_title",
+      "label": "Links Section Title",
+      "default": "Links"
+    },
+    {
+      "type": "text",
+      "id": "newsletter_title",
+      "label": "Newsletter Title",
+      "default": "Let's work together"
+    },
+    {
+      "type": "text",
+      "id": "email_placeholder",
+      "label": "Email Placeholder",
+      "default": "Email"
+    },
+    {
+      "type": "text",
+      "id": "submit_text",
+      "label": "Submit Button Text",
+      "default": "Submit"
+    },
+    {
+      "type": "text",
+      "id": "contact_title",
+      "label": "Contact Section Title",
+      "default": "Contact us"
+    },
+    {
+      "type": "text",
+      "id": "contact_email",
+      "label": "Contact Email",
+      "default": "hola@inbarrel.com"
+    },
+    {
+      "type": "textarea",
+      "id": "contact_address",
+      "label": "Contact Address",
+      "default": "800 4th Ave, Grinnell, IA 50112"
+    },
+    {
+      "type": "text",
+      "id": "copyright",
+      "label": "Copyright Text",
+      "default": "© InBarrel Tequila 2023. All rights reserved."
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background Color",
+      "default": "#f1f1ee"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text Color",
+      "default": "#090909"
+    },
+    {
+      "type": "color",
+      "id": "text_muted",
+      "label": "Muted Text Color",
+      "default": "rgba(9,9,9,0.6)"
+    },
+    {
+      "type": "color",
+      "id": "highlight_color",
+      "label": "Highlight Color",
+      "default": "#67b7a8"
+    },
+    {
+      "type": "color",
+      "id": "border_color",
+      "label": "Border Color",
+      "default": "#090909"
+    },
+    {
+      "type": "color",
+      "id": "button_bg",
+      "label": "Button Background",
+      "default": "#67b7a8"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "navigation_link",
+      "name": "Navigation Link",
+      "settings": [
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Link Text",
+          "default": "Home"
+        },
+        {
+          "type": "url",
+          "id": "url",
+          "label": "Link URL"
+        }
+      ]
+    },
+    {
+      "type": "social_link",
+      "name": "Social Link",
+      "settings": [
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Platform Name",
+          "default": "fb"
+        },
+        {
+          "type": "url",
+          "id": "url",
+          "label": "Social URL"
+        },
+        {
+          "type": "checkbox",
+          "id": "highlight",
+          "label": "Highlight Color",
+          "default": false
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Footer",
+      "category": "Layout",
+      "blocks": [
+        {
+          "type": "navigation_link",
+          "settings": {
+            "label": "Home"
+          }
+        },
+        {
+          "type": "navigation_link",
+          "settings": {
+            "label": "Personalize"
+          }
+        },
+        {
+          "type": "navigation_link",
+          "settings": {
+            "label": "Corporate"
+          }
+        },
+        {
+          "type": "navigation_link",
+          "settings": {
+            "label": "About us"
+          }
+        },
+        {
+          "type": "navigation_link",
+          "settings": {
+            "label": "Our Tequila"
+          }
+        },
+        {
+          "type": "social_link",
+          "settings": {
+            "label": "li"
+          }
+        },
+        {
+          "type": "social_link",
+          "settings": {
+            "label": "fb",
+            "highlight": true
+          }
+        },
+        {
+          "type": "social_link",
+          "settings": {
+            "label": "in"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

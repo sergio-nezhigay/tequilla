@@ -1,0 +1,432 @@
+<section class="premium-product-showcase">
+  <div class="product-section">
+    <div class="top-text">
+      <p>
+        {{
+          section.settings.top_description
+          | default: "It sits on their shelf.<br>It comes out at celebrations.<br>And every time they pour a glass, there's one thing they'll talk about — you."
+        }}
+      </p>
+    </div>
+
+    <div class="bottom-text">
+      <p>
+        {{
+          section.settings.bottom_description
+          | default: "Whether you're celebrating a milestone, thanking a client, or creating bottles for your bar or business — we'll help you craft something people want to talk about."
+        }}
+      </p>
+    </div>
+
+    <div class="left-image" style="background-image: url('{{ section.settings.left_image | image_url }}');"></div>
+
+    <div class="right-image" style="background-image: url('{{ section.settings.right_image | image_url }}');"></div>
+
+    <div class="center-bottle">
+      <div class="bottle-wrapper">
+        <div
+          class="bottle-image"
+          style="background-image: url('{{ section.settings.product_image | image_url }}');"
+        ></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+    .premium-product-showcase div:empty {
+    display: flex !important;
+  }
+
+  .premium-product-showcase {
+    background-color: transparent;
+    font-family: 'Roundo', sans-serif;
+    overflow-x: clip;
+  }
+
+
+  .product-section {
+    position: relative;
+    width: 100%;
+    max-width: 1440px;
+    min-height: calc(700px + {{ section.settings.top_padding | default: 40 }}px + {{ section.settings.bottom_padding | default: 40 }}px);
+    margin: 0 auto;
+    background-color: {{ section.settings.background_color | default: 'transparent' }};
+    --top-offset: {{ section.settings.top_padding | default: 40 }}px;
+    --bottom-offset: {{ section.settings.bottom_padding | default: 40 }}px;
+  }
+
+  .left-image {
+    position: absolute;
+    left: 112px;
+    top: calc(71px + var(--top-offset));
+    width: 541px;
+    height: 484px;
+    border-radius: 200px 3px 3px 3px;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+
+  .right-image {
+    position: absolute;
+    left: 833px;
+    top: calc(270px + var(--top-offset));
+    width: 498px;
+    height: 484px;
+    border-radius: 3px 200px 3px 3px;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+
+  .center-bottle {
+    position: absolute;
+    left: 629px;
+    top: var(--top-offset);
+    width: 225px;
+    height: 794px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .bottle-wrapper {
+    transform: rotate(355deg);
+  }
+
+  .bottle-image {
+    width: 157px;
+    height: 783px;
+    background-position: 49.61% 51.81%;
+    background-repeat: no-repeat;
+    background-size: 783.25% 117.63%;
+  }
+
+  .top-text {
+    position: absolute;
+    left: 833px;
+    top: calc(108px + var(--top-offset));
+    width: 380px;
+    height: 132px;
+    font-family: 'Roundo', sans-serif;
+    font-size: 20px;
+    color: #000000;
+  }
+
+  .top-text p {
+    line-height: 1.65;
+    margin: 0;
+  }
+
+  .bottom-text {
+    position: absolute;
+    left: 112px;
+    top: calc(586px + var(--top-offset));
+    width: 541px;
+    height: 99px;
+    font-family: 'Roundo', sans-serif;
+    font-size: 20px;
+    color: #000000;
+  }
+
+  .bottom-text p {
+    line-height: 1.65;
+    margin: 0;
+  }
+
+
+
+  @media (max-width: 1430px) {
+    .product-section {
+      scale: 1.1;
+      width: 100vw;
+      min-height: calc(48.6vw + var(--top-offset) + var(--bottom-offset));
+      max-height: none;
+    }
+
+    .left-image {
+      left: 7.78vw;
+      top: calc(4.93vw + var(--top-offset));
+      width: 37.57vw;
+      height: 33.61vw;
+    }
+
+    .right-image {
+      left: 57.85vw;
+      top: calc(18.75vw + var(--top-offset));
+      width: 34.58vw;
+      height: 33.61vw;
+    }
+
+    .center-bottle {
+      left: 43.68vw;
+      top: var(--top-offset);
+      width: 15.63vw;
+      height: 55.14vw;
+    }
+
+    .bottle-image {
+      width: 10.9vw;
+      height: 54.38vw;
+    }
+
+    .top-text {
+      left: 57.85vw;
+      top: calc(7.5vw + var(--top-offset));
+      width: 400px;
+      height: 9.17vw;
+      font-size: 1.39vw;
+    }
+
+    .bottom-text {
+      left: 7.78vw;
+      top: calc(40.69vw + var(--top-offset));
+      width: 37.57vw;
+      height: 6.88vw;
+      font-size: 1.39vw;
+    }
+  }
+
+
+  @media (max-width: 900px) {
+    .bottom-text p {
+    line-height: 1.65;
+    margin: 0;
+    padding-right: 20px;
+  }
+    .premium-product-showcase {
+      padding: {{ section.settings.mobile_top_padding | default: 20 }}px {{ section.settings.mobile_side_padding | default: 20 }}px {{ section.settings.mobile_bottom_padding | default: 20 }}px;
+    }
+
+    .product-section {
+      scale: 1 !important;
+      position: static !important;
+      min-height: unset !important;
+      height: auto !important;
+      padding: 0 !important;
+      display: flex !important;
+      flex-direction: column !important;
+      align-items: stretch !important;
+      width: 100% !important;
+      max-width: none !important;
+      background-color: transparent !important;
+      box-sizing: border-box !important;
+      overflow: visible !important;
+      margin: 0 !important;
+      gap: {{ section.settings.mobile_gap | default: 10 }}px;
+    }
+
+    .left-image {
+      position: static !important;
+      left: unset !important;
+      top: unset !important;
+      order: 1 !important;
+      width: 100% !important;
+      max-width: 350px !important;
+      height: 312px !important;
+      border-radius: 100px 3px 3px 3px !important;
+      margin: 0 !important;
+      flex-shrink: 0 !important;
+      background-position: center !important;
+      background-size: cover !important;
+      background-repeat: no-repeat !important;
+    }
+
+    .bottom-text {
+      position: static !important;
+      left: unset !important;
+      top: unset !important;
+      order: 2 !important;
+      width: 100% !important;
+      max-width: 350px !important;
+      height: auto !important;
+      font-size: 18px !important;
+      line-height: 1.65 !important;
+      text-align: left !important;
+      margin: 0 !important;
+      padding: 0 !important;
+      flex-shrink: 0 !important;
+      color: #000000 !important;
+    }
+
+    .center-bottle {
+      scale: 1.1;
+
+      position: relative !important;
+      left: unset !important;
+      top: -15px !important;
+      order: 3 !important;
+      width: 100% !important;
+      height: 272px !important;
+      margin: 0 !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      flex-shrink: 0 !important;
+    }
+
+    .bottle-wrapper {
+      transform: rotate(355deg) !important;
+    }
+
+    .bottle-image {
+      width: 54px !important;
+      height: 269px !important;
+      background-position: 49.61% 51.81% !important;
+      background-repeat: no-repeat !important;
+      background-size: 783.25% 117.63% !important;
+    }
+
+    .top-text {
+      position: static !important;
+      left: unset !important;
+      top: unset !important;
+      order: 4 !important;
+      width: 100% !important;
+      max-width: 342px !important;
+      height: auto !important;
+      font-size: 18px !important;
+      line-height: 1.65 !important;
+      text-align: left !important;
+      margin: 0 !important;
+      padding: 0 !important;
+      flex-shrink: 0 !important;
+      color: #000000 !important;
+    }
+
+    .right-image {
+      position: static !important;
+      left: unset !important;
+      top: unset !important;
+      order: 5 !important;
+      width: 100% !important;
+      max-width: 350px !important;
+      height: 341px !important;
+      border-radius: 3px 100px 3px 3px !important;
+      margin: 0 !important;
+      flex-shrink: 0 !important;
+      background-position: center !important;
+      background-size: cover !important;
+      background-repeat: no-repeat !important;
+    }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Premium Product Showcase",
+  "tag": "section",
+  "class": "premium-showcase-section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Images"
+    },
+    {
+      "type": "image_picker",
+      "id": "left_image",
+      "label": "Left Image (Celebration Scene)"
+    },
+    {
+      "type": "image_picker",
+      "id": "right_image",
+      "label": "Right Image (Cocktail Scene)"
+    },
+    {
+      "type": "image_picker",
+      "id": "product_image",
+      "label": "Center Product Image"
+    },
+    {
+      "type": "header",
+      "content": "Text Content"
+    },
+    {
+      "type": "textarea",
+      "id": "top_description",
+      "label": "Top Description",
+      "default": "It sits on their shelf.<br>It comes out at celebrations.<br>And every time they pour a glass, there's one thing they'll talk about — you."
+    },
+    {
+      "type": "textarea",
+      "id": "bottom_description",
+      "label": "Bottom Description",
+      "default": "Whether you're celebrating a milestone, thanking a client, or creating bottles for your bar or business — we'll help you craft something people want to talk about."
+    },
+    {
+      "type": "header",
+      "content": "Spacing & Style"
+    },
+    {
+      "type": "range",
+      "id": "top_padding",
+      "label": "Top Padding (px)",
+      "min": 0,
+      "max": 200,
+      "step": 10,
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "bottom_padding",
+      "label": "Bottom Padding (px)",
+      "min": 0,
+      "max": 200,
+      "step": 10,
+      "default": 40
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background Color",
+      "default": "transparent"
+    },
+    {
+      "type": "header",
+      "content": "Mobile Spacing"
+    },
+    {
+      "type": "range",
+      "id": "mobile_top_padding",
+      "label": "Mobile Top Padding (px)",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "default": 20
+    },
+    {
+      "type": "range",
+      "id": "mobile_bottom_padding",
+      "label": "Mobile Bottom Padding (px)",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "default": 20
+    },
+    {
+      "type": "range",
+      "id": "mobile_side_padding",
+      "label": "Mobile Side Padding (px)",
+      "min": 10,
+      "max": 50,
+      "step": 5,
+      "default": 20
+    },
+    {
+      "type": "range",
+      "id": "mobile_gap",
+      "label": "Mobile Gap Between Elements (px)",
+      "min": 5,
+      "max": 50,
+      "step": 5,
+      "default": 20
+    }
+  ],
+  "presets": [
+    {
+      "name": "Premium Product Showcase"
+    }
+  ]
+}
+{% endschema %}

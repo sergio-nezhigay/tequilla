@@ -1,0 +1,223 @@
+{
+  "sections": {
+    "index_hero": {
+      "type": "index-hero",
+      "settings": {
+        "main_title": "THE BEST BOTTLE IS",
+        "highlighted_text": "YOUR",
+        "highlighted_text_2": "BOTTLE",
+        "description": "<p>At InBarrel, we don't just help you buy the best tequila ever—we help you create the best tequila ever!</p>",
+        "primary_button_text": "CREATE YOUR OWN TEQUILA",
+        "primary_button_url": "shopify://collections",
+        "secondary_button_text": "SCHEDULE A CALL!",
+        "secondary_button_url": "shopify://collections/all",
+        "create_tequila_image": "shopify://shop_images/round_bottle_1_289b4534-68f1-411f-b6d8-ffb326c4c661.png",
+        "left_leaf_image": "shopify://shop_images/from_l.webp",
+        "right_leaf_image": "shopify://shop_images/from_lo.webp",
+        "background_color": "#f1f1ee",
+        "title_color": "#090909",
+        "highlight_color": "#67b7a8",
+        "highlight_color_2": "#ffb793",
+        "description_color": "#090909",
+        "primary_button_bg": "#67b7a8",
+        "primary_button_color": "#090909",
+        "secondary_button_bg": "#ffb793",
+        "secondary_button_color": "#090909",
+        "title_size_desktop": 90,
+        "title_size_mobile": 40,
+        "description_size_desktop": 20,
+        "description_size_mobile": 18,
+        "max_width": "1440px",
+        "padding_top_desktop": 132,
+        "padding_bottom_desktop": 0,
+        "padding_top_mobile": 130,
+        "padding_bottom_mobile": 0,
+        "custom_classes": "",
+        "step_icon": "shopify://shop_images/im_92849612-19a2-4a3f-8046-88e711ce7b0a.png",
+        "step1_text": "SELECT BOTTLE",
+        "step2_text": "PERSONALIZE LABEL",
+        "step3_text": "PLACE ORDER",
+        "step4_text": "ENJOY"
+      }
+    },
+    "index_video_hero": {
+      "type": "index-video-hero",
+      "settings": {
+        "max_width": "1440",
+        "padding_top_desktop": 90,
+        "padding_bottom_desktop": 0,
+        "padding_top_mobile": 30,
+        "padding_bottom_mobile": 0,
+        "section_background": "linear-gradient(180deg, rgba(241, 241, 238, 1), rgba(245, 240, 235, 1) 100%)",
+        "custom_classes": "",
+        "title_part1": "SEE HOW",
+        "title_part2": "EASY",
+        "title_part3": "IT IS TO",
+        "title_part4": "CREATE YOUR",
+        "title_part5": "CUSTOM BOTTLE.",
+        "title_color_part1": "#090909",
+        "title_color_part2": "#67b7a8",
+        "title_color_part3": "#090909",
+        "title_color_part4": "#ffb793",
+        "title_color_part5": "#090909",
+        "title_size_desktop": 60,
+        "title_size_mobile": 30,
+        "uploaded_video": "https://cdn.shopify.com/videos/c/o/v/8b5353e9f64043ae8b09b0b9809fe738.mp4",
+        "video_thumbnail": "shopify://shop_images/Generated_Image_September_03_2025_-_1_40PM.webp",
+        "cta_text": "Create your own tequila",
+        "cta_url": "shopify://collections/all",
+        "cta_background": "linear-gradient(90deg, rgba(103, 211, 204, 1), rgba(103, 211, 204, 1) 100%)",
+        "cta_text_color": "#090909",
+        "cta_hover_background": "linear-gradient(90deg, rgba(255, 183, 147, 1), rgba(255, 155, 127, 1) 100%)",
+        "cta_hover_text_color": "#090909",
+        "cta_font_size_desktop": 18,
+        "cta_font_size_mobile": 16
+      }
+    },
+    "tequila_showcase_jH4Hfj": {
+      "type": "tequila-showcase",
+      "name": "Tequila Showcase",
+      "settings": {
+        "left_image": "shopify://shop_images/0fee1850135daabcaef427a0fbb2561527030cf5.jpg",
+        "right_image": "shopify://shop_images/270752eb81dd533d2ab8a2d7ffa9ef78f0ed01f1.jpg",
+        "product_image": "shopify://shop_images/8f1cb3a8cf583d3447c0612687a49d5496024b5b.png",
+        "top_description": "It sits on their shelf.<br>It comes out at celebrations.<br>And every time they pour a glass, there's one thing they'll talk about — you.",
+        "bottom_description": "Whether you're celebrating a milestone, thanking a client, or creating bottles for your bar or business — we'll help you craft something people want to talk about.",
+        "top_padding": 40,
+        "bottom_padding": 80,
+        "background_color": "rgba(0,0,0,0)",
+        "mobile_top_padding": 20,
+        "mobile_bottom_padding": 20,
+        "mobile_side_padding": 20,
+        "mobile_gap": 20
+      }
+    },
+    "bottle_with_text_w6tKtA": {
+      "type": "bottle-with-text",
+      "name": "Tagline Statement",
+      "settings": {
+        "bottle_image": "shopify://shop_images/2bfeb3ce7b287bb9e7b642e47af15460035b3ed8.png",
+        "line_1": "NOT JUST A GIFT",
+        "line_2": "BRAND LOYALTY",
+        "line_3": "WORD-OF-MOUTH",
+        "line_4": "REFERRALS"
+      }
+    },
+    "corporate_contact_4Q7tWn": {
+      "type": "corporate-contact",
+      "name": "Project Contact",
+      "settings": {
+        "background_image": "shopify://shop_images/Group_72_e079e85a-c16c-4a26-9c3c-10afc37d6fa5.png",
+        "image": "shopify://shop_images/a6a6f043259b73c36a9ad02c7d27c09ffffb6d24.jpg",
+        "title": "TELL US ABOUT YOUR PROJECT — WE'LL HANDLE THE REST.",
+        "button_text": "GET IN TOUCH",
+        "button_url": "",
+        "background_color": "#f4d5d0",
+        "text_color": "#2c2c2c",
+        "button_background": "#7bc4c4"
+      }
+    },
+    "footer_custom_DXWYHb": {
+      "type": "footer-custom",
+      "blocks": {
+        "navigation_link_LG7Ybr": {
+          "type": "navigation_link",
+          "settings": {
+            "label": "Home",
+            "url": ""
+          }
+        },
+        "navigation_link_F8pqz8": {
+          "type": "navigation_link",
+          "settings": {
+            "label": "Personalize",
+            "url": ""
+          }
+        },
+        "navigation_link_cdPMkf": {
+          "type": "navigation_link",
+          "settings": {
+            "label": "Corporate",
+            "url": ""
+          }
+        },
+        "navigation_link_GX43zQ": {
+          "type": "navigation_link",
+          "settings": {
+            "label": "About us",
+            "url": ""
+          }
+        },
+        "navigation_link_zhRwpN": {
+          "type": "navigation_link",
+          "settings": {
+            "label": "Our Tequila",
+            "url": ""
+          }
+        },
+        "social_link_g9X4Gc": {
+          "type": "social_link",
+          "settings": {
+            "label": "li",
+            "url": "",
+            "highlight": false
+          }
+        },
+        "social_link_3qePpD": {
+          "type": "social_link",
+          "settings": {
+            "label": "fb",
+            "url": "",
+            "highlight": true
+          }
+        },
+        "social_link_YmPtDj": {
+          "type": "social_link",
+          "settings": {
+            "label": "in",
+            "url": "",
+            "highlight": false
+          }
+        }
+      },
+      "block_order": [
+        "navigation_link_LG7Ybr",
+        "navigation_link_F8pqz8",
+        "navigation_link_cdPMkf",
+        "navigation_link_GX43zQ",
+        "navigation_link_zhRwpN",
+        "social_link_g9X4Gc",
+        "social_link_3qePpD",
+        "social_link_YmPtDj"
+      ],
+      "name": "Footer",
+      "settings": {
+        "brand_text": "InBarrel",
+        "brand_texture": "shopify://shop_images/orange-background.png",
+        "background_pattern": "shopify://shop_images/1_23456791_1d01bc29-da3b-4964-bd43-0c2b61f2954a.png",
+        "links_title": "Links",
+        "newsletter_title": "Let's work together",
+        "email_placeholder": "Email",
+        "submit_text": "Submit",
+        "contact_title": "Contact us",
+        "contact_email": "hola@inbarrel.com",
+        "contact_address": "800 4th Ave, Grinnell, IA 50112",
+        "copyright": "© InBarrel Tequila 2023. All rights reserved.",
+        "background_color": "#f1f1ee",
+        "text_color": "#090909",
+        "text_muted": "#09090999",
+        "highlight_color": "#67b7a8",
+        "border_color": "#090909",
+        "button_bg": "#67b7a8"
+      }
+    }
+  },
+  "order": [
+    "index_hero",
+    "index_video_hero",
+    "tequila_showcase_jH4Hfj",
+    "bottle_with_text_w6tKtA",
+    "corporate_contact_4Q7tWn",
+    "footer_custom_DXWYHb"
+  ]
+}

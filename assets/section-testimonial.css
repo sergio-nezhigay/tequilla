@@ -1,0 +1,184 @@
+.title-testimonial {
+  font-family: Futura Hv BT, Roundo, sans-serif;
+  font-weight: 400;
+  font-size: 60px;
+  line-height: 120%;
+  letter-spacing: 0;
+  text-align: center;
+  color: #090909;
+  text-transform: uppercase;
+  padding-bottom: 40px;
+}
+.swiper-button-prev-testimonial.swiper-button-prev:after,
+.swiper-rtl .swiper-button-next:after,
+.swiper-button-next-testimonial.swiper-button-next:after,
+.swiper-rtl .swiper-button-prev-testimonial.swiper-button-prev:after {
+  display: none;
+}
+.swiper-button-prev.swiper-button-prev-testimonial,
+.swiper-button-next.swiper-button-next-testimonial {
+  display: flex;
+}
+.swiper-pagination-testimonial {
+  display: none;
+}
+.swiper-button-prev.swiper-button-prev-testimonial img {
+  transform: rotate(180deg);
+}
+.swiper-button-next.swiper-button-next-testimonial,
+.swiper-button-prev.swiper-button-prev-testimonial {
+  width: 60px;
+  height: 60px;
+  border: 1px solid #090909;
+  border-radius: 50%;
+}
+
+.section-testimonial .swiper {
+  width: 1036px;
+  height: 460px;
+}
+
+.section-testimonial .swiper-slide {
+  display: flex;
+  justify-content: center;
+  font-size: 24px;
+  background: white;
+  gap: 56px;
+  border-radius: 20px;
+}
+.description-testimonialSwiper {
+  font-family: Roundo, Arial, sans-serif;
+  font-weight: 400;
+  color: #090909cc;
+  font-size: 18px;
+  line-height: 165%;
+  letter-spacing: 0;
+}
+.main-container-text-testimonialSwiper {
+  padding: 80px 0 50px 56px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.name-text-testimonialSwiper {
+  font-family: Roundo, Arial, sans-serif;
+  font-weight: 600;
+  color: #090909cc;
+  font-size: 20px;
+  line-height: 165%;
+  letter-spacing: 0;
+}
+.title-testimonialSwiper {
+  font-family: Roundo, Arial, sans-serif;
+  font-weight: 400;
+  font-size: 20px;
+  color: #090909cc;
+  line-height: 165%;
+  letter-spacing: 0;
+}
+.container-testimonialSwiper {
+  position: relative;
+  max-width: 1216px;
+  margin: 0 auto;
+}
+.image-testimonialSwiper {
+  border-radius: 20px;
+}
+.mob_image {
+  display: none;
+}
+.desktop_image {
+  display: block;
+}
+.image-testimonialSwiper.mob_image-testimonialSwiper {
+  display: none;
+}
+@media (max-width: 1439px) {
+  .container-testimonialSwiper {
+    max-width: 1020px;
+  }
+  .title-testimonial {
+    font-size: 45px;
+  }
+  .section-testimonial .swiper {
+    width: 830px;
+  }
+  .image-testimonialSwiper {
+    width: 400px;
+    object-fit: cover;
+  }
+}
+
+@media (max-width: 1023px) {
+  .section-testimonial .swiper {
+    width: 717px;
+    padding-bottom: 40px;
+  }
+  .image-testimonialSwiper {
+    width: 339px;
+    height: 100%;
+  }
+  .swiper-pagination-testimonial {
+    justify-content: center;
+  }
+  .swiper-horizontal > .swiper-pagination-bullets .swiper-pagination-bullet,
+  .swiper-pagination-horizontal.swiper-pagination-bullets
+    .swiper-pagination-bullet {
+    background: #67b7a8;
+    width: 14px;
+    height: 14px;
+    margin: 0 7.5px !important;
+  }
+  .swiper-button-prev.swiper-button-prev-testimonial,
+  .swiper-button-next.swiper-button-next-testimonial {
+    display: none;
+  }
+  .swiper-pagination-testimonial {
+    display: flex;
+  }
+  .main-container-text-testimonialSwiper {
+    padding: 56px 0 50px 56px;
+  }
+}
+@media (max-width: 767px) {
+  .title-testimonial {
+    font-size: 30px;
+    padding-bottom: 10px;
+  }
+  .section-testimonial .swiper {
+    width: 370px;
+    height: auto;
+    min-height: 555px;
+    box-sizing: content-box;
+  }
+  .description-testimonialSwiper {
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 165%;
+    letter-spacing: 0%;
+  }
+  .section-testimonial .swiper-slide {
+    flex-direction: column;
+    gap: 30px;
+  }
+  .main-container-text-testimonialSwiper {
+    padding: 50px 41px 0 10px;
+    gap: 50px;
+  }
+  .image-testimonialSwiper {
+    width: 370px;
+    height: 293px;
+  }
+  .image-testimonialSwiper {
+    border-top-right-radius: 0;
+    border-top-left-radius: 0;
+  }
+  .mob_image {
+    display: block;
+    border-top-right-radius: 0;
+    border-top-left-radius: 0;
+  }
+  .desktop_image {
+    display: none;
+  }
+}

@@ -1,0 +1,363 @@
+<style>
+  .shopify-section .tequila-moments {
+    --section-bg: {{ section.settings.background_color | default: '#fdd8c6' }};
+    --text-primary: {{ section.settings.text_color | default: '#090909' }};
+    --text-highlight: {{ section.settings.highlight_color | default: '#67b7a8' }};
+    --btn-bg: {{ section.settings.button_background | default: '#67b7a8' }};
+    --btn-border: {{ section.settings.button_border | default: '#090909' }};
+
+    width: 100%;
+    padding: 0;
+    margin: 0;
+  }
+
+  .shopify-section .tequila-moments .tequila-moments__container {
+    position: relative;
+    width: 100%;
+    max-width: 1216px;
+    height: 600px;
+    margin: 0 auto;
+    background-color: var(--section-bg);
+    {% if section.settings.decoration_image %}
+    background-image: url('{{ section.settings.decoration_image | img_url: '1216x600' }}');
+    {% endif %}
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    border-radius: 30px;
+    overflow: hidden;
+  }
+
+  .shopify-section .tequila-moments .tequila-moments__content {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    height: 100%;
+    padding: 30px 103px;
+    box-sizing: border-box;
+    position: relative;
+  }
+
+  .shopify-section .tequila-moments .tequila-moments__left {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    width: 507px;
+    height: 100%;
+    padding: 97px 0 0 0;
+    box-sizing: border-box;
+    gap: 20px;
+  }
+
+  .shopify-section .tequila-moments .tequila-moments__text {
+    width: 100%;
+  }
+
+  .shopify-section .tequila-moments .tequila-moments__heading {
+    font-family: 'Futura Hv BT', 'Futura', sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 40px;
+    line-height: 1.2;
+    color: var(--text-primary);
+    text-transform: uppercase;
+    margin: 0;
+    letter-spacing: 0;
+  }
+
+  .shopify-section .tequila-moments .tequila-moments__heading .highlight {
+    color: var(--text-highlight);
+  }
+
+  .shopify-section .tequila-moments .tequila-moments__image {
+    width: 495px;
+    height: 540px;
+    border-radius: 300px 300px 10px 10px;
+    overflow: hidden;
+    border: 1px solid var(--text-primary);
+    flex-shrink: 0;
+  }
+
+  .shopify-section .tequila-moments .tequila-moments__image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+  }
+
+  .shopify-section .tequila-moments .tequila-moments__cta {
+    width: 100%;
+  }
+
+  .shopify-section .tequila-moments .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    cursor: pointer;
+    border: none;
+    box-sizing: border-box;
+  }
+
+  .shopify-section .tequila-moments .btn--primary {
+    background-color: var(--btn-bg);
+    color: var(--text-primary);
+    padding: 30px 80px;
+    border-radius: 90px;
+    border: 2px solid var(--btn-border);
+    font-family: 'Futura Hv BT', 'Futura', sans-serif;
+    font-weight: 900;
+    font-size: 18px;
+    line-height: 1.2;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+
+  .shopify-section .tequila-moments .btn--primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(9, 9, 9, 0.15);
+  }
+
+  .shopify-section .tequila-moments .btn--primary:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 4px rgba(9, 9, 9, 0.15);
+  }
+
+  @media (max-width: 1279px) {
+    .shopify-section .tequila-moments .tequila-moments__container {
+      margin: 0 20px;
+      max-width: calc(100% - 40px);
+      height: 500px;
+    }
+
+    .shopify-section .tequila-moments .tequila-moments__content {
+      padding: 30px 60px;
+    }
+
+    .shopify-section .tequila-moments .tequila-moments__left {
+      width: 400px;
+      padding: 50px 0 0 0;
+      gap: 30px;
+    }
+
+    .shopify-section .tequila-moments .tequila-moments__heading {
+      font-size: 32px;
+    }
+
+    .shopify-section .tequila-moments .tequila-moments__image {
+      width: 400px;
+      height: 440px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .shopify-section .tequila-moments {
+      padding: 0 9px;
+    }
+
+    .shopify-section .tequila-moments .tequila-moments__container {
+      height: 600px;
+      border-radius: 30px;
+      max-width: 372px;
+      width: 100%;
+      margin: 0 auto;
+    }
+
+    .shopify-section .tequila-moments .tequila-moments__content {
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      padding: 30px 10.5px;
+      gap: 10px;
+    }
+
+    .shopify-section .tequila-moments .tequila-moments__left {
+      width: 100%;
+      height: auto;
+      padding: 0;
+      display: contents;
+    }
+
+    .shopify-section .tequila-moments .tequila-moments__text {
+      text-align: center;
+      width: 351px;
+      order: 1;
+    }
+
+    .shopify-section .tequila-moments .tequila-moments__heading {
+      font-size: 20px;
+      line-height: 1.2;
+      text-align: center;
+      margin: 0;
+      font-weight: 400;
+    }
+
+    .shopify-section .tequila-moments .tequila-moments__image {
+      width: 306px;
+      height: 335px;
+      border-radius: 153px 153px 10px 10px;
+      order: 2;
+      margin: 0 auto;
+      margin-bottom: 10px;
+    }
+
+    .shopify-section .tequila-moments .tequila-moments__cta {
+      width: 100%;
+      text-align: center;
+      order: 3;
+    }
+
+    .shopify-section .tequila-moments .btn--primary {
+      padding: 30px 60px;
+      font-size: 16px;
+      border-radius: 90px;
+      width: 350px;
+      display: inline-flex;
+      justify-content: center;
+      font-weight: 900;
+    }
+  }
+</style>
+
+<section class="tequila-moments" data-section-id="{{ section.id }}">
+  <div class="tequila-moments__container">
+    <div class="tequila-moments__content">
+      <div class="tequila-moments__left">
+        <div class="tequila-moments__text">
+          <h2 class="tequila-moments__heading">
+            {{ section.settings.heading_part1 | default: 'Make' }}
+            {% if section.settings.heading_highlight %}
+              <span class="highlight">{{ section.settings.heading_highlight }}</span>
+              {%- if section.settings.heading_part2 %},{% endif %}
+            {% endif %}
+            {% if section.settings.heading_part2 %}
+              {{ section.settings.heading_part2 }}
+            {% endif %}
+          </h2>
+        </div>
+
+        <div class="tequila-moments__cta">
+          <a href="{{ section.settings.cta_url | default: '#' }}" class="btn btn--primary">
+            {{ section.settings.cta_text | default: 'Create your own tequila' }}
+          </a>
+        </div>
+      </div>
+
+      <div class="tequila-moments__image">
+        {% if section.settings.bottle_image %}
+          <img
+            src="{{ section.settings.bottle_image | img_url: 'master' }}"
+            alt="{{ section.settings.bottle_image.alt | default: 'Custom tequila bottle' }}"
+            loading="lazy"
+            width="495"
+            height="540"
+          >
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Tequila Moments",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Heading Text"
+    },
+    {
+      "type": "text",
+      "id": "heading_part1",
+      "label": "Heading Start",
+      "default": "Make",
+      "info": "First part of the heading"
+    },
+    {
+      "type": "text",
+      "id": "heading_highlight",
+      "label": "Highlighted Text",
+      "default": "unforgettable moments",
+      "info": "This text will be highlighted in teal color"
+    },
+    {
+      "type": "textarea",
+      "id": "heading_part2",
+      "label": "Heading End",
+      "default": "generate referral, deepen loyalty and position you above the noise",
+      "info": "Text that comes after the highlighted portion"
+    },
+    {
+      "type": "header",
+      "content": "Images"
+    },
+    {
+      "type": "image_picker",
+      "id": "bottle_image",
+      "label": "Main Product Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "decoration_image",
+      "label": "Background Decoration Pattern"
+    },
+    {
+      "type": "header",
+      "content": "Call to Action"
+    },
+    {
+      "type": "text",
+      "id": "cta_text",
+      "label": "Button Text",
+      "default": "Create your own tequila"
+    },
+    {
+      "type": "url",
+      "id": "cta_url",
+      "label": "Button URL"
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Section Background Color",
+      "default": "#fdd8c6"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text Color",
+      "default": "#090909"
+    },
+    {
+      "type": "color",
+      "id": "highlight_color",
+      "label": "Highlight Text Color",
+      "default": "#67b7a8"
+    },
+    {
+      "type": "color",
+      "id": "button_background",
+      "label": "Button Background Color",
+      "default": "#67b7a8"
+    },
+    {
+      "type": "color",
+      "id": "button_border",
+      "label": "Button Border Color",
+      "default": "#090909"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Tequila Moments",
+      "category": "Custom"
+    }
+  ]
+}
+{% endschema %}

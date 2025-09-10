@@ -1,0 +1,624 @@
+{%- assign form_id = 'contact-form-' | append: section.id -%}
+
+<style>
+  .contact-section {
+    padding: 60px 0 80px 0;
+  }
+
+  .contact-container {
+    position: relative;
+    max-width: 1216px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .contact-header {
+    text-align: center;
+  }
+
+  .contact-title {
+    font-family: 'Futura Hv BT', sans-serif;
+    font-weight: 400;
+    font-size: 60px;
+    line-height: 1.2;
+    text-transform: uppercase;
+    color: #090909;
+    margin: 0;
+    white-space: nowrap;
+  }
+
+  .contact-title-highlight {
+    color: #67b7a8;
+    margin-right: 10px;
+  }
+
+  .contact-subtitle {
+    font-family: 'Roundo', sans-serif;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 1.65;
+    color: rgba(9, 9, 9, 0.8);
+    width: 369px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .contact-subtitle strong {
+    font-weight: 600;
+  }
+
+  .contact-bg-left {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 333px;
+    height: 422px;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    border-radius: 150px 3px 3px 3px;
+  }
+
+  .contact-form-wrapper {
+    width: 510px;
+    position: relative;
+    z-index: 2;
+  }
+
+  .contact-bg-right {
+    position: absolute;
+    right: 0;
+    top: 11px;
+    width: 333px;
+    height: 590px;
+    background-position: 49.68% 0%;
+    background-repeat: no-repeat;
+    background-size: 141.94% 100.34%;
+    border-radius: 3px 150px 3px 3px;
+  }
+
+  .form-messages {
+    margin-bottom: 20px;
+    text-align: center;
+  }
+
+  .success-message {
+    background: rgba(103, 183, 168, 0.1);
+    color: #67b7a8;
+    padding: 15px 20px;
+    border-radius: 10px;
+    font-family: 'Roundo', sans-serif;
+    font-weight: 600;
+    font-size: 16px;
+    border-left: 4px solid #67b7a8;
+    margin-top: 15px;
+    text-align: center;
+    animation: slideIn 0.3s ease;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+  }
+
+  .success-checkmark {
+    fill: #090909;
+    display: inline-block;
+    animation: checkmarkPop 0.3s ease;
+  }
+
+  @keyframes checkmarkPop {
+    0% {
+      transform: scale(0);
+    }
+    50% {
+      transform: scale(1.2);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+
+  @keyframes slideIn {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .error-message {
+    background: rgba(231, 76, 60, 0.1);
+    color: #e74c3c;
+    padding: 15px 20px;
+    border-radius: 10px;
+    font-family: 'Roundo', sans-serif;
+    font-size: 14px;
+    border-left: 4px solid #e74c3c;
+  }
+
+  .form-field {
+    margin-bottom: 20px;
+  }
+
+  .form-input {
+    width: 510px;
+    height: 65px;
+    background: #ffffff;
+    border: 1px solid rgba(9, 9, 9, 0.6);
+    border-radius: 90px;
+    padding: 0 30px;
+    font-family: 'Roundo', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    color: #090909;
+    outline: none;
+    box-sizing: border-box;
+    transition: border-color 0.2s ease;
+  }
+
+  .form-input::placeholder {
+    color: rgba(9, 9, 9, 0.6);
+  }
+
+  .form-input:focus {
+    border-color: #67b7a8;
+  }
+
+  .form-input:invalid:not(:placeholder-shown) {
+    border-color: #e74c3c;
+  }
+
+  .submit-button {
+    width: 510px;
+    background: #67b7a8;
+    border: 2px solid #090909;
+    border-radius: 90px;
+    padding: 30px 60px;
+    cursor: pointer;
+    margin-top: 20px;
+    box-sizing: border-box;
+    transition: background-color 0.2s ease;
+  }
+
+  .submit-button:hover {
+    background: #5da396;
+  }
+
+  .submit-button:disabled {
+    background: #cccccc;
+    border-color: #999999;
+    cursor: not-allowed;
+  }
+
+  .submit-text {
+    font-family: 'Futura Hv BT', sans-serif;
+    font-weight: 800;
+    font-size: 18px;
+    line-height: 1.2;
+    color: #090909;
+    text-transform: uppercase;
+    text-align: center;
+    display: block;
+  }
+
+  .honeypot {
+    opacity: 0;
+    height: 0;
+    overflow: hidden;
+  }
+
+  .loading .submit-button {
+    opacity: 0.7;
+    pointer-events: none;
+  }
+
+  .contact-section div:empty {
+    display: flex;
+  }
+  @media (max-width: 1215px) {
+    .contact-bg-left,
+    .contact-bg-right {
+      display: none;
+    }
+    .contact-section div:empty {
+      display: none;
+    }
+    .contact-container {
+      max-width: 800px;
+      padding: 0 40px;
+    }
+  }
+
+  @media (max-width: 1024px) {
+    .contact-container {
+      max-width: 700px;
+      padding: 0 30px;
+    }
+
+    .contact-header {
+      margin-bottom: 40px;
+    }
+
+    .contact-form-wrapper {
+      width: 100%;
+      max-width: 510px;
+    }
+
+    .contact-bg-left,
+    .contact-bg-right {
+      display: none;
+    }
+
+    .contact-title {
+      font-size: 50px;
+    }
+
+    .contact-subtitle {
+      width: 100%;
+      max-width: 450px;
+    }
+
+    .form-input,
+    .submit-button {
+      width: 100%;
+    }
+  }
+
+  @media (max-width: 900px) {
+    .contact-container {
+      max-width: 600px;
+      padding: 0 25px;
+    }
+
+    .contact-header {
+      margin-bottom: 35px;
+    }
+
+    .contact-title {
+      font-size: 42px;
+    }
+
+    .contact-subtitle {
+      max-width: 400px;
+      font-size: 19px;
+    }
+  }
+
+  @media (max-width: 800px) {
+    .contact-container {
+      max-width: 550px;
+      padding: 0 20px;
+    }
+
+    .contact-title {
+      font-size: 36px;
+    }
+
+    .contact-subtitle {
+      font-size: 18px;
+      max-width: 380px;
+    }
+
+    .form-field {
+      margin-bottom: 18px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .contact-section {
+      padding: 40px 0 60px 0;
+    }
+
+    .contact-container {
+      padding: 0px;
+      max-width: 350px;
+    }
+
+    .contact-header {
+      margin-bottom: 0px;
+    }
+
+    .contact-title {
+      font-size: 30px;
+      margin-bottom: 5px;
+      line-height: 1.2;
+    }
+
+    .contact-title-highlight {
+      margin-right: 5px;
+    }
+
+    .contact-subtitle {
+      font-size: 18px;
+      line-height: 1.65;
+      max-width: 100%;
+      width: 100%;
+    }
+
+    .contact-form-wrapper {
+      width: 100%;
+    }
+
+    .form-field {
+      margin-bottom: 15px;
+    }
+
+    .form-input {
+      height: 65px;
+      padding: 0 30px;
+      font-size: 16px;
+      width: 100%;
+    }
+
+    .submit-button {
+      padding: unset;
+      width: 100%;
+      max-width: 350px;
+      min-height: 79px;
+    }
+
+    .submit-text {
+      font-size: 16px;
+    }
+  }
+</style>
+
+<section class="contact-section" id="{{ section.id }}">
+  <div class="contact-container">
+    <div class="contact-header">
+      <h2 class="contact-title">
+        <span class="contact-title-highlight">{{ section.settings.title_highlight | default: 'Contact' }}</span>
+        {{- section.settings.title_normal | default: ' Form' }}
+      </h2>
+
+      <div class="contact-subtitle">
+        {{
+          section.settings.subtitle
+          | default: 'Receive <strong>info</strong>, <strong>tips</strong> on how to design your <strong>label</strong>, and <strong>special offer</strong>!'
+        }}
+      </div>
+    </div>
+
+    {%- if section.settings.bg_image_left != blank -%}
+      <div
+        class="contact-bg-left"
+        style="background-image: url('{{ section.settings.bg_image_left | image_url: width: 800 }}');"
+      ></div>
+    {%- endif -%}
+
+    <div class="contact-form-wrapper">
+      {% form 'contact', id: form_id %}
+        <div class="form-messages">
+          {%- if form.errors -%}
+            <div class="error-message">
+              {{ form.errors | default_errors }}
+            </div>
+          {%- endif -%}
+        </div>
+
+        <div class="honeypot">
+          <input type="text" name="contact[honeypot]" tabindex="-1" autocomplete="off">
+        </div>
+
+        <div class="form-field">
+          <input
+            type="text"
+            name="contact[first_name]"
+            class="form-input"
+            placeholder="{{ section.settings.first_name_placeholder | default: 'First Name' }}"
+            required
+            autocomplete="given-name"
+          >
+        </div>
+
+        <div class="form-field">
+          <input
+            type="text"
+            name="contact[last_name]"
+            class="form-input"
+            placeholder="{{ section.settings.last_name_placeholder | default: 'Last Name' }}"
+            required
+            autocomplete="family-name"
+          >
+        </div>
+
+        <div class="form-field">
+          <input
+            type="email"
+            name="contact[email]"
+            class="form-input"
+            placeholder="{{ section.settings.email_placeholder | default: 'Main Email' }}"
+            required
+            autocomplete="email"
+          >
+        </div>
+
+        <div class="form-field">
+          <input
+            type="tel"
+            name="contact[phone]"
+            class="form-input"
+            placeholder="{{ section.settings.phone_placeholder | default: 'Phone Number' }}"
+            autocomplete="tel"
+          >
+        </div>
+
+        <button type="submit" class="submit-button">
+          <span class="submit-text">
+            {%- if form.posted_successfully? -%}
+              <svg
+                class="success-checkmark"
+                height="24px"
+                width="24px"
+                version="1.1"
+                xmlns="http://www.w3.org/2000/svg"
+                xmlns:xlink="http://www.w3.org/1999/xlink"
+                viewBox="0 0 512 512"
+                xml:space="preserve"
+                fill="#090909"
+              >
+                <g>
+                  <polygon class="st0" points="440.469,73.413 218.357,295.525 71.531,148.709 0,220.229 146.826,367.055 218.357,438.587 289.878,367.055 512,144.945 "></polygon>
+                </g>
+              </svg>
+            {%- else -%}
+              {{ section.settings.button_text | default: 'Yes, send me offers & ideas!' }}
+            {%- endif -%}
+          </span>
+        </button>
+
+        {%- if form.posted_successfully? -%}
+          <div class="success-message" id="success-message-{{ section.id }}">
+            {{ section.settings.success_message | default: 'Thank you! Your message has been sent successfully.' }}
+          </div>
+        {%- endif -%}
+      {% endform %}
+    </div>
+
+    {%- if section.settings.bg_image_right != blank -%}
+      <div
+        class="contact-bg-right"
+        style="background-image: url('{{ section.settings.bg_image_right | image_url: width: 800 }}');"
+      ></div>
+    {%- endif -%}
+  </div>
+</section>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const form = document.getElementById('{{ form_id }}');
+    const successMessage = document.getElementById('success-message-{{ section.id }}');
+
+    if (form) {
+      form.addEventListener('submit', function () {
+        form.classList.add('loading');
+        const button = form.querySelector('.submit-button');
+        const originalText = button.querySelector('.submit-text').textContent;
+        button.querySelector('.submit-text').textContent =
+          '{{ section.settings.loading_text | default: "Sending..." }}';
+        button.disabled = true;
+
+        setTimeout(() => {
+          if (form.classList.contains('loading')) {
+            button.querySelector('.submit-text').textContent = originalText;
+            button.disabled = false;
+            form.classList.remove('loading');
+          }
+        }, 5000);
+      });
+    }
+
+    // Приховати успішне повідомлення через 5 секунд
+    if (successMessage) {
+      setTimeout(() => {
+        successMessage.style.opacity = '0';
+        successMessage.style.transform = 'translateY(-10px)';
+        setTimeout(() => {
+          successMessage.style.display = 'none';
+        }, 300);
+      }, 5000);
+    }
+  });
+</script>
+
+{% schema %}
+{
+  "name": "Contact Form",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Content"
+    },
+    {
+      "type": "text",
+      "id": "title_highlight",
+      "label": "Title (Highlighted)",
+      "default": "Contact"
+    },
+    {
+      "type": "text",
+      "id": "title_normal",
+      "label": "Title (Normal)",
+      "default": " Form"
+    },
+    {
+      "type": "richtext",
+      "id": "subtitle",
+      "label": "Subtitle",
+      "default": "<p>Receive <strong>info</strong>, <strong>tips</strong> on how to design your <strong>label</strong>, and <strong>special offer</strong>!</p>"
+    },
+    {
+      "type": "header",
+      "content": "Form Fields"
+    },
+    {
+      "type": "text",
+      "id": "first_name_placeholder",
+      "label": "First Name Placeholder",
+      "default": "First Name"
+    },
+    {
+      "type": "text",
+      "id": "last_name_placeholder",
+      "label": "Last Name Placeholder",
+      "default": "Last Name"
+    },
+    {
+      "type": "text",
+      "id": "email_placeholder",
+      "label": "Email Placeholder",
+      "default": "Main Email"
+    },
+    {
+      "type": "text",
+      "id": "phone_placeholder",
+      "label": "Phone Placeholder",
+      "default": "Phone Number"
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button Text",
+      "default": "Yes, send me offers & ideas!"
+    },
+    {
+      "type": "text",
+      "id": "loading_text",
+      "label": "Loading Text",
+      "default": "Sending..."
+    },
+    {
+      "type": "header",
+      "content": "Messages"
+    },
+    {
+      "type": "text",
+      "id": "success_message",
+      "label": "Success Message",
+      "default": "Thank you! Your message has been sent successfully."
+    },
+    {
+      "type": "header",
+      "content": "Background Images"
+    },
+    {
+      "type": "image_picker",
+      "id": "bg_image_left",
+      "label": "Left Background Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "bg_image_right",
+      "label": "Right Background Image"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Contact Form"
+    }
+  ]
+}
+{% endschema %}

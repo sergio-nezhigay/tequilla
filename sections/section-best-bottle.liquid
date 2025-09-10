@@ -1,0 +1,157 @@
+{{ 'best-bottle.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+  .section-best-bottle{
+      background-color: {{ section.settings.background_color }};
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+  }
+  @media (max-width: 767px){
+      .section-best-bottle{
+          padding-top: {{ section.settings.padding_top_mob }}px;
+          padding-bottom: {{ section.settings.padding_bottom_mob }}px;
+      }
+  }
+{%- endstyle -%}
+
+<section class="section-best-bottle">
+  <div class="containe-best-bottle">
+    {% if section.settings.title != blank %}
+      <div class="title-best-bottle">{{ section.settings.title }}</div>
+    {% endif %}
+    {% if section.settings.image != blank %}
+      {{
+        section.settings.image
+        | image_url: width: section.settings.image.width
+        | image_tag: class: 'image-best-bottle'
+      }}
+    {% endif %}
+    {% if section.settings.title_block != blank %}
+      <div class="title-block-best-bottle">{{ section.settings.title_block }}</div>
+    {% endif %}
+    <div class="container-blocks-best-bottle">
+      {% for block in section.blocks %}
+        <div class="container-block-best-bottle">
+          {% if block.settings.main_title != blank %}
+            <div class="main-title-best-bottle">{{ block.settings.main_title }}</div>
+          {% endif %}
+          {% if block.settings.main_description != blank %}
+            <div class="main-description-best-bottle">{{ block.settings.main_description }}</div>
+          {% endif %}
+        </div>
+      {% endfor %}
+    </div>
+    {% if section.settings.text_btn != blank and section.settings.main_url != blank %}
+      <a class="best-bottle-button" href="{{ section.settings.main_url }}">{{ section.settings.text_btn }}</a>
+    {% endif %}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Best bottle",
+  "settings": [
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    },
+    {
+      "type": "richtext",
+      "id": "title",
+      "label": "Title"
+    },
+    {
+      "type": "richtext",
+      "id": "title_block",
+      "label": "Title bloks"
+    },
+    {
+      "type": "text",
+      "id": "text_btn",
+      "label": "Text button"
+    },
+    {
+      "type": "url",
+      "id": "main_url",
+      "label": "Url button"
+    },
+    {
+      "type": "header",
+      "content": "Desktop"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Padding top",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Padding bottom",
+      "default": 0
+    },
+    {
+      "type": "header",
+      "content": "Mobile"
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mob",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Padding top",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mob",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Padding bottom",
+      "default": 0
+    }
+  ],
+  "blocks": [
+    {
+      "type": "block",
+      "name": "Block",
+      "settings": [
+        {
+          "type": "richtext",
+          "id": "main_title",
+          "label": "Title"
+        },
+        {
+          "type": "richtext",
+          "id": "main_description",
+          "label": "Description"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Best bottle"
+    }
+  ]
+}
+{% endschema %}
