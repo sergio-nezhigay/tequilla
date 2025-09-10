@@ -1,0 +1,709 @@
+<!-- Markup -->
+<section id="what-you-ll-taste-{{ section.id }}" class="what-you-ll-taste-section">
+  <div class="what-you-ll-taste-container" style="max-width: {{ section.settings.max_width }}px;">
+    <!-- Background Image -->
+    {%- if section.settings.background_image != blank -%}
+      {%- assign bg_image = section.settings.background_image -%}
+      <div class="what-you-ll-taste-bg">
+        {{
+          bg_image
+          | image_url: width: 1440
+          | image_tag:
+            loading: 'lazy',
+            sizes: '(max-width: 768px) 100vw, 1440px',
+            widths: '375, 768, 1024, 1440',
+            class: 'what-you-ll-taste-bg-image'
+        }}
+      </div>
+    {%- endif -%}
+
+    <!-- Content Wrapper -->
+    <div
+      class="what-you-ll-taste-content {% if section.settings.layout_reversed %}what-you-ll-taste-content--reversed{% endif %}"
+      data-mobile-order="{{ section.settings.mobile_order }}"
+    >
+      <!-- Card Section -->
+      <div class="what-you-ll-taste-card">
+        <div class="what-you-ll-taste-card-inner">
+          {%- if section.settings.card_title != blank -%}
+            <h2 class="what-you-ll-taste-card-title">
+              {{ section.settings.card_title }}
+            </h2>
+          {%- endif -%}
+
+          <!-- Taste Items -->
+          <div class="what-you-ll-taste-items">
+            {%- for block in section.blocks -%}
+              {%- case block.type -%}
+                {%- when 'taste_item' -%}
+                  <div class="taste-item" {{ block.shopify_attributes }}>
+                    {%- if block.settings.icon_html != blank -%}
+                      <div class="taste-item-icon">
+                        {{ block.settings.icon_html }}
+                      </div>
+                    {%- endif -%}
+
+                    <div class="taste-item-content">
+                      {%- if block.settings.item_title != blank -%}
+                        <h3 class="taste-item-title">
+                          {{ block.settings.item_title }}
+                        </h3>
+                      {%- endif -%}
+
+                      {%- if block.settings.item_description != blank -%}
+                        <div class="taste-item-description">
+                          {{ block.settings.item_description }}
+                        </div>
+                      {%- endif -%}
+                    </div>
+                  </div>
+              {%- endcase -%}
+            {%- endfor -%}
+          </div>
+
+          {%- if section.settings.footer_text != blank -%}
+            <div class="what-you-ll-taste-footer">
+              {{ section.settings.footer_text }}
+            </div>
+          {%- endif -%}
+        </div>
+      </div>
+
+      <!-- Product Display -->
+      <div class="what-you-ll-taste-product">
+        {%- if section.settings.bottle_image != blank -%}
+          {%- assign bottle = section.settings.bottle_image -%}
+          {{
+            bottle
+            | image_url: width: 600
+            | image_tag:
+              loading: 'lazy',
+              sizes: '(max-width: 768px) 80vw, 600px',
+              widths: '300, 400, 500, 600',
+              class: 'what-you-ll-taste-bottle',
+              alt: section.settings.bottle_alt_text
+            | default: 'Product bottle'
+          }}
+        {%- endif -%}
+
+        {%- if section.settings.label_image != blank -%}
+          {%- assign label = section.settings.label_image -%}
+          <div class="what-you-ll-taste-label">
+            {{
+              label
+              | image_url: width: 280
+              | image_tag:
+                loading: 'lazy',
+                sizes: '(max-width: 768px) 200px, 280px',
+                widths: '200, 280',
+                class: 'what-you-ll-taste-label-image',
+                alt: section.settings.label_alt_text
+              | default: 'Product label'
+            }}
+          </div>
+        {%- endif -%}
+      </div>
+    </div>
+  </div>
+
+  {%- if section.settings.custom_class != blank -%}
+    <div class="{{ section.settings.custom_class }}"></div>
+  {%- endif -%}
+</section>
+
+<!-- Styles -->
+<style>
+  :root {
+    --taste-padding-top-mobile: {{ section.settings.padding_top_mobile }}px;
+    --taste-padding-bottom-mobile: {{ section.settings.padding_bottom_mobile }}px;
+    --taste-padding-top-desktop: {{ section.settings.padding_top_desktop }}px;
+    --taste-padding-bottom-desktop: {{ section.settings.padding_bottom_desktop }}px;
+    --taste-section-bg: {{ section.settings.section_background }};
+    --taste-card-bg: {{ section.settings.card_background }};
+    --taste-card-radius: 24px;
+    --taste-title-color: {{ section.settings.title_color }};
+    --taste-title-size-mobile: {{ section.settings.title_size_mobile }}px;
+    --taste-title-size-desktop: {{ section.settings.title_size_desktop }}px;
+    --taste-item-title-color: {{ section.settings.item_title_color }};
+    --taste-item-title-size-mobile: {{ section.settings.item_title_size_mobile }}px;
+    --taste-item-title-size-desktop: {{ section.settings.item_title_size_desktop }}px;
+    --taste-item-text-color: {{ section.settings.item_text_color }};
+    --taste-item-text-size-mobile: {{ section.settings.item_text_size_mobile }}px;
+    --taste-item-text-size-desktop: {{ section.settings.item_text_size_desktop }}px;
+    --taste-footer-color: {{ section.settings.footer_text_color }};
+    --taste-footer-size-mobile: {{ section.settings.footer_text_size_mobile }}px;
+    --taste-footer-size-desktop: {{ section.settings.footer_text_size_desktop }}px;
+    --taste-accent-color: {{ section.settings.accent_color }};
+  }
+
+  #what-you-ll-taste-{{ section.id }} {
+    position: relative;
+    padding-top: var(--taste-padding-top-mobile);
+    padding-bottom: var(--taste-padding-bottom-mobile);
+    background: var(--taste-section-bg);
+    overflow: hidden;
+  }
+
+  #what-you-ll-taste-{{ section.id }} .what-you-ll-taste-container {
+    position: relative;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  #what-you-ll-taste-{{ section.id }} .what-you-ll-taste-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+  }
+
+  #what-you-ll-taste-{{ section.id }} .what-you-ll-taste-bg-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  #what-you-ll-taste-{{ section.id }} .what-you-ll-taste-content {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+  }
+
+  #what-you-ll-taste-{{ section.id }} .what-you-ll-taste-card {
+    width: 100%;
+    max-width: 500px;
+  }
+
+  #what-you-ll-taste-{{ section.id }} .what-you-ll-taste-card-inner {
+    background: var(--taste-card-bg);
+    border-radius: var(--taste-card-radius);
+    padding: 32px 24px;
+    backdrop-filter: blur(20px);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+  }
+
+  #what-you-ll-taste-{{ section.id }} .what-you-ll-taste-card-title {
+    font-size: var(--taste-title-size-mobile);
+    color: var(--taste-title-color);
+    margin: 0 0 32px 0;
+    font-weight: 700;
+    line-height: 1.2;
+  }
+
+  #what-you-ll-taste-{{ section.id }} .what-you-ll-taste-card-title span {
+    color: var(--taste-accent-color);
+  }
+
+  #what-you-ll-taste-{{ section.id }} .what-you-ll-taste-items {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  #what-you-ll-taste-{{ section.id }} .taste-item {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+  }
+
+  #what-you-ll-taste-{{ section.id }} .taste-item-icon {
+    flex-shrink: 0;
+    width: 24px;
+    height: 24px;
+    color: var(--taste-accent-color);
+  }
+
+  #what-you-ll-taste-{{ section.id }} .taste-item-icon svg {
+    width: 100%;
+    height: 100%;
+  }
+
+  #what-you-ll-taste-{{ section.id }} .taste-item-content {
+    flex: 1;
+  }
+
+  #what-you-ll-taste-{{ section.id }} .taste-item-title {
+    font-size: var(--taste-item-title-size-mobile);
+    color: var(--taste-item-title-color);
+    font-weight: 600;
+    margin: 0 0 4px 0;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  #what-you-ll-taste-{{ section.id }} .taste-item-description {
+    font-size: var(--taste-item-text-size-mobile);
+    color: var(--taste-item-text-color);
+    line-height: 1.5;
+  }
+
+  #what-you-ll-taste-{{ section.id }} .taste-item-description p {
+    margin: 0;
+  }
+
+  #what-you-ll-taste-{{ section.id }} .what-you-ll-taste-footer {
+    margin-top: 24px;
+    padding-top: 24px;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    font-size: var(--taste-footer-size-mobile);
+    color: var(--taste-footer-color);
+    line-height: 1.5;
+  }
+
+  #what-you-ll-taste-{{ section.id }} .what-you-ll-taste-footer a {
+    color: var(--taste-accent-color);
+    text-decoration: none;
+  }
+
+  #what-you-ll-taste-{{ section.id }} .what-you-ll-taste-product {
+    position: relative;
+    width: 280px;
+    height: auto;
+  }
+
+  #what-you-ll-taste-{{ section.id }} .what-you-ll-taste-bottle {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  #what-you-ll-taste-{{ section.id }} .what-you-ll-taste-label {
+    position: absolute;
+    bottom: 20%;
+    right: -20px;
+    width: 140px;
+    transform: rotate(-5deg);
+    filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.15));
+  }
+
+  #what-you-ll-taste-{{ section.id }} .what-you-ll-taste-label-image {
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+  }
+
+  /* Mobile Order Variations */
+  #what-you-ll-taste-{{ section.id }} .what-you-ll-taste-content[data-mobile-order="image-first"] {
+    flex-direction: column-reverse;
+  }
+
+  /* Tablet and Desktop */
+  @media screen and (min-width: 768px) {
+    #what-you-ll-taste-{{ section.id }} {
+      padding-top: var(--taste-padding-top-desktop);
+      padding-bottom: var(--taste-padding-bottom-desktop);
+    }
+
+    #what-you-ll-taste-{{ section.id }} .what-you-ll-taste-container {
+      padding: 0 40px;
+    }
+
+    #what-you-ll-taste-{{ section.id }} .what-you-ll-taste-content {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      gap: 60px;
+      min-height: 390px;
+    }
+
+    #what-you-ll-taste-{{ section.id }} .what-you-ll-taste-content--reversed {
+      flex-direction: row-reverse;
+    }
+
+    #what-you-ll-taste-{{ section.id }} .what-you-ll-taste-card {
+      flex: 1;
+      max-width: 600px;
+    }
+
+    #what-you-ll-taste-{{ section.id }} .what-you-ll-taste-card-inner {
+      padding: 48px 40px;
+    }
+
+    #what-you-ll-taste-{{ section.id }} .what-you-ll-taste-card-title {
+      font-size: var(--taste-title-size-desktop);
+      margin-bottom: 40px;
+    }
+
+    #what-you-ll-taste-{{ section.id }} .taste-item-title {
+      font-size: var(--taste-item-title-size-desktop);
+    }
+
+    #what-you-ll-taste-{{ section.id }} .taste-item-description {
+      font-size: var(--taste-item-text-size-desktop);
+    }
+
+    #what-you-ll-taste-{{ section.id }} .what-you-ll-taste-footer {
+      font-size: var(--taste-footer-size-desktop);
+    }
+
+    #what-you-ll-taste-{{ section.id }} .what-you-ll-taste-product {
+      width: 400px;
+      flex-shrink: 0;
+    }
+
+    #what-you-ll-taste-{{ section.id }} .what-you-ll-taste-label {
+      width: 180px;
+      right: -40px;
+    }
+  }
+
+  @media screen and (min-width: 1440px) {
+    #what-you-ll-taste-{{ section.id }} .what-you-ll-taste-container {
+      padding: 0 60px;
+    }
+  }
+</style>
+
+<!-- Dynamic Styles -->
+<style>
+  #what-you-ll-taste-{{ section.id }} {
+    {%- if section.settings.section_background_gradient != blank -%}
+      background: {{ section.settings.section_background_gradient }};
+    {%- endif -%}
+  }
+</style>
+
+<!-- Schema -->
+{% schema %}
+{
+  "name": "What you'll taste",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Layout Settings"
+    },
+    {
+      "type": "text",
+      "id": "max_width",
+      "label": "Maximum Width (px)",
+      "default": "1440"
+    },
+    {
+      "type": "checkbox",
+      "id": "layout_reversed",
+      "label": "Reverse Layout (Desktop)",
+      "default": false
+    },
+    {
+      "type": "select",
+      "id": "mobile_order",
+      "label": "Mobile Order",
+      "options": [
+        {
+          "value": "content-first",
+          "label": "Content First"
+        },
+        {
+          "value": "image-first",
+          "label": "Image First"
+        }
+      ],
+      "default": "content-first"
+    },
+    {
+      "type": "header",
+      "content": "Spacing"
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mobile",
+      "label": "Padding Top Mobile",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "padding_top_desktop",
+      "label": "Padding Top Desktop",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mobile",
+      "label": "Padding Bottom Mobile",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_desktop",
+      "label": "Padding Bottom Desktop",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "default": 60
+    },
+    {
+      "type": "header",
+      "content": "Background"
+    },
+    {
+      "type": "color",
+      "id": "section_background",
+      "label": "Section Background",
+      "default": "#f5f5f5"
+    },
+    {
+      "type": "text",
+      "id": "section_background_gradient",
+      "label": "Background Gradient (CSS)",
+      "info": "Optional: Override with CSS gradient"
+    },
+    {
+      "type": "image_picker",
+      "id": "background_image",
+      "label": "Background Image"
+    },
+    {
+      "type": "header",
+      "content": "Card Settings"
+    },
+    {
+      "type": "color",
+      "id": "card_background",
+      "label": "Card Background",
+      "default": "rgba(255, 255, 255, 0.95)"
+    },
+    {
+      "type": "richtext",
+      "id": "card_title",
+      "label": "Card Title",
+      "default": "<p>WHAT YOU'LL <span>TASTE</span></p>"
+    },
+    {
+      "type": "header",
+      "content": "Product Images"
+    },
+    {
+      "type": "image_picker",
+      "id": "bottle_image",
+      "label": "Bottle Image"
+    },
+    {
+      "type": "text",
+      "id": "bottle_alt_text",
+      "label": "Bottle Alt Text",
+      "default": "Product bottle"
+    },
+    {
+      "type": "image_picker",
+      "id": "label_image",
+      "label": "Label/Badge Image"
+    },
+    {
+      "type": "text",
+      "id": "label_alt_text",
+      "label": "Label Alt Text",
+      "default": "Product label"
+    },
+    {
+      "type": "header",
+      "content": "Typography - Title"
+    },
+    {
+      "type": "color",
+      "id": "title_color",
+      "label": "Title Color",
+      "default": "#1a1a1a"
+    },
+    {
+      "type": "range",
+      "id": "title_size_mobile",
+      "label": "Title Size Mobile",
+      "min": 20,
+      "max": 48,
+      "step": 2,
+      "unit": "px",
+      "default": 28
+    },
+    {
+      "type": "range",
+      "id": "title_size_desktop",
+      "label": "Title Size Desktop",
+      "min": 24,
+      "max": 60,
+      "step": 2,
+      "unit": "px",
+      "default": 36
+    },
+    {
+      "type": "header",
+      "content": "Typography - Items"
+    },
+    {
+      "type": "color",
+      "id": "item_title_color",
+      "label": "Item Title Color",
+      "default": "#666666"
+    },
+    {
+      "type": "range",
+      "id": "item_title_size_mobile",
+      "label": "Item Title Size Mobile",
+      "min": 10,
+      "max": 20,
+      "step": 1,
+      "unit": "px",
+      "default": 12
+    },
+    {
+      "type": "range",
+      "id": "item_title_size_desktop",
+      "label": "Item Title Size Desktop",
+      "min": 10,
+      "max": 24,
+      "step": 1,
+      "unit": "px",
+      "default": 14
+    },
+    {
+      "type": "color",
+      "id": "item_text_color",
+      "label": "Item Text Color",
+      "default": "#1a1a1a"
+    },
+    {
+      "type": "range",
+      "id": "item_text_size_mobile",
+      "label": "Item Text Size Mobile",
+      "min": 12,
+      "max": 20,
+      "step": 1,
+      "unit": "px",
+      "default": 14
+    },
+    {
+      "type": "range",
+      "id": "item_text_size_desktop",
+      "label": "Item Text Size Desktop",
+      "min": 14,
+      "max": 24,
+      "step": 1,
+      "unit": "px",
+      "default": 16
+    },
+    {
+      "type": "header",
+      "content": "Footer & Accent"
+    },
+    {
+      "type": "richtext",
+      "id": "footer_text",
+      "label": "Footer Text",
+      "default": "<p>And yes — it's 100% additive-free and certified kosher.</p>"
+    },
+    {
+      "type": "color",
+      "id": "footer_text_color",
+      "label": "Footer Text Color",
+      "default": "#666666"
+    },
+    {
+      "type": "range",
+      "id": "footer_text_size_mobile",
+      "label": "Footer Text Size Mobile",
+      "min": 12,
+      "max": 20,
+      "step": 1,
+      "unit": "px",
+      "default": 13
+    },
+    {
+      "type": "range",
+      "id": "footer_text_size_desktop",
+      "label": "Footer Text Size Desktop",
+      "min": 12,
+      "max": 24,
+      "step": 1,
+      "unit": "px",
+      "default": 14
+    },
+    {
+      "type": "color",
+      "id": "accent_color",
+      "label": "Accent Color",
+      "default": "#65C4AA"
+    },
+    {
+      "type": "header",
+      "content": "Advanced"
+    },
+    {
+      "type": "text",
+      "id": "custom_class",
+      "label": "Custom CSS Class"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "taste_item",
+      "name": "Taste Item",
+      "settings": [
+        {
+          "type": "html",
+          "id": "icon_html",
+          "label": "Icon HTML/SVG",
+          "default": "<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='currentColor'><circle cx='12' cy='12' r='3'/></svg>"
+        },
+        {
+          "type": "richtext",
+          "id": "item_title",
+          "label": "Item Title",
+          "default": "<p>FLAVOR</p>"
+        },
+        {
+          "type": "richtext",
+          "id": "item_description",
+          "label": "Item Description",
+          "default": "<p>ROASTED AGAVE, WHITE PEPPER, CITRUS PEEL</p>"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Taste Feature",
+      "blocks": [
+        {
+          "type": "taste_item",
+          "settings": {
+            "item_title": "<p>FLAVOR</p>",
+            "item_description": "<p>ROASTED AGAVE, WHITE PEPPER, CITRUS PEEL</p>"
+          }
+        },
+        {
+          "type": "taste_item",
+          "settings": {
+            "item_title": "<p>TASTE</p>",
+            "item_description": "<p>SILKY, SLIGHTLY SWEET, WITH HERBAL AND EARTHY NOTES</p>"
+          }
+        },
+        {
+          "type": "taste_item",
+          "settings": {
+            "item_title": "<p>FINISH</p>",
+            "item_description": "<p>BRIGHT, CLEAN, AND LINGERING — PERFECT FOR SIPPING OR GIFTING</p>"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
