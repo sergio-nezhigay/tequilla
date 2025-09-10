@@ -130,6 +130,16 @@
     --taste-accent-color: {{ section.settings.accent_color }};
   }
 
+  #what-you-ll-taste-{{ section.id }} strong {
+    color: var(--taste-accent-color) !important;
+    font-weight: normal;
+  }
+
+  #what-you-ll-taste-{{ section.id }} em {
+    color: #FFB793 !important;
+    font-style: italic;
+  }
+
   #what-you-ll-taste-{{ section.id }} {
     position: relative;
     padding-top: var(--taste-padding-top-mobile);
@@ -180,9 +190,7 @@
   #what-you-ll-taste-{{ section.id }} .what-you-ll-taste-card-inner {
     background: var(--taste-card-bg);
     border-radius: var(--taste-card-radius);
-    padding: 100px 24px;
-    backdrop-filter: blur(20px);
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+    padding: 42px 10px;
     {%- if section.settings.card_background_image != blank -%}
       {%- assign card_bg_img = section.settings.card_background_image -%}
       background-image: url({{ card_bg_img | image_url: width: 800 }});
@@ -196,9 +204,11 @@
   #what-you-ll-taste-{{ section.id }} .what-you-ll-taste-card-title {
     font-size: var(--taste-title-size-mobile);
     color: var(--taste-title-color);
-    margin: 0 0 32px 0;
+    margin: 0 0 20px 0;
     font-weight: 700;
     line-height: 1.2;
+    text-align: center;
+    text-transform: uppercase;
   }
 
   #what-you-ll-taste-{{ section.id }} .what-you-ll-taste-card-title span {

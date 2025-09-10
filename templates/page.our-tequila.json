@@ -148,7 +148,7 @@
         "background_image": "shopify://shop_images/Rectangle_97.png",
         "card_background": "#fffffff2",
         "card_background_image": "shopify://shop_images/beige-paper.jpg",
-        "card_title": "<p>WHAT YOU'LL TASTE</p>",
+        "card_title": "<p>WHAT YOU'LL <strong>TASTE</strong></p>",
         "bottle_image": "shopify://shop_images/Group_102_3.png",
         "bottle_alt_text": "Product bottle",
         "label_image": "shopify://shop_images/Group_142.png",
@@ -162,10 +162,10 @@
         "item_text_color": "#1a1a1a",
         "item_text_size_mobile": 14,
         "item_text_size_desktop": 16,
-        "footer_text": "<p>And yes — it's 100% additive-free and certified kosher.</p>",
-        "footer_text_color": "#666666",
-        "footer_text_size_mobile": 13,
-        "footer_text_size_desktop": 14,
+        "footer_text": "<p>And yes — it's <strong>100% additive-free</strong> and <strong>certified Kosher</strong>.</p>",
+        "footer_text_color": "#090909",
+        "footer_text_size_mobile": 18,
+        "footer_text_size_desktop": 20,
         "accent_color": "#65c4aa",
         "custom_class": ""
       }
