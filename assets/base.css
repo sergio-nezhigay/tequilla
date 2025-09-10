@@ -15,6 +15,14 @@
    ================================ */
 @font-face {
   font-family: 'Roundo';
+  src: url('./Roundo-Light.woff2') format('woff2'),
+    url('./Roundo-Light.woff') format('woff');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Roundo';
   src: url('./Roundo-Regular.woff2') format('woff2'),
     url('./Roundo-Regular.woff') format('woff');
   font-weight: 400;
