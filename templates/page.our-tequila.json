@@ -93,6 +93,8 @@
         "cta_bg_color": "#67b7a8",
         "cta_text_color": "#090909",
         "background_color": "#fdd8c6",
+        "bg_pattern_image": "shopify://shop_images/bg-flower.png",
+        "bg_pattern_opacity": 100,
         "max_width": 1440,
         "padding_top_mobile": 30,
         "padding_bottom_mobile": 40,
