@@ -139,8 +139,6 @@
       ],
       "settings": {
         "max_width": "1440",
-        "layout_reversed": false,
-        "mobile_order": "content-first",
         "padding_top_mobile": 40,
         "padding_top_desktop": 60,
         "padding_bottom_mobile": 40,
@@ -149,6 +147,7 @@
         "section_background_gradient": "",
         "background_image": "shopify://shop_images/Rectangle_97.png",
         "card_background": "#fffffff2",
+        "card_background_image": "shopify://shop_images/beige-paper.jpg",
         "card_title": "<p>WHAT YOU'LL TASTE</p>",
         "bottle_image": "shopify://shop_images/Group_102_3.png",
         "bottle_alt_text": "Product bottle",
