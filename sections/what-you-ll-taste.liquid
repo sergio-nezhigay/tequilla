@@ -107,271 +107,263 @@
 
 <!-- Styles -->
 <style>
-    :root {
-      --taste-padding-top-mobile: {{ section.settings.padding_top_mobile }}px;
-      --taste-padding-bottom-mobile: {{ section.settings.padding_bottom_mobile }}px;
-      --taste-padding-top-desktop: {{ section.settings.padding_top_desktop }}px;
-      --taste-padding-bottom-desktop: {{ section.settings.padding_bottom_desktop }}px;
-      --taste-section-bg: {{ section.settings.section_background }};
-      --taste-card-bg: {{ section.settings.card_background }};
-      --taste-card-radius: 24px;
-      --taste-title-color: {{ section.settings.title_color }};
-      --taste-title-size-mobile: {{ section.settings.title_size_mobile }}px;
-      --taste-title-size-desktop: {{ section.settings.title_size_desktop }}px;
-      --taste-item-title-color: {{ section.settings.item_title_color }};
-      --taste-item-title-size-mobile: {{ section.settings.item_title_size_mobile }}px;
-      --taste-item-title-size-desktop: {{ section.settings.item_title_size_desktop }}px;
-      --taste-item-text-color: {{ section.settings.item_text_color }};
-      --taste-item-text-size-mobile: {{ section.settings.item_text_size_mobile }}px;
-      --taste-item-text-size-desktop: {{ section.settings.item_text_size_desktop }}px;
-      --taste-footer-color: {{ section.settings.footer_text_color }};
-      --taste-footer-size-mobile: {{ section.settings.footer_text_size_mobile }}px;
-      --taste-footer-size-desktop: {{ section.settings.footer_text_size_desktop }}px;
-      --taste-accent-color: {{ section.settings.accent_color }};
-    }
+  /* CSS Custom Properties (Variables) */
+  :root {
+    --taste-padding-top-mobile: {{ section.settings.padding_top_mobile }}px;
+    --taste-padding-bottom-mobile: {{ section.settings.padding_bottom_mobile }}px;
+    --taste-padding-top-desktop: {{ section.settings.padding_top_desktop }}px;
+    --taste-padding-bottom-desktop: {{ section.settings.padding_bottom_desktop }}px;
+    --taste-section-bg: {{ section.settings.section_background }};
+    --taste-card-bg: {{ section.settings.card_background }};
+    --taste-card-radius: 24px;
+    --taste-title-color: {{ section.settings.title_color }};
+    --taste-title-size-mobile: {{ section.settings.title_size_mobile }}px;
+    --taste-title-size-desktop: {{ section.settings.title_size_desktop }}px;
+    --taste-item-title-color: {{ section.settings.item_title_color }};
+    --taste-item-title-size-mobile: {{ section.settings.item_title_size_mobile }}px;
+    --taste-item-title-size-desktop: {{ section.settings.item_title_size_desktop }}px;
+    --taste-item-text-color: {{ section.settings.item_text_color }};
+    --taste-item-text-size-mobile: {{ section.settings.item_text_size_mobile }}px;
+    --taste-item-text-size-desktop: {{ section.settings.item_text_size_desktop }}px;
+    --taste-footer-color: {{ section.settings.footer_text_color }};
+    --taste-footer-size-mobile: {{ section.settings.footer_text_size_mobile }}px;
+    --taste-footer-size-desktop: {{ section.settings.footer_text_size_desktop }}px;
+    --taste-accent-color: {{ section.settings.accent_color }};
+  }
 
-    #what-you-ll-taste-{{ section.id }} strong {
-      color: var(--taste-accent-color) !important;
-      font-weight: normal;
-    }
+  /* Base Styles */
+  #what-you-ll-taste-{{ section.id }} {
+    position: relative;
+    padding-top: var(--taste-padding-top-mobile);
+    padding-bottom: var(--taste-padding-bottom-mobile);
+    background: var(--taste-section-bg);
+    overflow: hidden;
+  }
 
-    #what-you-ll-taste-{{ section.id }} em {
-      color: #FFB793 !important;
-      font-style: italic;
-    }
+  #what-you-ll-taste-{{ section.id }} strong {
+    color: var(--taste-accent-color) !important;
+    font-weight: normal;
+  }
 
+  #what-you-ll-taste-{{ section.id }} em {
+    color: #FFB793 !important;
+    font-style: italic;
+  }
+
+  #what-you-ll-taste-{{ section.id }} .what-you-ll-taste-container {
+    position: relative;
+    width: 100%;
+    margin: 0 auto;
+    padding: 50px 10px 31px;
+    overflow-x: hidden;
+  }
+
+  #what-you-ll-taste-{{ section.id }} .what-you-ll-taste-bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+    overflow: hidden;
+  }
+
+  #what-you-ll-taste-{{ section.id }} .what-you-ll-taste-bg-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  #what-you-ll-taste-{{ section.id }} .what-you-ll-taste-content {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+  }
+
+  #what-you-ll-taste-{{ section.id }} .what-you-ll-taste-card {
+    position: relative;
+    width: 100%;
+  }
+
+  #what-you-ll-taste-{{ section.id }} .what-you-ll-taste-card-inner {
+    background: var(--taste-card-bg);
+    border-radius: var(--taste-card-radius);
+    padding: 42px 10px;
+    {%- if section.settings.card_background_image != blank -%}
+      {%- assign card_bg_img = section.settings.card_background_image -%}
+      background-image: url({{ card_bg_img | image_url: width: 800 }});
+      background-size: cover;
+      background-position: center;
+      background-repeat: repeat;
+      opacity: 0.92;
+    {%- endif -%}
+    position: relative;
+  }
+
+  #what-you-ll-taste-{{ section.id }} .what-you-ll-taste-card-inner::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(255, 255, 255, 0.3);
+    border-radius: inherit;
+    z-index: 1;
+    pointer-events: none;
+  }
+
+  #what-you-ll-taste-{{ section.id }} .what-you-ll-taste-card-inner > * {
+    position: relative;
+    z-index: 2;
+  }
+
+  #what-you-ll-taste-{{ section.id }} .what-you-ll-taste-card-title {
+    font-size: var(--taste-title-size-mobile);
+    color: var(--taste-title-color);
+    margin: 0 0 20px 0;
+    font-weight: 700;
+    line-height: 1.2;
+    text-align: center;
+    text-transform: uppercase;
+  }
+
+  #what-you-ll-taste-{{ section.id }} .what-you-ll-taste-card-title span {
+    color: var(--taste-accent-color);
+  }
+
+  #what-you-ll-taste-{{ section.id }} .what-you-ll-taste-items {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    margin-bottom: 32px;
+  }
+
+  #what-you-ll-taste-{{ section.id }} .taste-item {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  #what-you-ll-taste-{{ section.id }} .taste-item-icon {
+    flex-shrink: 0;
+    width: 40px;
+    height: 40px;
+    color: var(--taste-accent-color);
+  }
+
+  #what-you-ll-taste-{{ section.id }} .taste-item-icon svg {
+    width: 100%;
+    height: 100%;
+  }
+
+  #what-you-ll-taste-{{ section.id }} .taste-item-content {
+    flex: 1;
+  }
+
+  #what-you-ll-taste-{{ section.id }} .taste-item-title {
+    font-size: var(--taste-item-title-size-mobile);
+    color: var(--taste-item-title-color);
+    font-weight: 600;
+    margin: 0 0 5px 0;
+    text-transform: uppercase;
+    letter-spacing: 0;
+  }
+
+  #what-you-ll-taste-{{ section.id }} .taste-item-description {
+    font-size: var(--taste-item-text-size-mobile);
+    color: var(--taste-item-text-color);
+    text-transform: uppercase;
+    line-height: 1.4;
+    max-width: 68%;
+  }
+
+  #what-you-ll-taste-{{ section.id }} .taste-item-description p {
+    margin: 0;
+  }
+
+  #what-you-ll-taste-{{ section.id }} .taste-item:nth-child(2) .taste-item-description {
+    max-width: 80%;
+  }
+
+  #what-you-ll-taste-{{ section.id }} .taste-item:nth-child(3) .taste-item-description {
+    max-width: 60%;
+  }
+
+  #what-you-ll-taste-{{ section.id }} .what-you-ll-taste-footer {
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    font-size: var(--taste-footer-size-mobile);
+    color: var(--taste-footer-color);
+    line-height: 1.5;
+    max-width: 60%;
+  }
+
+  #what-you-ll-taste-{{ section.id }} .what-you-ll-taste-footer a {
+    color: var(--taste-accent-color);
+    text-decoration: none;
+  }
+
+  #what-you-ll-taste-{{ section.id }} .what-you-ll-taste-product {
+    position: absolute;
+    right: -5px;
+    bottom: -40px;
+    height: 84%;
+    z-index: 3;
+  }
+
+  #what-you-ll-taste-{{ section.id }} .what-you-ll-taste-bottle {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+    filter: drop-shadow(0px 19px 41px rgba(0,0,0,0.10)) drop-shadow(0px 74px 74px rgba(0,0,0,0.09));
+  }
+
+  #what-you-ll-taste-{{ section.id }} .what-you-ll-taste-label {
+    display: none;
+  }
+
+  #what-you-ll-taste-{{ section.id }} .what-you-ll-taste-label-image {
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+  }
+
+  #what-you-ll-taste-{{ section.id }} .what-you-ll-taste-content[data-mobile-order="image-first"] {
+    flex-direction: column-reverse;
+  }
+
+  /* Tablet and Desktop Styles */
+  @media screen and (min-width: 768px) {
     #what-you-ll-taste-{{ section.id }} {
-      position: relative;
-      padding-top: var(--taste-padding-top-mobile);
-      padding-bottom: var(--taste-padding-bottom-mobile);
-      background: var(--taste-section-bg);
-      overflow: hidden;
-    }
-
-        /* Adjust max-widths for desktop (e.g., slightly wider for better readability) */
-      #what-you-ll-taste-{{ section.id }} .taste-item-description {
-        max-width: 50%;
-      }
-
-      #what-you-ll-taste-{{ section.id }} .taste-item:nth-child(2) .taste-item-description {
-        max-width:80%;
-      }
-
-      #what-you-ll-taste-{{ section.id }} .taste-item:nth-child(3) .taste-item-description {
-        max-width: 60%;
-      }
-
-    #what-you-ll-taste-{{ section.id }} .what-you-ll-taste-container {
-      position: relative;
-      width: 100%;
-      margin: 0 auto;
-      padding: 50px 10px 31px;
-      overflowX: hidden;
-    }
-
-    #what-you-ll-taste-{{ section.id }} .what-you-ll-taste-bg {
-      position: absolute;
-      inset: 0;
-      z-index: 0;
-      width: 100%;
-      height: 100%;
-      border-radius: 20px;
-      overflow: hidden;
-    }
-
-    #what-you-ll-taste-{{ section.id }} .what-you-ll-taste-bg-image {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
+      padding-top: var(--taste-padding-top-desktop);
+      padding-bottom: var(--taste-padding-bottom-desktop);
+      padding: 0 112px;
     }
 
     #what-you-ll-taste-{{ section.id }} .what-you-ll-taste-content {
-      position: relative;
-      z-index: 2;
-      display: flex;
-      flex-direction: column;
+      flex-direction: row;
+      justify-content: center;
       align-items: center;
-      gap: 40px;
-    }
-
-    #what-you-ll-taste-{{ section.id }} .what-you-ll-taste-card {
-      position: relative;
-      width: 100%;
-    }
-
-    #what-you-ll-taste-{{ section.id }} .what-you-ll-taste-card-inner {
-      background: var(--taste-card-bg);
-      border-radius: var(--taste-card-radius);
-      padding: 42px 10px;
-      {%- if section.settings.card_background_image != blank -%}
-        {%- assign card_bg_img = section.settings.card_background_image -%}
-        background-image: url({{ card_bg_img | image_url: width: 800 }});
-        background-size: cover;
-        background-position: center;
-        background-repeat: repeat;
-        opacity: 0.92;
-      {%- endif -%}
-      position: relative;
-    }
-
-    /* Add white overlay for more contrast */
-    #what-you-ll-taste-{{ section.id }} .what-you-ll-taste-card-inner::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background-color: rgba(255, 255, 255, 0.3); /* Adjust opacity (0.3 here) for more/less white */
-      border-radius: inherit;
-      z-index: 1;
-      pointer-events: none; /* Allows interaction with content below */
-    }
-
-    /* Ensure content is above the overlay */
-    #what-you-ll-taste-{{ section.id }} .what-you-ll-taste-card-inner > * {
-      position: relative;
-      z-index: 2;
-    }
-
-    #what-you-ll-taste-{{ section.id }} .what-you-ll-taste-card-title {
-      font-size: var(--taste-title-size-mobile);
-      color: var(--taste-title-color);
-      margin: 0 0 20px 0;
-      font-weight: 700;
-      line-height: 1.2;
-      text-align: center;
-      text-transform: uppercase;
-    }
-
-    #what-you-ll-taste-{{ section.id }} .what-you-ll-taste-card-title span {
-      color: var(--taste-accent-color);
+      gap: 0;
+      min-height: 650px;
     }
 
     #what-you-ll-taste-{{ section.id }} .what-you-ll-taste-items {
-      display: flex;
-      flex-direction: column;
-      gap: 24px;
-      margin-bottom: 32px;
-    }
-
-    #what-you-ll-taste-{{ section.id }} .taste-item {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-    }
-
-    #what-you-ll-taste-{{ section.id }} .taste-item-icon {
-      flex-shrink: 0;
-      width: 40px;
-      height: 40px;
-      color: var(--taste-accent-color);
-    }
-
-    #what-you-ll-taste-{{ section.id }} .taste-item-icon svg {
-      width: 100%;
-      height: 100%;
-    }
-
-    #what-you-ll-taste-{{ section.id }} .taste-item-content {
-      flex: 1;
-    }
-
-    #what-you-ll-taste-{{ section.id }} .taste-item-title {
-      font-size: var(--taste-item-title-size-mobile);
-      color: var(--taste-item-title-color);
-      font-weight: 600;
-      margin: 0 0 5px 0;
-      text-transform: uppercase;
-      letter-spacing: 0;
-    }
-
-    #what-you-ll-taste-{{ section.id }} .taste-item-description {
-      font-size: var(--taste-item-text-size-mobile);
-      color: var(--taste-item-text-color);
-      text-transform: uppercase;
-      line-height: 1.4;
-      max-width: 68%; /* Default for first item */
-    }
-
-    #what-you-ll-taste-{{ section.id }} .taste-item-description p {
-      margin: 0;
-    }
-
-    #what-you-ll-taste-{{ section.id }} .what-you-ll-taste-footer {
-      border-top: 1px solid rgba(0, 0, 0, 0.1);
-      font-size: var(--taste-footer-size-mobile);
-      color: var(--taste-footer-color);
-      line-height: 1.5;
-      max-width: 60%;
-    }
-
-    #what-you-ll-taste-{{ section.id }} .what-you-ll-taste-footer a {
-      color: var(--taste-accent-color);
-      text-decoration: none;
-    }
-
-    #what-you-ll-taste-{{ section.id }} .what-you-ll-taste-product {
-      position: absolute;
-      right: -5px;
-      bottom: -40px;
-      height: 84%;
-      z-index: 3;
-    }
-
-    #what-you-ll-taste-{{ section.id }} .what-you-ll-taste-bottle {
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-      display: block;
-      filter:
-        drop-shadow(0px 19px 41px rgba(0,0,0,0.10))
-        drop-shadow(0px 74px 74px rgba(0,0,0,0.09));
-    }
-
-    #what-you-ll-taste-{{ section.id }} .what-you-ll-taste-label {
-      display: none;
-    }
-
-    #what-you-ll-taste-{{ section.id }} .what-you-ll-taste-label-image {
-      width: 100%;
-      height: auto;
-      border-radius: 12px;
-    }
-
-    /* Remove Mobile Order Variations */
-    #what-you-ll-taste-{{ section.id }} .what-you-ll-taste-content[data-mobile-order="image-first"] {
-      flex-direction: column-reverse;
-    }
-
-    /* Tablet and Desktop */
-    @media screen and (min-width: 768px) {
-      #what-you-ll-taste-{{ section.id }} {
-        padding-top: var(--taste-padding-top-desktop);
-        padding-bottom: var(--taste-padding-bottom-desktop);
-        padding: 0 112px;
-      }
-
-      #what-you-ll-taste-{{ section.id }} .what-you-ll-taste-content {
-        flex-direction: row;
-        justify-content: center; /* Change from space-between */
-        align-items: center;
-        gap: 0; /* Remove gap since product is now absolute */
-        min-height: 650px;
-      }
-
-          #what-you-ll-taste-{{ section.id }} .what-you-ll-taste-items {
       margin-bottom: 30px;
     }
 
-      #what-you-ll-taste-{{ section.id }} .what-you-ll-taste-card {
-        flex: none;
-        max-width: 600px;
-      }
+    #what-you-ll-taste-{{ section.id }} .what-you-ll-taste-card {
+      flex: none;
+      max-width: 600px;
+    }
 
-          #what-you-ll-taste-{{ section.id }} .what-you-ll-taste-product {
-            height: 95%;
+    #what-you-ll-taste-{{ section.id }} .what-you-ll-taste-product {
+      height: 95%;
       right: 20%;
       bottom: -20px;
     }
@@ -386,58 +378,56 @@
       transform: translateX(100%);
     }
 
-        #what-you-ll-taste-{{ section.id }} .what-you-ll-taste-card-inner {
+    #what-you-ll-taste-{{ section.id }} .what-you-ll-taste-card-inner {
       padding: 50px 41px;
     }
-        #what-you-ll-taste-{{ section.id }} .what-you-ll-taste-items {
+
+    #what-you-ll-taste-{{ section.id }} .what-you-ll-taste-items {
       gap: 10px;
     }
 
-      /* Add desktop font-size overrides for responsive elements */
-      #what-you-ll-taste-{{ section.id }} .what-you-ll-taste-card-title {
-        font-size: var(--taste-title-size-desktop);
-      }
-
-      #what-you-ll-taste-{{ section.id }} .taste-item-title {
-        font-size: var(--taste-item-title-size-desktop);
-      }
-
-      #what-you-ll-taste-{{ section.id }} .taste-item-description {
-        font-size: var(--taste-item-text-size-desktop);
-      }
-
-      #what-you-ll-taste-{{ section.id }} .what-you-ll-taste-footer {
-        font-size: var(--taste-footer-size-desktop);
-      }
-
-      /* Adjust max-widths for desktop (e.g., slightly wider for better readability) */
-      #what-you-ll-taste-{{ section.id }} .taste-item-description {
-        max-width: 80%;
-      }
-
-      #what-you-ll-taste-{{ section.id }} .taste-item:nth-child(2) .taste-item-description {
-        max-width: 70%;
-      }
-
-      #what-you-ll-taste-{{ section.id }} .taste-item:nth-child(3) .taste-item-description {
-        max-width: 70%;
-      }
+    #what-you-ll-taste-{{ section.id }} .what-you-ll-taste-card-title {
+      font-size: var(--taste-title-size-desktop);
     }
 
-    @media screen and (min-width: 1024px) {
+    #what-you-ll-taste-{{ section.id }} .taste-item-title {
+      font-size: var(--taste-item-title-size-desktop);
+    }
+
+    #what-you-ll-taste-{{ section.id }} .taste-item-description {
+      font-size: var(--taste-item-text-size-desktop);
+      max-width: 80%;
+    }
+
+    #what-you-ll-taste-{{ section.id }} .taste-item:nth-child(2) .taste-item-description {
+      max-width: 70%;
+    }
+
+    #what-you-ll-taste-{{ section.id }} .taste-item:nth-child(3) .taste-item-description {
+      max-width: 70%;
+    }
+
+    #what-you-ll-taste-{{ section.id }} .what-you-ll-taste-footer {
+      font-size: var(--taste-footer-size-desktop);
+    }
+  }
+
+  /* Large Desktop Styles */
+  @media screen and (min-width: 1024px) {
     #what-you-ll-taste-{{ section.id }} .what-you-ll-taste-card {
       max-width: 706px;
     }
-        #what-you-ll-taste-{{ section.id }} .what-you-ll-taste-footer {
+
+    #what-you-ll-taste-{{ section.id }} .what-you-ll-taste-footer {
       max-width: 55%;
     }
-
   }
+
+  /* Mobile Adjustments */
   @media screen and (max-width: 1023px) {
     #what-you-ll-taste-{{ section.id }} .what-you-ll-taste-card {
       max-width: 100%;
     }
-
   }
 </style>
 
