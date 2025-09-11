@@ -140,10 +140,10 @@
       "settings": {
         "max_width": "1440",
         "padding_top_mobile": 0,
-        "padding_top_desktop": 60,
+        "padding_top_desktop": 72,
         "padding_bottom_mobile": 40,
         "padding_bottom_desktop": 60,
-        "section_background": "#f5f5f5",
+        "section_background": "#f1f1ee",
         "section_background_gradient": "",
         "background_image": "shopify://shop_images/Rectangle_97.png",
         "card_background": "#fffffff2",
