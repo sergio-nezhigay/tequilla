@@ -26,9 +26,9 @@
 
                     <div class="taste-item-content">
                       {%- if block.settings.item_title != blank -%}
-                        <span class="taste-item-title">
+                        <div class="taste-item-title">
                           {{ block.settings.item_title }}
-                        </span>
+                        </div>
                       {%- endif -%}
 
                       {%- if block.settings.item_description != blank -%}
@@ -155,7 +155,6 @@
     width: 100%;
     margin: 0 auto;
     padding: 50px 10px 31px;
-    overflow-x: hidden;
   }
 
   #what-you-ll-taste-{{ section.id }} .what-you-ll-taste-bg {
@@ -239,7 +238,7 @@
   #what-you-ll-taste-{{ section.id }} .what-you-ll-taste-items {
     display: flex;
     flex-direction: column;
-    gap: 24px;
+    gap: 10px;
     margin-bottom: 32px;
   }
 
@@ -270,7 +269,6 @@
     color: var(--taste-item-title-color);
     font-weight: 600;
     margin: 0 0 5px 0;
-    text-transform: uppercase;
     letter-spacing: 0;
   }
 
@@ -291,11 +289,10 @@
   }
 
   #what-you-ll-taste-{{ section.id }} .taste-item:nth-child(3) .taste-item-description {
-    max-width: 60%;
+    max-width: 65%;
   }
 
   #what-you-ll-taste-{{ section.id }} .what-you-ll-taste-footer {
-    border-top: 1px solid rgba(0, 0, 0, 0.1);
     font-size: var(--taste-footer-size-mobile);
     color: var(--taste-footer-color);
     line-height: 1.5;
@@ -311,7 +308,7 @@
     position: absolute;
     right: -5px;
     bottom: -40px;
-    height: 84%;
+    height: 86%;
     z-index: 3;
   }
 
