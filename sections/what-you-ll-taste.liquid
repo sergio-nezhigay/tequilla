@@ -351,10 +351,8 @@
       #what-you-ll-taste-{{ section.id }} {
         padding-top: var(--taste-padding-top-desktop);
         padding-bottom: var(--taste-padding-bottom-desktop);
-              padding: 0 112px;
+        padding: 0 112px;
       }
-
-
 
       #what-you-ll-taste-{{ section.id }} .what-you-ll-taste-content {
         flex-direction: row;
@@ -383,19 +381,35 @@
       padding: 50px 41px;
     }
 
+      /* Add desktop font-size overrides for responsive elements */
+      #what-you-ll-taste-{{ section.id }} .what-you-ll-taste-card-title {
+        font-size: var(--taste-title-size-desktop);
+      }
+
+      #what-you-ll-taste-{{ section.id }} .taste-item-title {
+        font-size: var(--taste-item-title-size-desktop);
+      }
+
+      #what-you-ll-taste-{{ section.id }} .taste-item-description {
+        font-size: var(--taste-item-text-size-desktop);
+      }
+
+      #what-you-ll-taste-{{ section.id }} .what-you-ll-taste-footer {
+        font-size: var(--taste-footer-size-desktop);
+      }
+
       /* Adjust max-widths for desktop (e.g., slightly wider for better readability) */
       #what-you-ll-taste-{{ section.id }} .taste-item-description {
         max-width: 50%;
       }
 
       #what-you-ll-taste-{{ section.id }} .taste-item:nth-child(2) .taste-item-description {
-        max-width:60%;
+        max-width: 60%;
       }
 
       #what-you-ll-taste-{{ section.id }} .taste-item:nth-child(3) .taste-item-description {
         max-width: 85%;
       }
-
     }
 
     @media screen and (min-width: 1024px) {
