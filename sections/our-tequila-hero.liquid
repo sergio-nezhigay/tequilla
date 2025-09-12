@@ -32,11 +32,11 @@
           {% assign create_image_alt = section.settings.main_image.alt | default: 'Create Your Tequila' %}
           {{
             section.settings.main_image
-            | image_url: width: 1101, height: 570
+            | image_url: width: 1016, height: 600
             | image_tag:
               alt: create_image_alt,
               loading: 'lazy',
-              sizes: '(max-width: 768px) 100vw, 1101px',
+              sizes: '(max-width: 768px) 100vw, 1016px',
               widths: '400, 600, 800, 1000'
           }}
         </div>
@@ -166,7 +166,7 @@
   }
 
   #{{ section.id }} .tequila-hero-content {
-    max-width: 1101px;
+    max-width: 1016px;
     position: relative;
     text-align: center;
     width: 100%;
@@ -181,7 +181,7 @@
     letter-spacing: 0;
     line-height: 1.0;
     margin: 0 auto 10px auto;
-    max-width: 850px;
+    max-width: 946px;
     text-transform: uppercase;
   }
 
@@ -194,7 +194,7 @@
     margin: 0 0 20px 0;
     margin-left: auto;
     margin-right: auto;
-    max-width: 614px;
+    max-width: 804px;
     opacity: 0.8;
   }
 
@@ -372,7 +372,9 @@
     }
 
     #{{ section.id }} .tequila-hero-create-image {
-      margin-bottom: 7px;
+      margin-bottom: 20px;
+      overflow: hidden;
+      border-radius: 50px;
     }
 
     #{{ section.id }} .tequila-hero-step {
@@ -405,7 +407,7 @@
       flex-direction: row;
       gap: 18px;
       justify-content: center;
-      margin-bottom: 16px;
+      margin-bottom: 30px;
     }
 
     #{{ section.id }} .tequila-hero-bottle img {
