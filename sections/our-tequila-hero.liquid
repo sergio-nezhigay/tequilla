@@ -48,11 +48,11 @@
         {% assign left_leaf_alt = section.settings.left_leaf_image.alt | default: 'Decorative Leaf' %}
         {{
           section.settings.left_leaf_image
-          | image_url: width: 439, height: 738
+          | image_url: width: 644, height: 747
           | image_tag:
             alt: left_leaf_alt,
             loading: 'lazy',
-            sizes: '(max-width: 768px) 150px, 439px',
+            sizes: '(max-width: 768px) 150px, 644px',
             widths: '150, 200, 300, 400'
         }}
       </div>
@@ -63,11 +63,11 @@
         {% assign right_leaf_alt = section.settings.right_leaf_image.alt | default: 'Decorative Leaf' %}
         {{
           section.settings.right_leaf_image
-          | image_url: width: 439, height: 738
+          | image_url: width: 644, height: 747
           | image_tag:
             alt: right_leaf_alt,
             loading: 'lazy',
-            sizes: '(max-width: 768px) 150px, 439px',
+            sizes: '(max-width: 768px) 150px, 644px',
             widths: '150, 200, 300, 400'
         }}
       </div>
@@ -265,18 +265,18 @@
 
   #{{ section.id }} .tequila-hero-leaf-left,
   #{{ section.id }} .tequila-hero-leaf-right {
-    bottom: 0;
+    bottom: 150px;
     display: none;
     position: absolute;
     z-index: 5;
   }
 
   #{{ section.id }} .tequila-hero-leaf-left {
-    left: -100px;
+    left: -203px;
   }
 
   #{{ section.id }} .tequila-hero-leaf-right {
-    right: -100px;
+    right: -203px;
   }
 
   /* Bottom Info */
@@ -416,18 +416,16 @@
 
     #{{ section.id }} .tequila-hero-leaf-left {
       display: block;
-      left: -50px;
     }
 
     #{{ section.id }} .tequila-hero-leaf-right {
       display: block;
-      right: -50px;
     }
 
     #{{ section.id }} .tequila-hero-leaf-left img,
     #{{ section.id }} .tequila-hero-leaf-right img {
-      height: 778px;
-      width: 439px;
+      height: 747px;
+      width: 644px;
     }
 
     #{{ section.id }} .tequila-hero-bottom-info {
@@ -448,18 +446,14 @@
   }
 
   @media (min-width: 1200px) {
-    #{{ section.id }} .tequila-hero-leaf-left {
-      left: 0;
-    }
 
-    #{{ section.id }} .tequila-hero-leaf-right {
-      right: 0;
-    }
+
+
 
     #{{ section.id }} .tequila-hero-leaf-left img,
     #{{ section.id }} .tequila-hero-leaf-right img {
-      height: 778px;
-      width: 439px;
+      height: 747px;
+      width: 644px;
     }
   }
 </style>
