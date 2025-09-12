@@ -1,0 +1,741 @@
+<div id="{{ section.id }}" class="tequila-hero-section {{ section.settings.custom_classes }}">
+  <div class="tequila-hero-wrapper">
+    <div class="tequila-hero-content">
+      {% if section.settings.main_title != blank %}
+        <h1 class="tequila-hero-title">
+          {{ section.settings.main_title }}
+          {% if section.settings.highlighted_text != blank %}
+            <span class="tequila-hero-title-highlight">
+              <span style="color: var(--tequila-hero-highlight-color);">
+                {{ section.settings.highlighted_text }}
+              </span>
+              {% if section.settings.highlighted_text_2 != blank %}
+                <span style="color: var(--tequila-hero-highlight-color-2);">
+                  {{ section.settings.highlighted_text_2 }}
+                </span>
+              {% endif %}
+            </span>
+          {% endif %}
+        </h1>
+      {% endif %}
+
+      {% if section.settings.description != blank %}
+        <div class="tequila-hero-description">
+          {{ section.settings.description }}
+        </div>
+      {% endif %}
+
+      <div class="tequila-hero-buttons">
+        {% if section.settings.primary_button_text != blank and section.settings.primary_button_url != blank %}
+          <a href="{{ section.settings.primary_button_url }}" class="tequila-hero-btn tequila-hero-btn-primary">
+            {{ section.settings.primary_button_text }}
+          </a>
+        {% endif %}
+
+        {% if section.settings.secondary_button_text != blank and section.settings.secondary_button_url != blank %}
+          <a href="{{ section.settings.secondary_button_url }}" class="tequila-hero-btn tequila-hero-btn-secondary">
+            {{ section.settings.secondary_button_text }}
+          </a>
+        {% endif %}
+      </div>
+
+      {% if section.settings.create_tequila_image != blank %}
+        <div class="tequila-hero-create-image">
+          {% assign create_image_alt = section.settings.create_tequila_image.alt | default: 'Create Your Tequila' %}
+          {{
+            section.settings.create_tequila_image
+            | image_url: width: 1101, height: 570
+            | image_tag:
+              alt: create_image_alt,
+              loading: 'lazy',
+              sizes: '(max-width: 768px) 100vw, 1101px',
+              widths: '400, 600, 800, 1000'
+          }}
+        </div>
+      {% endif %}
+
+      {% if section.settings.tequila_bottle_image != blank %}
+        <div class="tequila-hero-bottle">
+          {% assign bottle_image_alt = section.settings.tequila_bottle_image.alt | default: 'Tequila Bottle' %}
+          {{
+            section.settings.tequila_bottle_image
+            | image_url: width: 300, height: 600
+            | image_tag:
+              alt: bottle_image_alt,
+              loading: 'lazy',
+              sizes: '(max-width: 768px) 200px, 300px',
+              widths: '200, 250, 300, 350'
+          }}
+        </div>
+      {% endif %}
+    </div>
+
+    {% if section.settings.left_leaf_image != blank %}
+      <div class="tequila-hero-leaf-left">
+        {% assign left_leaf_alt = section.settings.left_leaf_image.alt | default: 'Decorative Leaf' %}
+        {{
+          section.settings.left_leaf_image
+          | image_url: width: 439, height: 738
+          | image_tag:
+            alt: left_leaf_alt,
+            loading: 'lazy',
+            sizes: '(max-width: 768px) 150px, 439px',
+            widths: '150, 200, 300, 400'
+        }}
+      </div>
+    {% endif %}
+
+    {% if section.settings.right_leaf_image != blank %}
+      <div class="tequila-hero-leaf-right">
+        {% assign right_leaf_alt = section.settings.right_leaf_image.alt | default: 'Decorative Leaf' %}
+        {{
+          section.settings.right_leaf_image
+          | image_url: width: 439, height: 738
+          | image_tag:
+            alt: right_leaf_alt,
+            loading: 'lazy',
+            sizes: '(max-width: 768px) 150px, 439px',
+            widths: '150, 200, 300, 400'
+        }}
+      </div>
+    {% endif %}
+  </div>
+
+  {% comment %} Bottom Info Block {% endcomment %}
+  <div class="tequila-hero-bottom-info">
+    <div class="tequila-hero-bottom-wrapper">
+      <div class="tequila-hero-steps">
+        {% assign steps = 'step1_text,step2_text,step3_text,step4_text' | split: ',' %}
+        {% assign step_defaults = 'SELECT BOTTLE,PERSONALIZE LABEL,PLACE ORDER,ENJOY' | split: ',' %}
+
+        {% for step in steps %}
+          <!-- Icon before step -->
+          {% if section.settings.step_icon != blank %}
+            <div class="tequila-hero-step-icon">
+              {{
+                section.settings.step_icon
+                | image_url: width: 41, height: 29
+                | image_tag: alt: 'Step Icon', loading: 'lazy'
+              }}
+            </div>
+          {% endif %}
+
+          <!-- Step -->
+          <div class="tequila-hero-step">
+            <div class="tequila-hero-step-text">
+              <span>{{ section.settings[step] | default: step_defaults[forloop.index0] }}</span>
+            </div>
+          </div>
+        {% endfor %}
+
+        <!-- Final icon after last step -->
+        {% if section.settings.step_icon != blank %}
+          <div class="tequila-hero-step-icon">
+            {{
+              section.settings.step_icon
+              | image_url: width: 41, height: 29
+              | image_tag: alt: 'Step Icon', loading: 'lazy'
+            }}
+          </div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  :root {
+    --tequila-hero-bg-color: {{ section.settings.background_color | default: '#f5f5f5' }};
+    --tequila-hero-title-color: {{ section.settings.title_color | default: '#000000' }};
+    --tequila-hero-highlight-color: {{ section.settings.highlight_color | default: '#7CC9B5' }};
+    --tequila-hero-highlight-color-2: {{ section.settings.highlight_color_2 | default: '#F4A261' }};
+    --tequila-hero-description-color: {{ section.settings.description_color | default: '#666666' }};
+    --tequila-hero-primary-btn-bg: {{ section.settings.primary_button_bg | default: '#7CC9B5' }};
+    --tequila-hero-primary-btn-color: {{ section.settings.primary_button_color | default: '#000000' }};
+    --tequila-hero-secondary-btn-bg: {{ section.settings.secondary_button_bg | default: '#F4A261' }};
+    --tequila-hero-secondary-btn-color: {{ section.settings.secondary_button_color | default: '#000000' }};
+    --tequila-hero-max-width: {{ section.settings.max_width | default: '1440px' }};
+    --tequila-hero-padding-top-desktop: {{ section.settings.padding_top_desktop | default: 80 }}px;
+    --tequila-hero-padding-bottom-desktop: {{ section.settings.padding_bottom_desktop | default: 80 }}px;
+    --tequila-hero-padding-top-mobile: {{ section.settings.padding_top_mobile | default: 60 }}px;
+    --tequila-hero-padding-bottom-mobile: {{ section.settings.padding_bottom_mobile | default: 60 }}px;
+    --tequila-hero-title-size-desktop: {{ section.settings.title_size_desktop | default: 80 }}px;
+    --tequila-hero-title-size-mobile: {{ section.settings.title_size_mobile | default: 36 }}px;
+    --tequila-hero-description-size-desktop: {{ section.settings.description_size_desktop | default: 18 }}px;
+    --tequila-hero-description-size-mobile: {{ section.settings.description_size_mobile | default: 16 }}px;
+  }
+
+  #{{ section.id }}.tequila-hero-section {
+    background-color: var(--tequila-hero-bg-color);
+    padding-top: var(--tequila-hero-padding-top-mobile);
+    padding-bottom: var(--tequila-hero-padding-bottom-mobile);
+    overflow: hidden;
+    position: relative;
+    min-height: 390px;
+  }
+
+  #{{ section.id }} .tequila-hero-wrapper {
+    max-width: var(--tequila-hero-max-width);
+    margin: 0 auto 10px;
+    padding: 0 21px;
+    position: relative;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  #{{ section.id }} .tequila-hero-content {
+    text-align: center;
+    position: relative;
+    z-index: 3;
+    width: 100%;
+    max-width: 1101px;
+  }
+
+  #{{ section.id }} .tequila-hero-title {
+    font-size: var(--tequila-hero-title-size-mobile);
+    line-height: 1.0;
+    font-weight: 900;
+    color: var(--tequila-hero-title-color);
+    max-width: 850px;
+    margin: 0 auto 10px auto;
+    text-transform: uppercase;
+    letter-spacing: 0;
+  }
+
+  #{{ section.id }} .tequila-hero-title-highlight {
+    color: var(--tequila-hero-highlight-color);
+  }
+
+  #{{ section.id }} .tequila-hero-description {
+    font-size: var(--tequila-hero-description-size-mobile);
+    line-height: 1.65;
+    color: var(--tequila-hero-description-color);
+    margin: 0 0 20px 0;
+    max-width: 614px;
+    margin-left: auto;
+    margin-right: auto;
+    opacity: 0.8;
+  }
+
+  #{{ section.id }} .tequila-hero-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 28px;
+    align-items: center;
+  }
+
+  #{{ section.id }} .tequila-hero-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 28px 30px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-size: 16px;
+    letter-spacing: 0;
+    text-transform: uppercase;
+    line-height: 1.2;
+    transition: all 0.3s ease;
+    width: 100%;
+    border: 2px solid #090909;
+  }
+
+  #{{ section.id }} .tequila-hero-btn-primary {
+    background-color: var(--tequila-hero-primary-btn-bg);
+    color: var(--tequila-hero-primary-btn-color);
+  }
+
+  #{{ section.id }} .tequila-hero-btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(124, 201, 181, 0.3);
+  }
+
+  #{{ section.id }} .tequila-hero-btn-secondary {
+    background-color: var(--tequila-hero-secondary-btn-bg);
+    color: var(--tequila-hero-secondary-btn-color);
+  }
+
+  #{{ section.id }} .tequila-hero-btn-secondary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(244, 162, 97, 0.3);
+  }
+
+  #{{ section.id }} .tequila-hero-create-image {
+    margin: 0 -97px;
+  }
+
+  #{{ section.id }} .tequila-hero-create-image img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+  }
+
+  #{{ section.id }} .tequila-hero-bottle {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 4;
+  }
+
+  #{{ section.id }} .tequila-hero-bottle img {
+    width: 120px;
+    height: auto;
+  }
+
+  #{{ section.id }} .tequila-hero-leaf-left,
+  #{{ section.id }} .tequila-hero-leaf-right {
+    display: none;
+    position: absolute;
+    bottom: 0;
+    z-index: 5;
+  }
+
+  #{{ section.id }} .tequila-hero-leaf-left {
+    left: -100px;
+  }
+
+  #{{ section.id }} .tequila-hero-leaf-right {
+    right: -100px;
+  }
+
+
+
+  #{{ section.id }} .tequila-hero-bottom-info {
+    padding: 30px 0;
+    max-width: 1240px;
+    margin: 0 auto;
+  }
+
+  #{{ section.id }} .tequila-hero-bottom-wrapper {
+    max-width: var(--tequila-hero-max-width);
+    margin: 0 auto;
+  }
+
+  #{{ section.id }} .tequila-hero-steps {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 0;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none; /* Firefox */
+  }
+
+  /* Hide scrollbar for Chrome, Safari and Opera */
+  #{{ section.id }} .tequila-hero-steps::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Hide scrollbar for IE, Edge */
+  #{{ section.id }} .tequila-hero-steps {
+    -ms-overflow-style: none;
+  }
+
+      #{{ section.id }} .tequila-hero-step-text {
+        font-family: 'Futura Hv BT', 'Roundo', sans-serif ;
+        font-weight: 900;
+        font-size: 24px;
+        line-height: 1;
+        text-transform: uppercase;
+        letter-spacing: 0;
+        color: #090909
+    }
+
+  #{{ section.id }} .tequila-hero-step {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    flex: 0 0 auto;
+    min-width: auto;
+  }
+
+
+  /* Optional: Hide scroll bar on Webkit browsers for cleaner look */
+  #{{ section.id }} .tequila-hero-steps::-webkit-scrollbar {
+    height: 6px;
+    background: #eee;
+  }
+  #{{ section.id }} .tequila-hero-steps::-webkit-scrollbar-thumb {
+    background: var(--tequila-hero-highlight-color);
+    border-radius: 3px;
+  }
+
+  @media (max-width: 767px) {
+    #{{ section.id }} .tequila-hero-steps {
+      display: flex;
+      gap: 20px;
+      flex-wrap: nowrap;
+      overflow-x: auto;
+      justify-content: flex-start;
+    }
+  }
+
+  @media (min-width: 768px) {
+      #{{ section.id }} .tequila-hero-wrapper {
+    margin-bottom: 0;
+  }
+    #{{ section.id }}.tequila-hero-section {
+      padding-top: var(--tequila-hero-padding-top-desktop);
+      padding-bottom: var(--tequila-hero-padding-bottom-desktop);
+      min-height: 600px;
+    }
+      #{{ section.id }} .tequila-hero-create-image {
+    margin-bottom: 7px;
+  }
+    #{{ section.id }} .tequila-hero-step {
+      gap: 15px;
+    }
+      #{{ section.id }} .tequila-hero-btn {
+      width: auto;
+    font-size: 18px;
+    min-width: 368px;
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+        #{{ section.id }} .tequila-hero-btn.tequila-hero-btn-primary {
+    min-width: 379px;
+  }
+
+    #{{ section.id }} .tequila-hero-title {
+      font-size: var(--tequila-hero-title-size-desktop);
+      margin-bottom: 10px;
+    }
+
+    #{{ section.id }} .tequila-hero-description {
+      font-size: var(--tequila-hero-description-size-desktop);
+      margin-bottom: 20px;
+    }
+
+    #{{ section.id }} .tequila-hero-buttons {
+      flex-direction: row;
+      gap: 18px;
+      justify-content: center;
+      margin-bottom: 16px;
+    }
+
+    #{{ section.id }} .tequila-hero-bottle img {
+      width: 200px;
+    }
+
+    #{{ section.id }} .tequila-hero-leaf-left {
+      left: -50px;
+      display: block;
+    }
+
+    #{{ section.id }} .tequila-hero-leaf-right {
+      right: -50px;
+      display: block;
+    }
+
+    #{{ section.id }} .tequila-hero-leaf-left img,
+    #{{ section.id }} .tequila-hero-leaf-right img {
+      width: 439px;
+      height: 778px;
+    }
+
+    #{{ section.id }} .tequila-hero-bottom-info {
+      padding: 40px 0;
+    }
+
+
+
+    #{{ section.id }} .tequila-hero-step-icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    #{{ section.id }} .tequila-hero-step-icon img {
+      width: 41px;
+      height: 29px;
+      display: block;
+    }
+
+  }
+
+  @media (min-width: 1200px) {
+    #{{ section.id }} .tequila-hero-leaf-left {
+      left: 0;
+    }
+
+    #{{ section.id }} .tequila-hero-leaf-right {
+      right: 0;
+    }
+
+    #{{ section.id }} .tequila-hero-leaf-left img,
+    #{{ section.id }} .tequila-hero-leaf-right img {
+      width: 439px;
+      height: 778px;
+    }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Tequila Hero",
+  "settings": [
+    {
+      "type": "text",
+      "id": "main_title",
+      "label": "Main Title",
+      "default": "THE BEST BOTTLE IS"
+    },
+    {
+      "type": "text",
+      "id": "highlighted_text",
+      "label": "Highlighted Text (First Word)",
+      "default": "YOUR"
+    },
+    {
+      "type": "text",
+      "id": "highlighted_text_2",
+      "label": "Highlighted Text (Second Word)",
+      "default": "BOTTLE"
+    },
+    {
+      "type": "richtext",
+      "id": "description",
+      "label": "Description",
+      "default": "<p>At InBarrel, we don't just help you buy the best tequila ever—we help you create the best tequila ever!</p>"
+    },
+    {
+      "type": "text",
+      "id": "primary_button_text",
+      "label": "Primary Button Text",
+      "default": "CREATE YOUR OWN TEQUILA"
+    },
+    {
+      "type": "url",
+      "id": "primary_button_url",
+      "label": "Primary Button URL"
+    },
+    {
+      "type": "text",
+      "id": "secondary_button_text",
+      "label": "Secondary Button Text",
+      "default": "SCHEDULE A CALL!"
+    },
+    {
+      "type": "url",
+      "id": "secondary_button_url",
+      "label": "Secondary Button URL"
+    },
+    {
+      "type": "image_picker",
+      "id": "create_tequila_image",
+      "label": "Create Your Tequila Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "tequila_bottle_image",
+      "label": "Tequila Bottle Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "left_leaf_image",
+      "label": "Left Decorative Leaf"
+    },
+    {
+      "type": "image_picker",
+      "id": "right_leaf_image",
+      "label": "Right Decorative Leaf"
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background Color",
+      "default": "#f5f5f5"
+    },
+    {
+      "type": "color",
+      "id": "title_color",
+      "label": "Title Color",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "highlight_color",
+      "label": "Highlight Color (First Word)",
+      "default": "#7CC9B5"
+    },
+    {
+      "type": "color",
+      "id": "highlight_color_2",
+      "label": "Highlight Color (Second Word)",
+      "default": "#F4A261"
+    },
+    {
+      "type": "color",
+      "id": "description_color",
+      "label": "Description Color",
+      "default": "#666666"
+    },
+    {
+      "type": "color",
+      "id": "primary_button_bg",
+      "label": "Primary Button Background",
+      "default": "#7CC9B5"
+    },
+    {
+      "type": "color",
+      "id": "primary_button_color",
+      "label": "Primary Button Text Color",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "secondary_button_bg",
+      "label": "Secondary Button Background",
+      "default": "#F4A261"
+    },
+    {
+      "type": "color",
+      "id": "secondary_button_color",
+      "label": "Secondary Button Text Color",
+      "default": "#000000"
+    },
+    {
+      "type": "header",
+      "content": "Typography"
+    },
+    {
+      "type": "range",
+      "id": "title_size_desktop",
+      "label": "Title Size Desktop (px)",
+      "min": 40,
+      "max": 120,
+      "step": 2,
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "title_size_mobile",
+      "label": "Title Size Mobile (px)",
+      "min": 24,
+      "max": 60,
+      "step": 2,
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "description_size_desktop",
+      "label": "Description Size Desktop (px)",
+      "min": 14,
+      "max": 24,
+      "step": 1,
+      "default": 18
+    },
+    {
+      "type": "range",
+      "id": "description_size_mobile",
+      "label": "Description Size Mobile (px)",
+      "min": 12,
+      "max": 20,
+      "step": 1,
+      "default": 16
+    },
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "text",
+      "id": "max_width",
+      "label": "Max Width",
+      "default": "1440px"
+    },
+    {
+      "type": "range",
+      "id": "padding_top_desktop",
+      "label": "Padding Top Desktop (px)",
+      "min": 0,
+      "max": 150,
+      "step": 2,
+      "default": 126
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_desktop",
+      "label": "Padding Bottom Desktop (px)",
+      "min": 0,
+      "max": 200,
+      "step": 10,
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mobile",
+      "label": "Padding Top Mobile (px)",
+      "min": 0,
+      "max": 150,
+      "step": 10,
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mobile",
+      "label": "Padding Bottom Mobile (px)",
+      "min": 0,
+      "max": 150,
+      "step": 10,
+      "default": 60
+    },
+    {
+      "type": "text",
+      "id": "custom_classes",
+      "label": "Custom CSS Classes"
+    },
+    {
+      "type": "header",
+      "content": "Bottom Info Steps"
+    },
+    {
+      "type": "image_picker",
+      "id": "step_icon",
+      "label": "Step Icon"
+    },
+    {
+      "type": "text",
+      "id": "step1_text",
+      "label": "Step 1 Text",
+      "default": "SELECT BOTTLE"
+    },
+
+    {
+      "type": "text",
+      "id": "step2_text",
+      "label": "Step 2 Text",
+      "default": "PERSONALIZE LABEL"
+    },
+
+    {
+      "type": "text",
+      "id": "step3_text",
+      "label": "Step 3 Text",
+      "default": "PLACE ORDER"
+    },
+
+    {
+      "type": "text",
+      "id": "step4_text",
+      "label": "Step 4 Text",
+      "default": "ENJOY"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Tequila Hero"
+    }
+  ]
+}
+{% endschema %}

@@ -10,7 +10,7 @@
 {
   "sections": {
     "index_hero": {
-      "type": "index-hero",
+      "type": "our-tequila-hero",
       "settings": {
         "main_title": "THE BEST BOTTLE IS",
         "highlighted_text": "YOUR",
