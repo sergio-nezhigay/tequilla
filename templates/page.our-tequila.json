@@ -9,11 +9,44 @@
  */
 {
   "sections": {
-    "main": {
-      "type": "main-page",
+    "index_hero": {
+      "type": "index-hero",
       "settings": {
-        "padding_top": 36,
-        "padding_bottom": 36
+        "main_title": "THE BEST BOTTLE IS",
+        "highlighted_text": "YOUR",
+        "highlighted_text_2": "BOTTLE",
+        "description": "<p>At InBarrel, we don't just help you buy the best tequila ever—we help you create the best tequila ever!</p>",
+        "primary_button_text": "CREATE YOUR OWN TEQUILA",
+        "primary_button_url": "shopify://collections",
+        "secondary_button_text": "SCHEDULE A CALL!",
+        "secondary_button_url": "shopify://collections/all",
+        "create_tequila_image": "shopify://shop_images/round_bottle_1_289b4534-68f1-411f-b6d8-ffb326c4c661.png",
+        "left_leaf_image": "shopify://shop_images/from_l.webp",
+        "right_leaf_image": "shopify://shop_images/from_lo.webp",
+        "background_color": "#f1f1ee",
+        "title_color": "#090909",
+        "highlight_color": "#67b7a8",
+        "highlight_color_2": "#ffb793",
+        "description_color": "#090909",
+        "primary_button_bg": "#67b7a8",
+        "primary_button_color": "#090909",
+        "secondary_button_bg": "#ffb793",
+        "secondary_button_color": "#090909",
+        "title_size_desktop": 90,
+        "title_size_mobile": 40,
+        "description_size_desktop": 20,
+        "description_size_mobile": 18,
+        "max_width": "1440px",
+        "padding_top_desktop": 132,
+        "padding_bottom_desktop": 0,
+        "padding_top_mobile": 130,
+        "padding_bottom_mobile": 0,
+        "custom_classes": "",
+        "step_icon": "shopify://shop_images/im_92849612-19a2-4a3f-8046-88e711ce7b0a.png",
+        "step1_text": "SELECT BOTTLE",
+        "step2_text": "PERSONALIZE LABEL",
+        "step3_text": "PLACE ORDER",
+        "step4_text": "ENJOY"
       }
     },
     "steps": {
@@ -171,9 +204,5 @@
       }
     }
   },
-  "order": [
-    "main",
-    "steps",
-    "what_you_ll_taste"
-  ]
+  "order": ["index_hero", "steps", "what_you_ll_taste"]
 }
