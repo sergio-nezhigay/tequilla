@@ -1,7 +1,7 @@
-.container-make-personalization {
+.container-our-promise {
   max-width: 1222px;
 }
-.container-make-personalization {
+.container-our-promise {
   border-radius: 30px;
   margin: 0 auto;
   padding: 66px 0 70px 0;
@@ -10,7 +10,7 @@
   align-items: center;
   flex-direction: column;
 }
-.title-make-personalization {
+.title-our-promise {
   font-family: Roundo, Arial, sans-serif;
   font-weight: 500;
   color: #090909cc;
@@ -19,10 +19,10 @@
   letter-spacing: 0;
   text-align: center;
 }
-.description-make-personalization em {
+.description-our-promise em {
   font-style: normal;
 }
-.description-make-personalization {
+.description-our-promise {
   line-height: 120%;
   font-family: Futura Hv BT, Roundo, sans-serif;
   font-weight: 400;
@@ -33,60 +33,60 @@
   text-align: center;
   text-transform: uppercase;
 }
-.img-make-personalization {
+.img-our-promise {
   object-fit: cover;
   border-top-right-radius: 300px;
   border-top-left-radius: 300px;
 }
 @media (max-width: 1439px) {
-  .container-make-personalization {
+  .container-our-promise {
     max-width: 900px;
   }
-  .img-make-personalization {
+  .img-our-promise {
     width: 340px;
     height: auto;
     object-fit: cover;
   }
-  .description-make-personalization {
+  .description-our-promise {
     font-size: 45px;
     max-width: 648px;
   }
 }
 @media (max-width: 1023px) {
-  .container-make-personalization {
+  .container-our-promise {
     max-width: 700px;
   }
-  .img-make-personalization {
+  .img-our-promise {
     width: 283px;
   }
-  .title-make-personalization {
+  .title-our-promise {
     font-size: 16px;
   }
-  .description-make-personalization {
+  .description-our-promise {
     font-size: 35px;
   }
 }
 @media (max-width: 767px) {
-  .img-make-personalization {
+  .img-our-promise {
     width: 292px;
     height: 397px;
   }
-  .section-make-personalization {
+  .section-our-promise {
     padding-left: 20px;
     padding-right: 20px;
   }
-  .title-make-personalization {
+  .title-our-promise {
     font-size: 18px;
     padding: 20px 0 10px;
   }
-  .description-make-personalization em {
+  .description-our-promise em {
     color: #67b7a8;
   }
-  .description-make-personalization {
+  .description-our-promise {
     font-size: 30px;
     padding: 0 20px;
   }
-  .container-make-personalization {
+  .container-our-promise {
     padding: 30px 0;
   }
 }

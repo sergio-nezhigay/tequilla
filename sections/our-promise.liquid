@@ -1,41 +1,41 @@
 {{ 'our-promise.css' | asset_url | stylesheet_tag }}
 
 {%- style -%}
-  .section-make-personalization{
+  .section-our-promise{
       background-color: {{ section.settings.background_color }};
       padding-top: {{ section.settings.padding_top }}px;
       padding-bottom: {{ section.settings.padding_bottom }}px;
   }
-  .container-make-personalization{
+  .container-our-promise{
       background-image: url({{ section.settings.main_banner | image_url }});
   }
   @media (max-width: 767px){
-      .section-make-personalization{
+      .section-our-promise{
           padding-top: {{ section.settings.padding_top_mob }}px;
           padding-bottom: {{ section.settings.padding_bottom_mob }}px;
       }
   }
 {%- endstyle -%}
-<section class="section-make-personalization">
-  <div class="container-make-personalization">
+<section class="section-our-promise">
+  <div class="container-our-promise">
     {% if section.settings.main_img != blank %}
       {{
         section.settings.main_img
         | image_url: width: section.settings.main_img.width
-        | image_tag: class: 'img-make-personalization'
+        | image_tag: class: 'img-our-promise'
       }}
     {% endif %}
     {% if section.settings.title != blank %}
-      <div class="title-make-personalization">{{ section.settings.title }}</div>
+      <div class="title-our-promise">{{ section.settings.title }}</div>
     {% endif %}
     {% if section.settings.description != blank %}
-      <div class="description-make-personalization">{{ section.settings.description }}</div>
+      <div class="description-our-promise">{{ section.settings.description }}</div>
     {% endif %}
   </div>
 </section>
 {% schema %}
 {
-  "name": "Make personalization",
+  "name": "Our promise",
   "settings": [
     {
       "type": "image_picker",
@@ -113,7 +113,7 @@
   ],
   "presets": [
     {
-      "name": "Make personalization"
+      "name": "Our promise"
     }
   ]
 }
