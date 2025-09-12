@@ -1,6 +1,9 @@
 {{ 'our-promise.css' | asset_url | stylesheet_tag }}
 
 {%- style -%}
+    .description-our-promise strong {
+      color: #67b7a8;
+    }
   .container-our-promise {
     max-width: 1222px;
   }
@@ -82,9 +85,7 @@
       font-size: 18px;
       padding: 20px 0 10px;
     }
-    .description-our-promise em {
-      color: #67b7a8;
-    }
+
     .description-our-promise {
       font-size: 30px;
       padding: 0 20px;
@@ -100,7 +101,10 @@
         padding-bottom: {{ section.settings.padding_bottom }}px;
     }
     .container-our-promise{
-        background-image: url({{ section.settings.main_banner | image_url }});
+      background-image:
+      url({{ section.settings.main_banner | image_url }}),
+        linear-gradient(rgba(199,221,218,1), rgba(199,221,218,1))
+        ;
     }
     @media (max-width: 767px){
         .section-our-promise{
@@ -118,11 +122,11 @@
         | image_tag: class: 'img-our-promise'
       }}
     {% endif %}
-    {% if section.settings.title != blank %}
-      <div class="title-our-promise">{{ section.settings.title }}</div>
-    {% endif %}
     {% if section.settings.description != blank %}
       <div class="description-our-promise">{{ section.settings.description }}</div>
+    {% endif %}
+    {% if section.settings.title != blank %}
+      <div class="title-our-promise">{{ section.settings.title }}</div>
     {% endif %}
   </div>
 </section>

@@ -15,9 +15,9 @@
       "settings": {
         "main_banner": "shopify://shop_images/Group_158.webp",
         "main_img": "shopify://shop_images/Group_109.webp",
-        "background_color": "#c7ddda",
+        "background_color": "#f1f1ee",
         "title": "<p>We’re not here to sell you a generic bottle.</p><p> We’re here to help you create something personal, premium, and permanent.<br/>Because the best bottles don’t just sit on shelves. </p><p>They become part of the story. </p><p>Part of the moment. </p><p>Part of what people remember — long after the last pour.</p>",
-        "description": "<p>Our Promise</p>",
+        "description": "<p>Our <strong>Promise</strong></p>",
         "padding_top": 100,
         "padding_bottom": 0,
         "padding_top_mob": 40,
