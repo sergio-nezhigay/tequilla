@@ -1,21 +1,9 @@
 <div id="{{ section.id }}" class="tequila-hero-section {{ section.settings.custom_classes }}">
   <div class="tequila-hero-wrapper">
     <div class="tequila-hero-content">
-      {% if section.settings.main_title != blank %}
+      {% if section.settings.title != blank %}
         <h1 class="tequila-hero-title">
-          {{ section.settings.main_title }}
-          {% if section.settings.highlighted_text != blank %}
-            <span class="tequila-hero-title-highlight">
-              <span style="color: var(--tequila-hero-highlight-color);">
-                {{ section.settings.highlighted_text }}
-              </span>
-              {% if section.settings.highlighted_text_2 != blank %}
-                <span style="color: var(--tequila-hero-highlight-color-2);">
-                  {{ section.settings.highlighted_text_2 }}
-                </span>
-              {% endif %}
-            </span>
-          {% endif %}
+          {{ section.settings.title }}
         </h1>
       {% endif %}
 
@@ -481,22 +469,10 @@
   "name": "Tequila Hero",
   "settings": [
     {
-      "type": "text",
-      "id": "main_title",
-      "label": "Main Title",
-      "default": "THE BEST BOTTLE IS"
-    },
-    {
-      "type": "text",
-      "id": "highlighted_text",
-      "label": "Highlighted Text (First Word)",
-      "default": "YOUR"
-    },
-    {
-      "type": "text",
-      "id": "highlighted_text_2",
-      "label": "Highlighted Text (Second Word)",
-      "default": "BOTTLE"
+      "type": "richtext",
+      "id": "title",
+      "label": "Title",
+      "default": "<p><strong>THE BEST BOTTLE IS YOUR BOTTLE</strong></p>"
     },
     {
       "type": "richtext",
