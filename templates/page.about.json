@@ -1,0 +1,20 @@
+{
+  "sections": {
+    "make_personalization_Mintnf": {
+      "type": "our-promise",
+      "name": "Make personalization",
+      "settings": {
+        "main_banner": "shopify://shop_images/Group_72_dddd74f8-e058-4765-a103-5c39a9c3f2d4.png",
+        "main_img": "shopify://shop_images/Rectangle_52.png",
+        "background_color": "#f1f1ee",
+        "title": "<p>We started InBarrel with one goal:</p>",
+        "description": "<p>To <em>make personalization</em> powerful again.</p>",
+        "padding_top": 100,
+        "padding_bottom": 0,
+        "padding_top_mob": 40,
+        "padding_bottom_mob": 0
+      }
+    }
+  },
+  "order": ["make_personalization_Mintnf"]
+}
