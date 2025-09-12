@@ -13,7 +13,7 @@
       "type": "our-tequila-hero",
       "settings": {
         "title": "<p><strong>Crafted </strong>by <strong>Master </strong>Tequileros. <em>Designed by You</em>.</p>",
-        "description": "<p>At InBarrel, we don't just help you buy the best tequila ever—we help you create the best tequila ever!</p>",
+        "description": "<p>Our tequila is made in the Highlands of Jalisco, Mexico — where volcanic soil and high elevation produce agaves known for their bold flavor and rich sweetness.</p>",
         "primary_button_text": "CREATE YOUR OWN TEQUILA",
         "primary_button_url": "shopify://collections",
         "secondary_button_text": "SCHEDULE A CALL!",
