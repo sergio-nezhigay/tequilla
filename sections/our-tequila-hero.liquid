@@ -89,7 +89,6 @@
     {% endif %}
   </div>
 
-  {% comment %} Bottom Info Block {% endcomment %}
   <div class="tequila-hero-bottom-info">
     <div class="tequila-hero-bottom-wrapper">
       <div class="tequila-hero-steps">
@@ -97,7 +96,6 @@
         {% assign step_defaults = 'SELECT BOTTLE,PERSONALIZE LABEL,PLACE ORDER,ENJOY' | split: ',' %}
 
         {% for step in steps %}
-          <!-- Icon before step -->
           {% if section.settings.step_icon != blank %}
             <div class="tequila-hero-step-icon">
               {{
@@ -108,7 +106,6 @@
             </div>
           {% endif %}
 
-          <!-- Step -->
           <div class="tequila-hero-step">
             <div class="tequila-hero-step-text">
               <span>{{ section.settings[step] | default: step_defaults[forloop.index0] }}</span>
@@ -116,7 +113,6 @@
           </div>
         {% endfor %}
 
-        <!-- Final icon after last step -->
         {% if section.settings.step_icon != blank %}
           <div class="tequila-hero-step-icon">
             {{
@@ -134,101 +130,111 @@
 <style>
   :root {
     --tequila-hero-bg-color: {{ section.settings.background_color | default: '#f5f5f5' }};
-    --tequila-hero-title-color: {{ section.settings.title_color | default: '#000000' }};
+    --tequila-hero-description-color: {{ section.settings.description_color | default: '#a05e5eff' }};
+    --tequila-hero-description-size-desktop: {{ section.settings.description_size_desktop | default: 18 }}px;
+    --tequila-hero-description-size-mobile: {{ section.settings.description_size_mobile | default: 16 }}px;
     --tequila-hero-highlight-color: {{ section.settings.highlight_color | default: '#7CC9B5' }};
     --tequila-hero-highlight-color-2: {{ section.settings.highlight_color_2 | default: '#F4A261' }};
-    --tequila-hero-description-color: {{ section.settings.description_color | default: '#666666' }};
+    --tequila-hero-max-width: {{ section.settings.max_width | default: '1440px' }};
+    --tequila-hero-padding-bottom-desktop: {{ section.settings.padding_bottom_desktop | default: 80 }}px;
+    --tequila-hero-padding-bottom-mobile: {{ section.settings.padding_bottom_mobile | default: 60 }}px;
+    --tequila-hero-padding-top-desktop: {{ section.settings.padding_top_desktop | default: 80 }}px;
+    --tequila-hero-padding-top-mobile: {{ section.settings.padding_top_mobile | default: 60 }}px;
     --tequila-hero-primary-btn-bg: {{ section.settings.primary_button_bg | default: '#7CC9B5' }};
     --tequila-hero-primary-btn-color: {{ section.settings.primary_button_color | default: '#000000' }};
     --tequila-hero-secondary-btn-bg: {{ section.settings.secondary_button_bg | default: '#F4A261' }};
     --tequila-hero-secondary-btn-color: {{ section.settings.secondary_button_color | default: '#000000' }};
-    --tequila-hero-max-width: {{ section.settings.max_width | default: '1440px' }};
-    --tequila-hero-padding-top-desktop: {{ section.settings.padding_top_desktop | default: 80 }}px;
-    --tequila-hero-padding-bottom-desktop: {{ section.settings.padding_bottom_desktop | default: 80 }}px;
-    --tequila-hero-padding-top-mobile: {{ section.settings.padding_top_mobile | default: 60 }}px;
-    --tequila-hero-padding-bottom-mobile: {{ section.settings.padding_bottom_mobile | default: 60 }}px;
+    --tequila-hero-title-color: {{ section.settings.title_color | default: '#000000' }};
     --tequila-hero-title-size-desktop: {{ section.settings.title_size_desktop | default: 80 }}px;
     --tequila-hero-title-size-mobile: {{ section.settings.title_size_mobile | default: 36 }}px;
-    --tequila-hero-description-size-desktop: {{ section.settings.description_size_desktop | default: 18 }}px;
-    --tequila-hero-description-size-mobile: {{ section.settings.description_size_mobile | default: 16 }}px;
   }
 
-  #{{ section.id }}.tequila-hero-section {
-    background-color: var(--tequila-hero-bg-color);
-    padding-top: var(--tequila-hero-padding-top-mobile);
-    padding-bottom: var(--tequila-hero-padding-bottom-mobile);
-    overflow: hidden;
-    position: relative;
-    min-height: 390px;
-  }
-
-  #{{ section.id }} .tequila-hero-wrapper {
-    max-width: var(--tequila-hero-max-width);
-    margin: 0 auto 10px;
-    padding: 0 21px;
-    position: relative;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  #{{ section.id }} .tequila-hero-content {
-    text-align: center;
-    position: relative;
-    z-index: 3;
-    width: 100%;
-    max-width: 1101px;
-  }
-
-  #{{ section.id }} .tequila-hero-title {
-    font-size: var(--tequila-hero-title-size-mobile);
-    line-height: 1.0;
-    font-weight: 900;
-    color: var(--tequila-hero-title-color);
-    max-width: 850px;
-    margin: 0 auto 10px auto;
-    text-transform: uppercase;
-    letter-spacing: 0;
-  }
-
-  #{{ section.id }} .tequila-hero-title-highlight {
+  /* Highlight styles */
+  #{{ section.id }} strong {
     color: var(--tequila-hero-highlight-color);
   }
 
+  #{{ section.id }} em,
+  #{{ section.id }} i {
+    color: var(--tequila-hero-highlight-color-2);
+  }
+
+  /* Base Styles */
+  #{{ section.id }}.tequila-hero-section {
+    background-color: var(--tequila-hero-bg-color);
+    min-height: 390px;
+    overflow: hidden;
+    padding-bottom: var(--tequila-hero-padding-bottom-mobile);
+    padding-top: var(--tequila-hero-padding-top-mobile);
+    position: relative;
+  }
+
+  #{{ section.id }} .tequila-hero-wrapper {
+    align-items: center;
+    display: flex;
+    height: 100%;
+    justify-content: center;
+    margin: 0 auto 10px;
+    max-width: var(--tequila-hero-max-width);
+    padding: 0 21px;
+    position: relative;
+  }
+
+  #{{ section.id }} .tequila-hero-content {
+    max-width: 1101px;
+    position: relative;
+    text-align: center;
+    width: 100%;
+    z-index: 3;
+  }
+
+  /* Title */
+  #{{ section.id }} .tequila-hero-title {
+    color: var(--tequila-hero-title-color);
+    font-size: var(--tequila-hero-title-size-mobile);
+    font-weight: 900;
+    letter-spacing: 0;
+    line-height: 1.0;
+    margin: 0 auto 10px auto;
+    max-width: 850px;
+    text-transform: uppercase;
+  }
+
+  /* Description */
   #{{ section.id }} .tequila-hero-description {
+    color: var(--tequila-hero-description-color);
     font-size: var(--tequila-hero-description-size-mobile);
     line-height: 1.65;
-    color: var(--tequila-hero-description-color);
     margin: 0 0 20px 0;
-    max-width: 614px;
     margin-left: auto;
     margin-right: auto;
+    max-width: 614px;
     opacity: 0.8;
   }
 
+  /* Buttons */
   #{{ section.id }} .tequila-hero-buttons {
+    align-items: center;
     display: flex;
     flex-direction: column;
     gap: 10px;
     margin-bottom: 28px;
-    align-items: center;
   }
 
   #{{ section.id }} .tequila-hero-btn {
-    display: inline-flex;
     align-items: center;
-    justify-content: center;
-    padding: 28px 30px;
+    border: 2px solid #090909;
     border-radius: 50px;
-    text-decoration: none;
+    display: inline-flex;
     font-size: 16px;
+    justify-content: center;
     letter-spacing: 0;
-    text-transform: uppercase;
     line-height: 1.2;
+    padding: 28px 30px;
+    text-decoration: none;
+    text-transform: uppercase;
     transition: all 0.3s ease;
     width: 100%;
-    border: 2px solid #090909;
   }
 
   #{{ section.id }} .tequila-hero-btn-primary {
@@ -237,8 +243,8 @@
   }
 
   #{{ section.id }} .tequila-hero-btn-primary:hover {
-    transform: translateY(-2px);
     box-shadow: 0 8px 20px rgba(124, 201, 181, 0.3);
+    transform: translateY(-2px);
   }
 
   #{{ section.id }} .tequila-hero-btn-secondary {
@@ -247,19 +253,20 @@
   }
 
   #{{ section.id }} .tequila-hero-btn-secondary:hover {
-    transform: translateY(-2px);
     box-shadow: 0 8px 20px rgba(244, 162, 97, 0.3);
+    transform: translateY(-2px);
   }
 
+  /* Images */
   #{{ section.id }} .tequila-hero-create-image {
     margin: 0 -97px;
   }
 
   #{{ section.id }} .tequila-hero-create-image img {
-    max-width: 100%;
-    height: auto;
     display: block;
+    height: auto;
     margin: 0 auto;
+    max-width: 100%;
   }
 
   #{{ section.id }} .tequila-hero-bottle {
@@ -271,15 +278,15 @@
   }
 
   #{{ section.id }} .tequila-hero-bottle img {
-    width: 120px;
     height: auto;
+    width: 120px;
   }
 
   #{{ section.id }} .tequila-hero-leaf-left,
   #{{ section.id }} .tequila-hero-leaf-right {
+    bottom: 0;
     display: none;
     position: absolute;
-    bottom: 0;
     z-index: 5;
   }
 
@@ -291,104 +298,104 @@
     right: -100px;
   }
 
-
-
+  /* Bottom Info */
   #{{ section.id }} .tequila-hero-bottom-info {
-    padding: 30px 0;
-    max-width: 1240px;
     margin: 0 auto;
+    max-width: 1240px;
+    padding: 30px 0;
   }
 
   #{{ section.id }} .tequila-hero-bottom-wrapper {
-    max-width: var(--tequila-hero-max-width);
     margin: 0 auto;
+    max-width: var(--tequila-hero-max-width);
   }
 
   #{{ section.id }} .tequila-hero-steps {
-    display: flex;
-    justify-content: space-around;
     align-items: center;
-    gap: 0;
+    display: flex;
     flex-wrap: nowrap;
+    gap: 0;
+    justify-content: space-around;
     overflow-x: auto;
+    scrollbar-width: none;
     -webkit-overflow-scrolling: touch;
-    scrollbar-width: none; /* Firefox */
   }
 
-  /* Hide scrollbar for Chrome, Safari and Opera */
   #{{ section.id }} .tequila-hero-steps::-webkit-scrollbar {
     display: none;
   }
 
-  /* Hide scrollbar for IE, Edge */
-  #{{ section.id }} .tequila-hero-steps {
-    -ms-overflow-style: none;
-  }
-
-      #{{ section.id }} .tequila-hero-step-text {
-        font-family: 'Futura Hv BT', 'Roundo', sans-serif ;
-        font-weight: 900;
-        font-size: 24px;
-        line-height: 1;
-        text-transform: uppercase;
-        letter-spacing: 0;
-        color: #090909
-    }
-
   #{{ section.id }} .tequila-hero-step {
-    display: flex;
     align-items: center;
-    gap: 15px;
+    display: flex;
     flex: 0 0 auto;
+    gap: 15px;
     min-width: auto;
   }
 
-
-  /* Optional: Hide scroll bar on Webkit browsers for cleaner look */
-  #{{ section.id }} .tequila-hero-steps::-webkit-scrollbar {
-    height: 6px;
-    background: #eee;
-  }
-  #{{ section.id }} .tequila-hero-steps::-webkit-scrollbar-thumb {
-    background: var(--tequila-hero-highlight-color);
-    border-radius: 3px;
+  #{{ section.id }} .tequila-hero-step-icon {
+    align-items: center;
+    display: flex;
+    justify-content: center;
   }
 
+  #{{ section.id }} .tequila-hero-step-icon img {
+    display: block;
+    height: 29px;
+    width: 41px;
+  }
+
+  #{{ section.id }} .tequila-hero-step-text {
+    color: #090909;
+    font-family: 'Futura Hv BT', 'Roundo', sans-serif;
+    font-size: 24px;
+    font-weight: 900;
+    letter-spacing: 0;
+    line-height: 1;
+    text-transform: uppercase;
+  }
+
+  /* Media Queries */
   @media (max-width: 767px) {
     #{{ section.id }} .tequila-hero-steps {
       display: flex;
-      gap: 20px;
       flex-wrap: nowrap;
-      overflow-x: auto;
+      gap: 20px;
       justify-content: flex-start;
+      overflow-x: auto;
     }
   }
 
   @media (min-width: 768px) {
-      #{{ section.id }} .tequila-hero-wrapper {
-    margin-bottom: 0;
-  }
-    #{{ section.id }}.tequila-hero-section {
-      padding-top: var(--tequila-hero-padding-top-desktop);
-      padding-bottom: var(--tequila-hero-padding-bottom-desktop);
-      min-height: 600px;
+    #{{ section.id }} .tequila-hero-wrapper {
+      margin-bottom: 0;
     }
-      #{{ section.id }} .tequila-hero-create-image {
-    margin-bottom: 7px;
-  }
+
+    #{{ section.id }}.tequila-hero-section {
+      min-height: 600px;
+      padding-bottom: var(--tequila-hero-padding-bottom-desktop);
+      padding-top: var(--tequila-hero-padding-top-desktop);
+    }
+
+    #{{ section.id }} .tequila-hero-create-image {
+      margin-bottom: 7px;
+    }
+
     #{{ section.id }} .tequila-hero-step {
       gap: 15px;
     }
-      #{{ section.id }} .tequila-hero-btn {
+
+    #{{ section.id }} .tequila-hero-btn {
+      font-size: 18px;
+      min-width: 368px;
+      padding-left: 30px;
+      padding-right: 30px;
       width: auto;
-    font-size: 18px;
-    min-width: 368px;
-    padding-left: 30px;
-    padding-right: 30px;
-  }
-        #{{ section.id }} .tequila-hero-btn.tequila-hero-btn-primary {
-    min-width: 379px;
-  }
+    }
+
+    #{{ section.id }} .tequila-hero-btn.tequila-hero-btn-primary {
+      min-width: 379px;
+    }
 
     #{{ section.id }} .tequila-hero-title {
       font-size: var(--tequila-hero-title-size-desktop);
@@ -412,39 +419,36 @@
     }
 
     #{{ section.id }} .tequila-hero-leaf-left {
-      left: -50px;
       display: block;
+      left: -50px;
     }
 
     #{{ section.id }} .tequila-hero-leaf-right {
-      right: -50px;
       display: block;
+      right: -50px;
     }
 
     #{{ section.id }} .tequila-hero-leaf-left img,
     #{{ section.id }} .tequila-hero-leaf-right img {
-      width: 439px;
       height: 778px;
+      width: 439px;
     }
 
     #{{ section.id }} .tequila-hero-bottom-info {
       padding: 40px 0;
     }
 
-
-
     #{{ section.id }} .tequila-hero-step-icon {
-        display: flex;
-        align-items: center;
-        justify-content: center;
+      align-items: center;
+      display: flex;
+      justify-content: center;
     }
 
     #{{ section.id }} .tequila-hero-step-icon img {
-      width: 41px;
-      height: 29px;
       display: block;
+      height: 29px;
+      width: 41px;
     }
-
   }
 
   @media (min-width: 1200px) {
@@ -458,8 +462,8 @@
 
     #{{ section.id }} .tequila-hero-leaf-left img,
     #{{ section.id }} .tequila-hero-leaf-right img {
-      width: 439px;
       height: 778px;
+      width: 439px;
     }
   }
 </style>
