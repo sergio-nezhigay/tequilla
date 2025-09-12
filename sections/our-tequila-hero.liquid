@@ -159,9 +159,9 @@
     display: flex;
     height: 100%;
     justify-content: center;
-    margin: 0 auto 10px;
+    margin: 0 auto 30px;
     max-width: var(--tequila-hero-max-width);
-    padding: 0 21px;
+    padding: 0 20px;
     position: relative;
   }
 
@@ -241,11 +241,6 @@
   #{{ section.id }} .tequila-hero-btn-secondary:hover {
     box-shadow: 0 8px 20px rgba(244, 162, 97, 0.3);
     transform: translateY(-2px);
-  }
-
-  /* Images */
-  #{{ section.id }} .tequila-hero-create-image {
-    margin: 0 -97px;
   }
 
   #{{ section.id }} .tequila-hero-create-image img {
@@ -349,6 +344,19 @@
       gap: 20px;
       justify-content: flex-start;
       overflow-x: auto;
+    }
+
+    #{{ section.id }} .tequila-hero-create-image {
+      overflow: hidden;
+      border-radius: 60px 3px 60px 3px;
+    }
+
+    #{{ section.id }} .tequila-hero-create-image img {
+      display: block;
+      height: auto;
+      margin: 0 auto;
+      max-width: 100%;
+      border-radius: inherit;
     }
   }
 
