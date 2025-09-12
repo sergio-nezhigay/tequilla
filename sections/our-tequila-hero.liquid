@@ -159,10 +159,10 @@
 
   #{{ section.id }} .tequila-hero-content {
     max-width: 1016px;
-    position: relative;
+
     text-align: center;
     width: 100%;
-    z-index: 3;
+
   }
 
   /* Title */
@@ -213,6 +213,8 @@
     text-transform: uppercase;
     transition: all 0.3s ease;
     width: 100%;
+    position: relative;
+    z-index: 100;
   }
 
   #{{ section.id }} .tequila-hero-btn-primary {
@@ -242,14 +244,6 @@
     max-width: 100%;
   }
 
-  #{{ section.id }} .tequila-hero-bottle {
-    position: absolute;
-    right: 20px;
-    top: 50%;
-    transform: translateY(-50%);
-    z-index: 4;
-  }
-
   #{{ section.id }} .tequila-hero-bottle img {
     height: auto;
     width: 120px;
@@ -257,18 +251,18 @@
 
   #{{ section.id }} .tequila-hero-leaf-left,
   #{{ section.id }} .tequila-hero-leaf-right {
-    bottom: 150px;
+    bottom: 60px;
     display: none;
     position: absolute;
-    z-index: 5;
+    z-index: 0;
   }
 
   #{{ section.id }} .tequila-hero-leaf-left {
-    left: -203px;
+    left: -103px;
   }
 
   #{{ section.id }} .tequila-hero-leaf-right {
-    right: -203px;
+    right: -103px;
   }
 
   /* Bottom Info */
@@ -355,6 +349,7 @@
   @media (min-width: 768px) {
     #{{ section.id }} .tequila-hero-wrapper {
       margin-bottom: 0;
+      overflow: hidden;
     }
 
     #{{ section.id }}.tequila-hero-section {
@@ -418,6 +413,7 @@
     #{{ section.id }} .tequila-hero-leaf-right img {
       height: 747px;
       width: 644px;
+      object-fit: contain;
     }
 
     #{{ section.id }} .tequila-hero-bottom-info {
