@@ -27,32 +27,17 @@
         {% endif %}
       </div>
 
-      {% if section.settings.create_tequila_image != blank %}
+      {% if section.settings.main_image != blank %}
         <div class="tequila-hero-create-image">
-          {% assign create_image_alt = section.settings.create_tequila_image.alt | default: 'Create Your Tequila' %}
+          {% assign create_image_alt = section.settings.main_image.alt | default: 'Create Your Tequila' %}
           {{
-            section.settings.create_tequila_image
+            section.settings.main_image
             | image_url: width: 1101, height: 570
             | image_tag:
               alt: create_image_alt,
               loading: 'lazy',
               sizes: '(max-width: 768px) 100vw, 1101px',
               widths: '400, 600, 800, 1000'
-          }}
-        </div>
-      {% endif %}
-
-      {% if section.settings.tequila_bottle_image != blank %}
-        <div class="tequila-hero-bottle">
-          {% assign bottle_image_alt = section.settings.tequila_bottle_image.alt | default: 'Tequila Bottle' %}
-          {{
-            section.settings.tequila_bottle_image
-            | image_url: width: 300, height: 600
-            | image_tag:
-              alt: bottle_image_alt,
-              loading: 'lazy',
-              sizes: '(max-width: 768px) 200px, 300px',
-              widths: '200, 250, 300, 350'
           }}
         </div>
       {% endif %}
@@ -509,13 +494,8 @@
     },
     {
       "type": "image_picker",
-      "id": "create_tequila_image",
-      "label": "Create Your Tequila Image"
-    },
-    {
-      "type": "image_picker",
-      "id": "tequila_bottle_image",
-      "label": "Tequila Bottle Image"
+      "id": "main_image",
+      "label": "Main Image"
     },
     {
       "type": "image_picker",
