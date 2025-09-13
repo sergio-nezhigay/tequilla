@@ -28,14 +28,17 @@ This is a Shopify theme based on the Dawn theme framework with custom modificati
 
 ### Custom Components
 - **Product Showcase**: Custom section at `sections/index-product-showcase.liquid` with specialized styling
-- **Logo Carousel**: Custom section at `sections/index-logo-carousel.liquid` 
+- **Logo Carousel**: Custom section at `sections/index-logo-carousel.liquid`
 - **Business Owner Section**: Custom section at `sections/index-business-owner.liquid`
 - **Video Hero**: Custom section at `sections/index-video-hero.liquid`
+- **Tequila-specific Sections**: `our-promise.liquid`, `tequila-showcase.liquid`, `create-tequila.liquid`, `what-you-ll-taste.liquid`
+- **Custom Contact Forms**: `custom-contact-form.liquid`, `corporate-contact.liquid`
 
 ### JavaScript Architecture
-- Global utilities in `assets/global.js` including DOM manipulation helpers
+- Global utilities in `assets/global.js` including DOM manipulation helpers and HTML update utilities
 - Component-specific JS files (cart-drawer.js, customer.js, etc.)
 - Modern ES6 classes and modules pattern
+- Key utilities: `SectionId` class for managing section identifiers, `HTMLUpdateUtility` for DOM updates
 
 ### CSS Organization
 - Component-based CSS files prefixed with `component-`
@@ -55,8 +58,13 @@ This is a Shopify theme based on the Dawn theme framework with custom modificati
 - JSON template configuration
 - Snippet-based code reuse
 
+### Specialized Templates
+- Custom product templates: `product.mczr.liquid`, `product.mczrmobile.liquid` for specific product types
+- Page-specific templates: `page.corporate.json`, `page.our-tequila.json`, `page.about.json`
+
 When making modifications:
-- Follow existing naming conventions (e.g., `tps-` prefix for Tequila Product Showcase)
+- Follow existing naming conventions (e.g., `tps-` prefix for Tequila Product Showcase, `tequila-` prefix for video hero)
 - Maintain responsive design patterns
 - Test across different section combinations
-- Preserve multi-language compatibility
+- Preserve multi-language compatibility (40+ locales supported)
+- Use existing utility classes from `global.js` for DOM manipulation
