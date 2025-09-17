@@ -75,11 +75,11 @@
         {% assign left_leaf_alt = section.settings.left_leaf_image.alt | default: 'Decorative Leaf' %}
         {{
           section.settings.left_leaf_image
-          | image_url: width: 439, height: 738
+          | image_url: width: 868, height: 778
           | image_tag:
             alt: left_leaf_alt,
             loading: 'lazy',
-            sizes: '(max-width: 768px) 150px, 439px',
+            sizes: '(max-width: 768px) 150px, 868px',
             widths: '150, 200, 300, 400'
         }}
       </div>
@@ -90,11 +90,11 @@
         {% assign right_leaf_alt = section.settings.right_leaf_image.alt | default: 'Decorative Leaf' %}
         {{
           section.settings.right_leaf_image
-          | image_url: width: 439, height: 738
+          | image_url: width: 868, height: 778
           | image_tag:
             alt: right_leaf_alt,
             loading: 'lazy',
-            sizes: '(max-width: 768px) 150px, 439px',
+            sizes: '(max-width: 768px) 150px, 868px',
             widths: '150, 200, 300, 400'
         }}
       </div>
@@ -430,19 +430,19 @@
     }
 
     #{{ section.id }} .tequila-hero-leaf-left {
-      left: -50px;
+      left: -439px;
       display: block;
     }
 
     #{{ section.id }} .tequila-hero-leaf-right {
-      right: -50px;
+      right: -439px;
       display: block;
     }
 
     #{{ section.id }} .tequila-hero-leaf-left img,
     #{{ section.id }} .tequila-hero-leaf-right img {
-      width: 439px;
-      height: 778px;
+      width: 868px;
+      height: auto;
     }
 
     #{{ section.id }} .tequila-hero-bottom-info {
@@ -467,17 +467,17 @@
 
   @media (min-width: 1200px) {
     #{{ section.id }} .tequila-hero-leaf-left {
-      left: 0;
+      left: -439px;
     }
 
     #{{ section.id }} .tequila-hero-leaf-right {
-      right: 0;
+      right: -439px;
     }
 
     #{{ section.id }} .tequila-hero-leaf-left img,
     #{{ section.id }} .tequila-hero-leaf-right img {
-      width: 439px;
-      height: 778px;
+      width: 868px;
+      height: auto;
     }
   }
 </style>

@@ -21,17 +21,13 @@
         "secondary_button_text": "SCHEDULE A CALL!",
         "secondary_button_url": "shopify://collections/all",
         "create_tequila_image": "shopify://shop_images/round_bottle_1_289b4534-68f1-411f-b6d8-ffb326c4c661.png",
-        "left_leaf_image": "shopify://shop_images/from_l1104.svg",
-        "right_leaf_image": "shopify://shop_images/from_lo1043.svg",
+        "left_leaf_image": "shopify://shop_images/index-left-big.svg",
+        "right_leaf_image": "shopify://shop_images/index-right-big.svg",
         "background_color": "#f1f1ee",
         "title_color": "#090909",
         "highlight_color": "#67b7a8",
         "highlight_color_2": "#ffb793",
         "description_color": "#090909",
-        "primary_button_bg": "#67b7a8",
-        "primary_button_color": "#090909",
-        "secondary_button_bg": "#ffb793",
-        "secondary_button_color": "#090909",
         "title_size_desktop": 90,
         "title_size_mobile": 40,
         "description_size_desktop": 20,
@@ -75,10 +71,6 @@
         "video_thumbnail": "shopify://shop_images/Generated_Image_September_03_2025_-_1_40PM.webp",
         "cta_text": "Create your own tequila",
         "cta_url": "shopify://collections/all",
-        "cta_background": "linear-gradient(90deg, rgba(103, 211, 204, 1), rgba(103, 211, 204, 1) 100%)",
-        "cta_text_color": "#090909",
-        "cta_hover_background": "linear-gradient(90deg, rgba(255, 183, 147, 1), rgba(255, 155, 127, 1) 100%)",
-        "cta_hover_text_color": "#090909",
         "cta_font_size_desktop": 18,
         "cta_font_size_mobile": 16
       }
@@ -506,7 +498,6 @@
         "background_color": "#ffb793",
         "text_color": "#090909",
         "highlight_color": "#67b7a8",
-        "button_background": "#67b7a8",
         "button_border": "#090909"
       }
     },
@@ -625,8 +616,7 @@
         "button_text": "GET IN TOUCH",
         "button_url": "",
         "background_color": "#f4d5d0",
-        "text_color": "#2c2c2c",
-        "button_background": "#7bc4c4"
+        "text_color": "#2c2c2c"
       }
     },
     "footer_custom_DXWYHb": {
