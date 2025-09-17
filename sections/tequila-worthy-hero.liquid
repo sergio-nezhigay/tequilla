@@ -1,0 +1,416 @@
+{%- style -%}
+  #{{ section.id }}.section-tequila-worthy {
+    --tequila-worthy-bg-color: {{ section.settings.background_color }};
+    --tequila-worthy-highlight-color: {{ section.settings.highlight_color | default: '#67B7A8' }};
+    --tequila-worthy-highlight-color-2: {{ section.settings.highlight_color_2 | default: '#F4A261' }};
+    background-color: var(--tequila-worthy-bg-color);
+    padding-top: {{ section.settings.padding_top }}px;
+    padding-bottom: {{ section.settings.padding_bottom }}px;
+  }
+
+  /* Highlight styles */
+  #{{ section.id }} strong {
+    color: var(--tequila-worthy-highlight-color);
+    font-weight: inherit;
+  }
+
+  #{{ section.id }} em,
+  #{{ section.id }} i {
+    color: var(--tequila-worthy-highlight-color-2);
+    font-style: normal;
+  }
+
+  .container-tequila-worthy {
+    max-width: 1440px;
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+    border-radius: 30px;
+    background-image: url({{ section.settings.background_image | image_url }});
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    min-height: 832px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+
+  .tequila-worthy-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 30px;
+  }
+
+  .tequila-worthy-content {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+    padding: 0 40px;
+  }
+
+  .tequila-worthy-video-wrapper {
+    position: relative;
+    margin-bottom: 60px;
+  }
+
+  .tequila-worthy-video-thumbnail {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin: 0 auto;
+    display: block;
+  }
+
+  .tequila-worthy-play-button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80px;
+    height: 80px;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  .tequila-worthy-play-button:hover {
+    background: rgba(255, 255, 255, 1);
+    transform: translate(-50%, -50%) scale(1.1);
+  }
+
+  .tequila-worthy-play-icon {
+    width: 0;
+    height: 0;
+    border-left: 25px solid #000;
+    border-top: 15px solid transparent;
+    border-bottom: 15px solid transparent;
+    margin-left: 5px;
+  }
+
+  .tequila-worthy-main-title {
+    font-family: 'Futura Hv BT', Roundo, sans-serif;
+    font-weight: 700;
+    font-size: 60px;
+    line-height: 1.2;
+    color: #FFFFFF;
+    text-transform: uppercase;
+    letter-spacing: 0;
+    margin: 0 0 20px 0;
+  }
+
+
+  .tequila-worthy-subtitle {
+    font-family: Roundo, Arial, sans-serif;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 1.65;
+    color: #FFFFFF;
+    margin: 0 0 60px 0;
+  }
+
+  .tequila-worthy-cta {
+    display: inline-block;
+    background: #67B7A8;
+    color: #FFFFFF;
+    font-family: Roundo, Arial, sans-serif;
+    font-weight: 500;
+    font-size: 18px;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 18px 40px;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+    letter-spacing: 0.5px;
+  }
+
+  .tequila-worthy-cta:hover {
+    background: #5a9d8f;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(103, 183, 168, 0.3);
+  }
+
+  /* Desktop breakpoint (1440px) */
+  @media (max-width: 1439px) {
+    .container-tequila-worthy {
+      max-width: 95%;
+      min-height: 700px;
+    }
+
+    .tequila-worthy-main-title {
+      font-size: 50px;
+    }
+
+    .tequila-worthy-video-thumbnail {
+      width: 180px;
+      height: 180px;
+    }
+  }
+
+  @media (max-width: 1023px) {
+    .tequila-worthy-main-title {
+      font-size: 40px;
+    }
+
+    .tequila-worthy-subtitle {
+      font-size: 18px;
+    }
+
+    .container-tequila-worthy {
+      min-height: 600px;
+    }
+  }
+
+  /* Mobile breakpoint (390px and below) */
+  @media (max-width: 767px) {
+    .section-tequila-worthy {
+      padding-top: {{ section.settings.padding_top_mob }}px;
+      padding-bottom: {{ section.settings.padding_bottom_mob }}px;
+    }
+
+    .container-tequila-worthy {
+      border-radius: 20px;
+      min-height: 600px;
+      padding: 40px 20px;
+    }
+
+    .tequila-worthy-overlay {
+      border-radius: 20px;
+    }
+
+    .tequila-worthy-content {
+      padding: 0 20px;
+    }
+
+    .tequila-worthy-video-wrapper {
+      margin-bottom: 40px;
+    }
+
+    .tequila-worthy-video-thumbnail {
+      width: 150px;
+      height: 150px;
+    }
+
+    .tequila-worthy-play-button {
+      width: 60px;
+      height: 60px;
+    }
+
+    .tequila-worthy-play-icon {
+      border-left: 18px solid #000;
+      border-top: 12px solid transparent;
+      border-bottom: 12px solid transparent;
+      margin-left: 4px;
+    }
+
+    .tequila-worthy-main-title {
+      font-size: 30px;
+      margin-bottom: 15px;
+      line-height: 1.3;
+    }
+
+    .tequila-worthy-subtitle {
+      font-size: 18px;
+      margin-bottom: 40px;
+      line-height: 1.6;
+    }
+
+    .tequila-worthy-cta {
+      font-size: 16px;
+      padding: 16px 32px;
+      letter-spacing: 0.3px;
+    }
+  }
+
+  /* Extra small mobile (390px) */
+  @media (max-width: 390px) {
+    .container-tequila-worthy {
+      min-height: 550px;
+      margin: 0 10px;
+    }
+
+    .tequila-worthy-main-title {
+      font-size: 28px;
+    }
+
+    .tequila-worthy-subtitle {
+      font-size: 16px;
+    }
+
+    .tequila-worthy-cta {
+      font-size: 14px;
+      padding: 14px 28px;
+    }
+  }
+{%- endstyle -%}
+
+<section id="{{ section.id }}" class="section-tequila-worthy">
+  <div class="container-tequila-worthy">
+    <div class="tequila-worthy-overlay"></div>
+    <div class="tequila-worthy-content">
+      {% if section.settings.video_thumbnail != blank %}
+        <div class="tequila-worthy-video-wrapper" onclick="playVideo('{{ section.settings.video_url }}')">
+          {{
+            section.settings.video_thumbnail
+            | image_url: width: section.settings.video_thumbnail.width
+            | image_tag: class: 'tequila-worthy-video-thumbnail'
+          }}
+          <div class="tequila-worthy-play-button">
+            <div class="tequila-worthy-play-icon"></div>
+          </div>
+        </div>
+      {% endif %}
+
+      {% if section.settings.main_title != blank %}
+        <h1 class="tequila-worthy-main-title">{{ section.settings.main_title }}</h1>
+      {% endif %}
+
+      {% if section.settings.subtitle != blank %}
+        <p class="tequila-worthy-subtitle">{{ section.settings.subtitle }}</p>
+      {% endif %}
+
+      {% if section.settings.cta_text != blank and section.settings.cta_url != blank %}
+        <a href="{{ section.settings.cta_url }}" class="tequila-worthy-cta">{{ section.settings.cta_text }}</a>
+      {% endif %}
+    </div>
+  </div>
+</section>
+
+<script>
+  function playVideo(videoUrl) {
+    if (videoUrl) {
+      // You can implement video modal or redirect to video URL
+      window.open(videoUrl, '_blank');
+    }
+  }
+</script>
+
+{% schema %}
+{
+  "name": "Tequila Worthy Hero",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "background_image",
+      "label": "Background Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "video_thumbnail",
+      "label": "Video Thumbnail"
+    },
+    {
+      "type": "url",
+      "id": "video_url",
+      "label": "Video URL"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Section Background Color",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "richtext",
+      "id": "main_title",
+      "label": "Main Title",
+      "default": "THIS IS TEQUILA WORTHY OF <strong>YOUR NAME</strong>,",
+      "info": "Use <strong>text</strong> for highlight color 1, and <em>text</em> for highlight color 2"
+    },
+    {
+      "type": "richtext",
+      "id": "subtitle",
+      "label": "Subtitle",
+      "default": "<strong>YOUR BRAND</strong>, OR <em>YOUR OCCASION</em>.",
+      "info": "Use <strong>text</strong> for highlight color 1, and <em>text</em> for highlight color 2"
+    },
+    {
+      "type": "color",
+      "id": "highlight_color",
+      "label": "Highlight Color 1 (for <strong> tags)",
+      "default": "#67B7A8"
+    },
+    {
+      "type": "color",
+      "id": "highlight_color_2",
+      "label": "Highlight Color 2 (for <em> tags)",
+      "default": "#F4A261"
+    },
+    {
+      "type": "text",
+      "id": "cta_text",
+      "label": "Call to Action Text",
+      "default": "CREATE YOUR OWN TEQUILA"
+    },
+    {
+      "type": "url",
+      "id": "cta_url",
+      "label": "Call to Action URL"
+    },
+    {
+      "type": "header",
+      "content": "Desktop Spacing"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 200,
+      "step": 10,
+      "unit": "px",
+      "label": "Top Padding",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 200,
+      "step": 10,
+      "unit": "px",
+      "label": "Bottom Padding",
+      "default": 60
+    },
+    {
+      "type": "header",
+      "content": "Mobile Spacing"
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mob",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "label": "Top Padding",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mob",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "label": "Bottom Padding",
+      "default": 40
+    }
+  ],
+  "presets": [
+    {
+      "name": "Tequila Worthy Hero"
+    }
+  ]
+}
+{% endschema %}

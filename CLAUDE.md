@@ -62,9 +62,48 @@ This is a Shopify theme based on the Dawn theme framework with custom modificati
 - Custom product templates: `product.mczr.liquid`, `product.mczrmobile.liquid` for specific product types
 - Page-specific templates: `page.corporate.json`, `page.our-tequila.json`, `page.about.json`
 
+### Multi-Color Text Implementation
+
+This theme uses a **standardized approach** for multi-color text within sections:
+
+**CSS Pattern:**
+- Use CSS custom properties (variables) for highlight colors:
+  ```css
+  #{{ section.id }}.section-name {
+    --section-highlight-color: {{ section.settings.highlight_color | default: '#67B7A8' }};
+    --section-highlight-color-2: {{ section.settings.highlight_color_2 | default: '#F4A261' }};
+  }
+
+  #{{ section.id }} strong {
+    color: var(--section-highlight-color);
+    font-weight: inherit;
+  }
+
+  #{{ section.id }} em,
+  #{{ section.id }} i {
+    color: var(--section-highlight-color-2);
+    font-style: normal;
+  }
+  ```
+
+**HTML Usage:**
+- `<strong>text</strong>` - First highlight color (typically teal/green #67B7A8)
+- `<em>text</em>` - Second highlight color (typically orange #F4A261)
+
+**Schema Settings:**
+- Always include color picker settings for both highlight colors
+- Add helpful info text: `"info": "Use <strong>text</strong> for highlight color 1, and <em>text</em> for highlight color 2"`
+
+**Examples:**
+- `Welcome to <strong>Premium</strong> <em>Tequila</em>`
+- `THIS IS TEQUILA WORTHY OF <strong>YOUR NAME</strong>`
+
+**Existing Implementations:** `our-tequila-hero.liquid`, `index-hero.liquid`, `create-own-tequila.liquid`, `tequila-worthy-hero.liquid`
+
 When making modifications:
 - Follow existing naming conventions (e.g., `tps-` prefix for Tequila Product Showcase, `tequila-` prefix for video hero)
 - Maintain responsive design patterns
 - Test across different section combinations
 - Preserve multi-language compatibility (40+ locales supported)
 - Use existing utility classes from `global.js` for DOM manipulation
+- **ALWAYS use the established multi-color text pattern** with CSS variables and `<strong>`/`<em>` tags
