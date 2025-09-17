@@ -21,8 +21,8 @@
         "secondary_button_text": "SCHEDULE A CALL!",
         "secondary_button_url": "shopify://collections/all",
         "create_tequila_image": "shopify://shop_images/round_bottle_1_289b4534-68f1-411f-b6d8-ffb326c4c661.png",
-        "left_leaf_image": "shopify://shop_images/from_l.webp",
-        "right_leaf_image": "shopify://shop_images/from_lo.webp",
+        "left_leaf_image": "shopify://shop_images/from_l1104.svg",
+        "right_leaf_image": "shopify://shop_images/from_lo1043.svg",
         "background_color": "#f1f1ee",
         "title_color": "#090909",
         "highlight_color": "#67b7a8",
@@ -121,7 +121,7 @@
         "logo_item_Gd8brV": {
           "type": "logo_item",
           "settings": {
-            "logo": "shopify://shop_images/facebook-albertlea_1.webp",
+            "logo": "shopify://shop_images/63120666918126b15bd0f7baf41bf497afa30f45.webp",
             "link": "",
             "open_new_tab": false
           }

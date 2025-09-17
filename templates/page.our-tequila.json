@@ -19,8 +19,8 @@
         "secondary_button_text": "SCHEDULE A CALL!",
         "secondary_button_url": "shopify://collections/all",
         "main_image": "shopify://shop_images/round_bottle_1_1.webp",
-        "left_leaf_image": "shopify://shop_images/left2.webp",
-        "right_leaf_image": "shopify://shop_images/right2.webp",
+        "left_leaf_image": "shopify://shop_images/our-teqilla-left.svg",
+        "right_leaf_image": "shopify://shop_images/our-teqilla-right.svg",
         "background_color": "#f1f1ee",
         "title_color": "#090909",
         "highlight_color": "#67b7a8",
@@ -407,7 +407,7 @@
       "name": "Instagram Feed",
       "settings": {
         "instagram_handle": "inbarrelofficial",
-        "background_color": "#f1f1eeff",
+        "background_color": "#f1f1ee",
         "text_color": "#090909",
         "highlight_color": "#67b7a8",
         "border_color": "#e5e5e5"

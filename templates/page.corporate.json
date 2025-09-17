@@ -14,8 +14,8 @@
       "name": "Corporate Hero",
       "settings": {
         "create_corporate_image": "shopify://shop_images/round_bottle_1_289b4534-68f1-411f-b6d8-ffb326c4c661.png",
-        "left_leaf_image": "shopify://shop_images/from_l_9.png",
-        "right_leaf_image": "shopify://shop_images/from_lo_1.png",
+        "left_leaf_image": "shopify://shop_images/corporate-left.svg",
+        "right_leaf_image": "shopify://shop_images/corporate-right.svg",
         "main_title": "",
         "highlighted_text": "",
         "highlighted_text_2": "",
