@@ -3,7 +3,7 @@
     --section-bg: {{ section.settings.background_color | default: '#fdd8c6' }};
     --text-primary: {{ section.settings.text_color | default: '#090909' }};
     --text-highlight: {{ section.settings.highlight_color | default: '#67b7a8' }};
-    --btn-bg: {{ section.settings.button_background | default: '#67b7a8' }};
+    --btn-bg: #67b7a8;
     --btn-border: {{ section.settings.button_border | default: '#090909' }};
     --section-outer-bg: {{ section.settings.section_background | default: 'transparent' }};
     --padding-top-desktop: {{ section.settings.padding_top_desktop | default: 60 }}px;
@@ -123,9 +123,11 @@
     max-width: 419px;
   }
 
-  .shopify-section .tequila-moments .btn--primary:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(9, 9, 9, 0.15);
+  .shopify-section .tequila-moments .btn--primary:hover,
+  .shopify-section .tequila-moments .btn--primary:focus {
+    background: #FFB793;
+    color: #090909;
+    border-color: #090909;
   }
 
   .shopify-section .tequila-moments .btn--primary:active {
@@ -398,12 +400,6 @@
       "type": "color",
       "id": "highlight_color",
       "label": "Highlight Text Color",
-      "default": "#67b7a8"
-    },
-    {
-      "type": "color",
-      "id": "button_background",
-      "label": "Button Background Color",
       "default": "#67b7a8"
     },
     {
