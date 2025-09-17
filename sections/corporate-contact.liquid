@@ -49,7 +49,7 @@
   }
 
   .project-contact__button {
-    background-color: {{ section.settings.button_background | default: '#67b7a8' }};
+    background-color: #67b7a8;
     border: 2px solid #090909;
     border-radius: 90px;
     padding: 30px 80px;
@@ -57,7 +57,7 @@
     align-items: center;
     justify-content: center;
     text-decoration: none;
-    transition: all 0.3s ease;
+    transition: background 0.3s, color 0.3s;
     min-width: 413px;
     box-sizing: border-box;
   }
@@ -73,9 +73,11 @@
     margin: 0;
   }
 
-  .project-contact__button:hover {
-    background-color: #5ca399;
-    transform: translateY(-2px);
+  .project-contact__button:hover,
+  .project-contact__button:focus {
+    background-color: #FFB793;
+    color: #090909;
+    border-color: #090909;
   }
 
   @media (max-width: 1300px) {
@@ -216,12 +218,6 @@
       "id": "text_color",
       "label": "Text Color",
       "default": "rgba(9, 9, 9, 0.9)"
-    },
-    {
-      "type": "color",
-      "id": "button_background",
-      "label": "Button Background Color",
-      "default": "#67b7a8"
     }
   ],
   "presets": [

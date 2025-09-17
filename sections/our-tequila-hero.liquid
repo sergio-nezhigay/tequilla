@@ -117,10 +117,10 @@
     --tequila-hero-padding-bottom-mobile: {{ section.settings.padding_bottom_mobile | default: 60 }}px;
     --tequila-hero-padding-top-desktop: {{ section.settings.padding_top_desktop | default: 80 }}px;
     --tequila-hero-padding-top-mobile: {{ section.settings.padding_top_mobile | default: 60 }}px;
-    --tequila-hero-primary-btn-bg: {{ section.settings.primary_button_bg | default: '#7CC9B5' }};
-    --tequila-hero-primary-btn-color: {{ section.settings.primary_button_color | default: '#000000' }};
-    --tequila-hero-secondary-btn-bg: {{ section.settings.secondary_button_bg | default: '#F4A261' }};
-    --tequila-hero-secondary-btn-color: {{ section.settings.secondary_button_color | default: '#000000' }};
+    --tequila-hero-primary-btn-bg: #67B7A8;
+    --tequila-hero-primary-btn-color: #090909;
+    --tequila-hero-secondary-btn-bg: #FFB793;
+    --tequila-hero-secondary-btn-color: #090909;
     --tequila-hero-title-color: {{ section.settings.title_color | default: '#000000' }};
     --tequila-hero-title-size-desktop: {{ section.settings.title_size_desktop | default: 80 }}px;
     --tequila-hero-title-size-mobile: {{ section.settings.title_size_mobile | default: 36 }}px;
@@ -224,9 +224,11 @@
     color: var(--tequila-hero-primary-btn-color);
   }
 
-  #{{ section.id }} .tequila-hero-btn-primary:hover {
-    box-shadow: 0 8px 20px rgba(124, 201, 181, 0.3);
-    transform: translateY(-2px);
+  #{{ section.id }} .tequila-hero-btn-primary:hover,
+  #{{ section.id }} .tequila-hero-btn-primary:focus {
+    background: #FFB793;
+    color: #090909;
+    border-color: #090909;
   }
 
   #{{ section.id }} .tequila-hero-btn-secondary {
@@ -234,9 +236,11 @@
     color: var(--tequila-hero-secondary-btn-color);
   }
 
-  #{{ section.id }} .tequila-hero-btn-secondary:hover {
-    box-shadow: 0 8px 20px rgba(244, 162, 97, 0.3);
-    transform: translateY(-2px);
+  #{{ section.id }} .tequila-hero-btn-secondary:hover,
+  #{{ section.id }} .tequila-hero-btn-secondary:focus {
+    background: #67B7A8;
+    color: #090909;
+    border-color: #090909;
   }
 
   #{{ section.id }} .tequila-hero-create-image img {
@@ -531,30 +535,6 @@
       "id": "description_color",
       "label": "Description Color",
       "default": "#666666"
-    },
-    {
-      "type": "color",
-      "id": "primary_button_bg",
-      "label": "Primary Button Background",
-      "default": "#7CC9B5"
-    },
-    {
-      "type": "color",
-      "id": "primary_button_color",
-      "label": "Primary Button Text Color",
-      "default": "#000000"
-    },
-    {
-      "type": "color",
-      "id": "secondary_button_bg",
-      "label": "Secondary Button Background",
-      "default": "#F4A261"
-    },
-    {
-      "type": "color",
-      "id": "secondary_button_color",
-      "label": "Secondary Button Text Color",
-      "default": "#000000"
     },
     {
       "type": "header",
