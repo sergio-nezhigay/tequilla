@@ -139,11 +139,14 @@
     color: var(--text-primary);
     text-transform: uppercase;
     cursor: pointer;
-    transition: transform 0.2s ease;
+    transition: background 0.3s, color 0.3s;
   }
 
-  .shopify-section .site-footer .newsletter-form button:hover {
-    transform: translateY(-2px);
+  .shopify-section .site-footer .newsletter-form button:hover,
+  .shopify-section .site-footer .newsletter-form button:focus {
+    background: #FFB793;
+    color: #090909;
+    border-color: #090909;
   }
 
   .shopify-section .site-footer .footer-contact {
