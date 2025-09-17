@@ -1,0 +1,196 @@
+{{ 'section-form.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+.section-form{
+    background-color: {{ section.settings.background_color }}; 
+    padding-top: {{ section.settings.padding_top }}px;
+    padding-bottom: {{ section.settings.padding_bottom }}px;
+}
+@media (max-width: 767px){
+    .section-form{
+        padding-top: {{ section.settings.padding_top_mob }}px;
+        padding-bottom: {{ section.settings.padding_bottom_mob }}px;
+    }
+}
+
+{%- endstyle -%}
+
+<section class="section-form">
+    <div class="container-form">
+        {% if section.settings.image_first != blank %}
+            {{ section.settings.image_first | image_url: width: section.settings.image_first.width | image_tag: class: "first-image-form" }}
+        {% endif %}
+        
+        <div>
+            {% if section.settings.title != blank %}
+                <div class="title-main-form">{{ section.settings.title }}</div>
+            {% endif %}
+            {% if section.settings.main_text != blank %}
+                <div class="subtitle-main-form">{{ section.settings.main_text }}</div>
+            {% endif %}
+            {% if section.settings.main_text_mob != blank %}
+                <div class="subtitle-mob-main-form">{{ section.settings.main_text_mob }}</div>
+            {% endif %}
+            
+            <div class="">
+                {% form 'contact' %}
+                    <div class="">
+                        {%- if form.errors -%}
+                            <div class="">
+                                {{ form.errors | default_errors }}
+                            </div>
+                        {%- endif -%}
+                    </div>
+                    
+                    <div class="">
+                        <input
+                            type="text"
+                            name="contact[first_name]"
+                            class="input-main-form"
+                            placeholder="First Name"
+                            required
+                            autocomplete="given-name"
+                        >
+                    </div>
+                     
+                    <div class="">
+                        <input
+                            type="text"
+                            name="contact[last_name]"
+                            class="input-main-form"
+                            placeholder="Last Name"
+                            required
+                            autocomplete="family-name"
+                        >
+                    </div>
+                    
+                    <div class="">
+                        <input
+                            type="email"
+                            name="contact[email]"
+                            class="input-main-form"
+                            placeholder="Main Email"
+                            required
+                            autocomplete="email"
+                        >
+                    </div>
+                
+                    <div class="">
+                        <input
+                            type="tel"
+                            name="contact[phone]"
+                            class="input-main-form"
+                            placeholder="Phone Number"
+                            autocomplete="tel"
+                        >
+                    </div>
+                    
+                    <button type="submit" class="main-button-form">
+                        <span class="">
+                            Yes, send me offers & ideas!
+                        </span>
+                    </button>
+                    
+                    {%- if form.posted_successfully? -%}
+                        <div class="success-message">
+                            Thank you! Your message has been sent successfully.
+                        </div>
+                    {%- endif -%}
+                {% endform %}
+            </div>
+        </div>
+        {% if section.settings.image_second != blank %}
+            {{ section.settings.image_second | image_url: width: section.settings.image_second.width | image_tag: class: 'second-image-form' }}
+        {% endif %}
+    </div>
+</section>
+{% schema %}
+{
+    "name": "Section form",
+    "settings": [
+        {
+            "type": "color",
+            "id": "background_color",
+            "label": "Background"
+        },
+        {
+            "type": "richtext",
+            "id": "title",
+            "label": "Title"
+        },
+        {
+            "type": "richtext",
+            "id": "main_text",
+            "label": "Subtitle"
+        },
+        {
+            "type": "richtext",
+            "id": "main_text_mob",
+            "label": "Subtitle mobile"
+        },
+        {
+            "type": "image_picker",
+            "id": "image_first",
+            "label": "Image first"
+        },
+        {
+            "type": "image_picker",
+            "id": "image_second",
+            "label": "Image second"
+        },
+        {
+            "type": "header",
+            "content": "Desktop",
+        },
+        {
+            "type": "range",
+            "id": "padding_top",
+            "min": 0,
+            "max": 100,
+            "step": 1,
+            "unit": "px",
+            "label": "Padding top",
+            "default": 0
+        },
+        {
+            "type": "range",
+            "id": "padding_bottom",
+            "min": 0,
+            "max": 100,
+            "step": 1,
+            "unit": "px",
+            "label": "Padding bottom",
+            "default": 0
+        },
+        {
+            "type": "header",
+            "content": "Mobile",
+        },
+        {
+            "type": "range",
+            "id": "padding_top_mob",
+            "min": 0,
+            "max": 100,
+            "step": 1,
+            "unit": "px",
+            "label": "Padding top",
+            "default": 0
+        },
+        {
+            "type": "range",
+            "id": "padding_bottom_mob",
+            "min": 0,
+            "max": 100,
+            "step": 1,
+            "unit": "px",
+            "label": "Padding bottom",
+            "default": 0
+        }
+    ],
+    "presets": [
+        {
+            "name": "Section form"
+        }
+    ]
+}
+{% endschema %}

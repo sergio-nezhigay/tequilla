@@ -1,0 +1,171 @@
+{{ 'section-clean-tequila.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+.section-clean-tequila{
+    background-color: {{ section.settings.background_color }}; 
+    padding-top: {{ section.settings.padding_top }}px;
+    padding-bottom: {{ section.settings.padding_bottom }}px;
+}
+@media (max-width: 767px){
+    .section-clean-tequila{
+        padding-top: {{ section.settings.padding_top_mob }}px;
+        padding-bottom: {{ section.settings.padding_bottom_mob }}px;
+    }
+}
+{%- endstyle -%}
+
+<section class="section-clean-tequila" style="background-color: {{ section.settings.background_color }}">
+    <div class="conatiner-clean-tequila">
+        <div class="top-conatiner-clean-tequila">
+            <div class="container-first-clean-tequila" style="background-image: url({{ section.settings.background_first | image_url }})">
+                <div class="container-top-clean-tequila">
+                    {% if section.settings.image != blank %}
+                        {{ section.settings.image | image_url: width: section.settings.image.width | image_tag: class: "logo-clean-tequila"  }}
+                    {% endif %}
+                    {% if section.settings.text_btn != blank and  section.settings.main_url != blank %}
+                        <a class="clean-tequila-button-first" href="{{ section.settings.main_url }}">{{ section.settings.text_btn }}</a>
+                    {% endif %}
+                    {% if section.settings.text_btn_second != blank and  section.settings.main_url_second != blank %}
+                        <a class="clean-tequila-button-second" href="{{ section.settings.main_url_second }}">{{ section.settings.text_btn_second }}</a>
+                    {% endif %}
+                </div>
+            </div>
+            {% if section.settings.image_bottle != blank %}
+                {{ section.settings.image_bottle | image_url: width: section.settings.image_bottle.width | image_tag: class: "image-bottle-clean-tequila"  }}
+            {% endif %}
+            <div class="container-second-clean-tequila" style="background-image: url({{ section.settings.background_second | image_url }})">
+                <div class="container-images-second-clean-tequila">
+                    {% if section.settings.image_one != blank %}
+                        {{ section.settings.image_one | image_url: width: section.settings.image_one.width | image_tag: class: "image-first-clean-tequila"  }}
+                    {% endif %}
+                    {% if section.settings.image_two != blank %}
+                        {{ section.settings.image_two | image_url: width: section.settings.image_two.width | image_tag: class: "image-second-clean-tequila"  }}
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        {% if section.settings.main_text != blank %}
+            <div class="text-bottom-clean-tequila">{{ section.settings.main_text }}</div>
+        {% endif %}
+    </div>
+</section>
+{% schema %}
+{
+    "name": "section clean tequila",
+    "settings": [
+        {
+            "type": "richtext",
+            "id": "main_text",
+            "label": "Text"
+        },
+        {
+            "type": "color",
+            "id": "background_color",
+            "label": "Background"
+        },
+        {
+            "type": "image_picker",
+            "id": "background_first",
+            "label": "Banner first"
+        },
+        {
+            "type": "image_picker",
+            "id": "background_second",
+            "label": "Banner second"
+        },
+        {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Image logo"
+        },
+        {
+            "type": "image_picker",
+            "id": "image_bottle",
+            "label": "Image bottle"
+        },
+        {
+            "type": "image_picker",
+            "id": "image_one",
+            "label": "Image one"
+        },
+        {
+            "type": "image_picker",
+            "id": "image_two",
+            "label": "Image two"
+        },
+        {
+            "type": "text",
+            "id": "text_btn",
+            "label": "Text button first",
+        },
+        {
+            "type": "url",
+            "id": "main_url",
+            "label": "Url button first"
+        },
+        {
+            "type": "text",
+            "id": "text_btn_second",
+            "label": "Text button second",
+        },
+        {
+            "type": "url",
+            "id": "main_url_second",
+            "label": "Url button second"
+        },
+        {
+            "type": "header",
+            "content": "Desktop",
+        },
+        {
+            "type": "range",
+            "id": "padding_top",
+            "min": 0,
+            "max": 100,
+            "step": 1,
+            "unit": "px",
+            "label": "Padding top",
+            "default": 0
+        },
+        {
+            "type": "range",
+            "id": "padding_bottom",
+            "min": 0,
+            "max": 100,
+            "step": 1,
+            "unit": "px",
+            "label": "Padding bottom",
+            "default": 0
+        },
+        {
+            "type": "header",
+            "content": "Mobile",
+        },
+        {
+            "type": "range",
+            "id": "padding_top_mob",
+            "min": 0,
+            "max": 100,
+            "step": 1,
+            "unit": "px",
+            "label": "Padding top",
+            "default": 0
+        },
+        {
+            "type": "range",
+            "id": "padding_bottom_mob",
+            "min": 0,
+            "max": 100,
+            "step": 1,
+            "unit": "px",
+            "label": "Padding bottom",
+            "default": 0
+        }
+    ],
+    "presets": [
+        {
+            "name": "section clean tequila"
+        }
+    ]
+}
+{% endschema %}

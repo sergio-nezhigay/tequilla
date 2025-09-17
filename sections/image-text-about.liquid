@@ -1,0 +1,114 @@
+{{ 'image-text-about.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+.image-text-about-section{
+    background-color: {{ section.settings.background_color }}; 
+    padding-top: {{ section.settings.padding_top }}px;
+    padding-bottom: {{ section.settings.padding_bottom }}px;
+}
+@media (max-width: 767px){
+    .image-text-about-section{
+        padding-top: {{ section.settings.padding_top_mob }}px;
+        padding-bottom: {{ section.settings.padding_bottom_mob }}px;
+    }
+}
+{%- endstyle -%}
+
+<section class="image-text-about-section">
+    <div class="image-text-about-container">
+        {% if section.settings.title != blank %}
+            <div class="title-image-text-about">{{ section.settings.title }}</div>
+        {% endif %}
+        {% if section.settings.main_image != blank %}
+            {{ section.settings.main_image | image_url: width: section.settings.main_image.width | image_tag: class: "main-image-text-about" }}
+        {% endif %}
+        {% if section.settings.text_btn != blank and  section.settings.main_url != blank %}
+            <a class="btn-image-text-about" href="{{ section.settings.main_url }}">{{ section.settings.text_btn }}</a>
+        {% endif %}
+    </div>
+</section>
+{% schema %}
+{
+    "name": "Image with text about",
+    "settings": [
+        {
+            "type": "color",
+            "id": "background_color",
+            "label": "Background"
+        },
+        {
+            "type": "image_picker",
+            "id": "main_image",
+            "label": "Image"
+        },
+        {
+            "type": "richtext",
+            "id": "title",
+            "label": "Text"
+        },
+        {
+            "type": "text",
+            "id": "text_btn",
+            "label": "Text button",
+        },
+        {
+            "type": "url",
+            "id": "main_url",
+            "label": "Url button"
+        },
+        {
+            "type": "header",
+            "content": "Desktop",
+        },
+        {
+            "type": "range",
+            "id": "padding_top",
+            "min": 0,
+            "max": 100,
+            "step": 1,
+            "unit": "px",
+            "label": "Padding top",
+            "default": 0
+        },
+        {
+            "type": "range",
+            "id": "padding_bottom",
+            "min": 0,
+            "max": 100,
+            "step": 1,
+            "unit": "px",
+            "label": "Padding bottom",
+            "default": 0
+        },
+        {
+            "type": "header",
+            "content": "Mobile",
+        },
+        {
+            "type": "range",
+            "id": "padding_top_mob",
+            "min": 0,
+            "max": 100,
+            "step": 1,
+            "unit": "px",
+            "label": "Padding top",
+            "default": 0
+        },
+        {
+            "type": "range",
+            "id": "padding_bottom_mob",
+            "min": 0,
+            "max": 100,
+            "step": 1,
+            "unit": "px",
+            "label": "Padding bottom",
+            "default": 0
+        }
+    ],
+    "presets": [
+        {
+            "name": "Image with text about"
+        }
+    ]
+}
+{% endschema %}

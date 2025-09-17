@@ -33,6 +33,32 @@
   border-radius: 50%;
 }
 
+.swiper-button-next.swiper-button-next-testimonial svg{
+  width: auto;
+  height: auto;
+  left: 1px;
+}
+
+.swiper-button-prev.swiper-button-prev-testimonial svg{
+  width: auto;
+  height: auto;
+  transform: rotate(180deg);
+  right: 1px;
+}
+
+.swiper-button-next.swiper-button-next-testimonial {
+  right: -3px !important;
+  left: auto;
+  top: 48%;
+}
+
+.swiper-button-prev.swiper-button-prev-testimonial{
+  left: 1px !important;
+  right: auto;
+  top: 48%;
+
+}
+
 .section-testimonial .swiper {
   width: 1036px;
   height: 460px;

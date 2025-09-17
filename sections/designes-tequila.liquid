@@ -1,0 +1,198 @@
+{{ 'designed-tequila.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+.section-designed-tequila{
+    background-color: {{ section.settings.background_color }}; 
+    padding-top: {{ section.settings.padding_top }}px;
+    padding-bottom: {{ section.settings.padding_bottom }}px;
+}
+@media (max-width: 767px){
+    .section-designed-tequila{
+        padding-top: {{ section.settings.padding_top_mob }}px;
+        padding-bottom: {{ section.settings.padding_bottom_mob }}px;
+    }
+}
+{%- endstyle -%}
+
+{% assign left_blocks = section.blocks | where: "type", "left_block" %}
+{% assign left_length = left_blocks.size %}
+
+{% assign right_blocks = section.blocks | where: "type", "right_block" %}
+
+
+<section class="section-designed-tequila">
+    <div class="container-designed-tequila">
+        <div class="container-first-designed-tequila">
+            {% if section.settings.image_one_mob != blank %}
+                {{ section.settings.image_one_mob | image_url: width: section.settings.image_one_mob.width | image_tag: class: "image-second-designed-tequila_mob"  }}
+                {{ section.settings.image_one | image_url: width: section.settings.image_one.width | image_tag: class: "image-second-designed-tequila_desk"  }}
+            {% elsif section.settings.image_one != blank %}
+                {{ section.settings.image_one | image_url: width: section.settings.image_one.width | image_tag: class: "image-second-designed-tequila"  }}
+            {% endif %}
+            <div class="container-bottles-designed-tequila container-bottles-designed-tequila-first">
+                {% for block in left_blocks %}
+                    {% if block.settings.main_image != blank %}
+                        {% assign left_index = forloop.index0 %}
+                        {% assign z_index = left_length | minus: left_index %}
+                        <img 
+                            src="{{ block.settings.main_image | image_url: width: block.settings.main_image.width }}" 
+                            class="image-bottle-designed-tequila image-bottle-designed-tequila-left" 
+                            style="--i: {{ left_index }}; z-index: {{ z_index }};" 
+                        />
+                        
+                    {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+        <div class="center-container-designed-tequila">
+            {% if section.settings.image != blank %}
+                {{ section.settings.image | image_url: width: section.settings.image.width | image_tag: class: "logo-designed-tequila"  }}
+            {% endif %}
+            {% if section.settings.main_text != blank %}
+                <div class="text-center-designed-tequila">
+                    {{ section.settings.main_text }}
+                </div>
+            {% endif %}
+        </div>
+        <div class="container-second-designed-tequila">
+            {% if section.settings.image_two_mob != blank %}
+                {{ section.settings.image_two_mob | image_url: width: section.settings.image_two_mob.width | image_tag: class: "image-second-designed-tequila_mob"  }}
+                {{ section.settings.image_two | image_url: width: section.settings.image_two.width | image_tag: class: "image-second-designed-tequila_desk"  }}
+            {% elsif section.settings.image_two != blank %}
+                {{ section.settings.image_two | image_url: width: section.settings.image_two.width | image_tag: class: "image-second-designed-tequila"  }}
+            {% endif %}
+            <div class="container-bottles-designed-tequila container-bottles-designed-tequila-second">
+                {% for block in right_blocks %}
+                    {% if block.settings.main_image != blank %}
+                        {% assign right_index = forloop.index0 %}    
+                        <img 
+                            src="{{ block.settings.main_image | image_url: width: block.settings.main_image.width }}" 
+                            class="image-bottle-designed-tequila image-bottle-designed-tequila-right" 
+                            style="--i: {{ right_index }};" 
+                        />
+
+                    {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</section>
+{% schema %}
+{
+    "name": "Designed tequila",
+    "settings": [
+        {
+            "type": "color",
+            "id": "background_color",
+            "label": "Background"
+        },
+        {
+            "type": "richtext",
+            "id": "main_text",
+            "label": "Text"
+        },
+        {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Image logo"
+        },
+        {
+            "type": "image_picker",
+            "id": "image_one",
+            "label": "Image first"
+        },
+        {
+            "type": "image_picker",
+            "id": "image_one_mob",
+            "label": "Image first mobile"
+        },
+        {
+            "type": "image_picker",
+            "id": "image_two",
+            "label": "Image second"
+        },
+        {
+            "type": "image_picker",
+            "id": "image_two_mob",
+            "label": "Image second mobile"
+        },
+        {
+            "type": "header",
+            "content": "Desktop",
+        },
+        {
+            "type": "range",
+            "id": "padding_top",
+            "min": 0,
+            "max": 100,
+            "step": 1,
+            "unit": "px",
+            "label": "Padding top",
+            "default": 0
+        },
+        {
+            "type": "range",
+            "id": "padding_bottom",
+            "min": 0,
+            "max": 100,
+            "step": 1,
+            "unit": "px",
+            "label": "Padding bottom",
+            "default": 0
+        },
+        {
+            "type": "header",
+            "content": "Mobile",
+        },
+        {
+            "type": "range",
+            "id": "padding_top_mob",
+            "min": 0,
+            "max": 100,
+            "step": 1,
+            "unit": "px",
+            "label": "Padding top",
+            "default": 0
+        },
+        {
+            "type": "range",
+            "id": "padding_bottom_mob",
+            "min": 0,
+            "max": 100,
+            "step": 1,
+            "unit": "px",
+            "label": "Padding bottom",
+            "default": 0
+        }
+    ],
+    "blocks":[
+        {
+            "type": "left_block",
+            "name": "Left block",
+            "settings": [
+                {
+                    "type": "image_picker",
+                    "id": "main_image",
+                    "label": "Image"
+                }
+            ]
+        },
+        {
+            "type": "right_block",
+            "name": "Right block",
+            "settings": [
+                {
+                    "type": "image_picker",
+                    "id": "main_image",
+                    "label": "Image"
+                }
+            ]
+        }
+    ],
+    "presets": [
+        {
+            "name": "Designed tequila"
+        }
+    ]
+}
+{% endschema %}

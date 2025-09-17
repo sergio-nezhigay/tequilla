@@ -1,0 +1,200 @@
+.center-container-designed-tequila{
+    position: absolute; 
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 165px;
+    z-index: 9;
+    display: grid;
+    justify-items: center;
+}
+.image-bottle-designed-tequila-right{
+    width: 124px;
+    height: 616px
+}
+.image-bottle-designed-tequila-left{
+    width: 122px;
+    height: 616px;
+}
+.container-designed-tequila{
+    position: relative;
+    display: grid;
+    gap: 186px;
+    grid-template-columns: 645px 609px;
+    max-width: 1440px;
+    margin: 0 auto;
+    height: 723px;
+    overflow: hidden;
+}
+.image-second-designed-tequila_desk,
+.image-second-designed-tequila_mob,
+.image-second-designed-tequila{
+    width: 100%;
+    height: auto;
+    position: absolute;
+}
+.image-first-designed-tequila{
+    width: 645px;
+    height: 624px;
+    position: absolute;
+}
+.image-bottle-designed-tequila{
+    position: absolute;
+}
+.container-bottles-designed-tequila{
+    position: relative;
+    top: 111px;
+}
+.container-bottles-designed-tequila-first{
+    margin-left: 122px;
+}
+.container-bottles-designed-tequila-second{
+    margin-left: 190px;
+}
+
+.text-center-designed-tequila strong{
+    font-weight: 400;
+    color: #67B7A8;
+}
+.text-center-designed-tequila{
+    font-family: Futura Hv BT, Roundo, sans-serif;
+    font-weight: 400;
+    font-size: 60px;
+    line-height: 120%;
+    letter-spacing: 0;
+    text-align: center;
+    text-transform: uppercase;
+    color: #090909;
+}
+.image-bottle-designed-tequila {
+  position: absolute;
+  left: calc(var(--i) * 92px);
+}
+.container-first-designed-tequila,
+.container-second-designed-tequila{
+    position: relative;
+}
+.image-second-designed-tequila_mob{
+    display: none;
+}
+.logo-designed-tequila{
+    width: 126px;
+    height: 122px;
+}
+@media (max-width: 1439px) {
+  .image-bottle-designed-tequila {
+    left: calc(var(--i) * 55px);
+  }
+}
+@media (max-width: 1439px){
+    .container-designed-tequila{
+        max-width: 1024px;
+        grid-template-columns: 419px 419px;
+        height: 511px;
+    }
+    .center-container-designed-tequila{
+        bottom: 116px;
+    }
+    .text-center-designed-tequila{
+        font-size: 45px;
+    }
+    .image-bottle-designed-tequila{
+        position: absolute;
+        height: 400px;
+        width: 74px;
+    }
+    .image-second-designed-tequila_desk,
+    .image-second-designed-tequila_mob,
+    .image-second-designed-tequila,
+    .image-first-designed-tequila{
+        width: 100%;
+        height: auto;
+    }
+    .container-second-designed-tequila,
+    .container-first-designed-tequila{
+        position: relative;
+    }
+    .container-bottles-designed-tequila-first{
+        margin-left: 108px;
+    }
+    .container-bottles-designed-tequila-second{
+        margin-left: 127px;
+    }
+}
+@media (max-width: 1023px){
+    .container-designed-tequila{
+        max-width: 700px;
+        grid-template-columns: 1fr;
+        height: auto;
+        gap: 35px;
+    }
+    .container-second-designed-tequila{
+        padding-bottom: 12px;
+    }
+    .image-second-designed-tequila_desk,
+    .image-second-designed-tequila_mob,
+    .image-second-designed-tequila, 
+    .image-first-designed-tequila{
+        position: static;
+        height: 500px;
+        width: auto;
+    }
+    .center-container-designed-tequila{
+        position: static;
+        transform: none;
+    }
+    .container-second-designed-tequila, 
+    .container-first-designed-tequila{
+        margin: 0 auto;
+    }
+    .container-bottles-designed-tequila-second{
+        margin-left: 180px;
+    }
+    .container-bottles-designed-tequila-first{
+        margin-left: 156px;
+    }
+    .container-bottles-designed-tequila-second,
+    .container-bottles-designed-tequila-first{
+        position: absolute;
+    }
+    .image-second-designed-tequila_desk{
+        display: none;
+    }
+    .image-second-designed-tequila_mob{
+        display: block;
+    }
+}
+@media (max-width: 767px){
+    .container-first-designed-tequila{
+        margin: 0 auto;
+    }
+    .image-second-designed-tequila_mob{
+        width: 412px;
+        height: 372px;
+    }
+    .image-bottle-designed-tequila{
+        height: 370px;
+    }
+    .container-bottles-designed-tequila-first{
+        margin-left: 112px;
+        top: 72px
+    }
+    .center-container-designed-tequila{
+        max-width: 330px;
+        margin: 0 auto;
+        margin-top: 80px !important;
+    }
+    .text-center-designed-tequila{
+        font-size: 30px;
+    }
+    .container-designed-tequila{
+        justify-content: center;
+        gap: 0;
+    }
+    .container-bottles-designed-tequila-second{
+        margin-left: 112px;
+        top: 60px;
+    }
+    .container-second-designed-tequila{
+        padding-bottom: 58px;
+    }
+}

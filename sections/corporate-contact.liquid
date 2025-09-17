@@ -1,4 +1,8 @@
 <style>
+  [id*="corporate_contact"] {
+  background: #F1F1EE; 
+  }
+
   .project-contact {
     background-color: {{ section.settings.background_color | default: '#fdd8c6' }};
     {% if section.settings.background_image != blank %}

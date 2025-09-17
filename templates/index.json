@@ -37,9 +37,9 @@
         "description_size_desktop": 20,
         "description_size_mobile": 18,
         "max_width": "1440px",
-        "padding_top_desktop": 132,
+        "padding_top_desktop": 36,
         "padding_bottom_desktop": 0,
-        "padding_top_mobile": 130,
+        "padding_top_mobile": 50,
         "padding_bottom_mobile": 0,
         "custom_classes": "",
         "step_icon": "shopify://shop_images/im_92849612-19a2-4a3f-8046-88e711ce7b0a.png",
@@ -207,7 +207,7 @@
       ],
       "settings": {
         "show_heading": true,
-        "header_text": "Are you a |#090909---business|#67B7A8---owner|#FFB793---!|#090909",
+        "header_text": "Are you a |#090909---business|#67B7A8---owner|#FFB793---?|#090909",
         "step1_text": "1. |#090909---Book a Free |#FFB793---Design Call|#090909",
         "step1_details": "We'll learn about your occasion, style, and message.",
         "step2_text": "2. We Create Your|#090909---Custom Bottle|#67B7A8",
@@ -254,9 +254,9 @@
       "settings": {
         "max_width": "1440",
         "padding_top_mobile": 30,
-        "padding_bottom_mobile": 100,
+        "padding_bottom_mobile": 35,
         "padding_top_desktop": 100,
-        "padding_bottom_desktop": 0,
+        "padding_bottom_desktop": 100,
         "section_bg_color": "#f3f3f3",
         "bg_pattern_image": "shopify://shop_images/bg-flower.png",
         "bg_pattern_opacity": 100,
@@ -482,7 +482,7 @@
         "text_btn": "Create your own tequila",
         "main_url": "shopify://pages/our-tequila",
         "padding_top": 100,
-        "padding_bottom": 0,
+        "padding_bottom": 100,
         "padding_top_mob": 40,
         "padding_bottom_mob": 0
       }
@@ -491,6 +491,11 @@
       "type": "create-own-tequila",
       "name": "Tequila Moments",
       "settings": {
+        "section_background": "rgba(0,0,0,0)",
+        "padding_top_desktop": 0,
+        "padding_bottom_desktop": 40,
+        "padding_top_mobile": 30,
+        "padding_bottom_mobile": 40,
         "heading_part1": "Make",
         "heading_highlight": "unforgettable moments",
         "heading_part2": "generate referral, deepen loyalty and position you above the noise",
@@ -498,7 +503,7 @@
         "decoration_image": "shopify://shop_images/Group_72_dddd74f8-e058-4765-a103-5c39a9c3f2d4.png",
         "cta_text": "Create your own tequila",
         "cta_url": "",
-        "background_color": "#fdd8c6",
+        "background_color": "#ffb793",
         "text_color": "#090909",
         "highlight_color": "#67b7a8",
         "button_background": "#67b7a8",
@@ -509,6 +514,11 @@
       "type": "custom-contact-form",
       "name": "Contact Form",
       "settings": {
+        "section_background": "#f1f1ee",
+        "padding_top_desktop": 60,
+        "padding_bottom_desktop": 80,
+        "padding_top_mobile": 0,
+        "padding_bottom_mobile": 10,
         "title_highlight": "Contact",
         "title_normal": "Form",
         "subtitle": "<p>Receive <strong>info</strong>, <strong>tips</strong> on how to design your <strong>label</strong>, and <strong>special offer</strong>!</p>",
@@ -561,10 +571,13 @@
         "instagram_post_g3GCLV",
         "instagram_post_gxXRjc"
       ],
+      "custom_css": [
+        "@media (max-width: 480px) {.instagram-feed {padding: 26px 0 !important; }}"
+      ],
       "name": "Instagram Feed",
       "settings": {
         "instagram_handle": "inbarrelofficial",
-        "background_color": "#ffffff",
+        "background_color": "#f1f1ee",
         "text_color": "#090909",
         "highlight_color": "#67b7a8",
         "border_color": "#e5e5e5"

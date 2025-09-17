@@ -35,9 +35,9 @@
         "description_size_desktop": 20,
         "description_size_mobile": 18,
         "max_width": "1440px",
-        "padding_top_desktop": 110,
+        "padding_top_desktop": 10,
         "padding_bottom_desktop": 0,
-        "padding_top_mobile": 100,
+        "padding_top_mobile": 20,
         "padding_bottom_mobile": 0,
         "custom_classes": "",
         "step_icon": "shopify://shop_images/im_92849612-19a2-4a3f-8046-88e711ce7b0a.png",
@@ -45,6 +45,45 @@
         "step2_text": "PERSONALIZE LABEL",
         "step3_text": "PLACE ORDER",
         "step4_text": "ENJOY"
+      }
+    },
+    "our_tequila_video_wWrixF": {
+      "type": "our-tequila-video",
+      "name": "Our Tequila Video",
+      "settings": {
+        "max_width": "1440",
+        "padding_top_desktop": 90,
+        "padding_bottom_desktop": 50,
+        "padding_top_mobile": 40,
+        "padding_bottom_mobile": 0,
+        "section_background": "radial-gradient(rgba(243, 243, 243, 1), rgba(241, 241, 238, 1) 100%)",
+        "custom_classes": "",
+        "uploaded_video": "https://cdn.shopify.com/videos/c/o/v/8b5353e9f64043ae8b09b0b9809fe738.mp4",
+        "video_thumbnail": "shopify://shop_images/Generated_Image_September_03_2025_-_1_40PM.webp",
+        "title_part1": "This is tequila worthy",
+        "title_part2": "of your name,",
+        "title_part3": "your brand,",
+        "title_part4": "or",
+        "title_part5": "your occasion.",
+        "title_color_part1": "#090909",
+        "title_color_part2": "#ffb793",
+        "title_color_part3": "#67b7a8",
+        "title_color_part4": "#090909",
+        "title_color_part5": "#ffb793",
+        "title_size_desktop": 48,
+        "title_size_mobile": 28,
+        "description": "We’ve partnered with El Mexicano, a 3 generation, family-owned distillery ranked among the top 20 tequila producers in the world, to craft a blanco tequila that reflects both tradition and excellence.",
+        "description_color": "#000000",
+        "description_size_desktop": 20,
+        "description_size_mobile": 18,
+        "cta_text": "CREATE YOUR OWN TEQUILA",
+        "cta_url": "shopify://pages/contact",
+        "cta_background": "linear-gradient(90deg, rgba(103, 183, 168, 1), rgba(103, 183, 168, 1) 99%)",
+        "cta_text_color": "#1c1c1c",
+        "cta_hover_background": "linear-gradient(90deg, rgba(255, 155, 127, 1), rgba(255, 155, 127, 1) 100%)",
+        "cta_hover_text_color": "#1c1c1c",
+        "cta_font_size_desktop": 18,
+        "cta_font_size_mobile": 16
       }
     },
     "steps": {
@@ -200,11 +239,285 @@
         "accent_color": "#65c4aa",
         "custom_class": ""
       }
+    },
+    "own_tequila_TLnxYz": {
+      "type": "own-tequila",
+      "name": "Own tequila",
+      "settings": {
+        "background_color": "#f1f1ee",
+        "image": "shopify://shop_images/Group_155.png",
+        "image_logo_one": "shopify://shop_images/Group_154.png",
+        "title_block": "<p>Our first distillery partner sets the standard for what tequila should be: <br/><strong>Clean. Honest. Personal.<br/></strong>Whether you’re creating a bottle for yourself, your team, or your brand — this is tequila worth being proud of.</p>",
+        "image_main": "shopify://shop_images/Group_126.png",
+        "text_btn": "Create your own tequila",
+        "main_url": "shopify://pages/our-tequila",
+        "padding_top": 60,
+        "padding_bottom": 100,
+        "padding_top_mob": 31,
+        "padding_bottom_mob": 40
+      }
+    },
+    "clean_tequila_gB4cAa": {
+      "type": "clean-tequila",
+      "name": "section clean tequila",
+      "settings": {
+        "main_text": "<p>Smooth. <strong>Clean.</strong> Vibrant.</p>",
+        "background_color": "#f1f1ee",
+        "background_first": "shopify://shop_images/Rectangle_105.png",
+        "background_second": "shopify://shop_images/Rectangle_107.png",
+        "image": "shopify://shop_images/BG_Tequila_Logo-03_5.png",
+        "image_bottle": "shopify://shop_images/3_2_1.png",
+        "image_one": "shopify://shop_images/Rectangle_109_1.png",
+        "image_two": "shopify://shop_images/Rectangle_110.png",
+        "text_btn": "Design Your Bottle Now",
+        "main_url": "shopify://pages/our-tequila",
+        "text_btn_second": "Book a Call for Bulk Orders",
+        "main_url_second": "shopify://pages/contact",
+        "padding_top": 10,
+        "padding_bottom": 100,
+        "padding_top_mob": 0,
+        "padding_bottom_mob": 40
+      }
+    },
+    "section_testimonial_fFUgLa": {
+      "type": "section-testimonial",
+      "blocks": {
+        "block_88pz4A": {
+          "type": "block",
+          "settings": {
+            "image": "shopify://shop_images/Group_75.png",
+            "image_mob": "shopify://shop_images/Group_178.png",
+            "description": "<p>“I gave this to a client after we closed a huge deal. His entire team took photos with the bottle — it’s the first time a gift actually felt memorable.”</p>",
+            "name_text": "<p>– Marcus H., Founder,</p>",
+            "title_text": "<p>NYC Real Estate Group</p>"
+          }
+        },
+        "block_6rF6he": {
+          "type": "block",
+          "settings": {
+            "image": "shopify://shop_images/Group_75.png",
+            "image_mob": "shopify://shop_images/Group_178.png",
+            "description": "<p>“I gave this to a client after we closed a huge deal. His entire team took photos with the bottle — it’s the first time a gift actually felt memorable.”</p>",
+            "name_text": "<p>– Marcus H., Founder,</p>",
+            "title_text": "<p>NYC Real Estate Group</p>"
+          }
+        },
+        "block_WwtzyJ": {
+          "type": "block",
+          "settings": {
+            "image": "shopify://shop_images/Group_75.png",
+            "image_mob": "shopify://shop_images/Group_178.png",
+            "description": "<p>“I gave this to a client after we closed a huge deal. His entire team took photos with the bottle — it’s the first time a gift actually felt memorable.”</p>",
+            "name_text": "<p>– Marcus H., Founder,</p>",
+            "title_text": "<p>NYC Real Estate Group</p>"
+          }
+        },
+        "block_fFgT4b": {
+          "type": "block",
+          "settings": {
+            "image": "shopify://shop_images/Group_75.png",
+            "image_mob": "shopify://shop_images/Group_178.png",
+            "description": "<p>“I gave this to a client after we closed a huge deal. His entire team took photos with the bottle — it’s the first time a gift actually felt memorable.”</p>",
+            "name_text": "<p>– Marcus H., Founder,</p>",
+            "title_text": "<p>NYC Real Estate Group</p>"
+          }
+        },
+        "block_YDRkVU": {
+          "type": "block",
+          "settings": {
+            "image": "shopify://shop_images/Group_75.png",
+            "image_mob": "shopify://shop_images/Group_178.png",
+            "description": "<p>“I gave this to a client after we closed a huge deal. His entire team took photos with the bottle — it’s the first time a gift actually felt memorable.”</p>",
+            "name_text": "<p>– Marcus H., Founder,</p>",
+            "title_text": "<p>NYC Real Estate Group</p>"
+          }
+        }
+      },
+      "block_order": [
+        "block_88pz4A",
+        "block_6rF6he",
+        "block_WwtzyJ",
+        "block_fFgT4b",
+        "block_YDRkVU"
+      ],
+      "name": "Section testimonial",
+      "settings": {
+        "background_color": "#f1f1ee",
+        "title": "Testimonial",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "padding_top_mob": 0,
+        "padding_bottom_mob": 0
+      }
+    },
+    "section_form_GcnBww": {
+      "type": "section-form",
+      "name": "Section form",
+      "settings": {
+        "background_color": "#f1f1ee",
+        "title": "<p><strong>Contact </strong>Form</p>",
+        "main_text": "<p>Receive <strong>info, tips </strong>on how to design your <strong>label</strong>, and <strong>special offer!</strong></p>",
+        "main_text_mob": "<p>Receive <strong>info, tips </strong>on how to design your <strong>label</strong>, and <strong>special offer!</strong></p>",
+        "image_first": "shopify://shop_images/bg_2_5e9bc691-229f-446f-9e70-a8bcb7674a5c.png",
+        "image_second": "shopify://shop_images/image_2.png",
+        "padding_top": 100,
+        "padding_bottom": 40,
+        "padding_top_mob": 40,
+        "padding_bottom_mob": 10
+      }
+    },
+    "instafeed_RaE9LL": {
+      "type": "instafeed",
+      "blocks": {
+        "instagram_post_VtDk9a": {
+          "type": "instagram_post",
+          "settings": {
+            "post_image": "shopify://shop_images/47026e7010cda3fd55e0c21b60736d55789a6672.jpg",
+            "post_url": ""
+          }
+        },
+        "instagram_post_WdjhWT": {
+          "type": "instagram_post",
+          "settings": {
+            "post_image": "shopify://shop_images/173bdd8077c50922de450bc10c18a9864a254bbf.png",
+            "post_url": ""
+          }
+        },
+        "instagram_post_rtyBgF": {
+          "type": "instagram_post",
+          "settings": {
+            "post_image": "shopify://shop_images/52a7f159b11e3608fb041458f3e2d9d770712188.jpg",
+            "post_url": ""
+          }
+        },
+        "instagram_post_MPcxg7": {
+          "type": "instagram_post",
+          "settings": {
+            "post_image": "shopify://shop_images/6d35ff77c3db63cf905bf62fd0fbcce3c6093e16.png",
+            "post_url": ""
+          }
+        }
+      },
+      "block_order": [
+        "instagram_post_VtDk9a",
+        "instagram_post_WdjhWT",
+        "instagram_post_rtyBgF",
+        "instagram_post_MPcxg7"
+      ],
+      "name": "Instagram Feed",
+      "settings": {
+        "instagram_handle": "inbarrelofficial",
+        "background_color": "#f1f1eeff",
+        "text_color": "#090909",
+        "highlight_color": "#67b7a8",
+        "border_color": "#e5e5e5"
+      }
+    },
+    "footer_custom_AFdmhw": {
+      "type": "footer-custom",
+      "blocks": {
+        "navigation_link_FeqDem": {
+          "type": "navigation_link",
+          "settings": {
+            "label": "Home",
+            "url": ""
+          }
+        },
+        "navigation_link_r7Kdgd": {
+          "type": "navigation_link",
+          "settings": {
+            "label": "Personalize",
+            "url": ""
+          }
+        },
+        "navigation_link_JJxEaK": {
+          "type": "navigation_link",
+          "settings": {
+            "label": "Corporate",
+            "url": ""
+          }
+        },
+        "navigation_link_G8rHYx": {
+          "type": "navigation_link",
+          "settings": {
+            "label": "About us",
+            "url": ""
+          }
+        },
+        "navigation_link_dpDnPA": {
+          "type": "navigation_link",
+          "settings": {
+            "label": "Our Tequila",
+            "url": ""
+          }
+        },
+        "social_link_LD9Whw": {
+          "type": "social_link",
+          "settings": {
+            "label": "li",
+            "url": "",
+            "highlight": false
+          }
+        },
+        "social_link_iFcVjK": {
+          "type": "social_link",
+          "settings": {
+            "label": "fb",
+            "url": "",
+            "highlight": true
+          }
+        },
+        "social_link_4NetdT": {
+          "type": "social_link",
+          "settings": {
+            "label": "in",
+            "url": "",
+            "highlight": false
+          }
+        }
+      },
+      "block_order": [
+        "navigation_link_FeqDem",
+        "navigation_link_r7Kdgd",
+        "navigation_link_JJxEaK",
+        "navigation_link_G8rHYx",
+        "navigation_link_dpDnPA",
+        "social_link_LD9Whw",
+        "social_link_iFcVjK",
+        "social_link_4NetdT"
+      ],
+      "name": "Footer",
+      "settings": {
+        "brand_text": "InBarrel",
+        "brand_texture": "shopify://shop_images/orange-background.png",
+        "background_pattern": "shopify://shop_images/1_23456791_1d01bc29-da3b-4964-bd43-0c2b61f2954a.png",
+        "links_title": "Links",
+        "newsletter_title": "Let's work together",
+        "email_placeholder": "Email",
+        "submit_text": "Submit",
+        "contact_title": "Contact us",
+        "contact_email": "hola@inbarrel.com",
+        "contact_address": "800 4th Ave, Grinnell, IA 50112",
+        "copyright": "© InBarrel Tequila 2023. All rights reserved.",
+        "background_color": "#f1f1ee",
+        "text_color": "#090909",
+        "text_muted": "#09090999",
+        "highlight_color": "#67b7a8",
+        "border_color": "#090909",
+        "button_bg": "#67b7a8"
+      }
     }
   },
   "order": [
     "index_hero",
+    "our_tequila_video_wWrixF",
     "steps",
-    "what_you_ll_taste"
+    "what_you_ll_taste",
+    "own_tequila_TLnxYz",
+    "clean_tequila_gB4cAa",
+    "section_testimonial_fFUgLa",
+    "section_form_GcnBww",
+    "instafeed_RaE9LL",
+    "footer_custom_AFdmhw"
   ]
 }

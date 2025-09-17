@@ -328,6 +328,7 @@
     margin: 0 auto;
     position: relative;
     z-index: 3;
+    margin-bottom: 74px;
   }
 
   #section-{{ section.id }} .tps-footer {
@@ -349,6 +350,7 @@
     display: flex;
     align-items: center;
     justify-content: flex-start;
+    zoom: 1.35;
   }
 
   #section-{{ section.id }} .tps-footer-image {
@@ -533,6 +535,9 @@
 
   {% if section.settings.mobile_order == 'image_first' %}
     @media (max-width: 1024px) {
+      .tps-footer-row {
+        margin-bottom:0 !important;
+      }
       #section-{{ section.id }} .tps-wrapper {
         flex-direction: column-reverse;
       }

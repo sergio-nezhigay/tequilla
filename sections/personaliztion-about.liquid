@@ -1,0 +1,181 @@
+{{ 'personalization-about.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+.personalization-section{
+    background-color: {{ section.settings.background_color }}; 
+    padding-top: {{ section.settings.padding_top }}px;
+    padding-bottom: {{ section.settings.padding_bottom }}px;
+}
+@media (max-width: 767px){
+    .personalization-section{
+        padding-top: {{ section.settings.padding_top_mob }}px;
+        padding-bottom: {{ section.settings.padding_bottom_mob }}px;
+    }
+}
+{%- endstyle -%}
+
+<section class="personalization-section">
+    <div class="personalization-container">
+        {% if section.settings.title != blank %}
+            <div class="title-main-personalization">{{ section.settings.title }}</div>
+        {% endif %}
+        <div class="personalization-container-images">
+            
+            {% for block in section.blocks %}
+                {% if block.type == 'left_block' %}
+                    <div class="personalization-container-image">
+                        {% if block.settings.main_image != blank %}
+                            {{ block.settings.main_image | image_url: width: block.settings.main_image.width | image_tag: class: "container-image-personalization personalization-container-images-left" }}
+                        {% endif %}
+                        {% if block.settings.tex_main != blank %}
+                            <div class="title-container-personalization">{{ block.settings.tex_main }}</div>
+                        {% endif %}
+                    </div>
+                {% endif %}
+            {% endfor %}
+            
+            {% if section.settings.image_bottle != blank %}
+                {{ section.settings.image_bottle | image_url: width: section.settings.image_bottle.width | image_tag: class: "bottle-main-personalization" }}
+            {% endif %}
+            
+            {% for block in section.blocks %}
+                {% if block.type == 'right_block' %}
+                    <div class="personalization-container-image">
+                        {% if block.settings.tex_main != blank %}
+                            <div class="title-container-personalization">{{ block.settings.tex_main }}</div>
+                        {% endif %}
+                        
+                        {% if block.settings.main_image != blank %}
+                            {{ block.settings.main_image | image_url: width: block.settings.main_image.width | image_tag: class: "container-image-personalization personalization-container-images-right" }}
+                        {% endif %}
+                    </div>
+                {% endif %}
+            {% endfor %}
+
+        </div>
+        {% if section.settings.text_btn != blank and  section.settings.main_url != blank %}
+            <a class="btn-main-personalization" href="{{ section.settings.main_url }}">{{ section.settings.text_btn }}</a>
+        {% endif %}
+    </div>
+</section>
+{% schema %}
+{
+    "name": "Personalization about",
+    "settings": [
+        {
+            "type": "color",
+            "id": "background_color",
+            "label": "Background color main"
+        },
+        {
+            "type": "image_picker",
+            "id": "image_bottle",
+            "label": "Image bottle"
+        },
+        {
+            "type": "richtext",
+            "id": "title",
+            "label": "Title"
+        },
+        {
+            "type": "text",
+            "id": "text_btn",
+            "label": "Text button",
+        },
+        {
+            "type": "url",
+            "id": "main_url",
+            "label": "Url button"
+        },
+        {
+            "type": "header",
+            "content": "Desktop",
+        },
+        {
+            "type": "range",
+            "id": "padding_top",
+            "min": 0,
+            "max": 100,
+            "step": 1,
+            "unit": "px",
+            "label": "Padding top",
+            "default": 0
+        },
+        {
+            "type": "range",
+            "id": "padding_bottom",
+            "min": 0,
+            "max": 100,
+            "step": 1,
+            "unit": "px",
+            "label": "Padding bottom",
+            "default": 0
+        },
+        {
+            "type": "header",
+            "content": "Mobile",
+        },
+        {
+            "type": "range",
+            "id": "padding_top_mob",
+            "min": 0,
+            "max": 100,
+            "step": 1,
+            "unit": "px",
+            "label": "Padding top",
+            "default": 0
+        },
+        {
+            "type": "range",
+            "id": "padding_bottom_mob",
+            "min": 0,
+            "max": 100,
+            "step": 1,
+            "unit": "px",
+            "label": "Padding bottom",
+            "default": 0
+        }
+    ],
+    "blocks": [
+        {
+            "type": "left_block",
+            "name": "Left block",
+            "limit": 1,
+            "settings": [
+                {
+                    "type": "image_picker",
+                    "id": "main_image",
+                    "label": "Image"
+                },
+                {
+                    "type": "richtext",
+                    "id": "tex_main",
+                    "label": "text"
+                },
+            ]
+        },
+        {
+            "type": "right_block",
+            "name": "Right block",
+            "limit": 1,
+            "settings": [
+                {
+                    "type": "image_picker",
+                    "id": "main_image",
+                    "label": "Image"
+                },
+                {
+                    "type": "richtext",
+                    "id": "tex_main",
+                    "label": "text"
+                },
+            ]
+        }
+    ],
+    "presets": [
+        {
+            "name": "Personalization about"
+        }
+    ]
+}
+{% endschema %}

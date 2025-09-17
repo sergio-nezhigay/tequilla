@@ -55,10 +55,20 @@
         "padding_top": 20,
         "padding_bottom": 20
       }
+    },
+    "header_new_P8c6kD": {
+      "type": "header-new",
+      "name": "Tequila Header",
+      "settings": {
+        "logo": "shopify://shop_images/8470296ed5dc5571e49e6c2ddde18abc59d396d1.png",
+        "menu": "tequila",
+        "sticky_header": false
+      }
     }
   },
   "order": [
     "announcement-bar",
-    "header"
+    "header",
+    "header_new_P8c6kD"
   ]
 }

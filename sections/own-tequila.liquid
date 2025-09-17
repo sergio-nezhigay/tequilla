@@ -1,0 +1,133 @@
+{{ 'own-tequila.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+.main-own-tequila{
+    background-color: {{ section.settings.background_color }}; 
+    padding-top: {{ section.settings.padding_top }}px;
+    padding-bottom: {{ section.settings.padding_bottom }}px;
+}
+@media (max-width: 767px){
+    .main-own-tequila{
+        padding-top: {{ section.settings.padding_top_mob }}px;
+        padding-bottom: {{ section.settings.padding_bottom_mob }}px;
+    }
+}
+{%- endstyle -%}
+<section class="main-own-tequila" style="background-color: {{ section.settings.background_color }}">
+    <div class="main-container-own-tequila">
+        <div class="top-container-own-tequila">
+            {% if section.settings.image != blank %}
+                {{ section.settings.image | image_url: width: section.settings.image.width | image_tag: class: "logo_one" }}
+            {% endif %}
+            {% if section.settings.image_logo_one != blank %}
+                {{ section.settings.image_logo_one | image_url: width: section.settings.image_logo_one.width | image_tag: class: "logo_two" }}
+            {% endif %}
+        </div>
+        {% if section.settings.title_block != blank %}
+            <div class='text-main-own-tequila'>
+                {{ section.settings.title_block }}
+            </div>
+        {% endif %}
+        {% if section.settings.image_main != blank %}
+            {{ section.settings.image_main | image_url: width: section.settings.image_main.width | image_tag: class: "main-image-own-tequila" }}
+        {% endif %}
+        {% if section.settings.text_btn != blank and  section.settings.main_url != blank %}
+            <a class="main-btn-own-tequila" href="{{ section.settings.main_url }}">{{ section.settings.text_btn }}</a>
+        {% endif %}
+    </div>
+</section>
+{% schema %}
+{
+    "name": "Own tequila",
+    "settings": [
+        {
+            "type": "color",
+            "id": "background_color",
+            "label": "Background"
+        },
+        {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Image logo"
+        },
+        {
+            "type": "image_picker",
+            "id": "image_logo_one",
+            "label": "Image logo one"
+        },
+        {
+            "type": "richtext",
+            "id": "title_block",
+            "label": "Title bloks"   
+        },
+        {
+            "type": "image_picker",
+            "id": "image_main",
+            "label": "Image"
+        },
+        {
+            "type": "text",
+            "id": "text_btn",
+            "label": "Text button",
+        },
+        {
+            "type": "url",
+            "id": "main_url",
+            "label": "Url button"
+        },
+        {
+            "type": "header",
+            "content": "Desktop",
+        },
+        {
+            "type": "range",
+            "id": "padding_top",
+            "min": 0,
+            "max": 100,
+            "step": 1,
+            "unit": "px",
+            "label": "Padding top",
+            "default": 0
+        },
+        {
+            "type": "range",
+            "id": "padding_bottom",
+            "min": 0,
+            "max": 100,
+            "step": 1,
+            "unit": "px",
+            "label": "Padding bottom",
+            "default": 0
+        },
+        {
+            "type": "header",
+            "content": "Mobile",
+        },
+        {
+            "type": "range",
+            "id": "padding_top_mob",
+            "min": 0,
+            "max": 100,
+            "step": 1,
+            "unit": "px",
+            "label": "Padding top",
+            "default": 0
+        },
+        {
+            "type": "range",
+            "id": "padding_bottom_mob",
+            "min": 0,
+            "max": 100,
+            "step": 1,
+            "unit": "px",
+            "label": "Padding bottom",
+            "default": 0
+        }
+    ],
+    "presets": [
+        {
+            "name": "Own tequila"
+        }
+    ]
+}
+{% endschema %}

@@ -22,14 +22,14 @@
     background-position: center bottom;
     background-size: contain;
     {% endif %}
-    padding: 86px 0 0 0;
+    padding: 74px 0 0 0;
   }
 
   .shopify-section .site-footer .footer-content {
     width: 100%;
     max-width: 1328px;
     margin: 0 auto;
-    padding: 0px 40px 0px;
+    padding: 0px 57px 0px;
     display: flex;
     flex-direction: column;
   }
@@ -168,7 +168,7 @@
   .shopify-section .site-footer .contact-info {
     display: flex;
     flex-direction: column;
-    gap: 8px;
+    gap: 27px;
     align-items: flex-end;
   }
 
@@ -197,24 +197,26 @@
     line-height: 1.2;
     text-align: center;
     text-transform: capitalize;
+
   }
 
   .shopify-section .site-footer .social-links {
     display: flex;
     gap: 16px;
     align-items: center;
-    margin-top: 24px;
+    margin-top: 29px;
     justify-content: flex-end;
+    margin-right: -8px;
   }
 
   .shopify-section .site-footer .social-link {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 50px;
-    height: 50px;
+    width: 40px;
+    height: 40px;
     border: 2px solid var(--text-primary);
-    border-radius: 90px; /* Exact radius from Figma */
+    border-radius: 90px; 
     text-decoration: none;
     transition: all 0.2s ease;
     flex-shrink: 0;
@@ -352,7 +354,12 @@
     }
   }
 
-  /* Large tablets and small desktops */
+    @media (min-width: 1024px) {
+.shopify-section .site-footer .copyright {
+    position: absolute;
+    bottom: 245px;
+  }
+}
   @media (max-width: 1200px) {
     .shopify-section .site-footer .footer-brand-text {
       font-size: 200px;
@@ -363,7 +370,7 @@
 
   @media (max-width: 768px) {
     .shopify-section .site-footer {
-      padding: 48px 0 0px 0;
+      padding: 40px 0 0px 0;
       min-height: auto;
     }
 
@@ -397,7 +404,7 @@
 
     .shopify-section .site-footer .footer-newsletter h3 {
       font-size: 24px;
-      margin-bottom: 24px;
+      margin-bottom: 10px;
       text-align: left;
     }
 
@@ -447,13 +454,13 @@
 
     .shopify-section .site-footer .footer-links h3 {
       font-size: 24px;
-      margin-bottom: 24px;
+      margin-bottom: 20px;
       text-align: left;
     }
 
     .shopify-section .site-footer .footer-links a {
       font-size: 18px;
-      margin-bottom: 16px;
+      margin-bottom: 20px;
       text-align: left;
       display: block;
     }
@@ -480,7 +487,7 @@
     .shopify-section .site-footer .contact-info {
       align-items: flex-start;
       text-align: left;
-      gap: 8px;
+      gap: 27px;
       margin-bottom: 24px;
     }
 

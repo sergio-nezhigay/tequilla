@@ -1,0 +1,147 @@
+
+.container-about-tequila{
+    max-width: 1216px;
+    margin: 0 auto;
+    background-repeat: no-repeat;
+    display: grid;
+    grid-template-columns: 587px 528px;
+    gap: 21px;
+    align-items: center;
+    justify-content: center;
+    padding: 75px 0 114px 0;
+}
+.main-title-about-tequila{
+    font-family: Futura Hv BT, Roundo, sans-serif;
+    font-weight: 400;
+    font-size: 60px;
+    line-height: 120%;
+    letter-spacing: 0;
+    text-transform: uppercase;
+}
+
+@media (min-width: 1025px) {
+  .main-title-about-tequila {
+    margin-top: 47px;
+  }
+}
+
+
+.main-title-about-tequila strong{
+    color: #67B7A8;
+}
+.main-subtitle-about-tequila{
+    font-family: Roundo, Arial, sans-serif;
+    font-weight: 400;
+    padding: 20px 0 30px 0;
+    font-size: 20px;
+    line-height: 165%;
+    letter-spacing: 0;
+}
+.main-subtitle-about-tequila strong{
+    font-weight: 600;
+}
+.btn-main-about-tequila{
+    background: #67B7A8;
+    min-width: 419px;
+    width: fit-content;
+    min-height: 82px;
+    border: 2px solid #090909;
+    border-radius: 90px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Futura Hv BT, Roundo, sans-serif;
+    color: #090909;
+    text-decoration: none;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 120%;
+    letter-spacing: 0;
+    text-transform: uppercase;
+    transition: background .3s, color .3s;
+}
+.btn-main-about-tequila:hover, 
+.btn-main-about-tequila:focus {
+    background: #ffb793;
+    color: #090909;
+    border-color: #090909;
+}
+.container-images-about-tequila{
+    position: relative;
+}
+.image-second-about-tequila{
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 134px;
+}
+@media (max-width: 1439px){
+    .container-about-tequila{
+        max-width: 950px;
+        grid-template-columns: 1fr 370px;
+        padding-left: 25px;
+        padding-right: 25px;
+        border-radius: 30px;
+        gap: 33px;
+        align-items: flex-start;
+    }
+    .main-title-about-tequila{
+        font-size: 42px;
+    }
+    .main-subtitle-about-tequila{
+        font-size: 18px;
+    }
+    .image-second-about-tequila{
+        height: 400px;
+        top: 110px;
+        width: auto;
+    }
+    .image-first-about-tequila{
+        width: 363px;
+        height: auto;
+    }
+}
+@media (max-width: 1023px){
+    .container-about-tequila{
+        max-width: 700px;
+        grid-template-columns: 1fr;
+        background-size: cover;    
+        padding: 56px 45px 150px 45px;
+    }
+    .btn-main-about-tequila{
+        margin: 0 auto;
+    }
+    .container-images-about-tequila{
+        width: fit-content;
+        margin: 0 auto;
+    }
+    .main-title-about-tequila{
+        font-size: 39px;
+    }
+}
+@media (max-width: 767px){
+     .main-subtitle-about-tequila{ 
+        padding: 10px 0;
+     }
+    .container-about-tequila{
+        gap: 20px;
+        max-width: 370px;
+        padding: 30px 10px 47px;
+    }
+    .image-first-about-tequila{
+        width: 100%;
+    }
+    .image-second-about-tequila{
+        top: 88px;
+        width: 200px;
+        height: auto;
+    }
+    .main-title-about-tequila{
+        font-size: 30px;
+    }
+    .btn-main-about-tequila{
+        min-width: 350px;
+        min-height: 79px;
+        font-size: 16px;
+    }
+}

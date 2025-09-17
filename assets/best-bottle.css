@@ -81,7 +81,7 @@
   font-family: Roundo, Arial, sans-serif;
   font-weight: 400;
   font-size: 18px;
-  line-height: 165%;
+  line-height: 174%;
   letter-spacing: 0;
   text-align: right;
 }
@@ -97,7 +97,7 @@
   font-size: 20px;
   line-height: 120%;
   letter-spacing: 0;
-  padding-top: 30px;
+  padding-top: 20px;
 }
 @media (max-width: 1439px) {
   .containe-best-bottle {
@@ -130,7 +130,7 @@
   .container-block-best-bottle {
     flex-direction: column;
     gap: 10px;
-    padding-bottom: 10px;
+    padding-bottom: 5px;
   }
   .main-title-best-bottle {
     font-size: 20px;
@@ -156,5 +156,9 @@
     font-size: 30px;
     max-width: 330px;
     margin: 0 auto;
+    padding-bottom: 10px;
+  }
+  .container-blocks-best-bottle{
+    padding-top: 10px;
   }
 }

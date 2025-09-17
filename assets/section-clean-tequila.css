@@ -1,0 +1,241 @@
+.top-conatiner-clean-tequila{
+    display: grid;
+    grid-template-columns: 600px 618px;
+    position: relative;
+}
+.conatiner-clean-tequila{
+    max-width: 1216px;
+    margin: 0 auto;
+}
+.container-second-clean-tequila,
+.container-first-clean-tequila{
+    background-repeat: no-repeat; 
+}
+.container-images-second-clean-tequila{
+    display: flex;
+    position: relative; 
+    padding-bottom: 110px;
+}
+.container-first-clean-tequila{
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+}
+.container-second-clean-tequila{
+    padding: 50px 49px 41px 104px;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+.image-second-clean-tequila{
+    position: absolute;
+    top: 160px;
+    left: 102px;
+}
+.clean-tequila-button-first{
+    display: flex;
+    background: #67B7A8;
+    min-width: 434px;
+    width: fit-content;
+    min-height: 82px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 90px;
+    border: 2px solid #090909;   
+    font-family: Futura Hv BT, Roundo, sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 120%;
+    letter-spacing: 0;
+    text-transform: uppercase;
+    color: #090909;
+    text-decoration: none;
+    transition: background 0.3s, color 0.3s;
+}
+.clean-tequila-button-first:hover,
+.clean-tequila-button-first:focus {
+    background: #ffb793;
+    color: #090909;
+    border-color: #090909;
+}
+.clean-tequila-button-second{
+    background: #FFB793;
+    min-width: 434px;
+    display: flex;
+    width: fit-content;
+    min-height: 82px;
+    border-radius: 90px;
+    border: 2px solid #090909;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    margin-top: 18px; 
+    font-family: Futura Hv BT, Roundo, sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 120%;
+    letter-spacing: 0;
+    text-transform: uppercase;
+    color: #090909;
+    text-decoration: none;
+    transition: background 0.3s, color 0.3s;
+}
+.clean-tequila-button-second:hover,
+.clean-tequila-button-second:focus {
+    background: #67B7A8;
+    color: #090909;
+    border-color: #090909;
+}
+
+.text-bottom-clean-tequila strong{
+    font-weight: 400;
+    color: #67B7A8;
+}
+.text-bottom-clean-tequila{
+    font-family: Futura Hv BT, Roundo, sans-serif;
+    font-weight: 400;
+    font-size: 90px;
+    line-height: 120%;
+    letter-spacing: 0;
+    text-transform: uppercase;
+    color: #FFB793;
+}
+.image-bottle-clean-tequila{
+    left: 487px;
+    position: absolute;
+    bottom: -32px;
+}
+.container-top-clean-tequila{
+    padding-left: 73px; 
+    display: grid;
+    place-items: center;
+    grid-auto-flow: row;
+    width: fit-content;
+    padding-top: 49px;
+}
+@media (max-width: 1439px){
+    .conatiner-clean-tequila{
+        max-width: 950px;
+    }
+    .image-bottle-clean-tequila{
+        height: 602px;
+        object-fit: contain;
+        left: 370px;
+        bottom: -24px;
+    }
+    .text-bottom-clean-tequila{
+        font-size: 70px;
+    }
+    .container-second-clean-tequila{
+        padding: 50px 0 41px 105px;
+    }
+    .image-first-clean-tequila{
+        max-width: 253px;
+        height: auto;
+    }
+    .image-second-clean-tequila{
+        max-width: 245px;
+        height: auto;
+        top: 130px;
+        left: 90px;
+    }
+    .container-images-second-clean-tequila{
+        padding-bottom: 85px;
+    }
+    .top-conatiner-clean-tequila{
+        grid-template-columns: 1fr 1fr;
+    }
+    .container-top-clean-tequila{
+        padding-left: 41px;
+        padding-top: 35px;
+    }
+    .logo-clean-tequila{
+        max-width: 241px;
+        height: auto;
+    }
+    .clean-tequila-button-second,
+    .clean-tequila-button-first{
+        min-width: 360px;
+        font-size: 17px;
+        min-height: 75px;
+    }
+}
+@media (max-width: 1023px){
+    
+    .container-top-clean-tequila{
+        padding: 20px 0 40px 0;
+        margin: 0 auto;
+    }
+    .conatiner-clean-tequila{
+        max-width: 700px;
+    }
+    .image-bottle-clean-tequila{
+        display: none;
+    }
+    .top-conatiner-clean-tequila{
+        grid-template-columns: 1fr;
+    }
+    .container-second-clean-tequila,
+    .container-first-clean-tequila{
+        border-radius: 0;
+        background-size: 106%;
+        background-position: center
+    }
+    .text-bottom-clean-tequila{
+        font-size: 52px;
+    }
+    .container-first-clean-tequila{
+        border-top-left-radius: 20px;
+        border-top-right-radius: 20px;
+    }
+    .container-second-clean-tequila{
+        border-bottom-left-radius: 20px;
+        border-bottom-right-radius: 20px;
+        padding: 40px 90px 40px 0;
+    }
+    .container-images-second-clean-tequila{
+        margin: 0 auto;
+        width: fit-content;
+    }
+}
+@media (max-width: 767px){
+    .logo-clean-tequila{
+        max-width: 222px;
+        height: 218px;
+    }
+    .clean-tequila-button-second,
+    .clean-tequila-button-first{
+        margin-top: 10px;
+        min-width: 342px;
+        min-height: 79px;
+        font-size: 16px;
+    }
+    .conatiner-clean-tequila{
+        max-width: 370px;
+    }
+    .text-bottom-clean-tequila{
+        font-size: 26px;
+        text-align: center;
+    }
+    .container-top-clean-tequila{
+        padding-bottom: 40px;
+    }
+    .container-second-clean-tequila, 
+    .container-first-clean-tequila{
+        background-size: 161% 133%;
+    }
+    .container-second-clean-tequila{
+        padding: 40px 0 41px 10px;
+    }
+    .image-first-clean-tequila{
+        max-width: 272px;
+        height: 348px;
+    }
+    .image-second-clean-tequila{
+        max-width: 272px;
+        height: 309px;
+        left: 78px;
+        top: 120px;
+    }
+    .container-images-second-clean-tequila{
+        width: auto;
+    }
+}

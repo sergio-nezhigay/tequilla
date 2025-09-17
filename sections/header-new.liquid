@@ -1,0 +1,459 @@
+<style>
+ @media (min-width: 1025px) {
+  section.tequila-header-section {
+    padding-top: 20px;
+  }
+}
+
+
+
+  .tequila-header {
+    width: 100%;
+    max-width: 1216px;
+    height: 80px;
+    margin: 0 auto;
+    background-color: #F1F1EE;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    transition: all 0.3s ease;
+
+  }
+
+  .tequila-header-section {
+    width: 100%;
+    background-color: #F1F1EE;
+    position: relative;
+  }
+
+  .tequila-header-section.sticky-section {
+    position: fixed;
+    top: 0;
+    z-index: 999999;
+    width: 100%;
+  }
+
+  .tequila-header.sticky-header {
+    position: relative;
+  }
+
+  .tequila-logo {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-size: 24px;
+    font-weight: 400;
+    color: #0BA5A5;
+    letter-spacing: -0.02em;
+  }
+
+  .tequila-logo::before {
+    content: '';
+    width: 32px;
+    height: 32px;
+    margin-right: 8px;
+    background: #0BA5A5;
+    border-radius: 50%;
+    position: relative;
+    flex-shrink: 0;
+  }
+
+  .tequila-logo::after {
+    content: '';
+    position: absolute;
+    left: 48px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 16px;
+    height: 16px;
+    background: #0BA5A5;
+    border-radius: 2px;
+    opacity: 0.7;
+  }
+
+  .tequila-logo img {
+    max-height: 80px;
+    max-width: 180px;
+    height: auto;
+    width: auto;
+  }
+
+  .tequila-logo:has(img)::before,
+  .tequila-logo:has(img)::after {
+    display: none;
+  }
+
+  .burger-menu {
+    width: 30px;
+    height: 14px;
+    cursor: pointer;
+    z-index: 1001;
+    background: none;
+    border: none;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .burger-menu svg {
+    width: 30px;
+    height: 14px;
+    flex-shrink: 0;
+  }
+
+  .mobile-menu {
+    position: fixed;
+    top: 0;
+    right: -600px;
+    width: 100%;
+    max-width: 600px;
+    height: 100vh;
+    background-color: #ffffff;
+    z-index: 12312341241;
+    overflow-y: auto;
+    transition: right 0.4s cubic-bezier(0.4, 0.0, 0.2, 1);
+    display: flex;
+    flex-direction: column;
+  }
+
+  .mobile-menu.active {
+    right: 0;
+  }
+
+  .mobile-menu-header {
+    display: flex;
+    justify-content: flex-end;
+    padding: 20px;
+  }
+
+  .menu-close {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    color: #333333;
+    transition: color 0.2s ease, transform 0.2s ease;
+  }
+
+  .menu-close:hover {
+    color: #67B7A8;
+    transform: rotate(90deg);
+  }
+
+  .mobile-menu-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: stretch;
+    padding: 0;
+  }
+
+  .mobile-nav-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 32px;
+    font-weight: 400;
+    padding: 30px 40px;
+    text-decoration: none;
+    font-family: 'Futura Hv BT', Futura, 'Trebuchet MS', Arial, sans-serif;
+    transition: all 0.3s cubic-bezier(0.4, 0.0, 0.2, 1);
+    text-align: center;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    opacity: 0;
+    transform: translateX(50px);
+    flex: 1;
+    border-bottom: 1px solid #f0f0f0;
+  }
+
+  .mobile-menu.active .mobile-nav-item {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  .mobile-nav-item:nth-child(1) {
+    color: #67B7A8;
+    transition-delay: 0.1s;
+  }
+
+  .mobile-nav-item:nth-child(2) {
+    color: #FFB793;
+    transition-delay: 0.15s;
+  }
+
+  .mobile-nav-item:nth-child(3) {
+    color: #67B7A8;
+    transition-delay: 0.2s;
+  }
+
+  .mobile-nav-item:nth-child(4) {
+    color: #FFB793;
+    transition-delay: 0.25s;
+  }
+
+  .mobile-nav-item:nth-child(5) {
+    color: #67B7A8;
+    transition-delay: 0.3s;
+  }
+
+  .mobile-nav-item:nth-child(6) {
+    color: #FFB793;
+    transition-delay: 0.35s;
+  }
+
+  .mobile-nav-item:last-child {
+    border-bottom: none;
+  }
+
+  .mobile-nav-item:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+    transform: scale(1.02);
+  }
+
+  .menu-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 12312341240;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.4s cubic-bezier(0.4, 0.0, 0.2, 1), visibility 0.4s cubic-bezier(0.4, 0.0, 0.2, 1);
+    backdrop-filter: blur(4px);
+  }
+
+  .menu-backdrop.active {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  body.menu-open {
+    overflow: hidden;
+  }
+
+  @media (max-width: 768px) {
+    .tequila-header {
+      max-width: 350px;
+      height: 80px;
+    }
+    
+    .tequila-logo {
+      font-size: 20px;
+    }
+    
+    .tequila-logo::before {
+      width: 24px;
+      height: 24px;
+      margin-right: 6px;
+    }
+    
+    .tequila-logo::after {
+      left: 36px;
+      width: 12px;
+      height: 12px;
+    }
+
+    .tequila-logo img {
+      max-height: 80px;
+      max-width: 140px;
+    }
+    
+    .burger-menu svg {
+      width: 28px;
+      height: 13px;
+    }
+    
+    .mobile-menu {
+      max-width: 350px;
+    }
+    
+    .mobile-nav-item {
+      font-size: 28px;
+      padding: 25px 30px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+   .tequila-header{
+    padding-top: 0;
+}
+    .tequila-logo {
+      font-size: 18px;
+    }
+
+    .tequila-logo img {
+      max-height: 80px;
+      max-width: 120px;
+    }
+    
+    .mobile-menu {
+      max-width: 320px;
+    }
+    
+    .mobile-nav-item {
+      font-size: 24px;
+      padding: 20px 24px;
+    }
+  }
+
+</style>
+
+<div class="tequila-header-section{% if section.settings.sticky_header %} sticky-section{% endif %}">
+  <header class="tequila-header{% if section.settings.sticky_header %} sticky-header{% endif %}">
+    <a href="{{ routes.root_url }}" class="tequila-logo">
+      {% if section.settings.logo != blank %}
+        <img src="{{ section.settings.logo | image_url: width: 200 }}" alt="{{ shop.name }}" loading="lazy">
+      {% else %}
+        INBARREL
+      {% endif %}
+    </a>
+    
+    <button class="burger-menu" id="burger-toggle">
+      <svg xmlns="http://www.w3.org/2000/svg" width="32" height="16" viewBox="0 0 32 16" fill="none">
+        <path d="M1 1L31 1" stroke="#090909" stroke-linecap="round"/>
+        <path d="M1 8H31" stroke="#090909" stroke-linecap="round"/>
+        <path d="M1 15H31" stroke="#090909" stroke-linecap="round"/>
+      </svg>
+    </button>
+  </header>
+</div>
+
+<div class="mobile-menu" id="mobile-menu">
+  <div class="mobile-menu-header">
+    <button class="menu-close" id="menu-close">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+        <path d="M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M6 6L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </button>
+  </div>
+  
+  <div class="mobile-menu-content">
+    {% assign menu_handle = section.settings.menu | default: 'main-menu' %}
+    {% for link in linklists[menu_handle].links %}
+      <a href="{{ link.url }}" class="mobile-nav-item">{{ link.title }}</a>
+    {% endfor %}
+  </div>
+</div>
+
+<div class="menu-backdrop" id="menu-backdrop"></div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const burger = document.getElementById('burger-toggle');
+  const menu = document.getElementById('mobile-menu');
+  const backdrop = document.getElementById('menu-backdrop');
+  const closeBtn = document.getElementById('menu-close');
+  
+  function openMenu() {
+    menu.classList.add('active');
+    backdrop.classList.add('active');
+    document.body.classList.add('menu-open');
+  }
+  
+  function closeMenu() {
+    menu.classList.remove('active');
+    backdrop.classList.remove('active');
+    document.body.classList.remove('menu-open');
+  }
+  
+  // Open menu
+  burger.addEventListener('click', function(e) {
+    e.stopPropagation();
+    openMenu();
+  });
+  
+  if (closeBtn) {
+    closeBtn.addEventListener('click', function(e) {
+      e.stopPropagation();
+      closeMenu();
+    });
+  }
+  
+  backdrop.addEventListener('click', closeMenu);
+  
+  const menuItems = menu.querySelectorAll('.mobile-nav-item');
+  menuItems.forEach(item => {
+    item.addEventListener('click', closeMenu);
+  });
+  
+  window.addEventListener('resize', closeMenu);
+  
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && menu.classList.contains('active')) {
+      closeMenu();
+    }
+  });
+  
+  menuItems.forEach(item => {
+    if (item.getAttribute('href').startsWith('#')) {
+      item.addEventListener('click', function(e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({ 
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+        closeMenu();
+      });
+    }
+  });
+});
+</script>
+
+{% schema %}
+{
+  "name": "Tequila Header",
+  "class": "tequila-header-section",
+  "tag": "section",
+  "presets": [
+    {
+      "name": "Tequila Header",
+      "category": "Header"
+    }
+  ],
+  "settings": [
+    {
+      "type": "header",
+      "content": "Logo Settings"
+    },
+    {
+      "type": "image_picker",
+      "id": "logo",
+      "label": "Logo Image",
+      "info": "Upload your logo image. If no logo is selected, 'INBARREL' text will be displayed."
+    },
+    {
+      "type": "header", 
+      "content": "Navigation Settings"
+    },
+    {
+      "type": "link_list",
+      "id": "menu",
+      "label": "Navigation Menu",
+      "default": "main-menu",
+      "info": "Select which menu to display in the mobile navigation"
+    },
+    {
+      "type": "header",
+      "content": "Header Behavior"
+    },
+    {
+      "type": "checkbox",
+      "id": "sticky_header",
+      "label": "Enable sticky header",
+      "default": false,
+      "info": "Make the header stick to the top when scrolling down the page"
+    }
+  ]
+}
+{% endschema %}

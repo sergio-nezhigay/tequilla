@@ -22,7 +22,9 @@
 
 <style>
   .tagline-statement {
-    padding: 80px 0;
+    padding: 101px 0;
+    background: #F1F1EE;
+    padding-bottom: 45px;
   }
 
   .tagline-container {
@@ -30,16 +32,23 @@
     margin: 0 auto;
     display: flex;
     align-items: center;
-    gap: 60px;
+    gap: 21px;
   }
 
   .tagline-bottle {
     flex-shrink: 0;
   }
 
+@media screen and (min-width: 1024px) {
+  .tagline-bottle {
+    position: relative;
+    top: -18px;
+  }
+}
+
   .tagline-bottle img {
     width: 72px;
-    height: 323px;
+    height: 383px;
     border-radius: 12px;
     object-fit: cover;
   }
@@ -98,6 +107,7 @@
       flex-direction: column;
       gap: 5px;
       text-align: center;
+      padding-bottom: 40px;
     }
 
     .tagline-content h2 {
@@ -113,7 +123,7 @@
 
   @media (max-width: 600px) {
     .tagline-content h2 {
-      font-size: 28px;
+      font-size: 30px;
       line-height: 1.3;
     }
 

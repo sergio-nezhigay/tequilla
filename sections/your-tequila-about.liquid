@@ -1,0 +1,155 @@
+{{ 'your-tequila-about.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+.section-about-tequila{
+    background-color: {{ section.settings.background_color }}; 
+    padding-top: {{ section.settings.padding_top }}px;
+    padding-bottom: {{ section.settings.padding_bottom }}px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+.container-about-tequila{
+    background-image: url({{ section.settings.background_main | image_url }});
+}
+@media (max-width: 767px){
+    .section-about-tequila{
+        padding-top: {{ section.settings.padding_top_mob }}px;
+        padding-bottom: {{ section.settings.padding_bottom_mob }}px;
+    }
+    .container-about-tequila{
+        {% if section.settings.background_main_mob != blank %}
+            background-image: url({{ section.settings.background_main_mob | image_url }});
+        {% endif %}
+    }
+}
+{%- endstyle -%}
+
+<section class="section-about-tequila">
+    <div class="container-about-tequila">
+        <div>
+            {% if section.settings.title != blank %}
+                <div class="main-title-about-tequila">{{ section.settings.title }}</div>
+            {% endif %}
+            {% if section.settings.main_text != blank %}
+                <div class="main-subtitle-about-tequila">{{ section.settings.main_text }}</div>
+            {% endif %}
+            {% if section.settings.text_btn != blank and  section.settings.main_url != blank %}
+                <a class="btn-main-about-tequila" href="{{ section.settings.main_url }}">{{ section.settings.text_btn }}</a>
+            {% endif %}
+        </div>
+        <div class="container-images-about-tequila">
+            {% if section.settings.image_first != blank %}
+                {{ section.settings.image_first | image_url: width: section.settings.image_first.width | image_tag: class: "image-first-about-tequila" }}
+            {% endif %}
+            
+            {% if section.settings.image_second != blank %}
+                {{ section.settings.image_second | image_url: width: section.settings.image_second.width | image_tag: class: "image-second-about-tequila"  }}
+            {% endif %}
+        </div>
+    </div>
+</section>
+{% schema %}
+{
+    "name": "Section about tequila",
+    "settings": [
+        {
+            "type": "color",
+            "id": "background_color",
+            "label": "Background color main"
+        },
+        {
+            "type": "image_picker",
+            "id": "background_main",
+            "label": "Background desktop"
+        },
+        {
+            "type": "image_picker",
+            "id": "background_main_mob",
+            "label": "Background mobile"
+        },
+        {
+            "type": "richtext",
+            "id": "title",
+            "label": "Title"
+        },
+        {
+            "type": "richtext",
+            "id": "main_text",
+            "label": "Subtitle"
+        },
+        {
+            "type": "text",
+            "id": "text_btn",
+            "label": "Text button",
+        },
+        {
+            "type": "url",
+            "id": "main_url",
+            "label": "Url button"
+        },
+        {
+            "type": "image_picker",
+            "id": "image_first",
+            "label": "Image first"
+        },
+        {
+            "type": "image_picker",
+            "id": "image_second",
+            "label": "Image second"
+        },
+        {
+            "type": "header",
+            "content": "Desktop",
+        },
+        {
+            "type": "range",
+            "id": "padding_top",
+            "min": 0,
+            "max": 100,
+            "step": 1,
+            "unit": "px",
+            "label": "Padding top",
+            "default": 0
+        },
+        {
+            "type": "range",
+            "id": "padding_bottom",
+            "min": 0,
+            "max": 100,
+            "step": 1,
+            "unit": "px",
+            "label": "Padding bottom",
+            "default": 0
+        },
+        {
+            "type": "header",
+            "content": "Mobile",
+        },
+        {
+            "type": "range",
+            "id": "padding_top_mob",
+            "min": 0,
+            "max": 100,
+            "step": 1,
+            "unit": "px",
+            "label": "Padding top",
+            "default": 0
+        },
+        {
+            "type": "range",
+            "id": "padding_bottom_mob",
+            "min": 0,
+            "max": 100,
+            "step": 1,
+            "unit": "px",
+            "label": "Padding bottom",
+            "default": 0
+        }
+    ],
+    "presets": [
+        {
+            "name": "Section about tequila"
+        }
+    ]
+}
+{% endschema %}

@@ -1,0 +1,188 @@
+.title-main-personalization{
+    padding-bottom: 29px;
+    font-family: Futura Hv BT, Roundo, sans-serif;
+    font-weight: 400;
+    font-size: 60px;
+    line-height: 120%;
+    letter-spacing: 0;
+    text-align: center;
+    max-width: 967px;
+    margin: 0 auto;
+    text-transform: uppercase;
+}
+.title-main-personalization strong{
+    font-weight: 400;
+    color: #FFB793;
+}
+.title-main-personalization em{
+    font-style: normal;
+    color: #67B7A8;
+}
+.btn-main-personalization{
+    color: #090909;
+    text-decoration: none;
+    font-family: Futura Hv BT, Roundo, sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 120%;
+    letter-spacing: 0;
+    text-transform: uppercase;
+    display: flex;
+    background: #67B7A8;
+    min-width: 511px;
+    width: fit-content;
+    margin: 0 auto;
+    min-height: 82px;
+    border: 2px solid #090909;
+    border-radius: 90px;
+    justify-content: center;
+    align-items: center;
+    margin-top: 60px;
+    transition: background .3s, color .3s;
+}
+.btn-main-personalization:hover, 
+.btn-main-personalization:focus {
+    background: #ffb793;
+    color: #090909;
+    border-color: #090909;
+}
+.bottle-main-personalization{
+    width: 227px;
+    top: -49px;
+    height: 855px;
+    left: 516px;
+    position: absolute;
+    object-fit: cover;
+}
+.personalization-container{
+    max-width: 1216px;
+    margin: 0 auto;
+}
+.personalization-container-images{
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 177px;
+    align-items: self-end;
+}
+.title-container-personalization{
+    display: grid;
+    gap: 15px;
+    font-family: Roundo, Arial, sans-serif;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 165%;
+    letter-spacing: 0;
+}
+.personalization-container-image{
+    display: grid;
+    grid-template-rows: auto 1fr;
+    gap: 30px;
+}
+@media (max-width: 1439px){
+    .personalization-container{
+        max-width: 950px;
+    }
+    .bottle-main-personalization{
+        left: 363px;
+    }
+    .container-image-personalization{
+        width: 392px;
+        object-fit: cover;
+    }
+    .personalization-container-images-left{
+        border-top-left-radius: 111px;
+    }
+    .personalization-container-images-right{
+        border-top-right-radius: 150px;
+    }
+    .title-container-personalization{
+        font-size: 17px;
+    }
+    .title-main-personalization{
+        font-size: 45px;
+    }
+    .personalization-container-images{
+        gap: 166px;
+    }
+}
+@media (max-width: 1023px){
+    .bottle-main-personalization{
+        display: none;
+    }
+    .personalization-container-images{
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+    .personalization-container-images-right{
+        grid-row: 1;
+        border-top-right-radius: 200px;
+        border-top-left-radius: 200px;
+        margin: 0 auto;
+    }
+    .personalization-container-images-left{
+        margin: 0 auto;
+        border-top-right-radius: 200px;
+        border-top-left-radius: 200px;
+    }
+    .title-container-personalization{
+        text-align: center;
+        max-width: 600px;
+        margin: 0 auto;
+    }
+    .title-main-personalization{
+        font-size: 39px;
+    }
+    .personalization-container{
+        max-width: 700px;
+    }
+    
+}
+@media (max-width: 767px){
+.personalization-container-images{
+    gap: 20px !important;
+}
+    .title-main-personalization{
+        font-size: 30px;
+        padding-bottom: 20px;
+    }
+    .personalization-container{
+        max-width: 350px;
+    }
+    .personalization-container-image{
+        gap: 10px;
+    }
+    .title-container-personalization{
+        text-align: left;
+        font-size: 18px;
+        gap: 21px;
+        max-width: 342px;
+
+    }
+    .btn-main-personalization{
+        min-width: 350px;
+        min-height: 79px;
+        font-size: 16px;
+        margin-top: 20px;
+    }
+    .container-image-personalization{
+        width: 100%;
+    }
+    .personalization-container-images-right{
+        width: 351px;
+        height: 414px;
+        border-radius: 0;
+        border-top-right-radius: 150px;
+    }
+    .personalization-container-images-left{
+        border-radius: 0;
+        height: 314px;
+        width: 350px;
+    }
+
+  .title-container-personalization:nth-child(2) {
+  max-width: 342px !important;
+}
+
+
+}

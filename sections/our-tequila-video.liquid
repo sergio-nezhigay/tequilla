@@ -1,0 +1,568 @@
+{% assign section_id = 'section-' | append: section.id %}
+
+<section id="{{ section_id }}" class="our-tequila-video {{ section.settings.custom_classes }}">
+  <div class="our-tequila-video__container">
+    <div class="our-tequila-video__content">
+      <div class="our-tequila-video__video-wrapper">
+        {% if section.settings.uploaded_video != blank %}
+          <div class="our-tequila-video__video-container">
+            {% if section.settings.video_thumbnail != blank %}
+              <div class="our-tequila-video__thumbnail" data-video-trigger>
+                {{
+                  section.settings.video_thumbnail
+                  | image_url: width: 641
+                  | image_tag:
+                    alt: 'Video thumbnail',
+                    loading: 'lazy',
+                    widths: '375, 641',
+                    sizes: '(max-width: 767px) 100vw, 641px'
+                }}
+                <div class="our-tequila-video__play-button">
+                  <svg width="80" height="80" viewBox="0 0 80 80" fill="none">
+                    <circle cx="40" cy="40" r="40" fill="rgba(255, 255, 255, 0.9)"/>
+                    <path d="M32 24L56 40L32 56V24Z" fill="#1C1C1C"/>
+                  </svg>
+                </div>
+              </div>
+            {% endif %}
+            <video
+              class="our-tequila-video__video"
+              {% unless section.settings.video_thumbnail %}
+                controls
+              {% endunless %}
+              width="100%"
+            >
+              <source src="{{ section.settings.uploaded_video }}" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+          </div>
+        {% endif %}
+      </div>
+
+      <h2 class="our-tequila-video__title">
+        <span class="our-tequila-video__title-part1">{{ section.settings.title_part1 }}</span>
+        <span class="our-tequila-video__title-part2">{{ section.settings.title_part2 }}</span>
+        <span class="our-tequila-video__title-part3">{{ section.settings.title_part3 }}</span>
+        <span class="our-tequila-video__title-part4">{{ section.settings.title_part4 }}</span>
+        <span class="our-tequila-video__title-part5">{{ section.settings.title_part5 }}</span>
+      </h2>
+
+      {% if section.settings.description != blank %}
+        <p class="our-tequila-video__description">{{ section.settings.description }}</p>
+      {% endif %}
+
+      {% if section.settings.cta_text != blank %}
+        <a href="{{ section.settings.cta_url }}" class="our-tequila-video__cta">
+          {{ section.settings.cta_text }}
+        </a>
+      {% endif %}
+    </div>
+  </div>
+</section>
+
+<style>
+  :root {
+    --hero-padding-top-desktop: {{ section.settings.padding_top_desktop }}px;
+    --hero-padding-bottom-desktop: {{ section.settings.padding_bottom_desktop }}px;
+    --hero-padding-top-mobile: {{ section.settings.padding_top_mobile }}px;
+    --hero-padding-bottom-mobile: {{ section.settings.padding_bottom_mobile }}px;
+    --hero-max-width: {{ section.settings.max_width }}px;
+    --hero-title-size-desktop: {{ section.settings.title_size_desktop }}px;
+    --hero-title-size-mobile: {{ section.settings.title_size_mobile }}px;
+    --hero-description-size-desktop: {{ section.settings.description_size_desktop }}px;
+    --hero-description-size-mobile: {{ section.settings.description_size_mobile }}px;
+    --hero-title-line-height: 1.2;
+    --hero-description-line-height: 1.4;
+    --hero-cta-padding: 28px 10px;
+    --hero-cta-radius: 30px;
+    --hero-video-radius: 60px;
+  }
+
+  #{{ section_id }} {
+    padding-top: var(--hero-padding-top-mobile);
+    padding-bottom: var(--hero-padding-bottom-mobile);
+    background: {{ section.settings.section_background }};
+  }
+
+  #{{ section_id }} .our-tequila-video__container {
+    max-width: var(--hero-max-width);
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  #{{ section_id }} .our-tequila-video__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .our-tequila-video__video-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 1214px;
+    margin: 0 auto 20px;
+    border-top-left-radius: var(--hero-video-radius);
+    border-bottom-right-radius: var(--hero-video-radius);
+    border-top-right-radius: 0;
+    border-bottom-left-radius: 0;
+    overflow: hidden;
+    background: #000;
+  }
+
+  .our-tequila-video__video-container {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1.618 / 1;
+  }
+
+  .our-tequila-video__video,
+  .our-tequila-video__thumbnail img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .our-tequila-video__thumbnail {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .our-tequila-video__thumbnail.hidden {
+    display: none;
+  }
+
+  .our-tequila-video__thumbnail img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .our-tequila-video__play-button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    opacity: 0.9;
+  }
+
+  .our-tequila-video__play-button:hover {
+    transform: translate(-50%, -50%) scale(1.1);
+    opacity: 1;
+  }
+
+  .our-tequila-video__play-button svg {
+    filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.3));
+  }
+
+  #{{ section_id }} .our-tequila-video__title {
+    font-size: var(--hero-title-size-mobile);
+    line-height: var(--hero-title-line-height);
+    margin: 0 0 10px 0;
+    text-transform: uppercase;
+    letter-spacing: 0;
+    max-width: 1112px;
+  }
+
+  #{{ section_id }} .our-tequila-video__title-part1 {
+    color: {{ section.settings.title_color_part1 }};
+  }
+
+  #{{ section_id }} .our-tequila-video__title-part2 {
+    color: {{ section.settings.title_color_part2 }};
+  }
+
+  #{{ section_id }} .our-tequila-video__title-part3 {
+    color: {{ section.settings.title_color_part3 }};
+  }
+
+  #{{ section_id }} .our-tequila-video__title-part4 {
+    color: {{ section.settings.title_color_part4 }};
+  }
+
+  #{{ section_id }} .our-tequila-video__title-part5 {
+    color: {{ section.settings.title_color_part5 }};
+  }
+
+  #{{ section_id }} .our-tequila-video__description {
+    font-size: var(--hero-description-size-mobile);
+    line-height: var(--hero-description-line-height);
+    margin: 0 0 15px 0;
+    color: {{ section.settings.description_color }};
+    max-width: 927px;
+    font-weight: 400;
+    letter-spacing: 0;
+    line-height: 1.7;
+  }
+
+  #{{ section_id }} .our-tequila-video__cta {
+    display: inline-block;
+    padding: var(--hero-cta-padding);
+    width: 100%;
+    background: {{ section.settings.cta_background }};
+    color: {{ section.settings.cta_text_color }};
+    text-decoration: none;
+    border-radius: 90px;
+    font-size: {{ section.settings.cta_font_size_mobile }}px;
+    line-height: 1.2;
+    text-transform: uppercase;
+    letter-spacing: 0;
+    transition: all 0.3s ease;
+    border: 2px solid #090909;
+  }
+
+  #{{ section_id }} .our-tequila-video__cta:hover {
+    background: {{ section.settings.cta_hover_background }};
+    color: {{ section.settings.cta_hover_text_color }};
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+  }
+
+  @media (min-width: 768px) {
+    #{{ section_id }} {
+      padding-top: var(--hero-padding-top-desktop);
+      padding-bottom: var(--hero-padding-bottom-desktop);
+    }
+
+    #{{ section_id }} .our-tequila-video__container {
+      padding: 0 40px;
+    }
+
+    .our-tequila-video__video-wrapper {
+      margin: 0 auto 30px;
+      border-top-left-radius: 130px;
+      border-bottom-right-radius: 130px;
+    }
+
+    #{{ section_id }} .our-tequila-video__title {
+      font-size: var(--hero-title-size-desktop);
+      margin: 0 0 20px 0;
+    }
+
+    #{{ section_id }} .our-tequila-video__description {
+      font-size: var(--hero-description-size-desktop);
+      margin: 0 0 30px 0;
+    }
+
+    #{{ section_id }} .our-tequila-video__cta {
+      font-size: {{ section.settings.cta_font_size_desktop }}px;
+      width: auto;
+      padding-left: 78px;
+      padding-right: 78px;
+    }
+
+    .our-tequila-video__play-button svg {
+      width: 70px;
+      height: 70px;
+    }
+  }
+
+  @media (min-width: 1440px) {
+    #{{ section_id }} .our-tequila-video__container {
+      padding: 0;
+    }
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const videoTriggers = document.querySelectorAll('[data-video-trigger]');
+
+    videoTriggers.forEach((trigger) => {
+      trigger.addEventListener('click', function () {
+        const videoContainer = this.parentElement;
+        const video = videoContainer.querySelector('video');
+
+        if (video) {
+          // Hide thumbnail
+          this.classList.add('hidden');
+
+          // Add controls and play video
+          video.setAttribute('controls', '');
+          video.play().catch((e) => console.log('Video play failed:', e));
+        }
+      });
+    });
+  });
+</script>
+
+{% schema %}
+{
+  "name": "Our Tequila Video",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Section Layout"
+    },
+    {
+      "type": "text",
+      "id": "max_width",
+      "label": "Max Width (px)",
+      "default": "1440"
+    },
+    {
+      "type": "range",
+      "id": "padding_top_desktop",
+      "label": "Padding Top Desktop",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_desktop",
+      "label": "Padding Bottom Desktop",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mobile",
+      "label": "Padding Top Mobile",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mobile",
+      "label": "Padding Bottom Mobile",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 40
+    },
+    {
+      "type": "color_background",
+      "id": "section_background",
+      "label": "Section Background",
+      "default": "linear-gradient(180deg, #F5F0EB 0%, #F5F0EB 100%)"
+    },
+    {
+      "type": "text",
+      "id": "custom_classes",
+      "label": "Custom CSS Classes"
+    },
+    {
+      "type": "header",
+      "content": "Video Settings"
+    },
+    {
+      "type": "url",
+      "id": "uploaded_video",
+      "label": "Video File",
+      "info": "Upload your MP4 file to Files section and paste the URL here"
+    },
+    {
+      "type": "image_picker",
+      "id": "video_thumbnail",
+      "label": "Video Thumbnail Image",
+      "info": "Upload a thumbnail image that will show before the video plays"
+    },
+    {
+      "type": "header",
+      "content": "Title Settings"
+    },
+    {
+      "type": "text",
+      "id": "title_part1",
+      "label": "Title Part 1",
+      "default": "SEE HOW "
+    },
+    {
+      "type": "text",
+      "id": "title_part2",
+      "label": "Title Part 2 (Highlight)",
+      "default": "EASY"
+    },
+    {
+      "type": "text",
+      "id": "title_part3",
+      "label": "Title Part 3",
+      "default": " IT IS TO "
+    },
+    {
+      "type": "text",
+      "id": "title_part4",
+      "label": "Title Part 4 (Highlight)",
+      "default": "CREATE YOUR"
+    },
+    {
+      "type": "text",
+      "id": "title_part5",
+      "label": "Title Part 5",
+      "default": " CUSTOM BOTTLE."
+    },
+    {
+      "type": "color",
+      "id": "title_color_part1",
+      "label": "Title Color Part 1",
+      "default": "#FFB793"
+    },
+    {
+      "type": "color",
+      "id": "title_color_part2",
+      "label": "Title Color Part 2 (Highlight)",
+      "default": "#67B7A8"
+    },
+    {
+      "type": "color",
+      "id": "title_color_part3",
+      "label": "Title Color Part 3",
+      "default": "#1C1C1C"
+    },
+    {
+      "type": "color",
+      "id": "title_color_part4",
+      "label": "Title Color Part 4 (Highlight)",
+      "default": "#67D3CC"
+    },
+    {
+      "type": "color",
+      "id": "title_color_part5",
+      "label": "Title Color Part 5",
+      "default": "#FFB793"
+    },
+    {
+      "type": "range",
+      "id": "title_size_desktop",
+      "label": "Title Size Desktop",
+      "min": 24,
+      "max": 72,
+      "step": 2,
+      "unit": "px",
+      "default": 48
+    },
+    {
+      "type": "range",
+      "id": "title_size_mobile",
+      "label": "Title Size Mobile",
+      "min": 18,
+      "max": 48,
+      "step": 2,
+      "unit": "px",
+      "default": 28
+    },
+    {
+      "type": "header",
+      "content": "Description Settings"
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "Description Text",
+      "default": "Discover how our professional video production services can elevate your brand and connect with your audience in meaningful ways."
+    },
+    {
+      "type": "color",
+      "id": "description_color",
+      "label": "Description Color",
+      "default": "#666666"
+    },
+    {
+      "type": "range",
+      "id": "description_size_desktop",
+      "label": "Description Size Desktop",
+      "min": 14,
+      "max": 24,
+      "step": 1,
+      "unit": "px",
+      "default": 18
+    },
+    {
+      "type": "range",
+      "id": "description_size_mobile",
+      "label": "Description Size Mobile",
+      "min": 12,
+      "max": 20,
+      "step": 1,
+      "unit": "px",
+      "default": 16
+    },
+    {
+      "type": "header",
+      "content": "CTA Button"
+    },
+    {
+      "type": "text",
+      "id": "cta_text",
+      "label": "CTA Text",
+      "default": "CREATE YOUR OWN TEQUILA"
+    },
+    {
+      "type": "url",
+      "id": "cta_url",
+      "label": "CTA Link"
+    },
+    {
+      "type": "color_background",
+      "id": "cta_background",
+      "label": "CTA Background",
+      "default": "linear-gradient(90deg, #67D3CC 0%, #67D3CC 100%)"
+    },
+    {
+      "type": "color",
+      "id": "cta_text_color",
+      "label": "CTA Text Color",
+      "default": "#1C1C1C"
+    },
+    {
+      "type": "color_background",
+      "id": "cta_hover_background",
+      "label": "CTA Hover Background",
+      "default": "linear-gradient(90deg, #FF9B7F 0%, #FF9B7F 100%)"
+    },
+    {
+      "type": "color",
+      "id": "cta_hover_text_color",
+      "label": "CTA Hover Text Color",
+      "default": "#1C1C1C"
+    },
+    {
+      "type": "range",
+      "id": "cta_font_size_desktop",
+      "label": "CTA Font Size Desktop",
+      "min": 12,
+      "max": 24,
+      "step": 1,
+      "unit": "px",
+      "default": 14
+    },
+    {
+      "type": "range",
+      "id": "cta_font_size_mobile",
+      "label": "CTA Font Size Mobile",
+      "min": 10,
+      "max": 20,
+      "step": 1,
+      "unit": "px",
+      "default": 12
+    }
+  ],
+  "presets": [
+    {
+      "name": "Our Tequila Video"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,113 @@
+.top-container-own-tequila{
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    align-items: center; 
+}
+.top-container-own-tequila .logo_one{
+    height: 142px;
+    width: auto;
+}
+.top-container-own-tequila .logo_two{
+    height: 158px;
+    width: auto;
+}
+
+.text-main-own-tequila strong{
+    font-weight: 600;
+}
+.text-main-own-tequila{
+    padding: 20px 0 30px 0;
+    font-family: Roundo, Arial, sans-serif;
+    font-weight: 300;
+    font-size: 20px;
+    line-height: 165%;
+    letter-spacing: 0;
+    text-align: center;
+}
+.main-container-own-tequila{
+   max-width: 1216px;
+   margin: 0 auto; 
+}
+.main-btn-own-tequila{
+    font-family: Futura Hv BT, Roundo, sans-serif;
+    color: #090909;
+    text-decoration: none;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 120%;
+    letter-spacing: 0;
+    text-transform: uppercase;
+    display: flex;
+    justify-content: center;
+    min-width: 419px;
+    width: fit-content;
+    background: #67B7A8;
+    min-height: 82px;
+    border: 2px solid #090909;
+    border-radius: 90px;
+    align-items: center;
+    margin: 0 auto;
+    margin-top: 20px;
+    transition: background 0.3s, color 0.3s;
+}
+.main-btn-own-tequila:hover,
+.main-btn-own-tequila:focus {
+    background: #ffb793;
+    color: #090909;
+    border-color: #090909;
+}
+.main-image-own-tequila{
+    width: 100%;
+}
+@media(max-width: 1439px){
+    .main-container-own-tequila{
+        max-width: 950px; 
+    }
+    .top-container-own-tequila .logo_two,
+    .top-container-own-tequila .logo_one{
+        height: 110px;
+    }
+    .text-main-own-tequila{
+        font-size: 16px;
+    }
+}
+@media(max-width: 1023px){
+    .main-container-own-tequila{
+        max-width: 700px; 
+    }
+}
+@media(max-width: 767px){
+    .top-container-own-tequila .logo_two{
+        height: 83px;
+    }
+    .top-container-own-tequila .logo_one{
+        height: 90px;
+    }
+    .main-container-own-tequila{
+        max-width: fit-content; 
+    }
+    .top-container-own-tequila{
+        gap: 20px;
+    }
+    .main-btn-own-tequila{
+        min-width: 350px;
+        min-height: 79px;
+        font-size: 16px;
+    }
+    .main-image-own-tequila{
+        height: 172px;
+        width: 350px;
+        margin: 0 auto;
+        display: block;
+        border-top-left-radius: 60px;
+        border-bottom-right-radius: 60px;
+        border-top-right-radius: 3px;
+        border-bottom-left-radius: 3px;
+    }
+    .text-main-own-tequila{
+        font-size: 18px;
+        max-width: 337px;
+        margin: 0 auto;
+    }
+}

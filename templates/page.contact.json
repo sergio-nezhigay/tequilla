@@ -11,24 +11,247 @@
   "sections": {
     "main": {
       "type": "main-page",
+      "disabled": true,
       "settings": {
         "padding_top": 36,
         "padding_bottom": 36
       }
     },
-    "form": {
-      "type": "contact-form",
+    "our_tequila_AeeNMF": {
+      "type": "our-tequila",
+      "custom_css": [
+        ".tequila-hero-description {max-width: 961px !important;}",
+        "@media screen and (min-width: 1024px) {.tequila-hero-buttons {margin-bottom: 49px; }}",
+        "@media screen and (max-width: 767px) {.tequila-hero-wrapper {margin: 0 auto 27px; }}"
+      ],
+      "name": "Tequila About",
       "settings": {
-        "heading": "",
-        "heading_size": "h1",
-        "color_scheme": "scheme-1",
-        "padding_top": 36,
-        "padding_bottom": 36
+        "title": "<p><strong>Contact </strong>Us</p>",
+        "description": "<p>Have questions or want to learn more about our tequila?<br/>Reach out to us—we’d love to hear from you and share the spirit of craftsmanship behind every bottle.</p>",
+        "primary_button_text": "CREATE YOUR OWN TEQUILA",
+        "primary_button_url": "#",
+        "secondary_button_text": "SCHEDULE A CALL!",
+        "secondary_button_url": "#",
+        "main_image": "shopify://shop_images/round_bottle_1_2.png",
+        "left_leaf_image": "shopify://shop_images/from_l_9.png",
+        "right_leaf_image": "shopify://shop_images/from_lo_1.png",
+        "background_color": "#f1f1ee",
+        "title_color": "#000000",
+        "highlight_color": "#7cc9b5",
+        "highlight_color_2": "#f4a261",
+        "description_color": "#666666",
+        "primary_button_bg": "#7cc9b5",
+        "primary_button_color": "#000000",
+        "secondary_button_bg": "#f4a261",
+        "secondary_button_color": "#000000",
+        "title_size_desktop": 90,
+        "title_size_mobile": 40,
+        "description_size_desktop": 20,
+        "description_size_mobile": 18,
+        "max_width": "1440px",
+        "padding_top_desktop": 40,
+        "padding_bottom_desktop": 100,
+        "padding_top_mobile": 40,
+        "padding_bottom_mobile": 40,
+        "custom_classes": "",
+        "step_icon": "shopify://shop_images/im_1_4a961312-c5c0-4173-add1-4d35f8077f82.png",
+        "step1_text": "SELECT BOTTLE",
+        "step2_text": "PERSONALIZE LABEL",
+        "step3_text": "PLACE ORDER",
+        "step4_text": "ENJOY"
+      }
+    },
+    "section_form_JzGxaQ": {
+      "type": "section-form",
+      "name": "Section form",
+      "settings": {
+        "background_color": "#f3f3f3",
+        "title": "<p><strong>Contact </strong>Form</p>",
+        "main_text": "<p>Lorem ipsum dolor sit amet consectetur. Dui eget ut orci id mi in sed pellentesque neque.</p>",
+        "main_text_mob": "<p>Receive <strong>info, tips </strong>on how to design your <strong>label</strong>, and <strong>special offer!</strong></p>",
+        "image_first": "shopify://shop_images/bg_3.png",
+        "image_second": "shopify://shop_images/image_3_f141c619-00ba-46a8-8deb-3ad478b30489.png",
+        "padding_top": 0,
+        "padding_bottom": 100,
+        "padding_top_mob": 0,
+        "padding_bottom_mob": 40
+      }
+    },
+    "section_testimonial_BEM4cB": {
+      "type": "section-testimonial",
+      "blocks": {
+        "block_QMAgGR": {
+          "type": "block",
+          "settings": {
+            "image": "shopify://shop_images/Group_75_40a835c4-5700-41df-bb77-9f3e36c42d55.png",
+            "image_mob": "shopify://shop_images/Group_178_abbc4dba-e5b0-409e-ae96-a9ca87b7e871.png",
+            "description": "<p>“I gave this to a client after we closed a huge deal. His entire team took photos with the bottle — it’s the first time a gift actually felt memorable.”</p>",
+            "name_text": "<p>– Marcus H., Founder,</p>",
+            "title_text": "<p>NYC Real Estate Group</p>"
+          }
+        }
+      },
+      "block_order": [
+        "block_QMAgGR"
+      ],
+      "name": "Section testimonial",
+      "settings": {
+        "background_color": "#f3f3f3",
+        "title": "Testimonial",
+        "padding_top": 0,
+        "padding_bottom": 40,
+        "padding_top_mob": 0,
+        "padding_bottom_mob": 0
+      }
+    },
+    "instafeed_HqmYCV": {
+      "type": "instafeed",
+      "blocks": {
+        "instagram_post_kqaTxg": {
+          "type": "instagram_post",
+          "settings": {
+            "post_image": "shopify://shop_images/47026e7010cda3fd55e0c21b60736d55789a6672.jpg",
+            "post_url": ""
+          }
+        },
+        "instagram_post_JUaraU": {
+          "type": "instagram_post",
+          "settings": {
+            "post_image": "shopify://shop_images/173bdd8077c50922de450bc10c18a9864a254bbf.png",
+            "post_url": ""
+          }
+        },
+        "instagram_post_DNTiwi": {
+          "type": "instagram_post",
+          "settings": {
+            "post_image": "shopify://shop_images/52a7f159b11e3608fb041458f3e2d9d770712188.jpg",
+            "post_url": ""
+          }
+        },
+        "instagram_post_eyHGj8": {
+          "type": "instagram_post",
+          "settings": {
+            "post_image": "shopify://shop_images/6d35ff77c3db63cf905bf62fd0fbcce3c6093e16.png",
+            "post_url": ""
+          }
+        }
+      },
+      "block_order": [
+        "instagram_post_kqaTxg",
+        "instagram_post_JUaraU",
+        "instagram_post_DNTiwi",
+        "instagram_post_eyHGj8"
+      ],
+      "name": "Instagram Feed",
+      "settings": {
+        "instagram_handle": "inbarrelofficial",
+        "background_color": "#f3f3f3",
+        "text_color": "#090909",
+        "highlight_color": "#67b7a8",
+        "border_color": "#e5e5e5"
+      }
+    },
+    "footer_custom_fwM9HJ": {
+      "type": "footer-custom",
+      "blocks": {
+        "navigation_link_FWt6tB": {
+          "type": "navigation_link",
+          "settings": {
+            "label": "Home",
+            "url": ""
+          }
+        },
+        "navigation_link_xVedb3": {
+          "type": "navigation_link",
+          "settings": {
+            "label": "Personalize",
+            "url": ""
+          }
+        },
+        "navigation_link_kXiTpm": {
+          "type": "navigation_link",
+          "settings": {
+            "label": "Corporate",
+            "url": ""
+          }
+        },
+        "navigation_link_mkfMUQ": {
+          "type": "navigation_link",
+          "settings": {
+            "label": "About us",
+            "url": ""
+          }
+        },
+        "navigation_link_nBCxGM": {
+          "type": "navigation_link",
+          "settings": {
+            "label": "Our Tequila",
+            "url": ""
+          }
+        },
+        "social_link_XPFyrP": {
+          "type": "social_link",
+          "settings": {
+            "label": "li",
+            "url": "",
+            "highlight": false
+          }
+        },
+        "social_link_cjjpGY": {
+          "type": "social_link",
+          "settings": {
+            "label": "fb",
+            "url": "",
+            "highlight": true
+          }
+        },
+        "social_link_n8hz7P": {
+          "type": "social_link",
+          "settings": {
+            "label": "in",
+            "url": "",
+            "highlight": false
+          }
+        }
+      },
+      "block_order": [
+        "navigation_link_FWt6tB",
+        "navigation_link_xVedb3",
+        "navigation_link_kXiTpm",
+        "navigation_link_mkfMUQ",
+        "navigation_link_nBCxGM",
+        "social_link_XPFyrP",
+        "social_link_cjjpGY",
+        "social_link_n8hz7P"
+      ],
+      "name": "Footer",
+      "settings": {
+        "brand_text": "InBarrel",
+        "brand_texture": "shopify://shop_images/Group_165.png",
+        "background_pattern": "shopify://shop_images/1_23456791_1d01bc29-da3b-4964-bd43-0c2b61f2954a.png",
+        "links_title": "Links",
+        "newsletter_title": "Let's work together",
+        "email_placeholder": "Email",
+        "submit_text": "Submit",
+        "contact_title": "Contact us",
+        "contact_email": "hola@inbarrel.com",
+        "contact_address": "800 4th Ave, Grinnell, IA 50112",
+        "copyright": "© InBarrel Tequila 2023. All rights reserved.",
+        "background_color": "#f1f1ee",
+        "text_color": "#090909",
+        "text_muted": "#09090999",
+        "highlight_color": "#67b7a8",
+        "border_color": "#090909",
+        "button_bg": "#67b7a8"
       }
     }
   },
   "order": [
     "main",
-    "form"
+    "our_tequila_AeeNMF",
+    "section_form_JzGxaQ",
+    "section_testimonial_BEM4cB",
+    "instafeed_HqmYCV",
+    "footer_custom_fwM9HJ"
   ]
 }
