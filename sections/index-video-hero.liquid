@@ -193,23 +193,23 @@
     display: inline-block;
     padding: var(--hero-cta-padding);
     width: 100%;
-    background: {{ section.settings.cta_background }};
-    color: {{ section.settings.cta_text_color }};
+    background: #67B7A8;
+    color: #090909;
     text-decoration: none;
     border-radius: 90px;
     font-size: {{ section.settings.cta_font_size_mobile }}px;
     line-height: 1.2;
     text-transform: uppercase;
     letter-spacing: 0;
-    transition: all 0.3s ease;
+    transition: background 0.3s, color 0.3s;
     border: 2px solid #090909;
   }
 
-  #{{ section_id }} .tequila-video-hero__cta:hover {
-    background: {{ section.settings.cta_hover_background }};
-    color: {{ section.settings.cta_hover_text_color }};
-    transform: translateY(-2px);
-    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+  #{{ section_id }} .tequila-video-hero__cta:hover,
+  #{{ section_id }} .tequila-video-hero__cta:focus {
+    background: #FFB793;
+    color: #090909;
+    border-color: #090909;
   }
 
   @media (min-width: 768px) {
@@ -454,30 +454,6 @@
       "type": "url",
       "id": "cta_url",
       "label": "CTA Link"
-    },
-    {
-      "type": "color_background",
-      "id": "cta_background",
-      "label": "CTA Background",
-      "default": "linear-gradient(90deg, #67D3CC 0%, #67D3CC 100%)"
-    },
-    {
-      "type": "color",
-      "id": "cta_text_color",
-      "label": "CTA Text Color",
-      "default": "#1C1C1C"
-    },
-    {
-      "type": "color_background",
-      "id": "cta_hover_background",
-      "label": "CTA Hover Background",
-      "default": "linear-gradient(90deg, #FF9B7F 0%, #FF9B7F 100%)"
-    },
-    {
-      "type": "color",
-      "id": "cta_hover_text_color",
-      "label": "CTA Hover Text Color",
-      "default": "#1C1C1C"
     },
     {
       "type": "range",
