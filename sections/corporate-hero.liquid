@@ -110,40 +110,29 @@
   {% comment %} Bottom Info Block {% endcomment %}
   <div class="corporate-hero-bottom-info">
     <div class="corporate-hero-bottom-wrapper">
-      <div class="corporate-hero-steps">
-        {% assign steps = 'step1_text,step2_text,step3_text,step4_text' | split: ',' %}
-        {% assign step_defaults = 'SELECT SOLUTION,CUSTOMIZE APPROACH,PLACE ORDER,ACHIEVE RESULTS' | split: ',' %}
+      <div class="corporate-hero-steps-wrapper">
+        <div class="corporate-hero-steps" data-speed="{{ section.settings.marquee_speed | default: 30 }}">
+          {% assign steps = 'step1_text,step2_text,step3_text,step4_text' | split: ',' %}
+          {% assign step_defaults = 'SELECT SOLUTION,CUSTOMIZE APPROACH,PLACE ORDER,ACHIEVE RESULTS' | split: ',' %}
 
-        {% for step in steps %}
-          <!-- Icon before step -->
-          {% if section.settings.step_icon != blank %}
-            <div class="corporate-hero-step-icon">
-              {{
-                section.settings.step_icon
-                | image_url: width: 41, height: 29
-                | image_tag: alt: 'Step Icon', loading: 'lazy'
-              }}
+          {% for step in steps %}
+            <div class="corporate-hero-step">
+              <div class="corporate-hero-step-text">
+                <span>{{ section.settings[step] | default: step_defaults[forloop.index0] }}</span>
+              </div>
             </div>
-          {% endif %}
 
-          <!-- Step -->
-          <div class="corporate-hero-step">
-            <div class="corporate-hero-step-text">
-              <span>{{ section.settings[step] | default: step_defaults[forloop.index0] }}</span>
-            </div>
-          </div>
-        {% endfor %}
-
-        <!-- Final icon after last step -->
-        {% if section.settings.step_icon != blank %}
-          <div class="corporate-hero-step-icon">
-            {{
-              section.settings.step_icon
-              | image_url: width: 41, height: 29
-              | image_tag: alt: 'Step Icon', loading: 'lazy'
-            }}
-          </div>
-        {% endif %}
+            {% if section.settings.step_icon != blank %}
+              <div class="corporate-hero-step-icon">
+                {{
+                  section.settings.step_icon
+                  | image_url: width: 41, height: 29
+                  | image_tag: alt: 'Step Icon', loading: 'lazy'
+                }}
+              </div>
+            {% endif %}
+          {% endfor %}
+        </div>
       </div>
     </div>
   </div>
@@ -325,25 +314,35 @@
     margin: 0 auto;
   }
 
+  #{{ section.id }} .corporate-hero-steps-wrapper {
+    width: 100%;
+    overflow: hidden;
+    mask: linear-gradient(90deg, transparent 0%, white 5%, white 95%, transparent 100%);
+    -webkit-mask: linear-gradient(90deg, transparent 0%, white 5%, white 95%, transparent 100%);
+  }
+
   #{{ section.id }} .corporate-hero-steps {
-    display: flex;
-    justify-content: space-around;
     align-items: center;
-    gap: 0;
+    display: flex;
     flex-wrap: nowrap;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: none; /* Firefox */
+    gap: 40px;
+    justify-content: flex-start;
+    width: max-content;
+    animation: corporate-marquee linear infinite;
+    animation-duration: calc(var(--corporate-marquee-duration, 20s));
   }
 
-  /* Hide scrollbar for Chrome, Safari and Opera */
-  #{{ section.id }} .corporate-hero-steps::-webkit-scrollbar {
-    display: none;
+  #{{ section.id }} .corporate-hero-steps:hover {
+    animation-play-state: paused;
   }
 
-  /* Hide scrollbar for IE, Edge */
-  #{{ section.id }} .corporate-hero-steps {
-    -ms-overflow-style: none;
+  @keyframes corporate-marquee {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-50%);
+    }
   }
 
   #{{ section.id }} .corporate-hero-step-text {
@@ -357,22 +356,26 @@
   }
 
   #{{ section.id }} .corporate-hero-step {
-    display: flex;
     align-items: center;
+    display: flex;
+    flex-shrink: 0;
     gap: 15px;
-    flex: 0 0 auto;
     min-width: auto;
   }
 
-  /* Optional: Hide scroll bar on Webkit browsers for cleaner look */
-  #{{ section.id }} .corporate-hero-steps::-webkit-scrollbar {
-    height: 6px;
-    background: #eee;
+  #{{ section.id }} .corporate-hero-step-icon {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    flex-shrink: 0;
   }
-  #{{ section.id }} .corporate-hero-steps::-webkit-scrollbar-thumb {
-    background: var(--corporate-hero-highlight-color);
-    border-radius: 3px;
+
+  #{{ section.id }} .corporate-hero-step-icon img {
+    display: block;
+    height: 29px;
+    width: 41px;
   }
+
 
   @media (max-width: 767px) {
 .corporate-video-hero__description {
@@ -396,11 +399,7 @@
 
 
     #{{ section.id }} .corporate-hero-steps {
-      display: flex;
-      gap: 20px;
-      flex-wrap: nowrap;
-      overflow-x: auto;
-      justify-content: flex-start;
+      gap: 24px;
     }
   }
 
@@ -502,6 +501,62 @@
     }
   }
 </style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const track = document.querySelector('#{{ section.id }} .corporate-hero-steps');
+    if (!track) return;
+
+    // Create infinite marquee by duplicating content multiple times
+    function createInfiniteMarquee() {
+      const originalItems = track.children;
+      const itemsArray = Array.from(originalItems);
+
+      // Store original width before duplication
+      const originalWidth = track.scrollWidth;
+
+      // Clone items multiple times to create longer seamless loop
+      for (let i = 0; i < 4; i++) {
+        itemsArray.forEach((item) => {
+          const clone = item.cloneNode(true);
+          track.appendChild(clone);
+        });
+      }
+
+      // Calculate animation duration based on original content width and speed
+      const speed = parseInt(track.dataset.speed) || 30; // pixels per second
+      const duration = (originalWidth * 2) / speed; // Double duration for smoother animation
+
+      // Set CSS custom property for animation duration
+      track.style.setProperty('--corporate-marquee-duration', duration + 's');
+    }
+
+    // Initialize infinite marquee
+    createInfiniteMarquee();
+
+    // Recalculate on window resize
+    let resizeTimeout;
+    window.addEventListener('resize', function () {
+      clearTimeout(resizeTimeout);
+      resizeTimeout = setTimeout(function () {
+        // Reset and recreate
+        track.style.animation = 'none';
+        const clones = track.querySelectorAll(
+          ':nth-child(n+' + (Math.floor(track.children.length / 5) + 1) + ')'
+        );
+        clones.forEach((clone) => clone.remove());
+
+        createInfiniteMarquee();
+
+        // Restart animation
+        requestAnimationFrame(() => {
+          track.style.animation = 'corporate-marquee linear infinite';
+          track.style.animationDuration = 'calc(var(--corporate-marquee-duration))';
+        });
+      }, 250);
+    });
+  });
+</script>
 
 {% schema %}
 {
@@ -742,6 +797,17 @@
       "id": "step4_text",
       "label": "Step 4 Text",
       "default": "ACHIEVE RESULTS"
+    },
+    {
+      "type": "range",
+      "id": "marquee_speed",
+      "label": "Marquee Speed",
+      "min": 10,
+      "max": 100,
+      "step": 5,
+      "default": 30,
+      "unit": "px",
+      "info": "Speed of the marquee animation in pixels per second"
     }
   ],
   "presets": [

@@ -68,37 +68,29 @@
 
   <div class="tequila-hero-bottom-info">
     <div class="tequila-hero-bottom-wrapper">
-      <div class="tequila-hero-steps">
-        {% assign steps = 'step1_text,step2_text,step3_text,step4_text' | split: ',' %}
-        {% assign step_defaults = 'SELECT BOTTLE,PERSONALIZE LABEL,PLACE ORDER,ENJOY' | split: ',' %}
+      <div class="tequila-hero-steps-wrapper">
+        <div class="tequila-hero-steps" data-speed="{{ section.settings.marquee_speed | default: 30 }}">
+          {% assign steps = 'step1_text,step2_text,step3_text,step4_text' | split: ',' %}
+          {% assign step_defaults = 'SELECT BOTTLE,PERSONALIZE LABEL,PLACE ORDER,ENJOY' | split: ',' %}
 
-        {% for step in steps %}
-          {% if section.settings.step_icon != blank %}
-            <div class="tequila-hero-step-icon">
-              {{
-                section.settings.step_icon
-                | image_url: width: 41, height: 29
-                | image_tag: alt: 'Step Icon', loading: 'lazy'
-              }}
+          {% for step in steps %}
+            <div class="tequila-hero-step">
+              <div class="tequila-hero-step-text">
+                <span>{{ section.settings[step] | default: step_defaults[forloop.index0] }}</span>
+              </div>
             </div>
-          {% endif %}
 
-          <div class="tequila-hero-step">
-            <div class="tequila-hero-step-text">
-              <span>{{ section.settings[step] | default: step_defaults[forloop.index0] }}</span>
-            </div>
-          </div>
-        {% endfor %}
-
-        {% if section.settings.step_icon != blank %}
-          <div class="tequila-hero-step-icon">
-            {{
-              section.settings.step_icon
-              | image_url: width: 41, height: 29
-              | image_tag: alt: 'Step Icon', loading: 'lazy'
-            }}
-          </div>
-        {% endif %}
+            {% if section.settings.step_icon != blank %}
+              <div class="tequila-hero-step-icon">
+                {{
+                  section.settings.step_icon
+                  | image_url: width: 41, height: 29
+                  | image_tag: alt: 'Step Icon', loading: 'lazy'
+                }}
+              </div>
+            {% endif %}
+          {% endfor %}
+        </div>
       </div>
     </div>
   </div>
@@ -286,25 +278,41 @@
     max-width: var(--tequila-hero-max-width);
   }
 
+  #{{ section.id }} .tequila-hero-steps-wrapper {
+    width: 100%;
+    overflow: hidden;
+    mask: linear-gradient(90deg, transparent 0%, white 5%, white 95%, transparent 100%);
+    -webkit-mask: linear-gradient(90deg, transparent 0%, white 5%, white 95%, transparent 100%);
+  }
+
   #{{ section.id }} .tequila-hero-steps {
     align-items: center;
     display: flex;
     flex-wrap: nowrap;
-    gap: 0;
-    justify-content: space-around;
-    overflow-x: auto;
-    scrollbar-width: none;
-    -webkit-overflow-scrolling: touch;
+    gap: 40px;
+    justify-content: flex-start;
+    width: max-content;
+    animation: tequila-marquee linear infinite;
+    animation-duration: calc(var(--tequila-marquee-duration, 20s));
   }
 
-  #{{ section.id }} .tequila-hero-steps::-webkit-scrollbar {
-    display: none;
+  #{{ section.id }} .tequila-hero-steps:hover {
+    animation-play-state: paused;
+  }
+
+  @keyframes tequila-marquee {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-50%);
+    }
   }
 
   #{{ section.id }} .tequila-hero-step {
     align-items: center;
     display: flex;
-    flex: 0 0 auto;
+    flex-shrink: 0;
     gap: 15px;
     min-width: auto;
   }
@@ -313,6 +321,7 @@
     align-items: center;
     display: flex;
     justify-content: center;
+    flex-shrink: 0;
   }
 
   #{{ section.id }} .tequila-hero-step-icon img {
@@ -372,6 +381,10 @@
       margin-bottom: 16px;
       overflow: hidden;
       border-radius: 50px;
+    }
+
+    #{{ section.id }} .tequila-hero-steps {
+      gap: 24px;
     }
 
     #{{ section.id }} .tequila-hero-step {
@@ -470,6 +483,62 @@
   }
 }
 </style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const track = document.querySelector('#{{ section.id }} .tequila-hero-steps');
+    if (!track) return;
+
+    // Create infinite marquee by duplicating content multiple times
+    function createInfiniteMarquee() {
+      const originalItems = track.children;
+      const itemsArray = Array.from(originalItems);
+
+      // Store original width before duplication
+      const originalWidth = track.scrollWidth;
+
+      // Clone items multiple times to create longer seamless loop
+      for (let i = 0; i < 4; i++) {
+        itemsArray.forEach((item) => {
+          const clone = item.cloneNode(true);
+          track.appendChild(clone);
+        });
+      }
+
+      // Calculate animation duration based on original content width and speed
+      const speed = parseInt(track.dataset.speed) || 30; // pixels per second
+      const duration = (originalWidth * 2) / speed; // Double duration for smoother animation
+
+      // Set CSS custom property for animation duration
+      track.style.setProperty('--tequila-marquee-duration', duration + 's');
+    }
+
+    // Initialize infinite marquee
+    createInfiniteMarquee();
+
+    // Recalculate on window resize
+    let resizeTimeout;
+    window.addEventListener('resize', function () {
+      clearTimeout(resizeTimeout);
+      resizeTimeout = setTimeout(function () {
+        // Reset and recreate
+        track.style.animation = 'none';
+        const clones = track.querySelectorAll(
+          ':nth-child(n+' + (Math.floor(track.children.length / 5) + 1) + ')'
+        );
+        clones.forEach((clone) => clone.remove());
+
+        createInfiniteMarquee();
+
+        // Restart animation
+        requestAnimationFrame(() => {
+          track.style.animation = 'tequila-marquee linear infinite';
+          track.style.animationDuration = 'calc(var(--tequila-marquee-duration))';
+        });
+      }, 250);
+    });
+  });
+</script>
 
 {% schema %}
 {
@@ -684,6 +753,17 @@
       "id": "step4_text",
       "label": "Step 4 Text",
       "default": "ENJOY"
+    },
+    {
+      "type": "range",
+      "id": "marquee_speed",
+      "label": "Marquee Speed",
+      "min": 10,
+      "max": 100,
+      "step": 5,
+      "default": 30,
+      "unit": "px",
+      "info": "Speed of the marquee animation in pixels per second"
     }
   ],
   "presets": [
