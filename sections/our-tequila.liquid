@@ -97,358 +97,231 @@
 </div>
 
 <style>
-  :root {
-    --tequila-hero-bg-color: {{ section.settings.background_color | default: '#f5f5f5' }};
-    --tequila-hero-description-color: {{ section.settings.description_color | default: '#a05e5eff' }};
-    --tequila-hero-description-size-desktop: {{ section.settings.description_size_desktop | default: 18 }}px;
-    --tequila-hero-description-size-mobile: {{ section.settings.description_size_mobile | default: 16 }}px;
-    --tequila-hero-highlight-color: {{ section.settings.highlight_color | default: '#7CC9B5' }};
-    --tequila-hero-highlight-color-2: {{ section.settings.highlight_color_2 | default: '#F4A261' }};
-    --tequila-hero-max-width: {{ section.settings.max_width | default: '1440px' }};
-    --tequila-hero-padding-bottom-desktop: {{ section.settings.padding_bottom_desktop | default: 80 }}px;
-    --tequila-hero-padding-bottom-mobile: {{ section.settings.padding_bottom_mobile | default: 60 }}px;
-    --tequila-hero-padding-top-desktop: {{ section.settings.padding_top_desktop | default: 80 }}px;
-    --tequila-hero-padding-top-mobile: {{ section.settings.padding_top_mobile | default: 60 }}px;
-    --tequila-hero-primary-btn-bg: #67B7A8;
-    --tequila-hero-primary-btn-color: #090909;
-    --tequila-hero-secondary-btn-bg: #FFB793;
-    --tequila-hero-secondary-btn-color: #090909;
-    --tequila-hero-title-color: {{ section.settings.title_color | default: '#000000' }};
-    --tequila-hero-title-size-desktop: {{ section.settings.title_size_desktop | default: 80 }}px;
-    --tequila-hero-title-size-mobile: {{ section.settings.title_size_mobile | default: 30 }}px;
-  }
-
-  /* Highlight styles */
-  #{{ section.id }} strong {
-    color: var(--tequila-hero-highlight-color);
-  }
-
-  #{{ section.id }} em,
-  #{{ section.id }} i {
-    color: var(--tequila-hero-highlight-color-2);
-    font-style: normal;
-  }
-
-  /* Base Styles */
-  #{{ section.id }}.tequila-hero-section {
-    background-color: var(--tequila-hero-bg-color);
-    min-height: 390px;
-    overflow: hidden;
-    padding-bottom: var(--tequila-hero-padding-bottom-mobile);
-    padding-top: var(--tequila-hero-padding-top-mobile);
-    position: relative;
-  }
-
-  #{{ section.id }} .tequila-hero-wrapper {
-    align-items: center;
-    display: flex;
-    height: 100%;
-    justify-content: center;
-    margin: 0 auto 9px;
-    max-width: var(--tequila-hero-max-width);
-    padding: 0 20px;
-    position: relative;
-  }
-
-  #{{ section.id }} .tequila-hero-content {
-    max-width: 1016px;
-
-    text-align: center;
-    width: 100%;
-
-  }
-
-  /* Title */
-  #{{ section.id }} .tequila-hero-title {
-    position: relative;
-    z-index: 11;
-    color: var(--tequila-hero-title-color);
-    font-size: var(--tequila-hero-title-size-mobile);
-    font-weight: 900;
-    letter-spacing: 0;
-    line-height: 1.0;
-    margin: 0 auto 10px auto;
-    max-width: 946px;
-    text-transform: uppercase;
-  }
-
-  /* Description */
-  #{{ section.id }} .tequila-hero-description {
-    color: #090909CC;
-
-    {% comment %} color: var(--tequila-hero-description-color); {% endcomment %}
-    font-size: var(--tequila-hero-description-size-mobile);
-    line-height: 1.65;
-    letter-spacing: 0;
-    margin: 0 0 20px 0;
-    margin-left: auto;
-    margin-right: auto;
-    max-width: 804px;
-  }
-
-  /* Buttons */
-  #{{ section.id }} .tequila-hero-buttons {
-    align-items: center;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    margin-bottom: 20px;
-  }
-
-  #{{ section.id }} .tequila-hero-btn {
-    align-items: center;
-    border: 2px solid #090909;
-    border-radius: 50px;
-    display: inline-flex;
-    font-size: 16px;
-    justify-content: center;
-    letter-spacing: 0;
-    line-height: 1.2;
-    padding: 28px 30px;
-    text-decoration: none;
-    text-transform: uppercase;
-    transition: all 0.3s ease;
-    width: 100%;
-    position: relative;
-    z-index: 100;
-  }
-
-  #{{ section.id }} .tequila-hero-btn-primary {
-    background-color: var(--tequila-hero-primary-btn-bg);
-    color: var(--tequila-hero-primary-btn-color);
-  }
-
-  #{{ section.id }} .tequila-hero-btn-primary:hover,
-  #{{ section.id }} .tequila-hero-btn-primary:focus {
-    background: #FFB793;
-    color: #090909;
-    border-color: #090909;
-  }
-
-  #{{ section.id }} .tequila-hero-btn-secondary {
-    background-color: var(--tequila-hero-secondary-btn-bg);
-    color: var(--tequila-hero-secondary-btn-color);
-  }
-
-  #{{ section.id }} .tequila-hero-btn-secondary:hover,
-  #{{ section.id }} .tequila-hero-btn-secondary:focus {
-    background: #E69A72;
-    color: #090909;
-    border-color: #090909;
-  }
-
-  #{{ section.id }} .tequila-hero-create-image img {
-    display: block;
-    height: auto;
-    margin: 0 auto;
-    max-width: 100%;
-  }
-
-
-  #{{ section.id }} .tequila-hero-bottle img {
-    height: auto;
-    width: 120px;
-  }
-
-  #{{ section.id }} .tequila-hero-leaf-left,
-  #{{ section.id }} .tequila-hero-leaf-right {
-    bottom: 60px;
-    display: none;
-    position: absolute;
-    z-index: 3;
-  }
-
-  #{{ section.id }} .tequila-hero-leaf-left {
-    left: -103px;
-  }
-
-  #{{ section.id }} .tequila-hero-leaf-right {
-    right: -103px;
-  }
-
-  /* Bottom Info */
-  #{{ section.id }} .tequila-hero-bottom-info {
-    margin: 0 auto;
-    max-width: 1240px;
-    padding: 30px 0;
-  }
-
-  #{{ section.id }} .tequila-hero-bottom-wrapper {
-    margin: 0 auto;
-    max-width: var(--tequila-hero-max-width);
-  }
-
-  #{{ section.id }} .tequila-hero-steps-wrapper {
-    width: 100%;
-    overflow: hidden;
-    mask: linear-gradient(90deg, transparent 0%, white 5%, white 95%, transparent 100%);
-    -webkit-mask: linear-gradient(90deg, transparent 0%, white 5%, white 95%, transparent 100%);
-  }
-
-  #{{ section.id }} .tequila-hero-steps {
-    align-items: center;
-    display: flex;
-    flex-wrap: nowrap;
-    gap: 40px;
-    justify-content: flex-start;
-    width: max-content;
-    animation: tequila-marquee linear infinite;
-    animation-duration: calc(var(--tequila-marquee-duration, 20s));
-  }
-
-  #{{ section.id }} .tequila-hero-steps:hover {
-    animation-play-state: paused;
-  }
-
-  @keyframes tequila-marquee {
-    from {
-      transform: translateX(0);
-    }
-    to {
-      transform: translateX(-50%);
-    }
-  }
-
-  #{{ section.id }} .tequila-hero-step {
-    align-items: center;
-    display: flex;
-    flex-shrink: 0;
-    gap: 15px;
-    min-width: auto;
-  }
-
-  #{{ section.id }} .tequila-hero-step-icon {
-    align-items: center;
-    display: flex;
-    justify-content: center;
-    flex-shrink: 0;
-  }
-
-  #{{ section.id }} .tequila-hero-step-icon img {
-    display: block;
-    height: 29px;
-    width: 41px;
-  }
-
-  #{{ section.id }} .tequila-hero-step-text {
-    color: #090909;
-    font-family: 'Futura Hv BT', 'Roundo', sans-serif;
-    font-size: 24px;
-    font-weight: 900;
-    letter-spacing: 0;
-    line-height: 1;
-    text-transform: uppercase;
-  }
-
-  /* Media Queries */
-  @media (max-width: 767px) {
-    #{{ section.id }} .tequila-hero-description{
-        max-width: 300px;
-    }
-    #{{ section.id }} .tequila-hero-create-image {
-      overflow: hidden;
-        border-top-left-radius: 60px;
-        border-bottom-right-radius: 60px;
-      height: 221px; /* Add this line */
-      min-height: 221px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+    :root {
+      --tequila-hero-bg-color: {{ section.settings.background_color | default: '#f5f5f5' }};
+      --tequila-hero-description-color: {{ section.settings.description_color | default: '#a05e5eff' }};
+      --tequila-hero-description-size-desktop: {{ section.settings.description_size_desktop | default: 18 }}px;
+      --tequila-hero-description-size-mobile: {{ section.settings.description_size_mobile | default: 16 }}px;
+      --tequila-hero-highlight-color: {{ section.settings.highlight_color | default: '#7CC9B5' }};
+      --tequila-hero-highlight-color-2: {{ section.settings.highlight_color_2 | default: '#F4A261' }};
+      --tequila-hero-max-width: {{ section.settings.max_width | default: '1440px' }};
+      --tequila-hero-padding-bottom-desktop: {{ section.settings.padding_bottom_desktop | default: 80 }}px;
+      --tequila-hero-padding-bottom-mobile: {{ section.settings.padding_bottom_mobile | default: 60 }}px;
+      --tequila-hero-padding-top-desktop: {{ section.settings.padding_top_desktop | default: 80 }}px;
+      --tequila-hero-padding-top-mobile: {{ section.settings.padding_top_mobile | default: 60 }}px;
+      --tequila-hero-primary-btn-bg: #67B7A8;
+      --tequila-hero-primary-btn-color: #090909;
+      --tequila-hero-secondary-btn-bg: #FFB793;
+      --tequila-hero-secondary-btn-color: #090909;
+      --tequila-hero-title-color: {{ section.settings.title_color | default: '#000000' }};
+      --tequila-hero-title-size-desktop: {{ section.settings.title_size_desktop | default: 80 }}px;
+      --tequila-hero-title-size-mobile: {{ section.settings.title_size_mobile | default: 30 }}px;
     }
 
-    #{{ section.id }} .tequila-hero-create-image img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      border-radius: inherit;
-      display: block;
-    }
-  }
-
-  @media (min-width: 768px) {
-    #{{ section.id }} .tequila-hero-wrapper {
-      margin-bottom: 0;
-      overflow: hidden;
+    /* Highlight styles */
+    #{{ section.id }} strong {
+      color: var(--tequila-hero-highlight-color);
     }
 
+    #{{ section.id }} em,
+    #{{ section.id }} i {
+      color: var(--tequila-hero-highlight-color-2);
+      font-style: normal;
+    }
+
+    /* Base Styles */
     #{{ section.id }}.tequila-hero-section {
-      min-height: 600px;
-      padding-bottom: var(--tequila-hero-padding-bottom-desktop);
-      padding-top: var(--tequila-hero-padding-top-desktop);
-    }
-
-    #{{ section.id }} .tequila-hero-create-image {
-      margin-bottom: 16px;
+      background-color: var(--tequila-hero-bg-color);
+      min-height: 390px;
       overflow: hidden;
-      border-radius: 50px;
-    }
-
-    #{{ section.id }} .tequila-hero-steps {
-      gap: 24px;
-    }
-
-    #{{ section.id }} .tequila-hero-step {
-      gap: 15px;
-    }
-
-    #{{ section.id }} .tequila-hero-btn {
-      font-size: 18px;
-      min-width: 368px;
-      padding-left: 30px;
-      padding-right: 30px;
-      width: auto;
-    }
-
-    #{{ section.id }} .tequila-hero-btn.tequila-hero-btn-primary {
-      min-width: 379px;
-    }
-
-    #{{ section.id }} .tequila-hero-title {
-      font-size: var(--tequila-hero-title-size-desktop);
-      margin-bottom: 21px;
-    }
-
-    #{{ section.id }} .tequila-hero-description {
-      z-index: 11;
+      padding-bottom: var(--tequila-hero-padding-bottom-mobile);
+      padding-top: var(--tequila-hero-padding-top-mobile);
       position: relative;
-      font-size: var(--tequila-hero-description-size-desktop);
+    }
+
+    #{{ section.id }} .tequila-hero-wrapper {
+      align-items: center;
+      display: flex;
+      height: 100%;
+      justify-content: center;
+      margin: 0 auto 9px;
+      max-width: var(--tequila-hero-max-width);
+      padding: 0 20px;
+      position: relative;
+    }
+
+    #{{ section.id }} .tequila-hero-content {
+      max-width: 1016px;
+
+      text-align: center;
+      width: 100%;
+
+    }
+
+    /* Title */
+    #{{ section.id }} .tequila-hero-title {
+      position: relative;
+      z-index: 11;
+      color: var(--tequila-hero-title-color);
+      font-size: var(--tequila-hero-title-size-mobile);
+      font-weight: 900;
+      letter-spacing: 0;
+      line-height: 1.0;
+      margin: 0 auto 10px auto;
+      max-width: 946px;
+      text-transform: uppercase;
+    }
+
+    /* Description */
+    #{{ section.id }} .tequila-hero-description {
+      color: #090909CC;
+
+      {% comment %} color: var(--tequila-hero-description-color); {% endcomment %}
+      font-size: var(--tequila-hero-description-size-mobile);
+      line-height: 1.65;
+      letter-spacing: 0;
+      margin: 0 0 20px 0;
+      margin-left: auto;
+      margin-right: auto;
+      max-width: 804px;
+    }
+
+    /* Buttons */
+    #{{ section.id }} .tequila-hero-buttons {
+      align-items: center;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
       margin-bottom: 20px;
     }
 
-    #{{ section.id }} .tequila-hero-buttons {
-      flex-direction: row;
-      gap: 18px;
+    #{{ section.id }} .tequila-hero-btn {
+      align-items: center;
+      border: 2px solid #090909;
+      border-radius: 50px;
+      display: inline-flex;
+      font-size: 16px;
       justify-content: center;
-      margin-bottom: 30px;
+      letter-spacing: 0;
+      line-height: 1.2;
+      padding: 28px 30px;
+      text-decoration: none;
+      text-transform: uppercase;
+      transition: all 0.3s ease;
+      width: 100%;
+      position: relative;
+      z-index: 100;
     }
 
+    #{{ section.id }} .tequila-hero-btn-primary {
+      background-color: var(--tequila-hero-primary-btn-bg);
+      color: var(--tequila-hero-primary-btn-color);
+    }
+
+    #{{ section.id }} .tequila-hero-btn-primary:hover,
+    #{{ section.id }} .tequila-hero-btn-primary:focus {
+      background: #FFB793;
+      color: #090909;
+      border-color: #090909;
+    }
+
+    #{{ section.id }} .tequila-hero-btn-secondary {
+      background-color: var(--tequila-hero-secondary-btn-bg);
+      color: var(--tequila-hero-secondary-btn-color);
+    }
+
+    #{{ section.id }} .tequila-hero-btn-secondary:hover,
+    #{{ section.id }} .tequila-hero-btn-secondary:focus {
+      background: #E69A72;
+      color: #090909;
+      border-color: #090909;
+    }
+
+    #{{ section.id }} .tequila-hero-create-image img {
+      display: block;
+      height: auto;
+      margin: 0 auto;
+      max-width: 100%;
+    }
+
+
     #{{ section.id }} .tequila-hero-bottle img {
-      width: 200px;
+      height: auto;
+      width: 120px;
+    }
+
+    #{{ section.id }} .tequila-hero-leaf-left,
+    #{{ section.id }} .tequila-hero-leaf-right {
+      bottom: 60px;
+      display: none;
+      position: absolute;
+      z-index: 3;
     }
 
     #{{ section.id }} .tequila-hero-leaf-left {
-      display: block;
+      left: -103px;
     }
 
     #{{ section.id }} .tequila-hero-leaf-right {
-      display: block;
+      right: -103px;
     }
 
-    #{{ section.id }} .tequila-hero-leaf-left img,
-    #{{ section.id }} .tequila-hero-leaf-right img {
-      height: 747px;
-      width: 644px;
-      object-fit: contain;
-    }
-
+    /* Bottom Info */
     #{{ section.id }} .tequila-hero-bottom-info {
-      padding: 40px 0;
+      margin: 0 auto;
+      max-width: 1240px;
+      padding: 30px 0;
+    }
+
+    #{{ section.id }} .tequila-hero-bottom-wrapper {
+      margin: 0 auto;
+      max-width: var(--tequila-hero-max-width);
+    }
+
+    #{{ section.id }} .tequila-hero-steps-wrapper {
+      width: 100%;
+      overflow: hidden;
+      mask: linear-gradient(90deg, transparent 0%, white 5%, white 95%, transparent 100%);
+      -webkit-mask: linear-gradient(90deg, transparent 0%, white 5%, white 95%, transparent 100%);
+    }
+
+    #{{ section.id }} .tequila-hero-steps {
+      align-items: center;
+      display: flex;
+      flex-wrap: nowrap;
+      gap: 40px;
+      justify-content: flex-start;
+      width: max-content;
+      animation: tequila-marquee linear infinite;
+      animation-duration: calc(var(--tequila-marquee-duration, 20s));
+    }
+
+    #{{ section.id }} .tequila-hero-steps:hover {
+      animation-play-state: paused;
+    }
+
+    @keyframes tequila-marquee {
+      from {
+        transform: translateX(0);
+      }
+      to {
+        transform: translateX(-50%);
+      }
+    }
+
+    #{{ section.id }} .tequila-hero-step {
+      align-items: center;
+      display: flex;
+      flex-shrink: 0;
+      gap: 15px;
+      min-width: auto;
     }
 
     #{{ section.id }} .tequila-hero-step-icon {
       align-items: center;
       display: flex;
       justify-content: center;
+      flex-shrink: 0;
     }
 
     #{{ section.id }} .tequila-hero-step-icon img {
@@ -456,32 +329,159 @@
       height: 29px;
       width: 41px;
     }
+
+    #{{ section.id }} .tequila-hero-step-text {
+      color: #090909;
+      font-family: 'Futura Hv BT', 'Roundo', sans-serif;
+      font-size: 24px;
+      font-weight: 900;
+      letter-spacing: 0;
+      line-height: 1;
+      text-transform: uppercase;
+    }
+
+    /* Media Queries */
+    @media (max-width: 767px) {
+      #{{ section.id }} .tequila-hero-description{
+          max-width: 300px;
+      }
+      #{{ section.id }} .tequila-hero-create-image {
+        overflow: hidden;
+          border-top-left-radius: 60px;
+          border-bottom-right-radius: 60px;
+        height: 221px; /* Add this line */
+        min-height: 221px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      #{{ section.id }} .tequila-hero-create-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: inherit;
+        display: block;
+      }
+    }
+
+    @media (min-width: 768px) {
+      #{{ section.id }} .tequila-hero-wrapper {
+        margin-bottom: 0;
+        overflow: hidden;
+      }
+
+      #{{ section.id }}.tequila-hero-section {
+        min-height: 600px;
+        padding-bottom: var(--tequila-hero-padding-bottom-desktop);
+        padding-top: var(--tequila-hero-padding-top-desktop);
+      }
+
+      #{{ section.id }} .tequila-hero-create-image {
+        margin-bottom: 16px;
+        overflow: hidden;
+        border-radius: 50px;
+      }
+
+      #{{ section.id }} .tequila-hero-steps {
+        gap: 24px;
+      }
+
+      #{{ section.id }} .tequila-hero-step {
+        gap: 15px;
+      }
+
+      #{{ section.id }} .tequila-hero-btn {
+        font-size: 18px;
+        min-width: 368px;
+        padding-left: 30px;
+        padding-right: 30px;
+        width: auto;
+      }
+
+      #{{ section.id }} .tequila-hero-btn.tequila-hero-btn-primary {
+        min-width: 379px;
+      }
+
+      #{{ section.id }} .tequila-hero-title {
+        font-size: var(--tequila-hero-title-size-desktop);
+        margin-bottom: 21px;
+      }
+
+      #{{ section.id }} .tequila-hero-description {
+        z-index: 11;
+        position: relative;
+        font-size: var(--tequila-hero-description-size-desktop);
+        margin-bottom: 20px;
+      }
+
+      #{{ section.id }} .tequila-hero-buttons {
+        flex-direction: row;
+        gap: 18px;
+        justify-content: center;
+        margin-bottom: 30px;
+      }
+
+      #{{ section.id }} .tequila-hero-bottle img {
+        width: 200px;
+      }
+
+      #{{ section.id }} .tequila-hero-leaf-left {
+        display: block;
+      }
+
+      #{{ section.id }} .tequila-hero-leaf-right {
+        display: block;
+      }
+
+      #{{ section.id }} .tequila-hero-leaf-left img,
+      #{{ section.id }} .tequila-hero-leaf-right img {
+        height: 747px;
+        width: 644px;
+        object-fit: contain;
+      }
+
+      #{{ section.id }} .tequila-hero-bottom-info {
+        padding: 40px 0;
+      }
+
+      #{{ section.id }} .tequila-hero-step-icon {
+        align-items: center;
+        display: flex;
+        justify-content: center;
+      }
+
+      #{{ section.id }} .tequila-hero-step-icon img {
+        display: block;
+        height: 29px;
+        width: 41px;
+      }
+    }
+
+    @media (min-width: 1200px) {
+
+
+
+
+      #{{ section.id }} .tequila-hero-leaf-left img,
+      #{{ section.id }} .tequila-hero-leaf-right img {
+        height: 747px;
+        width: 644px;
+      }
+    }
+    @media (min-width: 1440px) {
+    #{{ section.id }} .tequila-hero-content{
+      min-width: 1101px;
   }
-
-  @media (min-width: 1200px) {
-
-
-
-
-    #{{ section.id }} .tequila-hero-leaf-left img,
-    #{{ section.id }} .tequila-hero-leaf-right img {
-      height: 747px;
-      width: 644px;
+    #{{ section.id }} .tequila-hero-create-image img {
+      display: block;
+      height: auto;
+      margin: 0 auto;
+      max-width: 1101px;
+      height: 570px;
+      min-width: 1101px;
     }
   }
-  @media (min-width: 1440px) {
-  #{{ section.id }} .tequila-hero-content{
-    min-width: 1101px;
-}
-  #{{ section.id }} .tequila-hero-create-image img {
-    display: block;
-    height: auto;
-    margin: 0 auto;
-    max-width: 1101px;
-    height: 570px;
-    min-width: 1101px;
-  }
-}
 </style>
 
 <script>
@@ -523,9 +523,7 @@
       resizeTimeout = setTimeout(function () {
         // Reset and recreate
         track.style.animation = 'none';
-        const clones = track.querySelectorAll(
-          ':nth-child(n+' + (Math.floor(track.children.length / 5) + 1) + ')'
-        );
+        const clones = track.querySelectorAll(':nth-child(n+' + (Math.floor(track.children.length / 5) + 1) + ')');
         clones.forEach((clone) => clone.remove());
 
         createInfiniteMarquee();

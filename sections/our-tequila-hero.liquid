@@ -48,8 +48,8 @@
         {% assign left_leaf_alt = section.settings.left_leaf_image.alt | default: 'Decorative Leaf' %}
         {{
           section.settings.left_leaf_image
-          | image_url: width: 644, height: 747
-          | image_tag: alt: left_leaf_alt, loading: 'lazy', sizes: '644px'
+          | image_url: width: 1276, height: 1046
+          | image_tag: alt: left_leaf_alt, loading: 'lazy', sizes: '1276px'
         }}
       </div>
     {% endif %}
@@ -59,8 +59,8 @@
         {% assign right_leaf_alt = section.settings.right_leaf_image.alt | default: 'Decorative Leaf' %}
         {{
           section.settings.right_leaf_image
-          | image_url: width: 644, height: 747
-          | image_tag: alt: right_leaf_alt, loading: 'lazy', sizes: ' 644px'
+          | image_url: width: 1276, height: 1046
+          | image_tag: alt: right_leaf_alt, loading: 'lazy', sizes: ' 1276px'
         }}
       </div>
     {% endif %}
@@ -249,18 +249,18 @@
 
   #{{ section.id }} .tequila-hero-leaf-left,
   #{{ section.id }} .tequila-hero-leaf-right {
-    bottom: 60px;
+    bottom: 40px;
     display: none;
     position: absolute;
     z-index: 0;
   }
 
   #{{ section.id }} .tequila-hero-leaf-left {
-    left: -103px;
+    left: -845px;
   }
 
   #{{ section.id }} .tequila-hero-leaf-right {
-    right: -103px;
+    right: -845px;
   }
 
   /* Bottom Info */
@@ -361,7 +361,7 @@
   @media (min-width: 768px) {
     #{{ section.id }} .tequila-hero-wrapper {
       margin-bottom: 0;
-      overflow: hidden;
+      {% comment %}overflow: hidden;{% endcomment %}
     }
 
     #{{ section.id }}.tequila-hero-section {
@@ -427,8 +427,8 @@
 
     #{{ section.id }} .tequila-hero-leaf-left img,
     #{{ section.id }} .tequila-hero-leaf-right img {
-      height: 747px;
-      width: 644px;
+      height: 1046px;
+      width: 1276px;
       object-fit: contain;
     }
 
@@ -450,15 +450,19 @@
   }
 
   @media (min-width: 1200px) {
-
-
-
-
     #{{ section.id }} .tequila-hero-leaf-left img,
     #{{ section.id }} .tequila-hero-leaf-right img {
-      height: 747px;
-      width: 644px;
+      height: 1046px;
+      width: 1276px;
     }
+  #{{ section.id }} .tequila-hero-leaf-left {
+    left: -745px;
+  }
+
+  #{{ section.id }} .tequila-hero-leaf-right {
+    right: -795px;
+  }
+
   }
 </style>
 
@@ -501,9 +505,7 @@
       resizeTimeout = setTimeout(function () {
         // Reset and recreate
         track.style.animation = 'none';
-        const clones = track.querySelectorAll(
-          ':nth-child(n+' + (Math.floor(track.children.length / 5) + 1) + ')'
-        );
+        const clones = track.querySelectorAll(':nth-child(n+' + (Math.floor(track.children.length / 5) + 1) + ')');
         clones.forEach((clone) => clone.remove());
 
         createInfiniteMarquee();
