@@ -48,8 +48,8 @@
         {% assign left_leaf_alt = section.settings.left_leaf_image.alt | default: 'Decorative Leaf' %}
         {{
           section.settings.left_leaf_image
-          | image_url: width: 644, height: 747
-          | image_tag: alt: left_leaf_alt, loading: 'lazy', sizes: '644px'
+          | image_url: width: 1113, height: 989
+          | image_tag: alt: left_leaf_alt, loading: 'lazy', sizes: '1113px'
         }}
       </div>
     {% endif %}
@@ -59,8 +59,8 @@
         {% assign right_leaf_alt = section.settings.right_leaf_image.alt | default: 'Decorative Leaf' %}
         {{
           section.settings.right_leaf_image
-          | image_url: width: 644, height: 747
-          | image_tag: alt: right_leaf_alt, loading: 'lazy', sizes: ' 644px'
+          | image_url: width: 1113, height: 989
+          | image_tag: alt: right_leaf_alt, loading: 'lazy', sizes: ' 1113px'
         }}
       </div>
     {% endif %}
@@ -252,18 +252,18 @@
 
     #{{ section.id }} .tequila-hero-leaf-left,
     #{{ section.id }} .tequila-hero-leaf-right {
-      bottom: 60px;
+      bottom: 0px;
       display: none;
       position: absolute;
       z-index: 3;
     }
 
     #{{ section.id }} .tequila-hero-leaf-left {
-      left: -103px;
+      left: -596px;
     }
 
     #{{ section.id }} .tequila-hero-leaf-right {
-      right: -103px;
+      right: -650px;
     }
 
     /* Bottom Info */
@@ -368,7 +368,6 @@
     @media (min-width: 768px) {
       #{{ section.id }} .tequila-hero-wrapper {
         margin-bottom: 0;
-        overflow: hidden;
       }
 
       #{{ section.id }}.tequila-hero-section {
@@ -436,8 +435,8 @@
 
       #{{ section.id }} .tequila-hero-leaf-left img,
       #{{ section.id }} .tequila-hero-leaf-right img {
-        height: 747px;
-        width: 644px;
+        height: 989px;
+        width: 1113px;
         object-fit: contain;
       }
 
@@ -465,8 +464,8 @@
 
       #{{ section.id }} .tequila-hero-leaf-left img,
       #{{ section.id }} .tequila-hero-leaf-right img {
-        height: 747px;
-        width: 644px;
+        height: 989px;
+        width: 1113px;
       }
     }
     @media (min-width: 1440px) {
