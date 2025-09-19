@@ -1,7 +1,6 @@
 <div id="{{ section.id }}" class="corporate-hero-section {{ section.settings.custom_classes }}">
   <div class="corporate-hero-wrapper">
     <div class="corporate-hero-content">
-      
       <!-- Images First -->
       {% if section.settings.create_corporate_image != blank %}
         <div class="corporate-hero-create-image">
@@ -85,7 +84,7 @@
           | image_tag:
             alt: left_leaf_alt,
             loading: 'lazy',
-            sizes: '(max-width: 768px) 150px, 439px',
+            sizes: '(max-width: 768px) 150px, 868px',
             widths: '150, 200, 300, 400'
         }}
       </div>
@@ -100,7 +99,7 @@
           | image_tag:
             alt: right_leaf_alt,
             loading: 'lazy',
-            sizes: '(max-width: 768px) 150px, 439px',
+            sizes: '(max-width: 768px) 150px, 868px',
             widths: '150, 200, 300, 400'
         }}
       </div>
@@ -139,367 +138,367 @@
 </div>
 
 <style>
-  :root {
-    --corporate-hero-bg-color: {{ section.settings.background_color | default: '#f5f5f5' }};
-    --corporate-hero-title-color: {{ section.settings.title_color | default: '#000000' }};
-    --corporate-hero-highlight-color: {{ section.settings.highlight_color | default: '#7CC9B5' }};
-    --corporate-hero-highlight-color-2: {{ section.settings.highlight_color_2 | default: '#F4A261' }};
-    --corporate-hero-description-color: {{ section.settings.description_color | default: '#666666' }};
-    --corporate-hero-primary-btn-bg: #67B7A8;
-    --corporate-hero-primary-btn-color: #090909;
-    --corporate-hero-secondary-btn-bg: #FFB793;
-    --corporate-hero-secondary-btn-color: #090909;
-    --corporate-hero-max-width: {{ section.settings.max_width | default: '1440px' }};
-    --corporate-hero-padding-top-desktop: {{ section.settings.padding_top_desktop | default: 80 }}px;
-    --corporate-hero-padding-bottom-desktop: {{ section.settings.padding_bottom_desktop | default: 80 }}px;
-    --corporate-hero-padding-top-mobile: {{ section.settings.padding_top_mobile | default: 60 }}px;
-    --corporate-hero-padding-bottom-mobile: {{ section.settings.padding_bottom_mobile | default: 60 }}px;
-    --corporate-hero-title-size-desktop: {{ section.settings.title_size_desktop | default: 80 }}px;
-    --corporate-hero-title-size-mobile: {{ section.settings.title_size_mobile | default: 36 }}px;
-    --corporate-hero-description-size-desktop: {{ section.settings.description_size_desktop | default: 18 }}px;
-    --corporate-hero-description-size-mobile: {{ section.settings.description_size_mobile | default: 16 }}px;
-  }
-
-  #{{ section.id }}.corporate-hero-section {
-    background-color: var(--corporate-hero-bg-color);
-    padding-top: var(--corporate-hero-padding-top-mobile);
-    padding-bottom: var(--corporate-hero-padding-bottom-mobile);
-    overflow: hidden;
-    position: relative;
-    min-height: 390px;
-  }
-
-  #{{ section.id }} .corporate-hero-wrapper {
-    max-width: var(--corporate-hero-max-width);
-    margin: 0 auto 10px;
-    padding: 0 20px;
-    position: relative;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  #{{ section.id }} .corporate-hero-content {
-    text-align: center;
-    position: relative;
-    z-index: 3;
-    width: 100%;
-    max-width: 1101px;
-  }
-
-  #{{ section.id }} .corporate-hero-create-image {
-    margin: 0 -97px 28px;
-  }
-
-  #{{ section.id }} .corporate-hero-create-image img {
-    max-width: 100%;
-    height: auto;
-    display: block;
-    margin: 0 auto;
-  }
-
-  #{{ section.id }} .corporate-hero-title {
-    font-size: var(--corporate-hero-title-size-mobile);
-    line-height: 1.0;
-    font-weight: 900;
-    color: var(--corporate-hero-title-color);
-    max-width: 850px;
-    margin: 0 auto 10px auto;
-    text-transform: uppercase;
-    letter-spacing: 0;
-  }
-
-  #{{ section.id }} .corporate-hero-title-highlight {
-    color: var(--corporate-hero-highlight-color);
-  }
-
-  #{{ section.id }} .corporate-hero-description {
-    font-size: var(--corporate-hero-description-size-mobile);
-    line-height: 1.65;
-    color: var(--corporate-hero-description-color);
-    margin: 0 0 20px 0;
-    max-width: 924px;
-    margin-left: auto;
-    margin-right: auto;
-    font-weight: 500;
-    letter-spacing:0;
-  }
-
-  #{{ section.id }} .corporate-hero-buttons {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    margin-bottom: 28px;
-    align-items: center;
-  }
-
-  #{{ section.id }} .corporate-hero-btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    padding: 28px 30px;
-    border-radius: 50px;
-    text-decoration: none;
-    font-size: 16px;
-    letter-spacing: 0;
-    text-transform: uppercase;
-    line-height: 1.2;
-    transition: all 0.3s ease;
-    width: 100%;
-    border: 2px solid #090909;
-  }
-
-  #{{ section.id }} .corporate-hero-btn-primary {
-    background-color: var(--corporate-hero-primary-btn-bg);
-    color: var(--corporate-hero-primary-btn-color);
-  }
-
-  #{{ section.id }} .corporate-hero-btn-primary:hover,
-  #{{ section.id }} .corporate-hero-btn-primary:focus {
-    background: #FFB793;
-    color: #090909;
-    border-color: #090909;
-  }
-
-  #{{ section.id }} .corporate-hero-btn-secondary {
-    background-color: var(--corporate-hero-secondary-btn-bg);
-    color: var(--corporate-hero-secondary-btn-color);
-  }
-
-  #{{ section.id }} .corporate-hero-btn-secondary:hover,
-  #{{ section.id }} .corporate-hero-btn-secondary:focus {
-    background: #E69A72;
-    color: #090909;
-    border-color: #090909;
-  }
-
-  #{{ section.id }} .corporate-hero-bottle {
-    position: absolute;
-    right: 20px;
-    top: 50%;
-    transform: translateY(-50%);
-    z-index: 4;
-  }
-
-  #{{ section.id }} .corporate-hero-bottle img {
-    width: 120px;
-    height: auto;
-  }
-
-  #{{ section.id }} .corporate-hero-leaf-left,
-  #{{ section.id }} .corporate-hero-leaf-right {
-    display: none;
-    position: absolute;
-    bottom: 0;
-    z-index: 3;
-  }
-
-  #{{ section.id }} .corporate-hero-leaf-left {
-    left: -100px;
-  }
-
-  #{{ section.id }} .corporate-hero-leaf-right {
-    right: -100px;
-  }
-
-  #{{ section.id }} .corporate-hero-bottom-info {
-    padding: 30px 0;
-    max-width: 1240px;
-    margin: 0 auto;
-  }
-
-  #{{ section.id }} .corporate-hero-bottom-wrapper {
-    max-width: var(--corporate-hero-max-width);
-    margin: 0 auto;
-  }
-
-  #{{ section.id }} .corporate-hero-steps-wrapper {
-    width: 100%;
-    overflow: hidden;
-    mask: linear-gradient(90deg, transparent 0%, white 5%, white 95%, transparent 100%);
-    -webkit-mask: linear-gradient(90deg, transparent 0%, white 5%, white 95%, transparent 100%);
-  }
-
-  #{{ section.id }} .corporate-hero-steps {
-    align-items: center;
-    display: flex;
-    flex-wrap: nowrap;
-    gap: 40px;
-    justify-content: flex-start;
-    width: max-content;
-    animation: corporate-marquee linear infinite;
-    animation-duration: calc(var(--corporate-marquee-duration, 20s));
-  }
-
-  #{{ section.id }} .corporate-hero-steps:hover {
-    animation-play-state: paused;
-  }
-
-  @keyframes corporate-marquee {
-    from {
-      transform: translateX(0);
-    }
-    to {
-      transform: translateX(-50%);
-    }
-  }
-
-  #{{ section.id }} .corporate-hero-step-text {
-    font-family: 'Futura Hv BT', 'Roundo', sans-serif ;
-    font-weight: 900;
-    font-size: 24px;
-    line-height: 1;
-    text-transform: uppercase;
-    letter-spacing: 0;
-    color: #090909
-  }
-
-  #{{ section.id }} .corporate-hero-step {
-    align-items: center;
-    display: flex;
-    flex-shrink: 0;
-    gap: 15px;
-    min-width: auto;
-  }
-
-  #{{ section.id }} .corporate-hero-step-icon {
-    align-items: center;
-    display: flex;
-    justify-content: center;
-    flex-shrink: 0;
-  }
-
-  #{{ section.id }} .corporate-hero-step-icon img {
-    display: block;
-    height: 29px;
-    width: 41px;
-  }
-
-
-  @media (max-width: 767px) {
-.corporate-video-hero__description {
-  margin-bottom: 10px !important;
-}
-      br.mobile-hidden {
-    display: none;
-  }
-
-.corporate-hero-buttons  {
-  margin-bottom: 10px !important;
-}
-    .corporate-hero-create-image {
-      margin-bottom: 22px !important;
+    :root {
+      --corporate-hero-bg-color: {{ section.settings.background_color | default: '#f5f5f5' }};
+      --corporate-hero-title-color: {{ section.settings.title_color | default: '#000000' }};
+      --corporate-hero-highlight-color: {{ section.settings.highlight_color | default: '#7CC9B5' }};
+      --corporate-hero-highlight-color-2: {{ section.settings.highlight_color_2 | default: '#F4A261' }};
+      --corporate-hero-description-color: {{ section.settings.description_color | default: '#666666' }};
+      --corporate-hero-primary-btn-bg: #67B7A8;
+      --corporate-hero-primary-btn-color: #090909;
+      --corporate-hero-secondary-btn-bg: #FFB793;
+      --corporate-hero-secondary-btn-color: #090909;
+      --corporate-hero-max-width: {{ section.settings.max_width | default: '1440px' }};
+      --corporate-hero-padding-top-desktop: {{ section.settings.padding_top_desktop | default: 80 }}px;
+      --corporate-hero-padding-bottom-desktop: {{ section.settings.padding_bottom_desktop | default: 80 }}px;
+      --corporate-hero-padding-top-mobile: {{ section.settings.padding_top_mobile | default: 60 }}px;
+      --corporate-hero-padding-bottom-mobile: {{ section.settings.padding_bottom_mobile | default: 60 }}px;
+      --corporate-hero-title-size-desktop: {{ section.settings.title_size_desktop | default: 80 }}px;
+      --corporate-hero-title-size-mobile: {{ section.settings.title_size_mobile | default: 36 }}px;
+      --corporate-hero-description-size-desktop: {{ section.settings.description_size_desktop | default: 18 }}px;
+      --corporate-hero-description-size-mobile: {{ section.settings.description_size_mobile | default: 16 }}px;
     }
 
-.corporate-hero-create-image img {
-  max-height: 245px;
-  padding: 0 18px;
-}
-
-
-    #{{ section.id }} .corporate-hero-steps {
-      gap: 24px;
-    }
-  }
-
-  @media (min-width: 768px) {
-    #{{ section.id }} .corporate-hero-wrapper {
-      margin-bottom: 0;
-    }
     #{{ section.id }}.corporate-hero-section {
-      padding-top: var(--corporate-hero-padding-top-desktop);
-      padding-bottom: var(--corporate-hero-padding-bottom-desktop);
-      min-height: 600px;
-    }
-    #{{ section.id }} .corporate-hero-create-image {
-      margin-bottom: 41px;
-    }
-    #{{ section.id }} .corporate-hero-step {
-      gap: 15px;
-    }
-    #{{ section.id }} .corporate-hero-btn {
-      width: auto;
-      font-size: 18px;
-      min-width: 368px;
-      padding-left: 30px;
-      padding-right: 30px;
-    }
-    #{{ section.id }} .corporate-hero-btn.corporate-hero-btn-primary {
-      min-width: 379px;
+      background-color: var(--corporate-hero-bg-color);
+      padding-top: var(--corporate-hero-padding-top-mobile);
+      padding-bottom: var(--corporate-hero-padding-bottom-mobile);
+      overflow: hidden;
+      position: relative;
+      min-height: 390px;
     }
 
-    #{{ section.id }} .corporate-hero-title {
-      font-size: var(--corporate-hero-title-size-desktop);
-      margin-bottom: 10px;
-    }
-
-    #{{ section.id }} .corporate-hero-description {
-      font-size: var(--corporate-hero-description-size-desktop);
-      margin-bottom: 20px;
-      line-height: 165%;
-      letter-spacing: 0;
-    }
-
-    #{{ section.id }} .corporate-hero-buttons {
-      flex-direction: row;
-      gap: 18px;
-      justify-content: center;
-      margin-bottom: 50px;
-    }
-
-    #{{ section.id }} .corporate-hero-bottle img {
-      width: 200px;
-    }
-
-    #{{ section.id }} .corporate-hero-leaf-left {
-      left: -50px;
-      display: block;
-    }
-
-    #{{ section.id }} .corporate-hero-leaf-right {
-      right: -50px;
-      display: block;
-    }
-
-    #{{ section.id }} .corporate-hero-leaf-left img,
-    #{{ section.id }} .corporate-hero-leaf-right img {
-      width: 439px;
-      height: 778px;
-    }
-
-    #{{ section.id }} .corporate-hero-bottom-info {
-      padding: 40px 0;
-    }
-
-    #{{ section.id }} .corporate-hero-step-icon {
+    #{{ section.id }} .corporate-hero-wrapper {
+      max-width: var(--corporate-hero-max-width);
+      margin: 0 auto 10px;
+      padding: 0 20px;
+      position: relative;
+      height: 100%;
       display: flex;
       align-items: center;
       justify-content: center;
     }
 
-    #{{ section.id }} .corporate-hero-step-icon img {
-      width: 41px;
-      height: 29px;
-      display: block;
+    #{{ section.id }} .corporate-hero-content {
+      text-align: center;
+      position: relative;
+      z-index: 3;
+      width: 100%;
+      max-width: 1101px;
     }
-  }
 
-  @media (min-width: 1200px) {
+    #{{ section.id }} .corporate-hero-create-image {
+      margin: 0 -97px 28px;
+    }
+
+    #{{ section.id }} .corporate-hero-create-image img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+      margin: 0 auto;
+    }
+
+    #{{ section.id }} .corporate-hero-title {
+      font-size: var(--corporate-hero-title-size-mobile);
+      line-height: 1.0;
+      font-weight: 900;
+      color: var(--corporate-hero-title-color);
+      max-width: 850px;
+      margin: 0 auto 10px auto;
+      text-transform: uppercase;
+      letter-spacing: 0;
+    }
+
+    #{{ section.id }} .corporate-hero-title-highlight {
+      color: var(--corporate-hero-highlight-color);
+    }
+
+    #{{ section.id }} .corporate-hero-description {
+      font-size: var(--corporate-hero-description-size-mobile);
+      line-height: 1.65;
+      color: var(--corporate-hero-description-color);
+      margin: 0 0 20px 0;
+      max-width: 924px;
+      margin-left: auto;
+      margin-right: auto;
+      font-weight: 500;
+      letter-spacing:0;
+    }
+
+    #{{ section.id }} .corporate-hero-buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-bottom: 28px;
+      align-items: center;
+    }
+
+    #{{ section.id }} .corporate-hero-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 28px 30px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-size: 16px;
+      letter-spacing: 0;
+      text-transform: uppercase;
+      line-height: 1.2;
+      transition: all 0.3s ease;
+      width: 100%;
+      border: 2px solid #090909;
+    }
+
+    #{{ section.id }} .corporate-hero-btn-primary {
+      background-color: var(--corporate-hero-primary-btn-bg);
+      color: var(--corporate-hero-primary-btn-color);
+    }
+
+    #{{ section.id }} .corporate-hero-btn-primary:hover,
+    #{{ section.id }} .corporate-hero-btn-primary:focus {
+      background: #FFB793;
+      color: #090909;
+      border-color: #090909;
+    }
+
+    #{{ section.id }} .corporate-hero-btn-secondary {
+      background-color: var(--corporate-hero-secondary-btn-bg);
+      color: var(--corporate-hero-secondary-btn-color);
+    }
+
+    #{{ section.id }} .corporate-hero-btn-secondary:hover,
+    #{{ section.id }} .corporate-hero-btn-secondary:focus {
+      background: #E69A72;
+      color: #090909;
+      border-color: #090909;
+    }
+
+    #{{ section.id }} .corporate-hero-bottle {
+      position: absolute;
+      right: 20px;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 4;
+    }
+
+    #{{ section.id }} .corporate-hero-bottle img {
+      width: 120px;
+      height: auto;
+    }
+
+    #{{ section.id }} .corporate-hero-leaf-left,
+    #{{ section.id }} .corporate-hero-leaf-right {
+      display: none;
+      position: absolute;
+      bottom: 25px;
+      z-index: 3;
+    }
+
     #{{ section.id }} .corporate-hero-leaf-left {
-      left: 0;
+      left: -100px;
     }
 
     #{{ section.id }} .corporate-hero-leaf-right {
-      right: 0;
+      right: -100px;
     }
 
-    #{{ section.id }} .corporate-hero-leaf-left img,
-    #{{ section.id }} .corporate-hero-leaf-right img {
-      width: 439px;
-      height: 778px;
+    #{{ section.id }} .corporate-hero-bottom-info {
+      padding: 30px 0;
+      max-width: 1240px;
+      margin: 0 auto;
     }
+
+    #{{ section.id }} .corporate-hero-bottom-wrapper {
+      max-width: var(--corporate-hero-max-width);
+      margin: 0 auto;
+    }
+
+    #{{ section.id }} .corporate-hero-steps-wrapper {
+      width: 100%;
+      overflow: hidden;
+      mask: linear-gradient(90deg, transparent 0%, white 5%, white 95%, transparent 100%);
+      -webkit-mask: linear-gradient(90deg, transparent 0%, white 5%, white 95%, transparent 100%);
+    }
+
+    #{{ section.id }} .corporate-hero-steps {
+      align-items: center;
+      display: flex;
+      flex-wrap: nowrap;
+      gap: 40px;
+      justify-content: flex-start;
+      width: max-content;
+      animation: corporate-marquee linear infinite;
+      animation-duration: calc(var(--corporate-marquee-duration, 20s));
+    }
+
+    #{{ section.id }} .corporate-hero-steps:hover {
+      animation-play-state: paused;
+    }
+
+    @keyframes corporate-marquee {
+      from {
+        transform: translateX(0);
+      }
+      to {
+        transform: translateX(-50%);
+      }
+    }
+
+    #{{ section.id }} .corporate-hero-step-text {
+      font-family: 'Futura Hv BT', 'Roundo', sans-serif ;
+      font-weight: 900;
+      font-size: 24px;
+      line-height: 1;
+      text-transform: uppercase;
+      letter-spacing: 0;
+      color: #090909
+    }
+
+    #{{ section.id }} .corporate-hero-step {
+      align-items: center;
+      display: flex;
+      flex-shrink: 0;
+      gap: 15px;
+      min-width: auto;
+    }
+
+    #{{ section.id }} .corporate-hero-step-icon {
+      align-items: center;
+      display: flex;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    #{{ section.id }} .corporate-hero-step-icon img {
+      display: block;
+      height: 29px;
+      width: 41px;
+    }
+
+
+    @media (max-width: 767px) {
+  .corporate-video-hero__description {
+    margin-bottom: 10px !important;
   }
+        br.mobile-hidden {
+      display: none;
+    }
+
+  .corporate-hero-buttons  {
+    margin-bottom: 10px !important;
+  }
+      .corporate-hero-create-image {
+        margin-bottom: 22px !important;
+      }
+
+  .corporate-hero-create-image img {
+    max-height: 245px;
+    padding: 0 18px;
+  }
+
+
+      #{{ section.id }} .corporate-hero-steps {
+        gap: 24px;
+      }
+    }
+
+    @media (min-width: 768px) {
+      #{{ section.id }} .corporate-hero-wrapper {
+        margin-bottom: 0;
+      }
+      #{{ section.id }}.corporate-hero-section {
+        padding-top: var(--corporate-hero-padding-top-desktop);
+        padding-bottom: var(--corporate-hero-padding-bottom-desktop);
+        min-height: 600px;
+      }
+      #{{ section.id }} .corporate-hero-create-image {
+        margin-bottom: 41px;
+      }
+      #{{ section.id }} .corporate-hero-step {
+        gap: 15px;
+      }
+      #{{ section.id }} .corporate-hero-btn {
+        width: auto;
+        font-size: 18px;
+        min-width: 368px;
+        padding-left: 30px;
+        padding-right: 30px;
+      }
+      #{{ section.id }} .corporate-hero-btn.corporate-hero-btn-primary {
+        min-width: 379px;
+      }
+
+      #{{ section.id }} .corporate-hero-title {
+        font-size: var(--corporate-hero-title-size-desktop);
+        margin-bottom: 10px;
+      }
+
+      #{{ section.id }} .corporate-hero-description {
+        font-size: var(--corporate-hero-description-size-desktop);
+        margin-bottom: 20px;
+        line-height: 165%;
+        letter-spacing: 0;
+      }
+
+      #{{ section.id }} .corporate-hero-buttons {
+        flex-direction: row;
+        gap: 18px;
+        justify-content: center;
+        margin-bottom: 50px;
+      }
+
+      #{{ section.id }} .corporate-hero-bottle img {
+        width: 200px;
+      }
+
+      #{{ section.id }} .corporate-hero-leaf-left {
+        left: -439px;
+        display: block;
+      }
+
+      #{{ section.id }} .corporate-hero-leaf-right {
+        right: -439px;
+        display: block;
+      }
+
+      #{{ section.id }} .corporate-hero-leaf-left img,
+      #{{ section.id }} .corporate-hero-leaf-right img {
+        width: 868px;
+        height: 778px;
+      }
+
+      #{{ section.id }} .corporate-hero-bottom-info {
+        padding: 40px 0;
+      }
+
+      #{{ section.id }} .corporate-hero-step-icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      #{{ section.id }} .corporate-hero-step-icon img {
+        width: 41px;
+        height: 29px;
+        display: block;
+      }
+    }
+
+    @media (min-width: 1200px) {
+      #{{ section.id }} .corporate-hero-leaf-left {
+        left: -439px;
+      }
+
+      #{{ section.id }} .corporate-hero-leaf-right {
+        right: -439px;
+      }
+
+      #{{ section.id }} .corporate-hero-leaf-left img,
+      #{{ section.id }} .corporate-hero-leaf-right img {
+        width: 868px;
+        height: 778px;
+      }
+    }
 </style>
 
 <script>
@@ -541,9 +540,7 @@
       resizeTimeout = setTimeout(function () {
         // Reset and recreate
         track.style.animation = 'none';
-        const clones = track.querySelectorAll(
-          ':nth-child(n+' + (Math.floor(track.children.length / 5) + 1) + ')'
-        );
+        const clones = track.querySelectorAll(':nth-child(n+' + (Math.floor(track.children.length / 5) + 1) + ')');
         clones.forEach((clone) => clone.remove());
 
         createInfiniteMarquee();

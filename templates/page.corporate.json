@@ -14,8 +14,8 @@
       "name": "Corporate Hero",
       "settings": {
         "create_corporate_image": "shopify://shop_images/round_bottle_1_289b4534-68f1-411f-b6d8-ffb326c4c661.png",
-        "left_leaf_image": "shopify://shop_images/corporate-left.svg",
-        "right_leaf_image": "shopify://shop_images/corporate-right.svg",
+        "left_leaf_image": "shopify://shop_images/index-left-big.svg",
+        "right_leaf_image": "shopify://shop_images/index-right-big.svg",
         "main_title": "",
         "highlighted_text": "",
         "highlighted_text_2": "",
@@ -29,10 +29,6 @@
         "highlight_color": "#7cc9b5",
         "highlight_color_2": "#f4a261",
         "description_color": "#090909",
-        "primary_button_bg": "#7cc9b5",
-        "primary_button_color": "#000000",
-        "secondary_button_bg": "#f4a261",
-        "secondary_button_color": "#000000",
         "title_size_desktop": 80,
         "title_size_mobile": 40,
         "description_size_desktop": 18,
@@ -47,7 +43,8 @@
         "step1_text": "Select Bottle",
         "step2_text": "Personalize Label",
         "step3_text": "Place Order",
-        "step4_text": "Enjoy"
+        "step4_text": "Enjoy",
+        "marquee_speed": 30
       }
     },
     "corporate_video_hero_BDK4tt": {
@@ -81,10 +78,6 @@
         "video_thumbnail": "shopify://shop_images/Generated_Image_September_03_2025_-_1_40PM.webp",
         "cta_text": "Create your own tequila",
         "cta_url": "shopify://pages/our-tequila",
-        "cta_background": "linear-gradient(90deg, rgba(103, 183, 168, 1), rgba(103, 183, 168, 1) 100%)",
-        "cta_text_color": "#090909",
-        "cta_hover_background": "linear-gradient(90deg, rgba(255, 183, 147, 1), rgba(255, 183, 147, 1) 100%)",
-        "cta_hover_text_color": "#1c1c1c",
         "cta_font_size_desktop": 18,
         "cta_font_size_mobile": 16
       }
@@ -349,8 +342,7 @@
         "button_text": "GET IN TOUCH",
         "button_url": "",
         "background_color": "#f4d5d0",
-        "text_color": "#2c2c2c",
-        "button_background": "#7bc4c4"
+        "text_color": "#2c2c2c"
       }
     },
     "create_tequila_gj3y8z": {
@@ -546,7 +538,6 @@
         "background_color": "#fdd8c6",
         "text_color": "#090909",
         "highlight_color": "#67b7a8",
-        "button_background": "#67b7a8",
         "button_border": "#090909"
       }
     },
