@@ -33,17 +33,13 @@
         "secondary_button_text": "SCHEDULE A CALL!",
         "secondary_button_url": "#",
         "main_image": "shopify://shop_images/round_bottle_1_2.png",
-        "left_leaf_image": "shopify://shop_images/contact-left.svg",
-        "right_leaf_image": "shopify://shop_images/contact-right.svg",
+        "left_leaf_image": "shopify://shop_images/index-left-big.svg",
+        "right_leaf_image": "shopify://shop_images/index-right-big.svg",
         "background_color": "#f1f1ee",
         "title_color": "#000000",
         "highlight_color": "#7cc9b5",
         "highlight_color_2": "#f4a261",
         "description_color": "#666666",
-        "primary_button_bg": "#7cc9b5",
-        "primary_button_color": "#000000",
-        "secondary_button_bg": "#f4a261",
-        "secondary_button_color": "#000000",
         "title_size_desktop": 90,
         "title_size_mobile": 40,
         "description_size_desktop": 20,
@@ -58,7 +54,8 @@
         "step1_text": "SELECT BOTTLE",
         "step2_text": "PERSONALIZE LABEL",
         "step3_text": "PLACE ORDER",
-        "step4_text": "ENJOY"
+        "step4_text": "ENJOY",
+        "marquee_speed": 30
       }
     },
     "section_form_JzGxaQ": {
