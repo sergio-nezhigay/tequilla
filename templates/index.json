@@ -77,7 +77,7 @@
       }
     },
     "index_logo_carousel": {
-      "type": "index-logo-carousel",
+      "type": "index-new-logo-carousel",
       "blocks": {
         "logo_item_FEAkVX": {
           "type": "logo_item",
@@ -337,11 +337,7 @@
           }
         }
       },
-      "block_order": [
-        "block_ApXy79",
-        "block_JczB79",
-        "block_qJP74a"
-      ],
+      "block_order": ["block_ApXy79", "block_JczB79", "block_qJP74a"],
       "name": "Create tequila",
       "settings": {
         "background_color": "#f1f1ee",
@@ -461,11 +457,7 @@
           }
         }
       },
-      "block_order": [
-        "block_VrDQRN",
-        "block_nC4JMj",
-        "block_YjjXY4"
-      ],
+      "block_order": ["block_VrDQRN", "block_nC4JMj", "block_YjjXY4"],
       "name": "Best bottle",
       "settings": {
         "background_color": "#f1f1ee",
