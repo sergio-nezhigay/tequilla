@@ -1,0 +1,105 @@
+.dev-customizer__canvas-container {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  /* Styles moved to layout.css for better control */
+  width: 225px !important;
+  height: 449px !important;
+}
+
+#customizer-canvas {
+  width: 100%;
+  height: 100%;
+  cursor: default;
+  object-fit: cover !important;
+  transition: all 0.3s ease;
+  user-select: none; /* Prevent text selection during drag */
+  -webkit-user-select: none; /* Safari */
+  touch-action: manipulation; /* Improve touch responsiveness */
+
+  width: 225px !important;
+  height: 449px !important;
+}
+
+/* Mobile touch improvements */
+@media (pointer: coarse) {
+  #customizer-canvas {
+    cursor: pointer;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0.05);
+  }
+}
+
+#customizer-canvas.highlight {
+  background-color: rgba(0, 0, 0, 0.1);
+  border: 2px dashed #333;
+}
+
+.dev-customizer__canvas-placeholder {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  pointer-events: none;
+  z-index: 1;
+
+  width: 100%;
+  height: 100%;
+}
+
+.dev-customizer__canvas-placeholder.has-image {
+  display: none;
+}
+
+.dev-customizer__canvas-placeholder svg {
+  width: 80px;
+  height: 80px;
+  margin-bottom: 16px;
+  opacity: 0.5;
+}
+
+.dev-customizer__canvas-placeholder p {
+  color: #666;
+  font-size: 14px;
+  margin: 0;
+}
+
+.dev-customizer__canvas-placeholder .drag-text {
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+/* Hide drag text on touch devices */
+@media (pointer: coarse) {
+  .dev-customizer__canvas-placeholder .drag-text {
+    display: none;
+  }
+}
+
+/* Mobile-specific styles */
+@media (max-width: 768px) {
+  .dev-customizer__canvas-placeholder .drag-text {
+    display: none;
+  }
+
+  .dev-customizer__canvas-placeholder p {
+    font-size: 16px; /* Larger text on mobile for better readability */
+  }
+
+  .dev-customizer__canvas-placeholder svg {
+    width: 60px;
+    height: 60px;
+  }
+}
+
+/* Theme options with metaobject data */
+.dev-theme-option-wrapper.theme-metaobject {
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.dev-theme-option--preview-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}

@@ -1,0 +1,17 @@
+{{ 'dev-customizer-controls.css' | asset_url | stylesheet_tag }}
+
+<div class="dev-customizer-controls">
+  <div data-control="loop" class="dev-customizer__control">
+    {% render 'dev-icons-ui', icon: 'loop-black' %}
+    {% comment %} {% render 'dev-icons-ui', icon: 'z' %} {% endcomment %}
+  </div>
+  <div data-control="image" class="dev-customizer__control active">
+    {% render 'dev-icons-ui', icon: 'image-black' %}
+  </div>
+  <div data-control="bottle" class="dev-customizer__control">
+    {% render 'dev-icons-ui', icon: 'bottle-black' %}
+  </div>
+  <div data-control="download" class="dev-customizer__control">
+    {% render 'dev-icons-ui', icon: 'download-black' %}
+  </div>
+</div>

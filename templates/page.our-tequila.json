@@ -12,15 +12,15 @@
     "index_hero": {
       "type": "our-tequila-hero",
       "settings": {
-        "title": "<p><strong>Crafted </strong>by <strong>Master </strong>Tequileros. <em>Designed by You</em>.</p>",
-        "description": "<p>Our tequila is made in the Highlands of Jalisco, Mexico — where volcanic soil and high elevation produce agaves known for their bold flavor and rich sweetness.</p>",
+        "title": "<p><strong>Crafted <\/strong>by <strong>Master <\/strong>Tequileros. <em>Designed by You<\/em>.<\/p>",
+        "description": "<p>Our tequila is made in the Highlands of Jalisco, Mexico — where volcanic soil and high elevation produce agaves known for their bold flavor and rich sweetness.<\/p>",
         "primary_button_text": "CREATE YOUR OWN TEQUILA",
-        "primary_button_url": "shopify://collections",
+        "primary_button_url": "shopify:\/\/collections",
         "secondary_button_text": "SCHEDULE A CALL!",
-        "secondary_button_url": "shopify://collections/all",
-        "main_image": "shopify://shop_images/round_bottle_1_1.webp",
-        "left_leaf_image": "shopify://shop_images/index-right-big.svg",
-        "right_leaf_image": "shopify://shop_images/index-left-big.svg",
+        "secondary_button_url": "shopify:\/\/collections\/all",
+        "main_image": "shopify:\/\/shop_images\/round_bottle_1_1.webp",
+        "left_leaf_image": "shopify:\/\/shop_images\/index-right-big.svg",
+        "right_leaf_image": "shopify:\/\/shop_images\/index-left-big.svg",
         "background_color": "#f1f1ee",
         "title_color": "#090909",
         "highlight_color": "#67b7a8",
@@ -36,7 +36,7 @@
         "padding_top_mobile": 20,
         "padding_bottom_mobile": 0,
         "custom_classes": "",
-        "step_icon": "shopify://shop_images/im_92849612-19a2-4a3f-8046-88e711ce7b0a.png",
+        "step_icon": "shopify:\/\/shop_images\/im_92849612-19a2-4a3f-8046-88e711ce7b0a.png",
         "step1_text": "SELECT BOTTLE",
         "step2_text": "PERSONALIZE LABEL",
         "step3_text": "PLACE ORDER",
@@ -55,8 +55,8 @@
         "padding_bottom_mobile": 0,
         "section_background": "radial-gradient(rgba(243, 243, 243, 1), rgba(241, 241, 238, 1) 100%)",
         "custom_classes": "",
-        "uploaded_video": "https://cdn.shopify.com/videos/c/o/v/8b5353e9f64043ae8b09b0b9809fe738.mp4",
-        "video_thumbnail": "shopify://shop_images/Generated_Image_September_03_2025_-_1_40PM.webp",
+        "uploaded_video": "https:\/\/cdn.shopify.com\/videos\/c\/o\/v\/8b5353e9f64043ae8b09b0b9809fe738.mp4",
+        "video_thumbnail": "shopify:\/\/shop_images\/Generated_Image_September_03_2025_-_1_40PM.webp",
         "title_part1": "This is tequila worthy",
         "title_part2": "of your name,",
         "title_part3": "your brand,",
@@ -74,7 +74,7 @@
         "description_size_desktop": 20,
         "description_size_mobile": 18,
         "cta_text": "CREATE YOUR OWN TEQUILA",
-        "cta_url": "shopify://pages/contact",
+        "cta_url": "shopify:\/\/pages\/contact",
         "cta_font_size_desktop": 18,
         "cta_font_size_mobile": 16
       }
@@ -86,10 +86,10 @@
           "type": "process_step",
           "settings": {
             "step_number": "1.",
-            "step_title": "<p><strong>AGAVES AGED</strong> TO PERFECTION</p>",
-            "step_description": "<p>Only mature Blue Weber Agaves — at least 6 years old — are harvested at peak sugar content for optimal flavor.</p>",
-            "image_desktop": "shopify://shop_images/im_4703c68f-4c7f-4f56-82f8-b979a3a04132.png",
-            "image_mobile": "shopify://shop_images/im11.png",
+            "step_title": "<p><strong>AGAVES AGED<\/strong> TO PERFECTION<\/p>",
+            "step_description": "<p>Only mature Blue Weber Agaves — at least 6 years old — are harvested at peak sugar content for optimal flavor.<\/p>",
+            "image_desktop": "shopify:\/\/shop_images\/im_4703c68f-4c7f-4f56-82f8-b979a3a04132.png",
+            "image_mobile": "shopify:\/\/shop_images\/im11.png",
             "image_alt": "",
             "reverse_layout": false
           }
@@ -98,10 +98,10 @@
           "type": "process_step",
           "settings": {
             "step_number": "2.",
-            "step_title": "<p><strong>Slow Cooking</strong>, the Old Way</p>",
-            "step_description": "<p>Agaves are slowly baked for 18–24 hours in traditional ovens. This gentle process preserves the complexity of the agave and converts sugars without bitterness.</p>",
-            "image_desktop": "shopify://shop_images/im2.png",
-            "image_mobile": "shopify://shop_images/im12.png",
+            "step_title": "<p><strong>Slow Cooking<\/strong>, the Old Way<\/p>",
+            "step_description": "<p>Agaves are slowly baked for 18–24 hours in traditional ovens. This gentle process preserves the complexity of the agave and converts sugars without bitterness.<\/p>",
+            "image_desktop": "shopify:\/\/shop_images\/im2.png",
+            "image_mobile": "shopify:\/\/shop_images\/im12.png",
             "image_alt": "",
             "reverse_layout": true
           }
@@ -110,10 +110,10 @@
           "type": "process_step",
           "settings": {
             "step_number": "3.",
-            "step_title": "<p>Natural Milling & <strong>Fermentation</strong></p>",
-            "step_description": "<p>Once cooked, the agaves go through a 5-step milling process before being naturally fermented using an exclusive yeast strain — in a room harmonized with classical music, no less — over a period of 10+ days.</p>",
-            "image_desktop": "shopify://shop_images/im3.png",
-            "image_mobile": "shopify://shop_images/im13.png",
+            "step_title": "<p>Natural Milling & <strong>Fermentation<\/strong><\/p>",
+            "step_description": "<p>Once cooked, the agaves go through a 5-step milling process before being naturally fermented using an exclusive yeast strain — in a room harmonized with classical music, no less — over a period of 10+ days.<\/p>",
+            "image_desktop": "shopify:\/\/shop_images\/im3.png",
+            "image_mobile": "shopify:\/\/shop_images\/im13.png",
             "image_alt": "",
             "reverse_layout": false
           }
@@ -122,10 +122,10 @@
           "type": "process_step",
           "settings": {
             "step_number": "4.",
-            "step_title": "<p><strong>Double Distilled</strong> for Clarity</p>",
-            "step_description": "<p>The final distillate is double-distilled in stainless steel — yielding a crystal-clear, elegant tequila with no additives, no shortcuts, and zero compromises.</p>",
-            "image_desktop": "shopify://shop_images/im4.png",
-            "image_mobile": "shopify://shop_images/im14.png",
+            "step_title": "<p><strong>Double Distilled<\/strong> for Clarity<\/p>",
+            "step_description": "<p>The final distillate is double-distilled in stainless steel — yielding a crystal-clear, elegant tequila with no additives, no shortcuts, and zero compromises.<\/p>",
+            "image_desktop": "shopify:\/\/shop_images\/im4.png",
+            "image_mobile": "shopify:\/\/shop_images\/im14.png",
             "image_alt": "",
             "reverse_layout": true
           }
@@ -138,7 +138,7 @@
         "process_step_dp6HKy"
       ],
       "settings": {
-        "main_title": "<p><strong>From Field </strong>to <strong>Bottle</strong>: Tradition in Every Step</p>",
+        "main_title": "<p><strong>From Field <\/strong>to <strong>Bottle<\/strong>: Tradition in Every Step<\/p>",
         "subtitle": "The Tequila making process",
         "main_title_color": "#090909",
         "main_title_size_mobile": 30,
@@ -156,7 +156,7 @@
         "cta_bg_color": "#67b7a8",
         "cta_text_color": "#090909",
         "background_color": "#fdd8c6",
-        "bg_pattern_image": "shopify://shop_images/bg-flower.png",
+        "bg_pattern_image": "shopify:\/\/shop_images\/bg-flower.png",
         "bg_pattern_opacity": 100,
         "max_width": 1440,
         "padding_top_mobile": 30,
@@ -173,25 +173,25 @@
         "taste_item_XJ3Vez": {
           "type": "taste_item",
           "settings": {
-            "icon_html": "<svg width=\"40\" height=\"40\" viewbox=\"0 0 40 40\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n<path d=\"M19.8714 1.25048C12.5658 1.3072 5.64819 5.65712 2.67873 12.826C-1.28064 22.3845 3.26663 33.3627 12.8251 37.3218C22.3837 41.2812 33.3617 36.7338 37.321 27.1753C41.2803 17.6168 36.7331 6.63876 27.1746 2.67947C24.785 1.68962 22.3066 1.23166 19.8715 1.25056L19.8714 1.25048ZM19.9749 3.1522C22.5724 3.1522 25.17 4.26525 24.4279 6.49166L21.1579 17.0898L26.4241 7.27923C27.4736 5.18017 30.0974 6.22978 31.9341 8.0665C33.7708 9.90322 34.8205 12.527 32.7215 13.5767L22.823 18.7774L33.5085 15.5812C33.7868 15.4884 34.0478 15.4476 34.2913 15.4527C35.996 15.4883 36.8482 17.7611 36.8482 20.034C36.8482 22.6314 35.7349 25.2291 33.5085 24.4869L22.9315 21.1848L32.7154 26.4248C32.9777 26.556 33.191 26.7118 33.3596 26.8876C34.5398 28.1181 33.5354 30.3277 31.9282 31.9349C30.0915 33.7716 27.4676 34.8213 26.418 32.7222L21.1376 22.7833C21.5052 22.6331 21.8395 22.4116 22.1211 22.1316C22.4028 21.8515 22.6261 21.5185 22.7783 21.1517C23.414 19.617 22.6854 17.8577 21.1507 17.222C19.6162 16.5863 17.8568 17.3151 17.2212 18.8497C16.5855 20.3843 17.3141 22.1436 18.8488 22.7794C19.5768 23.0805 20.3938 23.0841 21.1244 22.7892L24.3694 33.5093C25.8538 37.9623 13.9794 37.9623 15.4637 33.5093L18.8703 22.757L13.5758 32.6398C11.4768 36.8379 3.08022 28.4413 7.27842 26.3421L16.9781 21.1669L6.49123 24.4285C2.31662 25.82 2.05569 15.4705 5.70842 15.3943C5.95194 15.3892 6.21295 15.4299 6.49123 15.5227L17.1095 18.7405L7.35506 13.5765C3.41928 11.6088 10.553 4.10603 13.1898 6.63509C13.3655 6.80361 13.5214 7.01689 13.6526 7.27923L18.714 17.0281L15.522 6.49173C14.7798 4.26533 17.3775 3.1522 19.975 3.1522H19.9749Z\" fill=\"#67B7A8\"></path>\n</svg>",
-            "item_title": "<p>Aromas</p>",
-            "item_description": "<p>ROASTED AGAVE, WHITE PEPPER, CITRUS PEEL</p>"
+            "icon_html": "<svg width=\"40\" height=\"40\" viewbox=\"0 0 40 40\" fill=\"none\" xmlns=\"http:\/\/www.w3.org\/2000\/svg\">\n<path d=\"M19.8714 1.25048C12.5658 1.3072 5.64819 5.65712 2.67873 12.826C-1.28064 22.3845 3.26663 33.3627 12.8251 37.3218C22.3837 41.2812 33.3617 36.7338 37.321 27.1753C41.2803 17.6168 36.7331 6.63876 27.1746 2.67947C24.785 1.68962 22.3066 1.23166 19.8715 1.25056L19.8714 1.25048ZM19.9749 3.1522C22.5724 3.1522 25.17 4.26525 24.4279 6.49166L21.1579 17.0898L26.4241 7.27923C27.4736 5.18017 30.0974 6.22978 31.9341 8.0665C33.7708 9.90322 34.8205 12.527 32.7215 13.5767L22.823 18.7774L33.5085 15.5812C33.7868 15.4884 34.0478 15.4476 34.2913 15.4527C35.996 15.4883 36.8482 17.7611 36.8482 20.034C36.8482 22.6314 35.7349 25.2291 33.5085 24.4869L22.9315 21.1848L32.7154 26.4248C32.9777 26.556 33.191 26.7118 33.3596 26.8876C34.5398 28.1181 33.5354 30.3277 31.9282 31.9349C30.0915 33.7716 27.4676 34.8213 26.418 32.7222L21.1376 22.7833C21.5052 22.6331 21.8395 22.4116 22.1211 22.1316C22.4028 21.8515 22.6261 21.5185 22.7783 21.1517C23.414 19.617 22.6854 17.8577 21.1507 17.222C19.6162 16.5863 17.8568 17.3151 17.2212 18.8497C16.5855 20.3843 17.3141 22.1436 18.8488 22.7794C19.5768 23.0805 20.3938 23.0841 21.1244 22.7892L24.3694 33.5093C25.8538 37.9623 13.9794 37.9623 15.4637 33.5093L18.8703 22.757L13.5758 32.6398C11.4768 36.8379 3.08022 28.4413 7.27842 26.3421L16.9781 21.1669L6.49123 24.4285C2.31662 25.82 2.05569 15.4705 5.70842 15.3943C5.95194 15.3892 6.21295 15.4299 6.49123 15.5227L17.1095 18.7405L7.35506 13.5765C3.41928 11.6088 10.553 4.10603 13.1898 6.63509C13.3655 6.80361 13.5214 7.01689 13.6526 7.27923L18.714 17.0281L15.522 6.49173C14.7798 4.26533 17.3775 3.1522 19.975 3.1522H19.9749Z\" fill=\"#67B7A8\"><\/path>\n<\/svg>",
+            "item_title": "<p>Aromas<\/p>",
+            "item_description": "<p>ROASTED AGAVE, WHITE PEPPER, CITRUS PEEL<\/p>"
           }
         },
         "taste_item_HAqAPn": {
           "type": "taste_item",
           "settings": {
-            "icon_html": "<svg width=\"40\" height=\"40\" viewbox=\"0 0 40 40\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n<path d=\"M36.6667 5.68203L36.4667 3.58203L34.4667 4.2487C31.039 5.43961 27.3788 5.80506 23.7834 5.31536C20.0053 4.72905 16.1382 5.25006 12.65 6.81536C10.8008 7.60278 9.17794 8.84022 7.92914 10.415C6.68035 11.9899 5.8453 13.852 5.50002 15.832C5.05232 18.3898 5.27629 21.0201 6.15002 23.4654C6.71261 22.1955 7.37002 20.9698 8.11669 19.7987C9.81035 17.3068 12.1571 15.329 14.9 14.082C17.5424 12.8756 20.4307 12.3048 23.3334 12.4154C20.5703 12.8388 17.9255 13.832 15.5667 15.332C14.4294 16.0471 13.3877 16.904 12.4667 17.882C11.5863 18.8601 10.8099 19.9269 10.15 21.0654C8.91113 23.4455 8.02945 25.995 7.53335 28.632C6.99869 31.2776 6.70858 33.9667 6.66669 36.6654H10C10.1584 34.2453 10.487 31.8393 10.9834 29.4654C13.2957 30.714 15.8889 31.3509 18.5167 31.3154C20.9675 31.3137 23.3931 30.8206 25.65 29.8654C38.3334 24.4487 36.6667 6.43203 36.6667 5.68203Z\" fill=\"#67B7A8\"></path>\n</svg>",
-            "item_title": "<p>Palate</p>",
-            "item_description": "<p>Silky, slightly sweet, with herbal and earthy notes</p>"
+            "icon_html": "<svg width=\"40\" height=\"40\" viewbox=\"0 0 40 40\" fill=\"none\" xmlns=\"http:\/\/www.w3.org\/2000\/svg\">\n<path d=\"M36.6667 5.68203L36.4667 3.58203L34.4667 4.2487C31.039 5.43961 27.3788 5.80506 23.7834 5.31536C20.0053 4.72905 16.1382 5.25006 12.65 6.81536C10.8008 7.60278 9.17794 8.84022 7.92914 10.415C6.68035 11.9899 5.8453 13.852 5.50002 15.832C5.05232 18.3898 5.27629 21.0201 6.15002 23.4654C6.71261 22.1955 7.37002 20.9698 8.11669 19.7987C9.81035 17.3068 12.1571 15.329 14.9 14.082C17.5424 12.8756 20.4307 12.3048 23.3334 12.4154C20.5703 12.8388 17.9255 13.832 15.5667 15.332C14.4294 16.0471 13.3877 16.904 12.4667 17.882C11.5863 18.8601 10.8099 19.9269 10.15 21.0654C8.91113 23.4455 8.02945 25.995 7.53335 28.632C6.99869 31.2776 6.70858 33.9667 6.66669 36.6654H10C10.1584 34.2453 10.487 31.8393 10.9834 29.4654C13.2957 30.714 15.8889 31.3509 18.5167 31.3154C20.9675 31.3137 23.3931 30.8206 25.65 29.8654C38.3334 24.4487 36.6667 6.43203 36.6667 5.68203Z\" fill=\"#67B7A8\"><\/path>\n<\/svg>",
+            "item_title": "<p>Palate<\/p>",
+            "item_description": "<p>Silky, slightly sweet, with herbal and earthy notes<\/p>"
           }
         },
         "taste_item_WW4bUD": {
           "type": "taste_item",
           "settings": {
-            "icon_html": "<svg width=\"40\" height=\"40\" viewbox=\"0 0 40 40\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n<path d=\"M30 20C30 22.6522 28.9464 25.1957 27.0711 27.0711C25.1957 28.9464 22.6522 30 20 30C17.3478 30 14.8043 28.9464 12.9289 27.0711C11.0536 25.1957 10 22.6522 10 20C10 17.3478 11.0536 14.8043 12.9289 12.9289C14.8043 11.0536 17.3478 10 20 10C22.6522 10 25.1957 11.0536 27.0711 12.9289C28.9464 14.8043 30 17.3478 30 20Z\" fill=\"#67B7A8\"></path>\n<path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M19.9997 2.08203C20.3312 2.08203 20.6491 2.21373 20.8836 2.44815C21.118 2.68257 21.2497 3.00051 21.2497 3.33203V4.9987C21.2497 5.33022 21.118 5.64816 20.8836 5.88258C20.6491 6.117 20.3312 6.2487 19.9997 6.2487C19.6682 6.2487 19.3502 6.117 19.1158 5.88258C18.8814 5.64816 18.7497 5.33022 18.7497 4.9987V3.33203C18.7497 3.00051 18.8814 2.68257 19.1158 2.44815C19.3502 2.21373 19.6682 2.08203 19.9997 2.08203ZM7.33134 7.33036C7.56572 7.09628 7.88342 6.9648 8.21467 6.9648C8.54593 6.9648 8.86363 7.09628 9.09801 7.33036L9.75301 7.9837C9.98082 8.21934 10.107 8.53504 10.1043 8.86279C10.1016 9.19053 9.97026 9.50411 9.73861 9.73598C9.50696 9.96785 9.19351 10.0995 8.86576 10.1025C8.53801 10.1055 8.2222 9.97962 7.98634 9.75203L7.33134 9.09703C7.09726 8.86266 6.96577 8.54495 6.96577 8.2137C6.96577 7.88245 7.09726 7.56474 7.33134 7.33036ZM32.668 7.33036C32.9021 7.56474 33.0336 7.88245 33.0336 8.2137C33.0336 8.54495 32.9021 8.86266 32.668 9.09703L32.013 9.75203C31.776 9.97283 31.4626 10.093 31.1388 10.0873C30.815 10.0816 30.506 9.95042 30.277 9.7214C30.0479 9.49238 29.9168 9.1834 29.911 8.85957C29.9053 8.53573 30.0255 8.22232 30.2463 7.98536L30.9013 7.33036C31.1357 7.09628 31.4534 6.9648 31.7847 6.9648C32.1159 6.9648 32.4336 7.09628 32.668 7.33036ZM2.08301 19.9987C2.08301 19.6672 2.2147 19.3492 2.44912 19.1148C2.68354 18.8804 3.00149 18.7487 3.33301 18.7487H4.99967C5.3312 18.7487 5.64914 18.8804 5.88356 19.1148C6.11798 19.3492 6.24967 19.6672 6.24967 19.9987C6.24967 20.3302 6.11798 20.6482 5.88356 20.8826C5.64914 21.117 5.3312 21.2487 4.99967 21.2487H3.33301C3.00149 21.2487 2.68354 21.117 2.44912 20.8826C2.2147 20.6482 2.08301 20.3302 2.08301 19.9987ZM33.7497 19.9987C33.7497 19.6672 33.8814 19.3492 34.1158 19.1148C34.3502 18.8804 34.6682 18.7487 34.9997 18.7487H36.6663C36.9979 18.7487 37.3158 18.8804 37.5502 19.1148C37.7846 19.3492 37.9163 19.6672 37.9163 19.9987C37.9163 20.3302 37.7846 20.6482 37.5502 20.8826C37.3158 21.117 36.9979 21.2487 36.6663 21.2487H34.9997C34.6682 21.2487 34.3502 21.117 34.1158 20.8826C33.8814 20.6482 33.7497 20.3302 33.7497 19.9987ZM30.2463 30.2454C30.4807 30.0113 30.7984 29.8798 31.1297 29.8798C31.4609 29.8798 31.7786 30.0113 32.013 30.2454L32.668 30.9004C32.7908 31.0148 32.8893 31.1528 32.9576 31.3061C33.026 31.4595 33.0627 31.625 33.0657 31.7928C33.0686 31.9607 33.0377 32.1274 32.9749 32.283C32.912 32.4387 32.8184 32.5801 32.6997 32.6988C32.581 32.8175 32.4396 32.911 32.284 32.9739C32.1284 33.0368 31.9616 33.0676 31.7938 33.0647C31.626 33.0617 31.4604 33.025 31.3071 32.9567C31.1538 32.8883 31.0158 32.7898 30.9013 32.667L30.2463 32.012C30.0123 31.7777 29.8808 31.4599 29.8808 31.1287C29.8808 30.7974 30.0123 30.4797 30.2463 30.2454ZM9.75301 30.2454C9.98709 30.4797 10.1186 30.7974 10.1186 31.1287C10.1186 31.4599 9.98709 31.7777 9.75301 32.012L9.09801 32.667C8.98357 32.7898 8.84557 32.8883 8.69224 32.9567C8.53891 33.025 8.37338 33.0617 8.20554 33.0647C8.03771 33.0676 7.87099 33.0368 7.71534 32.9739C7.5597 32.911 7.41831 32.8175 7.29961 32.6988C7.18091 32.5801 7.08734 32.4387 7.02447 32.283C6.9616 32.1274 6.93073 31.9607 6.93369 31.7928C6.93665 31.625 6.97339 31.4595 7.04171 31.3061C7.11003 31.1528 7.20853 31.0148 7.33134 30.9004L7.98467 30.2454C8.10076 30.1292 8.23859 30.0371 8.3903 29.9742C8.54201 29.9113 8.70462 29.879 8.86884 29.879C9.03306 29.879 9.19567 29.9113 9.34738 29.9742C9.49909 30.0371 9.63692 30.1292 9.75301 30.2454ZM19.9997 33.7487C20.3312 33.7487 20.6491 33.8804 20.8836 34.1148C21.118 34.3492 21.2497 34.6672 21.2497 34.9987V36.6654C21.2497 36.9969 21.118 37.3148 20.8836 37.5492C20.6491 37.7837 20.3312 37.9154 19.9997 37.9154C19.6682 37.9154 19.3502 37.7837 19.1158 37.5492C18.8814 37.3148 18.7497 36.9969 18.7497 36.6654V34.9987C18.7497 34.6672 18.8814 34.3492 19.1158 34.1148C19.3502 33.8804 19.6682 33.7487 19.9997 33.7487Z\" fill=\"#67B7A8\"></path>\n</svg>",
-            "item_title": "<p>Finish</p>",
-            "item_description": "<p>Bright, clean, and lingering — perfect for sipping or gifting</p>"
+            "icon_html": "<svg width=\"40\" height=\"40\" viewbox=\"0 0 40 40\" fill=\"none\" xmlns=\"http:\/\/www.w3.org\/2000\/svg\">\n<path d=\"M30 20C30 22.6522 28.9464 25.1957 27.0711 27.0711C25.1957 28.9464 22.6522 30 20 30C17.3478 30 14.8043 28.9464 12.9289 27.0711C11.0536 25.1957 10 22.6522 10 20C10 17.3478 11.0536 14.8043 12.9289 12.9289C14.8043 11.0536 17.3478 10 20 10C22.6522 10 25.1957 11.0536 27.0711 12.9289C28.9464 14.8043 30 17.3478 30 20Z\" fill=\"#67B7A8\"><\/path>\n<path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M19.9997 2.08203C20.3312 2.08203 20.6491 2.21373 20.8836 2.44815C21.118 2.68257 21.2497 3.00051 21.2497 3.33203V4.9987C21.2497 5.33022 21.118 5.64816 20.8836 5.88258C20.6491 6.117 20.3312 6.2487 19.9997 6.2487C19.6682 6.2487 19.3502 6.117 19.1158 5.88258C18.8814 5.64816 18.7497 5.33022 18.7497 4.9987V3.33203C18.7497 3.00051 18.8814 2.68257 19.1158 2.44815C19.3502 2.21373 19.6682 2.08203 19.9997 2.08203ZM7.33134 7.33036C7.56572 7.09628 7.88342 6.9648 8.21467 6.9648C8.54593 6.9648 8.86363 7.09628 9.09801 7.33036L9.75301 7.9837C9.98082 8.21934 10.107 8.53504 10.1043 8.86279C10.1016 9.19053 9.97026 9.50411 9.73861 9.73598C9.50696 9.96785 9.19351 10.0995 8.86576 10.1025C8.53801 10.1055 8.2222 9.97962 7.98634 9.75203L7.33134 9.09703C7.09726 8.86266 6.96577 8.54495 6.96577 8.2137C6.96577 7.88245 7.09726 7.56474 7.33134 7.33036ZM32.668 7.33036C32.9021 7.56474 33.0336 7.88245 33.0336 8.2137C33.0336 8.54495 32.9021 8.86266 32.668 9.09703L32.013 9.75203C31.776 9.97283 31.4626 10.093 31.1388 10.0873C30.815 10.0816 30.506 9.95042 30.277 9.7214C30.0479 9.49238 29.9168 9.1834 29.911 8.85957C29.9053 8.53573 30.0255 8.22232 30.2463 7.98536L30.9013 7.33036C31.1357 7.09628 31.4534 6.9648 31.7847 6.9648C32.1159 6.9648 32.4336 7.09628 32.668 7.33036ZM2.08301 19.9987C2.08301 19.6672 2.2147 19.3492 2.44912 19.1148C2.68354 18.8804 3.00149 18.7487 3.33301 18.7487H4.99967C5.3312 18.7487 5.64914 18.8804 5.88356 19.1148C6.11798 19.3492 6.24967 19.6672 6.24967 19.9987C6.24967 20.3302 6.11798 20.6482 5.88356 20.8826C5.64914 21.117 5.3312 21.2487 4.99967 21.2487H3.33301C3.00149 21.2487 2.68354 21.117 2.44912 20.8826C2.2147 20.6482 2.08301 20.3302 2.08301 19.9987ZM33.7497 19.9987C33.7497 19.6672 33.8814 19.3492 34.1158 19.1148C34.3502 18.8804 34.6682 18.7487 34.9997 18.7487H36.6663C36.9979 18.7487 37.3158 18.8804 37.5502 19.1148C37.7846 19.3492 37.9163 19.6672 37.9163 19.9987C37.9163 20.3302 37.7846 20.6482 37.5502 20.8826C37.3158 21.117 36.9979 21.2487 36.6663 21.2487H34.9997C34.6682 21.2487 34.3502 21.117 34.1158 20.8826C33.8814 20.6482 33.7497 20.3302 33.7497 19.9987ZM30.2463 30.2454C30.4807 30.0113 30.7984 29.8798 31.1297 29.8798C31.4609 29.8798 31.7786 30.0113 32.013 30.2454L32.668 30.9004C32.7908 31.0148 32.8893 31.1528 32.9576 31.3061C33.026 31.4595 33.0627 31.625 33.0657 31.7928C33.0686 31.9607 33.0377 32.1274 32.9749 32.283C32.912 32.4387 32.8184 32.5801 32.6997 32.6988C32.581 32.8175 32.4396 32.911 32.284 32.9739C32.1284 33.0368 31.9616 33.0676 31.7938 33.0647C31.626 33.0617 31.4604 33.025 31.3071 32.9567C31.1538 32.8883 31.0158 32.7898 30.9013 32.667L30.2463 32.012C30.0123 31.7777 29.8808 31.4599 29.8808 31.1287C29.8808 30.7974 30.0123 30.4797 30.2463 30.2454ZM9.75301 30.2454C9.98709 30.4797 10.1186 30.7974 10.1186 31.1287C10.1186 31.4599 9.98709 31.7777 9.75301 32.012L9.09801 32.667C8.98357 32.7898 8.84557 32.8883 8.69224 32.9567C8.53891 33.025 8.37338 33.0617 8.20554 33.0647C8.03771 33.0676 7.87099 33.0368 7.71534 32.9739C7.5597 32.911 7.41831 32.8175 7.29961 32.6988C7.18091 32.5801 7.08734 32.4387 7.02447 32.283C6.9616 32.1274 6.93073 31.9607 6.93369 31.7928C6.93665 31.625 6.97339 31.4595 7.04171 31.3061C7.11003 31.1528 7.20853 31.0148 7.33134 30.9004L7.98467 30.2454C8.10076 30.1292 8.23859 30.0371 8.3903 29.9742C8.54201 29.9113 8.70462 29.879 8.86884 29.879C9.03306 29.879 9.19567 29.9113 9.34738 29.9742C9.49909 30.0371 9.63692 30.1292 9.75301 30.2454ZM19.9997 33.7487C20.3312 33.7487 20.6491 33.8804 20.8836 34.1148C21.118 34.3492 21.2497 34.6672 21.2497 34.9987V36.6654C21.2497 36.9969 21.118 37.3148 20.8836 37.5492C20.6491 37.7837 20.3312 37.9154 19.9997 37.9154C19.6682 37.9154 19.3502 37.7837 19.1158 37.5492C18.8814 37.3148 18.7497 36.9969 18.7497 36.6654V34.9987C18.7497 34.6672 18.8814 34.3492 19.1158 34.1148C19.3502 33.8804 19.6682 33.7487 19.9997 33.7487Z\" fill=\"#67B7A8\"><\/path>\n<\/svg>",
+            "item_title": "<p>Finish<\/p>",
+            "item_description": "<p>Bright, clean, and lingering — perfect for sipping or gifting<\/p>"
           }
         }
       },
@@ -208,13 +208,13 @@
         "padding_bottom_desktop": 60,
         "section_background": "#f1f1ee",
         "section_background_gradient": "",
-        "background_image": "shopify://shop_images/Rectangle_97.png",
+        "background_image": "shopify:\/\/shop_images\/Rectangle_97.png",
         "card_background": "#fffffff2",
-        "card_background_image": "shopify://shop_images/beige-paper.jpg",
-        "card_title": "<p>WHAT YOU'LL <strong>TASTE</strong></p>",
-        "bottle_image": "shopify://shop_images/Group_102_3.png",
+        "card_background_image": "shopify:\/\/shop_images\/beige-paper.jpg",
+        "card_title": "<p>WHAT YOU'LL <strong>TASTE<\/strong><\/p>",
+        "bottle_image": "shopify:\/\/shop_images\/Group_102_3.png",
         "bottle_alt_text": "Product bottle",
-        "label_image": "shopify://shop_images/Group_142.png",
+        "label_image": "shopify:\/\/shop_images\/Group_142.png",
         "label_alt_text": "Product label",
         "title_color": "#1a1a1a",
         "title_size_mobile": 30,
@@ -225,7 +225,7 @@
         "item_text_color": "#1a1a1a",
         "item_text_size_mobile": 18,
         "item_text_size_desktop": 20,
-        "footer_text": "<p>And yes — it's <strong>100% additive-free</strong> and <strong>certified Kosher</strong>.</p>",
+        "footer_text": "<p>And yes — it's <strong>100% additive-free<\/strong> and <strong>certified Kosher<\/strong>.<\/p>",
         "footer_text_color": "#090909",
         "footer_text_size_mobile": 18,
         "footer_text_size_desktop": 20,
@@ -238,12 +238,12 @@
       "name": "Own tequila",
       "settings": {
         "background_color": "#f1f1ee",
-        "image": "shopify://shop_images/Group_155.png",
-        "image_logo_one": "shopify://shop_images/Group_154.png",
-        "title_block": "<p>Our first distillery partner sets the standard for what tequila should be: <br/><strong>Clean. Honest. Personal.<br/></strong>Whether you’re creating a bottle for yourself, your team, or your brand — this is tequila worth being proud of.</p>",
-        "image_main": "shopify://shop_images/Group_126.png",
+        "image": "shopify:\/\/shop_images\/Group_155.png",
+        "image_logo_one": "shopify:\/\/shop_images\/Group_154.png",
+        "title_block": "<p>Our first distillery partner sets the standard for what tequila should be:\u2028<br\/><strong>Clean. Honest. Personal.<br\/><\/strong>Whether you’re creating a bottle for yourself, your team, or your brand — this is tequila worth being proud of.<\/p>",
+        "image_main": "shopify:\/\/shop_images\/Group_126.png",
         "text_btn": "Create your own tequila",
-        "main_url": "shopify://pages/our-tequila",
+        "main_url": "shopify:\/\/pages\/our-tequila",
         "padding_top": 60,
         "padding_bottom": 100,
         "padding_top_mob": 31,
@@ -254,18 +254,18 @@
       "type": "clean-tequila",
       "name": "section clean tequila",
       "settings": {
-        "main_text": "<p>Smooth. <strong>Clean.</strong> Vibrant.</p>",
+        "main_text": "<p>Smooth. <strong>Clean.<\/strong> Vibrant.<\/p>",
         "background_color": "#f1f1ee",
-        "background_first": "shopify://shop_images/Rectangle_105.png",
-        "background_second": "shopify://shop_images/Rectangle_107.png",
-        "image": "shopify://shop_images/BG_Tequila_Logo-03_5.png",
-        "image_bottle": "shopify://shop_images/3_2_1.png",
-        "image_one": "shopify://shop_images/Rectangle_109_1.png",
-        "image_two": "shopify://shop_images/Rectangle_110.png",
+        "background_first": "shopify:\/\/shop_images\/Rectangle_105.png",
+        "background_second": "shopify:\/\/shop_images\/Rectangle_107.png",
+        "image": "shopify:\/\/shop_images\/BG_Tequila_Logo-03_5.png",
+        "image_bottle": "shopify:\/\/shop_images\/3_2_1.png",
+        "image_one": "shopify:\/\/shop_images\/Rectangle_109_1.png",
+        "image_two": "shopify:\/\/shop_images\/Rectangle_110.png",
         "text_btn": "Design Your Bottle Now",
-        "main_url": "shopify://pages/our-tequila",
+        "main_url": "shopify:\/\/pages\/our-tequila",
         "text_btn_second": "Book a Call for Bulk Orders",
-        "main_url_second": "shopify://pages/contact",
+        "main_url_second": "shopify:\/\/pages\/contact",
         "padding_top": 10,
         "padding_bottom": 100,
         "padding_top_mob": 0,
@@ -278,51 +278,51 @@
         "block_88pz4A": {
           "type": "block",
           "settings": {
-            "image": "shopify://shop_images/Group_75.png",
-            "image_mob": "shopify://shop_images/Group_178.png",
-            "description": "<p>“I gave this to a client after we closed a huge deal. His entire team took photos with the bottle — it’s the first time a gift actually felt memorable.”</p>",
-            "name_text": "<p>– Marcus H., Founder,</p>",
-            "title_text": "<p>NYC Real Estate Group</p>"
+            "image": "shopify:\/\/shop_images\/Group_75.png",
+            "image_mob": "shopify:\/\/shop_images\/Group_178.png",
+            "description": "<p>“I gave this to a client after we closed a huge deal. His entire team took photos with the bottle — it’s the first time a gift actually felt memorable.”<\/p>",
+            "name_text": "<p>– Marcus H., Founder,<\/p>",
+            "title_text": "<p>NYC Real Estate Group<\/p>"
           }
         },
         "block_6rF6he": {
           "type": "block",
           "settings": {
-            "image": "shopify://shop_images/Group_75.png",
-            "image_mob": "shopify://shop_images/Group_178.png",
-            "description": "<p>“I gave this to a client after we closed a huge deal. His entire team took photos with the bottle — it’s the first time a gift actually felt memorable.”</p>",
-            "name_text": "<p>– Marcus H., Founder,</p>",
-            "title_text": "<p>NYC Real Estate Group</p>"
+            "image": "shopify:\/\/shop_images\/Group_75.png",
+            "image_mob": "shopify:\/\/shop_images\/Group_178.png",
+            "description": "<p>“I gave this to a client after we closed a huge deal. His entire team took photos with the bottle — it’s the first time a gift actually felt memorable.”<\/p>",
+            "name_text": "<p>– Marcus H., Founder,<\/p>",
+            "title_text": "<p>NYC Real Estate Group<\/p>"
           }
         },
         "block_WwtzyJ": {
           "type": "block",
           "settings": {
-            "image": "shopify://shop_images/Group_75.png",
-            "image_mob": "shopify://shop_images/Group_178.png",
-            "description": "<p>“I gave this to a client after we closed a huge deal. His entire team took photos with the bottle — it’s the first time a gift actually felt memorable.”</p>",
-            "name_text": "<p>– Marcus H., Founder,</p>",
-            "title_text": "<p>NYC Real Estate Group</p>"
+            "image": "shopify:\/\/shop_images\/Group_75.png",
+            "image_mob": "shopify:\/\/shop_images\/Group_178.png",
+            "description": "<p>“I gave this to a client after we closed a huge deal. His entire team took photos with the bottle — it’s the first time a gift actually felt memorable.”<\/p>",
+            "name_text": "<p>– Marcus H., Founder,<\/p>",
+            "title_text": "<p>NYC Real Estate Group<\/p>"
           }
         },
         "block_fFgT4b": {
           "type": "block",
           "settings": {
-            "image": "shopify://shop_images/Group_75.png",
-            "image_mob": "shopify://shop_images/Group_178.png",
-            "description": "<p>“I gave this to a client after we closed a huge deal. His entire team took photos with the bottle — it’s the first time a gift actually felt memorable.”</p>",
-            "name_text": "<p>– Marcus H., Founder,</p>",
-            "title_text": "<p>NYC Real Estate Group</p>"
+            "image": "shopify:\/\/shop_images\/Group_75.png",
+            "image_mob": "shopify:\/\/shop_images\/Group_178.png",
+            "description": "<p>“I gave this to a client after we closed a huge deal. His entire team took photos with the bottle — it’s the first time a gift actually felt memorable.”<\/p>",
+            "name_text": "<p>– Marcus H., Founder,<\/p>",
+            "title_text": "<p>NYC Real Estate Group<\/p>"
           }
         },
         "block_YDRkVU": {
           "type": "block",
           "settings": {
-            "image": "shopify://shop_images/Group_75.png",
-            "image_mob": "shopify://shop_images/Group_178.png",
-            "description": "<p>“I gave this to a client after we closed a huge deal. His entire team took photos with the bottle — it’s the first time a gift actually felt memorable.”</p>",
-            "name_text": "<p>– Marcus H., Founder,</p>",
-            "title_text": "<p>NYC Real Estate Group</p>"
+            "image": "shopify:\/\/shop_images\/Group_75.png",
+            "image_mob": "shopify:\/\/shop_images\/Group_178.png",
+            "description": "<p>“I gave this to a client after we closed a huge deal. His entire team took photos with the bottle — it’s the first time a gift actually felt memorable.”<\/p>",
+            "name_text": "<p>– Marcus H., Founder,<\/p>",
+            "title_text": "<p>NYC Real Estate Group<\/p>"
           }
         }
       },
@@ -348,11 +348,11 @@
       "name": "Section form",
       "settings": {
         "background_color": "#f1f1ee",
-        "title": "<p><strong>Contact </strong>Form</p>",
-        "main_text": "<p>Receive <strong>info, tips </strong>on how to design your <strong>label</strong>, and <strong>special offer!</strong></p>",
-        "main_text_mob": "<p>Receive <strong>info, tips </strong>on how to design your <strong>label</strong>, and <strong>special offer!</strong></p>",
-        "image_first": "shopify://shop_images/bg_2_5e9bc691-229f-446f-9e70-a8bcb7674a5c.png",
-        "image_second": "shopify://shop_images/image_2.png",
+        "title": "<p><strong>Contact <\/strong>Form<\/p>",
+        "main_text": "<p>Receive <strong>info, tips <\/strong>on how to design your <strong>label<\/strong>, and <strong>special offer!<\/strong><\/p>",
+        "main_text_mob": "<p>Receive <strong>info, tips <\/strong>on how to design your <strong>label<\/strong>, and <strong>special offer!<\/strong><\/p>",
+        "image_first": "shopify:\/\/shop_images\/bg_2_5e9bc691-229f-446f-9e70-a8bcb7674a5c.png",
+        "image_second": "shopify:\/\/shop_images\/image_2.png",
         "padding_top": 100,
         "padding_bottom": 40,
         "padding_top_mob": 40,
@@ -365,28 +365,28 @@
         "instagram_post_VtDk9a": {
           "type": "instagram_post",
           "settings": {
-            "post_image": "shopify://shop_images/47026e7010cda3fd55e0c21b60736d55789a6672.jpg",
+            "post_image": "shopify:\/\/shop_images\/47026e7010cda3fd55e0c21b60736d55789a6672.jpg",
             "post_url": ""
           }
         },
         "instagram_post_WdjhWT": {
           "type": "instagram_post",
           "settings": {
-            "post_image": "shopify://shop_images/173bdd8077c50922de450bc10c18a9864a254bbf.png",
+            "post_image": "shopify:\/\/shop_images\/173bdd8077c50922de450bc10c18a9864a254bbf.png",
             "post_url": ""
           }
         },
         "instagram_post_rtyBgF": {
           "type": "instagram_post",
           "settings": {
-            "post_image": "shopify://shop_images/52a7f159b11e3608fb041458f3e2d9d770712188.jpg",
+            "post_image": "shopify:\/\/shop_images\/52a7f159b11e3608fb041458f3e2d9d770712188.jpg",
             "post_url": ""
           }
         },
         "instagram_post_MPcxg7": {
           "type": "instagram_post",
           "settings": {
-            "post_image": "shopify://shop_images/6d35ff77c3db63cf905bf62fd0fbcce3c6093e16.png",
+            "post_image": "shopify:\/\/shop_images\/6d35ff77c3db63cf905bf62fd0fbcce3c6093e16.png",
             "post_url": ""
           }
         }
@@ -482,8 +482,8 @@
       "name": "Footer",
       "settings": {
         "brand_text": "InBarrel",
-        "brand_texture": "shopify://shop_images/orange-background.png",
-        "background_pattern": "shopify://shop_images/1_23456791_1d01bc29-da3b-4964-bd43-0c2b61f2954a.png",
+        "brand_texture": "shopify:\/\/shop_images\/orange-background.png",
+        "background_pattern": "shopify:\/\/shop_images\/1_23456791_1d01bc29-da3b-4964-bd43-0c2b61f2954a.png",
         "links_title": "Links",
         "newsletter_title": "Let's work together",
         "email_placeholder": "Email",

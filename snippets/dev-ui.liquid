@@ -1,0 +1,20 @@
+{{ 'dev-ui.css' | asset_url | stylesheet_tag }}
+
+<{{ type }}
+  {% if attribute %}
+    data-{{ attribute }}
+  {% endif %}
+  class="
+    clear-text {{ type }}-type {{ class }}
+    {% if btn == 'primary' %}
+        primary-btn
+    {% elsif btn == 'secondary' %}
+        secondary-btn
+    {% endif %}
+  "
+  {% if href %}
+    href="{{ href }}"
+  {% endif %}
+>
+  {{ content }}
+</{{ type }}>

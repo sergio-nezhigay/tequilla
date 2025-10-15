@@ -26,15 +26,15 @@
       ],
       "name": "Tequila About",
       "settings": {
-        "title": "<p><strong>Contact </strong>Us</p>",
-        "description": "<p>Have questions or want to learn more about our tequila?<br/>Reach out to us—we’d love to hear from you and share the spirit of craftsmanship behind every bottle.</p>",
+        "title": "<p><strong>Contact <\/strong>Us<\/p>",
+        "description": "<p>Have questions or want to learn more about our tequila?<br\/>Reach out to us—we’d love to hear from you and share the spirit of craftsmanship behind every bottle.<\/p>",
         "primary_button_text": "CREATE YOUR OWN TEQUILA",
         "primary_button_url": "#",
         "secondary_button_text": "SCHEDULE A CALL!",
         "secondary_button_url": "#",
-        "main_image": "shopify://shop_images/round_bottle_1_2.png",
-        "left_leaf_image": "shopify://shop_images/index-left-big.svg",
-        "right_leaf_image": "shopify://shop_images/index-right-big.svg",
+        "main_image": "shopify:\/\/shop_images\/round_bottle_1_2.png",
+        "left_leaf_image": "shopify:\/\/shop_images\/index-left-big.svg",
+        "right_leaf_image": "shopify:\/\/shop_images\/index-right-big.svg",
         "background_color": "#f1f1ee",
         "title_color": "#000000",
         "highlight_color": "#7cc9b5",
@@ -50,7 +50,7 @@
         "padding_top_mobile": 40,
         "padding_bottom_mobile": 40,
         "custom_classes": "",
-        "step_icon": "shopify://shop_images/im_1_4a961312-c5c0-4173-add1-4d35f8077f82.png",
+        "step_icon": "shopify:\/\/shop_images\/im_1_4a961312-c5c0-4173-add1-4d35f8077f82.png",
         "step1_text": "SELECT BOTTLE",
         "step2_text": "PERSONALIZE LABEL",
         "step3_text": "PLACE ORDER",
@@ -63,11 +63,11 @@
       "name": "Section form",
       "settings": {
         "background_color": "#f3f3f3",
-        "title": "<p><strong>Contact </strong>Form</p>",
-        "main_text": "<p>Lorem ipsum dolor sit amet consectetur. Dui eget ut orci id mi in sed pellentesque neque.</p>",
-        "main_text_mob": "<p>Receive <strong>info, tips </strong>on how to design your <strong>label</strong>, and <strong>special offer!</strong></p>",
-        "image_first": "shopify://shop_images/bg_3.png",
-        "image_second": "shopify://shop_images/image_3_f141c619-00ba-46a8-8deb-3ad478b30489.png",
+        "title": "<p><strong>Contact <\/strong>Form<\/p>",
+        "main_text": "<p>Lorem ipsum dolor sit amet consectetur. Dui eget ut orci id mi in sed pellentesque neque.<\/p>",
+        "main_text_mob": "<p>Receive <strong>info, tips <\/strong>on how to design your <strong>label<\/strong>, and <strong>special offer!<\/strong><\/p>",
+        "image_first": "shopify:\/\/shop_images\/bg_3.png",
+        "image_second": "shopify:\/\/shop_images\/image_3_f141c619-00ba-46a8-8deb-3ad478b30489.png",
         "padding_top": 0,
         "padding_bottom": 100,
         "padding_top_mob": 0,
@@ -80,11 +80,11 @@
         "block_QMAgGR": {
           "type": "block",
           "settings": {
-            "image": "shopify://shop_images/Group_75_40a835c4-5700-41df-bb77-9f3e36c42d55.png",
-            "image_mob": "shopify://shop_images/Group_178_abbc4dba-e5b0-409e-ae96-a9ca87b7e871.png",
-            "description": "<p>“I gave this to a client after we closed a huge deal. His entire team took photos with the bottle — it’s the first time a gift actually felt memorable.”</p>",
-            "name_text": "<p>– Marcus H., Founder,</p>",
-            "title_text": "<p>NYC Real Estate Group</p>"
+            "image": "shopify:\/\/shop_images\/Group_75_40a835c4-5700-41df-bb77-9f3e36c42d55.png",
+            "image_mob": "shopify:\/\/shop_images\/Group_178_abbc4dba-e5b0-409e-ae96-a9ca87b7e871.png",
+            "description": "<p>“I gave this to a client after we closed a huge deal. His entire team took photos with the bottle — it’s the first time a gift actually felt memorable.”<\/p>",
+            "name_text": "<p>– Marcus H., Founder,<\/p>",
+            "title_text": "<p>NYC Real Estate Group<\/p>"
           }
         }
       },
@@ -107,28 +107,28 @@
         "instagram_post_kqaTxg": {
           "type": "instagram_post",
           "settings": {
-            "post_image": "shopify://shop_images/47026e7010cda3fd55e0c21b60736d55789a6672.jpg",
+            "post_image": "shopify:\/\/shop_images\/47026e7010cda3fd55e0c21b60736d55789a6672.jpg",
             "post_url": ""
           }
         },
         "instagram_post_JUaraU": {
           "type": "instagram_post",
           "settings": {
-            "post_image": "shopify://shop_images/173bdd8077c50922de450bc10c18a9864a254bbf.png",
+            "post_image": "shopify:\/\/shop_images\/173bdd8077c50922de450bc10c18a9864a254bbf.png",
             "post_url": ""
           }
         },
         "instagram_post_DNTiwi": {
           "type": "instagram_post",
           "settings": {
-            "post_image": "shopify://shop_images/52a7f159b11e3608fb041458f3e2d9d770712188.jpg",
+            "post_image": "shopify:\/\/shop_images\/52a7f159b11e3608fb041458f3e2d9d770712188.jpg",
             "post_url": ""
           }
         },
         "instagram_post_eyHGj8": {
           "type": "instagram_post",
           "settings": {
-            "post_image": "shopify://shop_images/6d35ff77c3db63cf905bf62fd0fbcce3c6093e16.png",
+            "post_image": "shopify:\/\/shop_images\/6d35ff77c3db63cf905bf62fd0fbcce3c6093e16.png",
             "post_url": ""
           }
         }
@@ -224,8 +224,8 @@
       "name": "Footer",
       "settings": {
         "brand_text": "InBarrel",
-        "brand_texture": "shopify://shop_images/Group_165.png",
-        "background_pattern": "shopify://shop_images/1_23456791_1d01bc29-da3b-4964-bd43-0c2b61f2954a.png",
+        "brand_texture": "shopify:\/\/shop_images\/Group_165.png",
+        "background_pattern": "shopify:\/\/shop_images\/1_23456791_1d01bc29-da3b-4964-bd43-0c2b61f2954a.png",
         "links_title": "Links",
         "newsletter_title": "Let's work together",
         "email_placeholder": "Email",

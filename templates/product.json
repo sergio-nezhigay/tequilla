@@ -78,6 +78,8 @@
         "image_zoom": "lightbox",
         "hide_variants": true,
         "enable_video_looping": false,
+        "customizer_heading": "<h3>Customize your Tequila</h3>",
+        "customizer_placeholder_image": "shopify://shop_images/customizer_image_placeholder_upload.svg",
         "padding_top": 36,
         "padding_bottom": 12
       }

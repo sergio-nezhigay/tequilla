@@ -1,0 +1,200 @@
+/* input */
+
+.dev-form-ui--input {
+  font-family: "Open Sans";
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 120%;
+  color: #090909;
+
+  padding: 0 20px;
+  min-height: 57px;
+  width: 100%;
+
+  border-radius: 90px;
+  border: 1px solid #000;
+  background: #fff;
+
+  box-shadow: none !important;
+  outline: none !important;
+}
+.dev-form-ui--input:focus {
+  border: 1px solid gray;
+}
+.dev-form-ui--input:placeholder {
+  color: rgba(9, 9, 9, 0.5);
+}
+
+/* dropdown */
+.dev-form-ui--dropdown {
+  max-width: 200px;
+
+  padding: 12px 20px;
+  padding-right: 14px;
+
+  border-radius: 20px;
+  border: 0.5px solid #b5b5b5;
+  background: #fff;
+
+  cursor: pointer;
+}
+
+.dev-form-ui--dropdown--value {
+  color: #090909;
+  font-family: "Open Sans";
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 120%;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.dev-form-ui--dropdown--options {
+  /* display: flex; */
+  flex-direction: column;
+  /* gap: 4px;
+  padding: 8px; */
+  margin: 0;
+  height: auto;
+  /* max-height: 240px; */
+  box-sizing: border-box;
+  overflow-y: auto;
+
+  width: 100% !important;
+  max-width: 100%;
+
+  /* display: none; */
+}
+.dev-form-ui--dropdown--options::-webkit-scrollbar {
+  width: 4px;
+}
+
+.dev-form-ui--dropdown--options::-webkit-scrollbar-thumb {
+  background: #67b7a8;
+  border-radius: 2px;
+}
+
+.dev-form-ui--dropdown--options::-webkit-scrollbar-track {
+  background: #f5f5f5;
+  border-radius: 2px;
+}
+
+.dev-form-ui--dropdown--options--option {
+  color: #090909;
+  font-family: "Open Sans";
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: 120%; /* 12px */
+  position: relative;
+  padding: 5px 0;
+  cursor: pointer;
+}
+.dev-form-ui--dropdown--options--option:first-child {
+  padding-top: 12px;
+}
+
+.dev-form-ui--dropdown--value--text {
+  color: #090909;
+  text-wrap: nowrap;
+  font-family: "Open Sans";
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 120%; /* 14.4px */
+}
+
+.dev-form-ui--dropdown--options--option.selected {
+  /* background: #67b7a8;
+  color: #ffffff; */
+  font-weight: 600;
+  /* padding: 5px 0; */
+}
+
+/* .dev-form-ui--dropdown--options--option:hover {
+  background: #f8f9fa;
+  color: #67b7a8;
+  transform: translateX(2px);
+}
+
+.dev-form-ui--dropdown--options--option:active {
+  background: #e9ecef;
+  transform: translateX(1px);
+}
+
+.dev-form-ui--dropdown--options--option.selected {
+  background: #67b7a8;
+  color: #ffffff;
+}
+
+.dev-form-ui--dropdown--options--option.selected:hover {
+  background: #5a9d8f;
+  transform: translateX(0);
+} */
+
+/* color dropdown */
+/* 
+.dev-form-ui--dropdown--options--option--color {
+  border-radius: 23.684px;
+  border: 0.3px solid #989898;
+  background: #6ab7a7;
+
+  width: 23.684px;
+  height: 23.684px;
+  flex-shrink: 0;
+}
+.dev-form-ui--dropdown {
+  position: relative;
+  overflow: hidden;
+}
+
+.dev-form-ui--dropdown.open .dev-form-ui--dropdown--options--color {
+  display: grid !important;
+  grid-template-columns: repeat(4, 1fr) !important;
+  grid-auto-rows: 40px !important;
+  gap: 12px !important;
+  padding: 16px !important;
+  margin: 0 !important;
+  height: auto !important;
+  justify-items: center !important;
+  align-items: center !important;
+  place-items: center !important;
+}
+
+
+
+.dev-form-ui--dropdown--options--option--color-wrapper {
+  border-radius: 30px;
+  border: 0.3px solid #989898;
+  padding: 3px;
+  background: #fff;
+  width: fit-content;
+  display: flex !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+} */
+
+/* Ensure color picker wrapper is always visible */
+/* .dev-form-ui--dropdown--options--option--color-wrapper.color-picker-wrapper {
+  display: flex !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+.dev-form-ui--dropdown--options {
+  position: absolute;
+  top: 28px !important;
+  left: 20px !important;
+} */
+
+/* .dev-form-ui--dropdown--options--color,
+.dev-form-ui--dropdown--options {
+  display: none;
+} */
+
+/* .dev-customizer-text-control__dropdown.open .dev-form-ui--dropdown--options {
+  display: block;
+} */

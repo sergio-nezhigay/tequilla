@@ -1,0 +1,87 @@
+/* btn */
+.clear-text {
+  font-family: "Futura Hv BT";
+}
+
+.primary-btn,
+.secondary-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: fit-content;
+  text-decoration: none;
+  text-transform: capitalize;
+
+  color: #090909;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 120%;
+
+  padding: 22px 0px;
+  min-width: 264px;
+
+  cursor: pointer;
+}
+
+.primary-btn {
+  border-radius: 90px;
+  border: 2px solid #ffb793;
+  transition: all 0.3s ease;
+}
+.primary-btn:hover,
+.primary-btn:focus {
+  scale: 1.02;
+}
+
+.secondary-btn {
+  border-radius: 90px;
+  border: 1px solid #090909;
+  background: #67b7a8;
+  transition: all 0.3s ease;
+}
+.secondary-btn:hover,
+.secondary-btn:focus {
+  background-color: #ffb793;
+}
+
+/* text */
+.p-type * {
+  letter-spacing: 0;
+  margin: 0;
+}
+.p-type {
+  letter-spacing: 0;
+  margin: 0;
+  color: #67b7a8;
+  text-align: right;
+  font-family: "Futura Hv BT";
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 120%;
+}
+
+.div-type * {
+  margin: 0;
+  padding: 0;
+  letter-spacing: 0;
+  font-family: "Futura Hv BT";
+}
+
+.div-type h3 {
+  color: #67b7a8;
+  font-size: 40px;
+  font-weight: 400;
+  line-height: 120%;
+  text-transform: uppercase;
+}
+
+@media (width <= 1200px) {
+  .div-type h3 {
+    font-size: 32px !important;
+  }
+  .dev-customizer__heading {
+    max-width: 300px;
+  }
+}

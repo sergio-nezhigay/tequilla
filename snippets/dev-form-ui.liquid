@@ -1,0 +1,50 @@
+{{ 'dev-form-ui.css' | asset_url | stylesheet_tag }}
+
+{% case kind %}
+  {% when 'input' %}
+    <input
+      id="{{ id }}"
+      type="{{ type }}"
+      class="dev-form-ui--input {{ class }}"
+      placeholder="{{ placeholder }}"
+    >
+  {% when 'dropdown' %}
+    <div class="dev-form-ui--dropdown {{ class }}">
+      <div class="dev-form-ui--dropdown--value">
+        <span class="dev-form-ui--dropdown--value--text">
+          {{ placeholder }}
+        </span>
+        {% render 'dev-icons-ui', icon: 'arrow-dropdown-down-black' %}
+      </div>
+      <div
+        class="
+          {% if color_dropdown %}
+            dev-form-ui--dropdown--options--color
+          {% else %}
+            dev-form-ui--dropdown--options
+          {% endif %}
+        "
+      >
+        {% for option in options %}
+          {% if color_dropdown %}
+            <div class="dev-form-ui--dropdown--options--option--color-wrapper">
+              <div style="background-color: {{ option }};" class="dev-form-ui--dropdown--options--option--color">
+                {% comment %} show the color in the dropdown {% endcomment %}
+              </div>
+            </div>
+          {% else %}
+            <div class="dev-form-ui--dropdown--options--option">
+              {{ option }}
+            </div>
+          {% endif %}
+        {% endfor %}
+        
+        {% if color_dropdown and include_color_picker %}
+          <div class="dev-form-ui--dropdown--options--option--color-wrapper color-picker-wrapper">
+            <div class="dev-form-ui--dropdown--options--option--color-picker"></div>
+            <input type="color" class="dev-form-ui--color-input" data-text-id="{{ text_id }}">
+          </div>
+        {% endif %}
+      </div>
+    </div>
+{% endcase %}

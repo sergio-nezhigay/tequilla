@@ -1,0 +1,21 @@
+{{ 'dev-theme-option.css' | asset_url | stylesheet_tag }}
+
+<div class="dev-theme-option-wrapper {{ class }}" {{ data_attributes }}>
+  <div class="dev-theme-option">
+    {% if color %}
+      <div class="dev-theme-option--color" style="background-color: {{ color }};">
+        {% comment %} show the color in the option {% endcomment %}
+      </div>
+    {% elsif image %}
+      <img
+        src="{{ image | img_url: 'large' }}"
+        alt="{{ text | escape }}"
+        width="100%"
+        height="100%"
+        class="dev-theme-option--preview-image dev-theme-option--image"
+        loading="lazy"
+      >
+    {% endif %}
+  </div>
+  {% render 'dev-ui', type: 'p', content: text, class: 'dev-theme-option__text' %}
+</div>

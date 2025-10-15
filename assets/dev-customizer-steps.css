@@ -1,0 +1,280 @@
+.dev-customizer-steps {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  z-index: 2;
+
+  border-top: 1px solid #000;
+  border-bottom: 1px solid #000;
+  background: #fff;
+  padding-top: 12px; /* Further reduced from 20px */
+  padding-bottom: 16px; /* Further reduced from 30px */
+}
+
+/* toggle trigger */
+
+.dev-customizer-steps--toggle-trigger {
+  width: 80px;
+  height: 30px;
+  flex-shrink: 0;
+
+  border-radius: 10px;
+  border: 1px solid #000;
+  background: #fff;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  position: absolute;
+  top: -17px;
+  left: 50%;
+  transform: translateX(-50%);
+
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.dev-customizer-steps--toggle-trigger:hover {
+  background: #67b7a8;
+  border-color: #67b7a8;
+}
+.dev-customizer-steps--toggle-trigger svg path {
+  transition: all 0.3s ease;
+}
+.dev-customizer-steps--toggle-trigger:hover svg path {
+  fill: #fff;
+}
+
+/* arrows */
+
+.customizer-steps-head__icon-next,
+.customizer-steps-head__icon-prev {
+  width: 40px;
+  height: 40px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  transition: all 0.3s ease;
+}
+.customizer-steps-head__icon-next.active,
+.customizer-steps-head__icon-prev.active {
+  cursor: pointer;
+}
+
+.customizer-steps-head__icon-prev.active:hover,
+.customizer-steps-head__icon-next.active:hover {
+  scale: 1.1;
+}
+
+/* head */
+
+.dev-customizer-steps-head {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 145px;
+  margin-bottom: 7px; /* Further reduced from 20px */
+  position: relative;
+  z-index: 2;
+}
+
+@media (width <= 600px) {
+  .dev-customizer-steps-head {
+    gap: 10px;
+    justify-content: space-between;
+    padding: 40px 30px;
+    padding-bottom: 30px;
+  }
+
+  .customizer-steps-head__icon-next,
+  .customizer-steps-head__icon-prev {
+    width: 18.958px;
+    height: 14.666px;
+  }
+  .dev-customizer-steps-head {
+    margin-bottom: 0;
+  }
+  .dev-customizer-steps-options {
+    margin-top: 0;
+    padding: 0;
+  }
+}
+
+.customizer-steps-head__text {
+  display: flex;
+  gap: 10px; /* Reduced from 15px for more compact layout */
+}
+
+.customizer-steps-head__text__number {
+  display: flex;
+  gap: 4px;
+}
+
+.dev-customizer-steps .customizer-steps-head__text__number__all,
+.customizer-steps-head__text__number__all__separator {
+  color: rgba(9, 9, 9, 0.5);
+  font-family: "Futura Hv BT";
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 120%;
+  text-transform: uppercase;
+}
+
+/* Pre-steps wrapper - shown by default */
+
+.dev-customizer-pre-steps-items {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  max-width: 157px;
+  margin: 0 auto;
+  margin-top: 35px;
+  margin-bottom: 35px;
+  cursor: pointer;
+}
+
+.dev-customizer-pre-steps-item {
+  color: #090909;
+  font-family: "Futura Hv BT";
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 120%; /* 21.6px */
+  position: relative;
+  z-index: 2;
+}
+
+.dev-customizer-final-actions-container--pre {
+  top: 55px !important;
+}
+
+/* .dev-customizer-pre-steps-item.active {
+  color: #67b7a8;
+} */
+
+/* .dev-customizer-pre-steps-item.active {
+  border-color: #67b7a8;
+  background: #67b7a8;
+  color: white;
+} */
+
+/* Hide steps head when pre-steps is active */
+.dev-customizer-steps.pre-steps-active .dev-customizer-steps-head {
+  display: none;
+}
+
+/* Set minimum height for pre-steps mode */
+@media (width <= 600px) {
+  .dev-customizer-steps.pre-steps-active {
+    min-height: 390px;
+  }
+}
+
+/* Add blur overlay to content when pre-steps is active */
+.dev-customizer-content.pre-steps-blur::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  backdrop-filter: blur(5px);
+  background: rgba(255, 255, 255, 0.1);
+  z-index: 2;
+  pointer-events: none;
+}
+
+/* Disable all modal interactions when pre-steps are active */
+.dev-customizer-content.pre-steps-blur {
+  pointer-events: none;
+}
+
+/* Re-enable pointer events for pre-steps wrapper */
+.dev-customizer-content.pre-steps-blur .dev-customizer-pre-steps-wrapper {
+  pointer-events: auto;
+}
+
+/* Disable all modal triggers when pre-steps are active */
+.dev-customizer-content.pre-steps-blur [data-modal],
+.dev-customizer-content.pre-steps-blur .modal-opener,
+.dev-customizer-content.pre-steps-blur details-modal,
+.dev-customizer-content.pre-steps-blur [id*="modal"],
+.dev-customizer-content.pre-steps-blur [id*="Modal"],
+.dev-customizer-content.pre-steps-blur button[aria-haspopup="dialog"],
+.dev-customizer-content.pre-steps-blur .product__modal-opener,
+.dev-customizer-content.pre-steps-blur .quick-add-hidden,
+.dev-customizer-content.pre-steps-blur .product-popup-modal__opener {
+  pointer-events: none !important;
+  opacity: 0.5 !important;
+  cursor: not-allowed !important;
+}
+
+/* Disable toggle trigger when pre-steps is active */
+.dev-customizer-steps.pre-steps-active .dev-customizer-steps--toggle-trigger {
+  pointer-events: none;
+  background: #67b7a8;
+}
+
+.dev-customizer-steps.pre-steps-active
+  .dev-customizer-steps--toggle-trigger
+  svg {
+  transform: rotate(180deg);
+}
+/* Responsive optimizations for larger screens */
+@media (min-width: 1200px) {
+  .dev-customizer-steps {
+    padding-top: 8px; /* Ultra compact on large screens */
+    padding-bottom: 12px; /* Ultra compact on large screens */
+  }
+}
+
+@media (width <= 1200px) {
+  .dev-customizer-final-actions-container--pre .dev-customizer-final-actions {
+    display: flex !important;
+    padding-right: 0 !important;
+  }
+
+  .dev-customizer-final-actions-container--pre {
+    position: relative !important;
+    top: 0 !important;
+    left: 0 !important;
+    transform: translateX(0) !important;
+    width: auto !important;
+  }
+
+  .dev-customizer-pre-steps-items {
+    margin-left: 0;
+    margin-right: 0;
+  }
+  .dev-customizer-pre-steps-wrapper {
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+  }
+}
+
+@media (width <= 600px) {
+  .dev-customizer-pre-steps-wrapper {
+    flex-direction: column;
+  }
+  .dev-customizer-pre-steps-items {
+    margin-top: 40px;
+    gap: 30px;
+    margin-bottom: 30px;
+  }
+  .dev-customizer-pre-steps-wrapper {
+    gap: 0;
+  }
+  .dev-customizer-final-actions-container--pre .primary-btn,
+  .dev-customizer-final-actions-container--pre .secondary-btn {
+    width: calc(100vw - 40px);
+  }
+  .dev-customizer-final-actions-container--pre {
+    margin-bottom: 100%;
+  }
+}

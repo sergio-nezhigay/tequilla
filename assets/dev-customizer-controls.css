@@ -1,0 +1,56 @@
+.dev-customizer-controls {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+}
+
+.dev-customizer__control {
+  width: 28px;
+  height: 28px;
+  flex-shrink: 0;
+  border-radius: 5px;
+  border: 1px solid white;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  cursor: pointer;
+
+  transition: all 0.3s ease;
+}
+.dev-customizer__control svg path {
+  transition: all 0.3s ease;
+}
+
+.dev-customizer__control.active {
+  background: #67b7a8;
+  border-color: #67b7a8;
+}
+.dev-customizer__control.active svg path {
+  stroke: white;
+}
+
+.dev-customizer__control:not(.active):hover {
+  background: #67b7a8;
+  border-color: #67b7a8;
+  transform: translateY(-2px);
+}
+.dev-customizer__control:not(.active):hover svg path {
+  stroke: white;
+}
+
+@media (width <= 600px) {
+  .dev-customizer__control {
+    width: 38px;
+    height: 38px;
+  }
+  .dev-customizer-controls svg {
+    width: auto;
+    object-fit: contain;
+    height: 28px;
+  }
+  .dev-customizer-controls {
+    gap: 20px;
+  }
+}
