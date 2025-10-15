@@ -22,9 +22,6 @@
               {% endif %}
               <div class="card-overlay"></div>
               <div class="card-content">
-                {% if block.settings.step_number != blank %}
-                  <h3 class="step-number">{{ block.settings.step_number }}</h3>
-                {% endif %}
                 {% if block.settings.step_title != blank %}
                   <h4 class="step-title">{{ block.settings.step_title }}</h4>
                 {% endif %}
@@ -122,9 +119,10 @@
   #{{ section_id }} .card-content {
     position: relative;
     z-index: 3;
-    padding: 30px 20px;
+    padding: 20px;
     color: var(--hiw-text-color);
     width: 100%;
+    text-align: center;
   }
 
   #{{ section_id }} .step-number {
@@ -224,7 +222,7 @@
     }
 
     #{{ section_id }} .card-content {
-      padding: 40px 30px;
+      padding: 20px;
     }
 
     #{{ section_id }} .step-number {
@@ -394,13 +392,7 @@
           "id": "background_image",
           "label": "Background Image"
         },
-        {
-          "type": "text",
-          "id": "step_number",
-          "label": "Step Number",
-          "default": "1.",
-          "info": "e.g., '1.', '2.', '3.'"
-        },
+
         {
           "type": "text",
           "id": "step_title",
@@ -423,7 +415,6 @@
         {
           "type": "step_card",
           "settings": {
-            "step_number": "1.",
             "step_title": "DESIGN YOUR BOTTLE",
             "step_description": "Personalize the label and make it truly yours. Minimum order: just 3 bottles."
           }
@@ -431,7 +422,6 @@
         {
           "type": "step_card",
           "settings": {
-            "step_number": "2.",
             "step_title": "WE CRAFT IT FOR YOU",
             "step_description": "Premium tequila inside, finished to perfection and ready to enjoy."
           }
@@ -439,7 +429,6 @@
         {
           "type": "step_card",
           "settings": {
-            "step_number": "3.",
             "step_title": "SHARE AN UNFORGETTABLE GIFT",
             "step_description": "Perfect for weddings, clients, or your home bar."
           }

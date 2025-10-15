@@ -152,24 +152,27 @@
         "step_card_1": {
           "type": "step_card",
           "settings": {
+            "background_image": "shopify://shop_images/design1.jpg",
             "step_number": "1.",
-            "step_title": "DESIGN YOUR BOTTLE",
+            "step_title": "1. DESIGN YOUR BOTTLE",
             "step_description": "Personalize the label and make it truly yours. Minimum order: just 3 bottles."
           }
         },
         "step_card_2": {
           "type": "step_card",
           "settings": {
+            "background_image": "shopify://shop_images/design2.jpg",
             "step_number": "2.",
-            "step_title": "WE CRAFT IT FOR YOU",
+            "step_title": "2. WE CRAFT IT FOR YOU",
             "step_description": "Premium tequila inside, finished to perfection and ready to enjoy."
           }
         },
         "step_card_3": {
           "type": "step_card",
           "settings": {
+            "background_image": "shopify://shop_images/design3.jpg",
             "step_number": "3.",
-            "step_title": "SHARE AN UNFORGETTABLE GIFT",
+            "step_title": "3. SHARE AN UNFORGETTABLE GIFT",
             "step_description": "Perfect for weddings, clients, or your home bar."
           }
         }
