@@ -83,11 +83,11 @@
     color: var(--as-seen-in-title-color);
     font-size: var(--as-seen-in-title-size-desktop);
     text-align: center;
-    margin-bottom: 40px;
-    font-weight: 600;
+    margin-bottom: 30px;
+    font-weight: 400;
     line-height: 1.2;
     text-transform: uppercase;
-    letter-spacing: 0.5px;
+    letter-spacing: 0;
   }
 
   #{{ section_id }} .as-seen-in-wrapper {
@@ -106,9 +106,12 @@
       animation-duration: calc(var(--marquee-duration, 30s));
     }
 
-    #{{ section_id }} .as-seen-in-track:hover {
+    #{{ section_id }} .as-seen-in-track {
       animation-play-state: {% if section.settings.pause_on_hover %}paused{% else %}running{% endif %};
     }
+    {% comment %}#{{ section_id }} .as-seen-in-track:hover {
+      animation-play-state: {% if section.settings.pause_on_hover %}paused{% else %}running{% endif %};
+    }{% endcomment %}
 
     @keyframes marquee {
       from {
@@ -150,7 +153,7 @@
 
     #{{ section_id }} .as-seen-in-title {
       font-size: var(--as-seen-in-title-size-mobile);
-      margin-bottom: 32px;
+      margin-bottom: 14px;
     }
 
     #{{ section_id }} .as-seen-in-wrapper {
@@ -299,10 +302,10 @@
       "type": "range",
       "id": "scroll_speed",
       "label": "Scroll Speed (Desktop)",
-      "min": 10,
+      "min": 0,
       "max": 100,
       "step": 5,
-      "default": 50,
+      "default": 0,
       "unit": "px",
       "info": "Speed of the marquee animation in pixels per second"
     },
