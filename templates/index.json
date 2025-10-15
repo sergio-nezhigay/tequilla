@@ -137,7 +137,7 @@
         "title_color": "#090909",
         "background_color": "#f1f1ee",
         "max_width": "1440",
-        "scroll_speed": 50,
+        "scroll_speed": 0,
         "pause_on_hover": true,
         "padding_top_desktop": 0,
         "padding_bottom_desktop": 0,
@@ -179,6 +179,7 @@
         "description_2_GJ8NMX",
         "images_grid_HqwNA4"
       ],
+      "disabled": true,
       "settings": {
         "show_heading": true,
         "header_text": "Are you a |#090909---business|#67B7A8---owner|#FFB793---?|#090909",
@@ -225,6 +226,7 @@
         "tasting_note_YTKXnm",
         "tasting_note_qCWEaw"
       ],
+      "disabled": true,
       "settings": {
         "max_width": "1440",
         "padding_top_mobile": 30,
@@ -261,6 +263,7 @@
     },
     "section_about_us_R6jiKB": {
       "type": "section-about-us",
+      "disabled": true,
       "name": "About us",
       "settings": {
         "background_color": "#f1f1ee",
@@ -277,6 +280,7 @@
     },
     "make_personalization_Mintnf": {
       "type": "make-personalization",
+      "disabled": true,
       "name": "Make personalization",
       "settings": {
         "main_banner": "shopify://shop_images/Group_72_dddd74f8-e058-4765-a103-5c39a9c3f2d4.png",
@@ -323,6 +327,7 @@
         "block_JczB79",
         "block_qJP74a"
       ],
+      "disabled": true,
       "name": "Create tequila",
       "settings": {
         "background_color": "#f1f1ee",
@@ -447,6 +452,7 @@
         "block_nC4JMj",
         "block_YjjXY4"
       ],
+      "disabled": true,
       "name": "Best bottle",
       "settings": {
         "background_color": "#f1f1ee",
@@ -463,6 +469,7 @@
     },
     "create_own_tequila_DgrQXj": {
       "type": "create-own-tequila",
+      "disabled": true,
       "name": "Tequila Moments",
       "settings": {
         "section_background": "rgba(0,0,0,0)",
@@ -485,6 +492,7 @@
     },
     "custom_contact_form_dX6TcB": {
       "type": "custom-contact-form",
+      "disabled": true,
       "name": "Contact Form",
       "settings": {
         "section_background": "#f1f1ee",
