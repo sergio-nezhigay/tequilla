@@ -36,14 +36,18 @@
 
     <div class="cta-buttons">
       {% if section.settings.primary_button_text != blank %}
-        <a href="{{ section.settings.primary_button_url }}" class="cta-button cta-button-primary">
-          {{ section.settings.primary_button_text }}
-        </a>
+        <span>
+          <a href="{{ section.settings.primary_button_url }}" class="cta-button cta-button-primary">
+            {{ section.settings.primary_button_text }}
+          </a></span
+        >
       {% endif %}
       {% if section.settings.secondary_button_text != blank %}
-        <a href="{{ section.settings.secondary_button_url }}" class="cta-button cta-button-secondary">
-          {{ section.settings.secondary_button_text }}
-        </a>
+        <span>
+          <a href="{{ section.settings.secondary_button_url }}" class="cta-button cta-button-secondary">
+            {{ section.settings.secondary_button_text }}
+          </a></span
+        >
       {% endif %}
     </div>
   </div>
@@ -158,6 +162,10 @@
     gap: 15px;
     align-items: center;
   }
+  #{{ section_id }} .cta-buttons span {
+    flex:1;
+    display: flex;
+  }
 
   #{{ section_id }} .cta-button {
     display: inline-block;
@@ -171,17 +179,19 @@
     text-align: center;
     letter-spacing: 0.5px;
     width: 100%;
-    max-width: 350px;
   }
 
   #{{ section_id }} .cta-button-primary {
     background-color: var(--hiw-primary-btn-bg);
-    color: #ffffff;
+    color: #090909;
+    margin-left: auto;
+    min-width: 459px;
   }
 
   #{{ section_id }} .cta-button-secondary {
     background-color: var(--hiw-secondary-btn-bg);
-    color: #ffffff;
+    color: #090909;
+       min-width: 451px;
   }
 
   #{{ section_id }} .cta-button:hover {
@@ -201,7 +211,7 @@
       grid-template-rows: 340px 340px;
       gap: 20px;
       height: 700px;
-      margin-bottom: 40px;
+      margin-bottom: 30px;
     }
 
     #{{ section_id }} .step-card-1 {
@@ -247,10 +257,10 @@
     }
 
     #{{ section_id }} .cta-button {
-      width: auto;
-      min-width: 280px;
-      padding: 18px 40px;
-      font-size: 16px;
+      width: fit-content;
+      padding: 28px 0;
+      font-size: 18px;
+      border: 2px solid #090909;
     }
   }
 </style>
