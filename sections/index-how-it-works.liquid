@@ -26,7 +26,7 @@
                   <h4 class="step-title">{{ block.settings.step_title }}</h4>
                 {% endif %}
                 {% if block.settings.step_description != blank %}
-                  <p class="step-description">{{ block.settings.step_description }}</p>
+                  <div class="step-description">{{ block.settings.step_description }}</div>
                 {% endif %}
               </div>
             </div>
@@ -400,10 +400,10 @@
           "default": "DESIGN YOUR BOTTLE"
         },
         {
-          "type": "textarea",
+          "type": "richtext",
           "id": "step_description",
           "label": "Step Description",
-          "default": "Personalize the label and make it truly yours. Minimum order: just 3 bottles."
+          "default": "<p>Personalize the label and make it truly yours. Minimum order: just 3 bottles.</p>"
         }
       ]
     }
@@ -416,21 +416,21 @@
           "type": "step_card",
           "settings": {
             "step_title": "DESIGN YOUR BOTTLE",
-            "step_description": "Personalize the label and make it truly yours. Minimum order: just 3 bottles."
+            "step_description": "<p>Personalize the label and make it truly yours. Minimum order: just 3 bottles.</p>"
           }
         },
         {
           "type": "step_card",
           "settings": {
             "step_title": "WE CRAFT IT FOR YOU",
-            "step_description": "Premium tequila inside, finished to perfection and ready to enjoy."
+            "step_description": "<p>Premium tequila inside, finished to perfection and ready to enjoy.</p>"
           }
         },
         {
           "type": "step_card",
           "settings": {
             "step_title": "SHARE AN UNFORGETTABLE GIFT",
-            "step_description": "Perfect for weddings, clients, or your home bar."
+            "step_description": "<p>Perfect for weddings, clients, or your home bar.</p>"
           }
         }
       ]
