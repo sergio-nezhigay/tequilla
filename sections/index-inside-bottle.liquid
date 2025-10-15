@@ -169,13 +169,16 @@
   #{{ section_id }} .card-image-wrapper {
     position: relative;
     overflow: hidden;
-    aspect-ratio: 1 / 1;
+    width: 250px;
+    height: 298px;
+    margin: 0 auto;
+    border-radius: 20px;
   }
 
   #{{ section_id }} .card-image {
     width: 100%;
     height: 100%;
-    object-fit: contain;
+    object-fit: cover;
     display: block;
   }
 
@@ -275,6 +278,16 @@
     transform: translateY(-2px);
   }
 
+  /* Responsive scaling for smaller screens */
+  @media (max-width: 389px) {
+    #{{ section_id }} .card-image-wrapper {
+      width: calc(100vw - 80px);
+      height: calc((100vw - 80px) * 1.192);
+      max-width: 250px;
+      max-height: 298px;
+    }
+  }
+
   /* Desktop Styles */
   @media (min-width: 768px) {
     #{{ section_id }} {
@@ -298,8 +311,9 @@
 
     #{{ section_id }} .inside-bottle-cards {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(3, 392px);
       gap: 20px;
+      justify-content: center;
     }
 
     #{{ section_id }} .inside-bottle-card {
@@ -307,7 +321,10 @@
     }
 
     #{{ section_id }} .card-image-wrapper {
-      border-radius: 0;
+      width: 392px;
+      height: 466px;
+      border-radius: 30px;
+      margin: 0;
     }
 
     #{{ section_id }} .card-label {
