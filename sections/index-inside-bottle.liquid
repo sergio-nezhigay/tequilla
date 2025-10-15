@@ -310,14 +310,24 @@
     }
 
     #{{ section_id }} .inside-bottle-cards {
-      display: grid;
-      grid-template-columns: repeat(3, 392px);
-      gap: 20px;
+      display: flex !important;
+      flex-wrap: wrap;
       justify-content: center;
+      gap: 20px;
+    }
+
+    #{{ section_id }} .inside-bottle-cards .swiper-wrapper {
+      display: flex !important;
+      flex-wrap: nowrap;
+      gap: 20px;
+      width: auto !important;
+      transform: none !important;
     }
 
     #{{ section_id }} .inside-bottle-card {
       gap: 20px;
+      width: 392px;
+      flex-shrink: 0;
     }
 
     #{{ section_id }} .card-image-wrapper {
