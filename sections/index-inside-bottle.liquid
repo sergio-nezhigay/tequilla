@@ -1,0 +1,567 @@
+{% assign section_id = section.id %}
+
+<section id="{{ section_id }}" class="inside-bottle-section">
+  <div class="inside-bottle-container">
+    {% if section.settings.title != blank %}
+      <h2 class="inside-bottle-title">{{ section.settings.title }}</h2>
+    {% endif %}
+
+    {% if section.settings.subtitle != blank %}
+      <div class="inside-bottle-subtitle">{{ section.settings.subtitle }}</div>
+    {% endif %}
+
+    {% if section.settings.attribution != blank %}
+      <div class="inside-bottle-attribution">{{ section.settings.attribution }}</div>
+    {% endif %}
+
+    <div class="inside-bottle-cards-wrapper">
+      <div id="insideBottleSwiper" class="inside-bottle-cards swiper">
+        <div class="swiper-wrapper">
+          {% for block in section.blocks %}
+            {% case block.type %}
+              {% when 'tasting_card' %}
+                <div class="inside-bottle-card swiper-slide" {{ block.shopify_attributes }}>
+                  {% if block.settings.card_image != blank %}
+                    <div class="card-image-wrapper">
+                      {{
+                        block.settings.card_image
+                        | image_url: width: 800
+                        | image_tag:
+                          loading: 'lazy',
+                          widths: '300, 400, 600, 800',
+                          sizes: '(min-width: 768px) 33vw, 90vw',
+                          alt: block.settings.card_image.alt,
+                          class: 'card-image'
+                      }}
+                      {% if block.settings.card_label != blank %}
+                        <div class="card-label">{{ block.settings.card_label }}</div>
+                      {% endif %}
+                    </div>
+                  {% endif %}
+                  {% if block.settings.card_description != blank %}
+                    <div class="card-description">{{ block.settings.card_description }}</div>
+                  {% endif %}
+                </div>
+            {% endcase %}
+          {% endfor %}
+        </div>
+
+        <!-- Navigation arrows for mobile -->
+        <div class="swiper-button-prev inside-bottle-prev">
+          <svg xmlns="http://www.w3.org/2000/svg" width="12" height="24" viewBox="0 0 12 24" fill="none">
+            <path d="M9.54801 17.4198L8.48701 18.4798L2.70801 12.7028C2.61486 12.6102 2.54093 12.5001 2.49048 12.3789C2.44003 12.2576 2.41406 12.1276 2.41406 11.9963C2.41406 11.8649 2.44003 11.7349 2.49048 11.6137C2.54093 11.4924 2.61486 11.3823 2.70801 11.2898L8.48701 5.50977L9.54701 6.56977L4.12301 11.9948L9.54801 17.4198Z" fill="#090909"/>
+          </svg>
+        </div>
+        <div class="swiper-button-next inside-bottle-next">
+          <svg xmlns="http://www.w3.org/2000/svg" width="12" height="24" viewBox="0 0 12 24" fill="none">
+            <path d="M2.45199 6.58023L3.51299 5.52024L9.29199 11.2972C9.38514 11.3898 9.45907 11.4999 9.50952 11.6211C9.55997 11.7424 9.58594 11.8724 9.58594 12.0037C9.58594 12.1351 9.55997 12.2651 9.50952 12.3863C9.45907 12.5076 9.38514 12.6177 9.29199 12.7102L3.51299 18.4902L2.45299 17.4302L7.87699 12.0052L2.45199 6.58023Z" fill="#090909"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+
+    {% if section.settings.cta_text != blank and section.settings.cta_url != blank %}
+      <div class="inside-bottle-cta">
+        <a href="{{ section.settings.cta_url }}" class="inside-bottle-button">
+          {{ section.settings.cta_text }}
+        </a>
+      </div>
+    {% endif %}
+  </div>
+</section>
+
+<style>
+  :root {
+    --inside-bottle-bg: {{ section.settings.background_color | default: '#f1f1ee' }};
+    --inside-bottle-max-width: {{ section.settings.max_width | default: '1440' }}px;
+    --inside-bottle-padding-top-desktop: {{ section.settings.padding_top_desktop | default: 60 }}px;
+    --inside-bottle-padding-bottom-desktop: {{ section.settings.padding_bottom_desktop | default: 60 }}px;
+    --inside-bottle-padding-top-mobile: {{ section.settings.padding_top_mobile | default: 40 }}px;
+    --inside-bottle-padding-bottom-mobile: {{ section.settings.padding_bottom_mobile | default: 40 }}px;
+    --inside-bottle-title-color: {{ section.settings.title_color | default: '#090909' }};
+    --inside-bottle-highlight-color: {{ section.settings.highlight_color | default: '#FFB793' }};
+    --inside-bottle-highlight-color-2: {{ section.settings.highlight_color_2 | default: '#67B7A8' }};
+    --inside-bottle-subtitle-color: {{ section.settings.subtitle_color | default: '#090909' }};
+    --inside-bottle-attribution-color: {{ section.settings.attribution_color | default: '#090909' }};
+    --inside-bottle-button-bg: {{ section.settings.button_color | default: '#67B7A8' }};
+  }
+
+  /* Multi-color text support */
+  #{{ section_id }} .inside-bottle-title strong {
+    color: var(--inside-bottle-highlight-color);
+    font-weight: inherit;
+  }
+
+  #{{ section_id }} .inside-bottle-title em,
+  #{{ section_id }} .inside-bottle-title i {
+    color: var(--inside-bottle-highlight-color-2);
+    font-style: normal;
+  }
+
+  #{{ section_id }} .inside-bottle-subtitle strong {
+    color: var(--inside-bottle-highlight-color);
+    font-weight: inherit;
+  }
+
+  #{{ section_id }} .inside-bottle-subtitle em,
+  #{{ section_id }} .inside-bottle-subtitle i {
+    color: var(--inside-bottle-highlight-color-2);
+    font-style: normal;
+  }
+
+  /* Mobile First Styles */
+  #{{ section_id }} {
+    background-color: var(--inside-bottle-bg);
+    padding: var(--inside-bottle-padding-top-mobile) 20px var(--inside-bottle-padding-bottom-mobile);
+    width: 100%;
+  }
+
+  #{{ section_id }} .inside-bottle-container {
+    max-width: var(--inside-bottle-max-width);
+    margin: 0 auto;
+  }
+
+  #{{ section_id }} .inside-bottle-title {
+    color: var(--inside-bottle-title-color);
+    font-size: 28px;
+    font-weight: 900;
+    text-align: center;
+    text-transform: uppercase;
+    line-height: 1.2;
+    margin: 0 0 16px 0;
+    letter-spacing: 0;
+  }
+
+  #{{ section_id }} .inside-bottle-subtitle {
+    color: var(--inside-bottle-subtitle-color);
+    font-size: 16px;
+    font-weight: 400;
+    text-align: center;
+    line-height: 1.5;
+    margin: 0 0 8px 0;
+  }
+
+  #{{ section_id }} .inside-bottle-attribution {
+    color: var(--inside-bottle-attribution-color);
+    font-size: 14px;
+    font-weight: 400;
+    text-align: center;
+    line-height: 1.5;
+    margin: 0 0 30px 0;
+    opacity: 0.8;
+  }
+
+  #{{ section_id }} .inside-bottle-cards-wrapper {
+    position: relative;
+    margin-bottom: 30px;
+  }
+
+  #{{ section_id }} .inside-bottle-cards {
+    width: 100%;
+  }
+
+  #{{ section_id }} .inside-bottle-card {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  #{{ section_id }} .card-image-wrapper {
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+    aspect-ratio: 1 / 1;
+  }
+
+  #{{ section_id }} .card-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  #{{ section_id }} .card-label {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(-90deg);
+    font-size: 48px;
+    font-weight: 900;
+    color: #ffffff;
+    text-transform: uppercase;
+    letter-spacing: 0;
+    text-shadow: 0px 2px 8px rgba(0, 0, 0, 0.3);
+    white-space: nowrap;
+  }
+
+  #{{ section_id }} .card-description {
+    text-align: center;
+    font-size: 14px;
+    line-height: 1.5;
+    color: #090909;
+  }
+
+  /* Swiper navigation buttons - Mobile only */
+  #{{ section_id }} .inside-bottle-prev,
+  #{{ section_id }} .inside-bottle-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #ffffff;
+    border: 1px solid #090909;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 10;
+    transition: all 0.3s ease;
+  }
+
+  #{{ section_id }} .inside-bottle-prev:hover,
+  #{{ section_id }} .inside-bottle-next:hover {
+    background: #f5f5f5;
+  }
+
+  #{{ section_id }} .inside-bottle-prev.swiper-button-disabled,
+  #{{ section_id }} .inside-bottle-next.swiper-button-disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+  }
+
+  #{{ section_id }} .inside-bottle-prev {
+    left: 10px;
+  }
+
+  #{{ section_id }} .inside-bottle-next {
+    right: 10px;
+  }
+
+  #{{ section_id }} .inside-bottle-prev svg,
+  #{{ section_id }} .inside-bottle-next svg {
+    width: 12px;
+    height: 24px;
+  }
+
+  #{{ section_id }} .inside-bottle-cta {
+    text-align: center;
+  }
+
+  #{{ section_id }} .inside-bottle-button {
+    display: inline-block;
+    padding: 16px 32px;
+    background-color: var(--inside-bottle-button-bg);
+    color: #090909;
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase;
+    text-decoration: none;
+    border-radius: 50px;
+    border: 2px solid #090909;
+    transition: all 0.3s ease;
+    letter-spacing: 0.5px;
+  }
+
+  #{{ section_id }} .inside-bottle-button:hover {
+    background-color: #FFB793;
+    transform: translateY(-2px);
+  }
+
+  /* Desktop Styles */
+  @media (min-width: 768px) {
+    #{{ section_id }} {
+      padding: var(--inside-bottle-padding-top-desktop) 112px var(--inside-bottle-padding-bottom-desktop);
+    }
+
+    #{{ section_id }} .inside-bottle-title {
+      font-size: 48px;
+      margin-bottom: 20px;
+    }
+
+    #{{ section_id }} .inside-bottle-subtitle {
+      font-size: 20px;
+      margin-bottom: 10px;
+    }
+
+    #{{ section_id }} .inside-bottle-attribution {
+      font-size: 16px;
+      margin-bottom: 40px;
+    }
+
+    #{{ section_id }} .inside-bottle-cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    #{{ section_id }} .inside-bottle-card {
+      gap: 20px;
+    }
+
+    #{{ section_id }} .card-image-wrapper {
+      border-radius: 30px;
+    }
+
+    #{{ section_id }} .card-label {
+      font-size: 64px;
+    }
+
+    #{{ section_id }} .card-description {
+      font-size: 16px;
+    }
+
+    /* Hide navigation buttons on desktop */
+    #{{ section_id }} .inside-bottle-prev,
+    #{{ section_id }} .inside-bottle-next {
+      display: none;
+    }
+
+    #{{ section_id }} .inside-bottle-button {
+      padding: 28px 80px;
+      font-size: 18px;
+    }
+  }
+</style>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    let swiperInstance = null;
+
+    function initSwiper() {
+      // Only initialize swiper on mobile
+      if (window.innerWidth < 768 && !swiperInstance) {
+        swiperInstance = new Swiper('#insideBottleSwiper', {
+          slidesPerView: 1,
+          spaceBetween: 20,
+          navigation: {
+            nextEl: '.inside-bottle-next',
+            prevEl: '.inside-bottle-prev',
+          },
+          loop: false,
+        });
+      } else if (window.innerWidth >= 768 && swiperInstance) {
+        // Destroy swiper on desktop
+        swiperInstance.destroy(true, true);
+        swiperInstance = null;
+      }
+    }
+
+    // Initialize on load
+    initSwiper();
+
+    // Re-initialize on resize
+    let resizeTimeout;
+    window.addEventListener('resize', function () {
+      clearTimeout(resizeTimeout);
+      resizeTimeout = setTimeout(initSwiper, 250);
+    });
+  });
+</script>
+
+{% schema %}
+{
+  "name": "Inside the Bottle",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Section Content"
+    },
+    {
+      "type": "richtext",
+      "id": "title",
+      "label": "Title",
+      "default": "<p><strong>INSIDE</strong> THE BOTTLE</p>",
+      "info": "Use <strong>text</strong> for highlight color 1, and <em>text</em> for highlight color 2"
+    },
+    {
+      "type": "richtext",
+      "id": "subtitle",
+      "label": "Subtitle",
+      "default": "<p>Featuring one of the <em>Top 20 Tequilas</em> in the World</p>",
+      "info": "Use <strong>text</strong> for highlight color 1, and <em>text</em> for highlight color 2"
+    },
+    {
+      "type": "text",
+      "id": "attribution",
+      "label": "Attribution Text",
+      "default": "(Agave Matchmaker, #17)"
+    },
+    {
+      "type": "header",
+      "content": "Call to Action"
+    },
+    {
+      "type": "text",
+      "id": "cta_text",
+      "label": "Button Text",
+      "default": "CREATE YOUR OWN TEQUILA"
+    },
+    {
+      "type": "url",
+      "id": "cta_url",
+      "label": "Button URL"
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background Color",
+      "default": "#f1f1ee"
+    },
+    {
+      "type": "color",
+      "id": "title_color",
+      "label": "Title Color",
+      "default": "#090909"
+    },
+    {
+      "type": "color",
+      "id": "highlight_color",
+      "label": "Highlight Color 1",
+      "default": "#FFB793",
+      "info": "Color for <strong> tags"
+    },
+    {
+      "type": "color",
+      "id": "highlight_color_2",
+      "label": "Highlight Color 2",
+      "default": "#67B7A8",
+      "info": "Color for <em> tags"
+    },
+    {
+      "type": "color",
+      "id": "subtitle_color",
+      "label": "Subtitle Color",
+      "default": "#090909"
+    },
+    {
+      "type": "color",
+      "id": "attribution_color",
+      "label": "Attribution Color",
+      "default": "#090909"
+    },
+    {
+      "type": "color",
+      "id": "button_color",
+      "label": "Button Background Color",
+      "default": "#67B7A8"
+    },
+    {
+      "type": "header",
+      "content": "Section Settings"
+    },
+    {
+      "type": "text",
+      "id": "max_width",
+      "label": "Max Width (px)",
+      "default": "1440",
+      "info": "Maximum width of the section content"
+    },
+    {
+      "type": "range",
+      "id": "padding_top_desktop",
+      "label": "Padding Top Desktop",
+      "min": 0,
+      "max": 200,
+      "step": 5,
+      "default": 60,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_desktop",
+      "label": "Padding Bottom Desktop",
+      "min": 0,
+      "max": 200,
+      "step": 5,
+      "default": 60,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mobile",
+      "label": "Padding Top Mobile",
+      "min": 0,
+      "max": 120,
+      "step": 5,
+      "default": 40,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mobile",
+      "label": "Padding Bottom Mobile",
+      "min": 0,
+      "max": 120,
+      "step": 5,
+      "default": 40,
+      "unit": "px"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "tasting_card",
+      "name": "Tasting Card",
+      "limit": 3,
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "card_image",
+          "label": "Card Image"
+        },
+        {
+          "type": "text",
+          "id": "card_label",
+          "label": "Card Label",
+          "default": "AROMAS",
+          "info": "Large text overlay on the image (e.g., AROMAS, TASTE, FINISH)"
+        },
+        {
+          "type": "text",
+          "id": "card_description",
+          "label": "Card Description",
+          "default": "Roasted agave, citrus peel and a hint of pepper."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Inside the Bottle",
+      "blocks": [
+        {
+          "type": "tasting_card",
+          "settings": {
+            "card_label": "AROMAS",
+            "card_description": "Roasted agave, citrus peel and a hint of pepper."
+          }
+        },
+        {
+          "type": "tasting_card",
+          "settings": {
+            "card_label": "TASTE",
+            "card_description": "Tropical fruit notes of pineapple, mango and coconut."
+          }
+        },
+        {
+          "type": "tasting_card",
+          "settings": {
+            "card_label": "FINISH",
+            "card_description": "Bright, silky and refined"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
