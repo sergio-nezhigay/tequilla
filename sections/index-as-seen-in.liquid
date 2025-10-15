@@ -1,0 +1,412 @@
+{% assign section_id = section.id %}
+{% assign custom_classes = section.settings.custom_classes %}
+
+<section
+  id="{{ section_id }}"
+  class="as-seen-in-section {% if custom_classes != blank %}{{ custom_classes }}{% endif %}"
+>
+  <div class="as-seen-in-container">
+    {% if section.settings.title != blank %}
+      <h2 class="as-seen-in-title">{{ section.settings.title }}</h2>
+    {% endif %}
+
+    <div class="as-seen-in-wrapper">
+      <div class="as-seen-in-track" data-speed="{{ section.settings.scroll_speed }}">
+        {% for block in section.blocks %}
+          {% case block.type %}
+            {% when 'logo_item' %}
+              <div class="as-seen-in-item" {{ block.shopify_attributes }}>
+                {% if block.settings.logo != blank %}
+                  {% if block.settings.link != blank %}
+                    <a
+                      href="{{ block.settings.link }}"
+                      class="logo-link"
+                      {% if block.settings.open_new_tab %}
+                        target="_blank"
+                      {% endif %}
+                    >
+                  {% endif %}
+
+                  <div class="logo-image-wrapper">
+                    {% assign logo_alt = block.settings.logo.alt | default: 'Logo' %}
+                    {{
+                      block.settings.logo
+                      | image_url: width: 300
+                      | image_tag:
+                        alt: logo_alt,
+                        class: 'logo-image',
+                        loading: 'lazy',
+                        sizes: '(max-width: 767px) 100px, 200px',
+                        widths: '100, 150, 200, 250, 300'
+                    }}
+                  </div>
+
+                  {% if block.settings.link != blank %}
+                    </a>
+                  {% endif %}
+                {% endif %}
+              </div>
+          {% endcase %}
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  :root {
+    --as-seen-in-bg: {{ section.settings.background_color }};
+    --as-seen-in-max-width: {{ section.settings.max_width }}px;
+    --as-seen-in-padding-top-desktop: {{ section.settings.padding_top_desktop }}px;
+    --as-seen-in-padding-bottom-desktop: {{ section.settings.padding_bottom_desktop }}px;
+    --as-seen-in-padding-top-mobile: {{ section.settings.padding_top_mobile }}px;
+    --as-seen-in-padding-bottom-mobile: {{ section.settings.padding_bottom_mobile }}px;
+    --as-seen-in-title-color: {{ section.settings.title_color }};
+    --as-seen-in-title-size-desktop: {{ section.settings.title_size_desktop }}px;
+    --as-seen-in-title-size-mobile: {{ section.settings.title_size_mobile }}px;
+  }
+
+  #{{ section_id }} {
+    background-color: var(--as-seen-in-bg);
+    padding-top: var(--as-seen-in-padding-top-desktop);
+    padding-bottom: var(--as-seen-in-padding-bottom-desktop);
+    width: 100%;
+    overflow: hidden;
+  }
+
+  #{{ section_id }} .as-seen-in-container {
+    max-width: var(--as-seen-in-max-width);
+    margin: 0 auto;
+  }
+
+  #{{ section_id }} .as-seen-in-title {
+    color: var(--as-seen-in-title-color);
+    font-size: var(--as-seen-in-title-size-desktop);
+    text-align: center;
+    margin-bottom: 40px;
+    font-weight: 600;
+    line-height: 1.2;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  #{{ section_id }} .as-seen-in-wrapper {
+    width: 100%;
+    overflow: hidden;
+  }
+
+  /* Desktop: Marquee layout */
+  @media (min-width: 768px) {
+    #{{ section_id }} .as-seen-in-track {
+      display: flex;
+      gap: 105px;
+      align-items: center;
+      width: max-content;
+      animation: marquee linear infinite;
+      animation-duration: calc(var(--marquee-duration, 30s));
+    }
+
+    #{{ section_id }} .as-seen-in-track:hover {
+      animation-play-state: {% if section.settings.pause_on_hover %}paused{% else %}running{% endif %};
+    }
+
+    @keyframes marquee {
+      from {
+        transform: translateX(0);
+      }
+      to {
+        transform: translateX(-50%);
+      }
+    }
+
+    #{{ section_id }} .as-seen-in-item {
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    #{{ section_id }} .logo-image-wrapper {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    #{{ section_id }} .logo-image {
+      max-width: 100%;
+      height: auto;
+      width: auto;
+      object-fit: contain;
+      image-rendering: auto;
+    }
+  }
+
+  /* Mobile: Static grid layout */
+  @media (max-width: 767px) {
+    #{{ section_id }} {
+      padding-top: var(--as-seen-in-padding-top-mobile);
+      padding-bottom: var(--as-seen-in-padding-bottom-mobile);
+    }
+
+    #{{ section_id }} .as-seen-in-title {
+      font-size: var(--as-seen-in-title-size-mobile);
+      margin-bottom: 32px;
+    }
+
+    #{{ section_id }} .as-seen-in-wrapper {
+      padding: 0 20px;
+    }
+
+    #{{ section_id }} .as-seen-in-track {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      column-gap: 20px;
+      row-gap: 10px;
+      animation: none !important;
+    }
+
+    #{{ section_id }} .as-seen-in-item {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+    }
+
+    #{{ section_id }} .logo-image-wrapper {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+    }
+
+    #{{ section_id }} .logo-image {
+      max-width: 100%;
+      height: auto;
+      width: 100%;
+      object-fit: contain;
+      image-rendering: auto;
+    }
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const track = document.querySelector('#{{ section_id }} .as-seen-in-track');
+    if (!track) return;
+
+    // Only run marquee logic on desktop
+    if (window.innerWidth >= 768) {
+      createInfiniteMarquee();
+    }
+
+    function createInfiniteMarquee() {
+      const originalItems = track.children;
+      const itemsArray = Array.from(originalItems);
+
+      // Clone all items to create seamless loop
+      itemsArray.forEach((item) => {
+        const clone = item.cloneNode(true);
+        track.appendChild(clone);
+      });
+
+      // Calculate animation duration based on content width and speed
+      const trackWidth = track.scrollWidth / 2;
+      const speed = parseInt(track.dataset.speed) || 50;
+      const duration = trackWidth / speed;
+
+      track.style.setProperty('--marquee-duration', duration + 's');
+    }
+
+    // Recalculate on window resize
+    let resizeTimeout;
+    window.addEventListener('resize', function () {
+      clearTimeout(resizeTimeout);
+      resizeTimeout = setTimeout(function () {
+        // Only handle marquee on desktop
+        if (window.innerWidth >= 768) {
+          // Reset and recreate
+          track.style.animation = 'none';
+          const clones = track.querySelectorAll(
+            '.as-seen-in-item:nth-child(n+' + (Math.floor(track.children.length / 2) + 1) + ')'
+          );
+          clones.forEach((clone) => clone.remove());
+
+          createInfiniteMarquee();
+
+          // Restart animation
+          requestAnimationFrame(() => {
+            track.style.animation = 'marquee linear infinite';
+            track.style.animationDuration = 'calc(var(--marquee-duration))';
+          });
+        }
+      }, 250);
+    });
+  });
+</script>
+
+{% schema %}
+{
+  "name": "As Seen In",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Section Title",
+      "default": "AS SEEN IN"
+    },
+    {
+      "type": "range",
+      "id": "title_size_desktop",
+      "label": "Title Size Desktop",
+      "min": 12,
+      "max": 32,
+      "step": 1,
+      "default": 16,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "title_size_mobile",
+      "label": "Title Size Mobile",
+      "min": 10,
+      "max": 24,
+      "step": 1,
+      "default": 14,
+      "unit": "px"
+    },
+    {
+      "type": "color",
+      "id": "title_color",
+      "label": "Title Color",
+      "default": "#090909"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background Color",
+      "default": "#f1f1ee"
+    },
+    {
+      "type": "text",
+      "id": "max_width",
+      "label": "Max Width (px)",
+      "default": "1440",
+      "info": "Maximum width of the section content"
+    },
+    {
+      "type": "range",
+      "id": "scroll_speed",
+      "label": "Scroll Speed (Desktop)",
+      "min": 10,
+      "max": 100,
+      "step": 5,
+      "default": 50,
+      "unit": "px",
+      "info": "Speed of the marquee animation in pixels per second"
+    },
+    {
+      "type": "checkbox",
+      "id": "pause_on_hover",
+      "label": "Pause animation on hover (Desktop)",
+      "default": true
+    },
+    {
+      "type": "range",
+      "id": "padding_top_desktop",
+      "label": "Padding Top Desktop",
+      "min": 0,
+      "max": 200,
+      "step": 5,
+      "default": 90,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_desktop",
+      "label": "Padding Bottom Desktop",
+      "min": 0,
+      "max": 200,
+      "step": 5,
+      "default": 70,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mobile",
+      "label": "Padding Top Mobile",
+      "min": 0,
+      "max": 120,
+      "step": 5,
+      "default": 40,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mobile",
+      "label": "Padding Bottom Mobile",
+      "min": 0,
+      "max": 120,
+      "step": 5,
+      "default": 40,
+      "unit": "px"
+    },
+    {
+      "type": "text",
+      "id": "custom_classes",
+      "label": "Custom CSS Classes",
+      "info": "Add custom CSS classes to the main wrapper"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "logo_item",
+      "name": "Logo Item",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "logo",
+          "label": "Logo Image"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Logo Link"
+        },
+        {
+          "type": "checkbox",
+          "id": "open_new_tab",
+          "label": "Open link in new tab",
+          "default": false
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "As Seen In",
+      "blocks": [
+        {
+          "type": "logo_item"
+        },
+        {
+          "type": "logo_item"
+        },
+        {
+          "type": "logo_item"
+        },
+        {
+          "type": "logo_item"
+        },
+        {
+          "type": "logo_item"
+        },
+        {
+          "type": "logo_item"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

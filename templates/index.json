@@ -77,7 +77,7 @@
       }
     },
     "index_logo_carousel": {
-      "type": "index-new-logo-carousel",
+      "type": "index-as-seen-in",
       "blocks": {
         "logo_item_FEAkVX": {
           "type": "logo_item",
