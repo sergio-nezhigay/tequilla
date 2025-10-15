@@ -1,0 +1,451 @@
+{% assign section_id = section.id %}
+
+<section id="{{ section_id }}" class="how-it-works-section">
+  <div class="how-it-works-container">
+    <div class="cards-grid">
+      {% for block in section.blocks %}
+        {% case block.type %}
+          {% when 'step_card' %}
+            <div class="step-card step-card-{{ forloop.index }}" {{ block.shopify_attributes }}>
+              {% if block.settings.background_image != blank %}
+                <div class="card-background">
+                  {{
+                    block.settings.background_image
+                    | image_url: width: 800
+                    | image_tag:
+                      loading: 'lazy',
+                      widths: '400, 600, 800, 1000',
+                      sizes: '(min-width: 768px) 50vw, 100vw',
+                      alt: block.settings.background_image.alt
+                  }}
+                </div>
+              {% endif %}
+              <div class="card-overlay"></div>
+              <div class="card-content">
+                {% if block.settings.step_number != blank %}
+                  <h3 class="step-number">{{ block.settings.step_number }}</h3>
+                {% endif %}
+                {% if block.settings.step_title != blank %}
+                  <h4 class="step-title">{{ block.settings.step_title }}</h4>
+                {% endif %}
+                {% if block.settings.step_description != blank %}
+                  <p class="step-description">{{ block.settings.step_description }}</p>
+                {% endif %}
+              </div>
+            </div>
+        {% endcase %}
+      {% endfor %}
+    </div>
+
+    <div class="cta-buttons">
+      {% if section.settings.primary_button_text != blank %}
+        <a href="{{ section.settings.primary_button_url }}" class="cta-button cta-button-primary">
+          {{ section.settings.primary_button_text }}
+        </a>
+      {% endif %}
+      {% if section.settings.secondary_button_text != blank %}
+        <a href="{{ section.settings.secondary_button_url }}" class="cta-button cta-button-secondary">
+          {{ section.settings.secondary_button_text }}
+        </a>
+      {% endif %}
+    </div>
+  </div>
+</section>
+
+<style>
+  :root {
+    --hiw-bg: {{ section.settings.background_color | default: '#f1f1ee' }};
+    --hiw-max-width: {{ section.settings.max_width | default: '1440' }}px;
+    --hiw-padding-top-mobile: {{ section.settings.padding_top_mobile | default: 40 }}px;
+    --hiw-padding-bottom-mobile: {{ section.settings.padding_bottom_mobile | default: 40 }}px;
+    --hiw-padding-top-desktop: {{ section.settings.padding_top_desktop | default: 60 }}px;
+    --hiw-padding-bottom-desktop: {{ section.settings.padding_bottom_desktop | default: 60 }}px;
+    --hiw-primary-btn-bg: {{ section.settings.primary_button_color | default: '#67b7a8' }};
+    --hiw-secondary-btn-bg: {{ section.settings.secondary_button_color | default: '#ffb793' }};
+    --hiw-text-color: {{ section.settings.text_color | default: '#ffffff' }};
+    --hiw-title-color: {{ section.settings.title_color | default: '#ffffff' }};
+  }
+
+  /* Mobile First Styles */
+  #{{ section_id }} {
+    background-color: var(--hiw-bg);
+    padding: var(--hiw-padding-top-mobile) 20px var(--hiw-padding-bottom-mobile);
+    width: 100%;
+  }
+
+  #{{ section_id }} .how-it-works-container {
+    max-width: var(--hiw-max-width);
+    margin: 0 auto;
+  }
+
+  #{{ section_id }} .cards-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    margin-bottom: 30px;
+  }
+
+  #{{ section_id }} .step-card {
+    position: relative;
+    overflow: hidden;
+    border-radius: 16px;
+    min-height: 280px;
+    display: flex;
+    align-items: flex-end;
+  }
+
+  #{{ section_id }} .card-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+  }
+
+  #{{ section_id }} .card-background img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  #{{ section_id }} .card-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.4) 100%);
+    z-index: 2;
+  }
+
+  #{{ section_id }} .card-content {
+    position: relative;
+    z-index: 3;
+    padding: 30px 20px;
+    color: var(--hiw-text-color);
+    width: 100%;
+  }
+
+  #{{ section_id }} .step-number {
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    margin: 0 0 8px 0;
+    color: var(--hiw-title-color);
+    text-transform: uppercase;
+  }
+
+  #{{ section_id }} .step-title {
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 1.2;
+    margin: 0 0 8px 0;
+    color: var(--hiw-title-color);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  #{{ section_id }} .step-description {
+    font-size: 14px;
+    line-height: 1.5;
+    margin: 0;
+    color: var(--hiw-text-color);
+    max-width: 280px;
+  }
+
+  #{{ section_id }} .cta-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+  }
+
+  #{{ section_id }} .cta-button {
+    display: inline-block;
+    padding: 16px 32px;
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase;
+    text-decoration: none;
+    border-radius: 50px;
+    transition: opacity 0.3s ease, transform 0.2s ease;
+    text-align: center;
+    letter-spacing: 0.5px;
+    width: 100%;
+    max-width: 350px;
+  }
+
+  #{{ section_id }} .cta-button-primary {
+    background-color: var(--hiw-primary-btn-bg);
+    color: #ffffff;
+  }
+
+  #{{ section_id }} .cta-button-secondary {
+    background-color: var(--hiw-secondary-btn-bg);
+    color: #ffffff;
+  }
+
+  #{{ section_id }} .cta-button:hover {
+    opacity: 0.9;
+    transform: translateY(-2px);
+  }
+
+  /* Desktop Styles */
+  @media (min-width: 768px) {
+    #{{ section_id }} {
+      padding: var(--hiw-padding-top-desktop) 112px var(--hiw-padding-bottom-desktop);
+    }
+
+    #{{ section_id }} .cards-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 340px 340px;
+      gap: 20px;
+      height: 700px;
+      margin-bottom: 40px;
+    }
+
+    #{{ section_id }} .step-card-1 {
+      grid-area: 1 / 1 / 2 / 2;
+    }
+
+    #{{ section_id }} .step-card-2 {
+      grid-area: 2 / 1 / 3 / 2;
+    }
+
+    #{{ section_id }} .step-card-3 {
+      grid-area: 1 / 2 / 3 / 3;
+    }
+
+    #{{ section_id }} .step-card {
+      min-height: unset;
+      height: 100%;
+    }
+
+    #{{ section_id }} .card-content {
+      padding: 40px 30px;
+    }
+
+    #{{ section_id }} .step-number {
+      font-size: 16px;
+      margin: 0 0 12px 0;
+    }
+
+    #{{ section_id }} .step-title {
+      font-size: 24px;
+      margin: 0 0 12px 0;
+    }
+
+    #{{ section_id }} .step-description {
+      font-size: 16px;
+      max-width: 100%;
+    }
+
+    #{{ section_id }} .cta-buttons {
+      flex-direction: row;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    #{{ section_id }} .cta-button {
+      width: auto;
+      min-width: 280px;
+      padding: 18px 40px;
+      font-size: 16px;
+    }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "How It Works",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Section Settings"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background Color",
+      "default": "#f1f1ee"
+    },
+    {
+      "type": "text",
+      "id": "max_width",
+      "label": "Max Width (px)",
+      "default": "1440",
+      "info": "Maximum width of the section content"
+    },
+    {
+      "type": "header",
+      "content": "Text Colors"
+    },
+    {
+      "type": "color",
+      "id": "title_color",
+      "label": "Title Color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Description Color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "header",
+      "content": "Primary Button"
+    },
+    {
+      "type": "text",
+      "id": "primary_button_text",
+      "label": "Primary Button Text",
+      "default": "CREATE YOUR OWN TEQUILA"
+    },
+    {
+      "type": "url",
+      "id": "primary_button_url",
+      "label": "Primary Button URL"
+    },
+    {
+      "type": "color",
+      "id": "primary_button_color",
+      "label": "Primary Button Color",
+      "default": "#67b7a8"
+    },
+    {
+      "type": "header",
+      "content": "Secondary Button"
+    },
+    {
+      "type": "text",
+      "id": "secondary_button_text",
+      "label": "Secondary Button Text",
+      "default": "BOOK A BUSINESS CONSULTATION"
+    },
+    {
+      "type": "url",
+      "id": "secondary_button_url",
+      "label": "Secondary Button URL"
+    },
+    {
+      "type": "color",
+      "id": "secondary_button_color",
+      "label": "Secondary Button Color",
+      "default": "#ffb793"
+    },
+    {
+      "type": "header",
+      "content": "Spacing"
+    },
+    {
+      "type": "range",
+      "id": "padding_top_desktop",
+      "label": "Padding Top Desktop",
+      "min": 0,
+      "max": 200,
+      "step": 5,
+      "default": 60,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_desktop",
+      "label": "Padding Bottom Desktop",
+      "min": 0,
+      "max": 200,
+      "step": 5,
+      "default": 60,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mobile",
+      "label": "Padding Top Mobile",
+      "min": 0,
+      "max": 120,
+      "step": 5,
+      "default": 40,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mobile",
+      "label": "Padding Bottom Mobile",
+      "min": 0,
+      "max": 120,
+      "step": 5,
+      "default": 40,
+      "unit": "px"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "step_card",
+      "name": "Step Card",
+      "limit": 3,
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "background_image",
+          "label": "Background Image"
+        },
+        {
+          "type": "text",
+          "id": "step_number",
+          "label": "Step Number",
+          "default": "1.",
+          "info": "e.g., '1.', '2.', '3.'"
+        },
+        {
+          "type": "text",
+          "id": "step_title",
+          "label": "Step Title",
+          "default": "DESIGN YOUR BOTTLE"
+        },
+        {
+          "type": "textarea",
+          "id": "step_description",
+          "label": "Step Description",
+          "default": "Personalize the label and make it truly yours. Minimum order: just 3 bottles."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "How It Works",
+      "blocks": [
+        {
+          "type": "step_card",
+          "settings": {
+            "step_number": "1.",
+            "step_title": "DESIGN YOUR BOTTLE",
+            "step_description": "Personalize the label and make it truly yours. Minimum order: just 3 bottles."
+          }
+        },
+        {
+          "type": "step_card",
+          "settings": {
+            "step_number": "2.",
+            "step_title": "WE CRAFT IT FOR YOU",
+            "step_description": "Premium tequila inside, finished to perfection and ready to enjoy."
+          }
+        },
+        {
+          "type": "step_card",
+          "settings": {
+            "step_number": "3.",
+            "step_title": "SHARE AN UNFORGETTABLE GIFT",
+            "step_description": "Perfect for weddings, clients, or your home bar."
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

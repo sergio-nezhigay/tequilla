@@ -146,6 +146,56 @@
         "custom_classes": ""
       }
     },
+    "index_how_it_works": {
+      "type": "index-how-it-works",
+      "blocks": {
+        "step_card_1": {
+          "type": "step_card",
+          "settings": {
+            "step_number": "1.",
+            "step_title": "DESIGN YOUR BOTTLE",
+            "step_description": "Personalize the label and make it truly yours. Minimum order: just 3 bottles."
+          }
+        },
+        "step_card_2": {
+          "type": "step_card",
+          "settings": {
+            "step_number": "2.",
+            "step_title": "WE CRAFT IT FOR YOU",
+            "step_description": "Premium tequila inside, finished to perfection and ready to enjoy."
+          }
+        },
+        "step_card_3": {
+          "type": "step_card",
+          "settings": {
+            "step_number": "3.",
+            "step_title": "SHARE AN UNFORGETTABLE GIFT",
+            "step_description": "Perfect for weddings, clients, or your home bar."
+          }
+        }
+      },
+      "block_order": [
+        "step_card_1",
+        "step_card_2",
+        "step_card_3"
+      ],
+      "settings": {
+        "background_color": "#f1f1ee",
+        "max_width": "1440",
+        "title_color": "#ffffff",
+        "text_color": "#ffffff",
+        "primary_button_text": "CREATE YOUR OWN TEQUILA",
+        "primary_button_url": "",
+        "primary_button_color": "#67b7a8",
+        "secondary_button_text": "BOOK A BUSINESS CONSULTATION",
+        "secondary_button_url": "",
+        "secondary_button_color": "#ffb793",
+        "padding_top_desktop": 60,
+        "padding_bottom_desktop": 60,
+        "padding_top_mobile": 40,
+        "padding_bottom_mobile": 40
+      }
+    },
     "index_business_owner": {
       "type": "index-business-owner",
       "blocks": {
@@ -708,6 +758,7 @@
     "index_hero",
     "index_video_hero",
     "index_logo_carousel",
+    "index_how_it_works",
     "index_business_owner",
     "index_product_showcase",
     "section_about_us_R6jiKB",
