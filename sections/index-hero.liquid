@@ -100,36 +100,6 @@
       </div>
     {% endif %}
   </div>
-
-  {% comment %} Bottom Info Block {% endcomment %}
-  <div class="tequila-hero-bottom-info">
-    <div class="tequila-hero-bottom-wrapper">
-      <div class="tequila-hero-steps-wrapper">
-        <div class="tequila-hero-steps" data-speed="{{ section.settings.marquee_speed | default: 30 }}">
-          {% assign steps = 'step1_text,step2_text,step3_text,step4_text' | split: ',' %}
-          {% assign step_defaults = 'SELECT BOTTLE,PERSONALIZE LABEL,PLACE ORDER,ENJOY' | split: ',' %}
-
-          {% for step in steps %}
-            <div class="tequila-hero-step">
-              <div class="tequila-hero-step-text">
-                <span>{{ section.settings[step] | default: step_defaults[forloop.index0] }}</span>
-              </div>
-            </div>
-
-            {% if section.settings.step_icon != blank %}
-              <div class="tequila-hero-step-icon">
-                {{
-                  section.settings.step_icon
-                  | image_url: width: 41, height: 29
-                  | image_tag: alt: 'Step Icon', loading: 'lazy'
-                }}
-              </div>
-            {% endif %}
-          {% endfor %}
-        </div>
-      </div>
-    </div>
-  </div>
 </div>
 
 <style>
@@ -202,10 +172,11 @@
     line-height: 1.65;
     color: var(--tequila-hero-description-color);
     margin: 0 0 20px 0;
-    max-width: 614px;
+    max-width: 604px;
     margin-left: auto;
     margin-right: auto;
     opacity: 0.8;
+    letter-spacing: 0;
   }
 
   #{{ section.id }} .tequila-hero-buttons {
@@ -300,11 +271,7 @@
 
 
   /* Bottom Info */
-  #{{ section.id }} .tequila-hero-bottom-info {
-    margin: 0 auto;
-    max-width: 1240px;
-    padding: 30px 0;
-  }
+
 
   #{{ section.id }} .tequila-hero-bottom-wrapper {
     margin: 0 auto;
@@ -445,9 +412,7 @@
       height: auto;
     }
 
-    #{{ section.id }} .tequila-hero-bottom-info {
-      padding: 40px 0;
-    }
+
 
 
 
@@ -521,9 +486,7 @@
       resizeTimeout = setTimeout(function () {
         // Reset and recreate
         track.style.animation = 'none';
-        const clones = track.querySelectorAll(
-          ':nth-child(n+' + (Math.floor(track.children.length / 5) + 1) + ')'
-        );
+        const clones = track.querySelectorAll(':nth-child(n+' + (Math.floor(track.children.length / 5) + 1) + ')');
         clones.forEach((clone) => clone.remove());
 
         createInfiniteMarquee();

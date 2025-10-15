@@ -3,14 +3,6 @@
 <section id="{{ section_id }}" class="tequila-video-hero {{ section.settings.custom_classes }}">
   <div class="tequila-video-hero__container">
     <div class="tequila-video-hero__content">
-      <h2 class="tequila-video-hero__title">
-        <span class="tequila-video-hero__title-part1">{{ section.settings.title_part1 }}</span>
-        <span class="tequila-video-hero__title-part2">{{ section.settings.title_part2 }}</span>
-        <span class="tequila-video-hero__title-part3">{{ section.settings.title_part3 }}</span>
-        <span class="tequila-video-hero__title-part4">{{ section.settings.title_part4 }}</span>
-        <span class="tequila-video-hero__title-part5">{{ section.settings.title_part5 }}</span>
-      </h2>
-
       <div class="tequila-video-hero__video-wrapper">
         {% if section.settings.uploaded_video != blank %}
           <div class="tequila-video-hero__video-container">
@@ -46,12 +38,6 @@
           </div>
         {% endif %}
       </div>
-
-      {% if section.settings.cta_text != blank %}
-        <a href="{{ section.settings.cta_url }}" class="tequila-video-hero__cta">
-          {{ section.settings.cta_text }}
-        </a>
-      {% endif %}
     </div>
   </div>
 </section>
@@ -344,30 +330,7 @@
       "type": "header",
       "content": "Title Settings"
     },
-    {
-      "type": "text",
-      "id": "title_part1",
-      "label": "Title Part 1",
-      "default": "SEE HOW "
-    },
-    {
-      "type": "text",
-      "id": "title_part2",
-      "label": "Title Part 2 (Highlight)",
-      "default": "EASY"
-    },
-    {
-      "type": "text",
-      "id": "title_part3",
-      "label": "Title Part 3",
-      "default": " IT IS TO "
-    },
-    {
-      "type": "text",
-      "id": "title_part4",
-      "label": "Title Part 4 (Highlight)",
-      "default": "CREATE YOUR"
-    },
+
     {
       "type": "text",
       "id": "title_part5",
@@ -443,17 +406,6 @@
     {
       "type": "header",
       "content": "CTA Button"
-    },
-    {
-      "type": "text",
-      "id": "cta_text",
-      "label": "CTA Text",
-      "default": "CREATE YOUR OWN TEQUILA"
-    },
-    {
-      "type": "url",
-      "id": "cta_url",
-      "label": "CTA Link"
     },
     {
       "type": "range",
