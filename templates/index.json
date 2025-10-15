@@ -131,10 +131,10 @@
         "logo_item_MJmerj"
       ],
       "settings": {
-        "title": "",
+        "title": "As seen in",
         "title_size_desktop": 32,
-        "title_size_mobile": 24,
-        "title_color": "#000000",
+        "title_size_mobile": 18,
+        "title_color": "#090909",
         "background_color": "#f1f1ee",
         "max_width": "1440",
         "scroll_speed": 50,
