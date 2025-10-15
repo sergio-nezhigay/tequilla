@@ -197,20 +197,22 @@
     const track = document.querySelector('#{{ section_id }} .as-seen-in-track');
     if (!track) return;
 
-    // Only run marquee logic on desktop
-    if (window.innerWidth >= 768) {
-      createInfiniteMarquee();
-    }
+    let clonesCreated = false;
 
     function createInfiniteMarquee() {
-      const originalItems = track.children;
-      const itemsArray = Array.from(originalItems);
+      // Remove existing clones first
+      removeClones();
+
+      const originalItems = Array.from(track.children);
 
       // Clone all items to create seamless loop
-      itemsArray.forEach((item) => {
+      originalItems.forEach((item) => {
         const clone = item.cloneNode(true);
+        clone.classList.add('cloned-logo');
         track.appendChild(clone);
       });
+
+      clonesCreated = true;
 
       // Calculate animation duration based on content width and speed
       const trackWidth = track.scrollWidth / 2;
@@ -220,29 +222,34 @@
       track.style.setProperty('--marquee-duration', duration + 's');
     }
 
-    // Recalculate on window resize
+    function removeClones() {
+      const clones = track.querySelectorAll('.cloned-logo');
+      clones.forEach((clone) => clone.remove());
+      clonesCreated = false;
+    }
+
+    function handleLayout() {
+      if (window.innerWidth >= 768) {
+        // Desktop: create marquee
+        if (!clonesCreated) {
+          createInfiniteMarquee();
+        }
+      } else {
+        // Mobile: remove clones
+        if (clonesCreated) {
+          removeClones();
+        }
+      }
+    }
+
+    // Initial setup
+    handleLayout();
+
+    // Handle window resize
     let resizeTimeout;
     window.addEventListener('resize', function () {
       clearTimeout(resizeTimeout);
-      resizeTimeout = setTimeout(function () {
-        // Only handle marquee on desktop
-        if (window.innerWidth >= 768) {
-          // Reset and recreate
-          track.style.animation = 'none';
-          const clones = track.querySelectorAll(
-            '.as-seen-in-item:nth-child(n+' + (Math.floor(track.children.length / 2) + 1) + ')'
-          );
-          clones.forEach((clone) => clone.remove());
-
-          createInfiniteMarquee();
-
-          // Restart animation
-          requestAnimationFrame(() => {
-            track.style.animation = 'marquee linear infinite';
-            track.style.animationDuration = 'calc(var(--marquee-duration))';
-          });
-        }
-      }, 250);
+      resizeTimeout = setTimeout(handleLayout, 250);
     });
   });
 </script>
