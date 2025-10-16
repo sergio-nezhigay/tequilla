@@ -202,7 +202,7 @@
         "tasting_card_1": {
           "type": "tasting_card",
           "settings": {
-            "card_image": "shopify://shop_images/aromas.png",
+            "card_image": "shopify://shop_images/arom.webp",
             "card_label": "AROMAS",
             "card_description": "Roasted agave, citrus peel and a hint of pepper."
           }
@@ -210,7 +210,7 @@
         "tasting_card_2": {
           "type": "tasting_card",
           "settings": {
-            "card_image": "shopify://shop_images/taste.png",
+            "card_image": "shopify://shop_images/tast.webp",
             "card_label": "TASTE",
             "card_description": "Tropical fruit notes of pineapple, mango and coconut."
           }
@@ -218,7 +218,7 @@
         "tasting_card_3": {
           "type": "tasting_card",
           "settings": {
-            "card_image": "shopify://shop_images/finish.png",
+            "card_image": "shopify://shop_images/finish2.webp",
             "card_label": "FINISH",
             "card_description": "Bright, silky and refined"
           }
