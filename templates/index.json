@@ -139,7 +139,7 @@
         "max_width": "1440",
         "scroll_speed": 0,
         "pause_on_hover": true,
-        "padding_top_desktop": 0,
+        "padding_top_desktop": 65,
         "padding_bottom_desktop": 0,
         "padding_top_mobile": 20,
         "padding_bottom_mobile": 0,
