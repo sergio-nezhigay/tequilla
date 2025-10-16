@@ -339,7 +339,6 @@
     #{{ section_id }} .card-image-wrapper {
       width: 100%;
       height: 100%;
-      {% comment %}height: 466px;{% endcomment %}
       aspect-ratio: 392 / 466;
       border-radius: 30px;
       margin: 0;
@@ -347,23 +346,19 @@
 
     #{{ section_id }} .card-label {
        font-size: clamp(1rem, 4.16vw, 60px);
-      {% comment %}font-size: 60px;{% endcomment %}
        font-family: 'Futura Hv BT';
       line-height: 1.2;
       font-weight: 400;
       height: fit-content;
     }
 
-    /* Desktop: Card 1 - Label on left, rotated -90deg (bottom to top) */
+
     #{{ section_id }} .inside-bottle-card:nth-child(1) .card-label {
       bottom: 20px;
-
       left: 20px;
-      {% comment %}transform: translateY(-50%);{% endcomment %}
       transform-origin: left center;
     }
 
-    /* Desktop: Card 2 - Label on top-left, horizontal */
     #{{ section_id }} .inside-bottle-card:nth-child(2) .card-label {
       top: 30px;
       left: 30px;
@@ -371,7 +366,6 @@
       transform-origin: left top;
     }
 
-    /* Desktop: Card 3 - Label on right, rotated 90deg (top to bottom) */
     #{{ section_id }} .inside-bottle-card:nth-child(3) .card-label {
       bottom: 135px;
       right: 43px;
