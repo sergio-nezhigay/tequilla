@@ -530,6 +530,7 @@
       "settings": {
         "title": "CONTACT",
         "subtitle": "<p>Get guidance on <strong>designing your label</strong> and access <em>exclusive offers</em>.</p>",
+        "left_image": "shopify://shop_images/bg_7e563e3c-ed9b-438d-9401-2f3336ca60f0.png",
         "first_name_placeholder": "First Name",
         "last_name_placeholder": "Last Name",
         "email_placeholder": "Main Email",
@@ -539,15 +540,15 @@
         "loading_text": "Sending...",
         "success_message": "Thank you! Your message has been sent successfully.",
         "background_color": "#f1f1ee",
-        "title_color": "#FFB793",
-        "highlight_color": "#67B7A8",
+        "title_color": "#ffb793",
+        "highlight_color": "#67b7a8",
         "subtitle_color": "#090909",
-        "button_color": "#67B7A8",
+        "button_color": "#67b7a8",
         "max_width": "1440",
-        "padding_top_desktop": 80,
-        "padding_bottom_desktop": 80,
+        "padding_top_desktop": 100,
+        "padding_bottom_desktop": 0,
         "padding_top_mobile": 40,
-        "padding_bottom_mobile": 40
+        "padding_bottom_mobile": 0
       }
     },
     "section_best_bottle_9QNCLY": {
