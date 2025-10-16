@@ -346,7 +346,8 @@
     }
 
     #{{ section_id }} .card-label {
-      font-size: 60px;
+       font-size: clamp(1rem, 4.16vw, 60px);
+      {% comment %}font-size: 60px;{% endcomment %}
        font-family: 'Futura Hv BT';
       line-height: 1.2;
       font-weight: 400;
