@@ -140,7 +140,7 @@
         "scroll_speed": 0,
         "pause_on_hover": true,
         "padding_top_desktop": 65,
-        "padding_bottom_desktop": 0,
+        "padding_bottom_desktop": 35,
         "padding_top_mobile": 20,
         "padding_bottom_mobile": 0,
         "custom_classes": ""
@@ -243,7 +243,7 @@
         "attribution_color": "#090909",
         "button_color": "#67b7a8",
         "max_width": "1440",
-        "padding_top_desktop": 0,
+        "padding_top_desktop": 35,
         "padding_bottom_desktop": 0,
         "padding_top_mobile": 0,
         "padding_bottom_mobile": 0
