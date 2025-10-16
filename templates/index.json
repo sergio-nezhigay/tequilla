@@ -525,6 +525,31 @@
         "padding_bottom_mob": 0
       }
     },
+    "index_contact_X7pQrM": {
+      "type": "index-contact",
+      "settings": {
+        "title": "CONTACT",
+        "subtitle": "<p>Get guidance on <strong>designing your label</strong> and access <em>exclusive offers</em>.</p>",
+        "first_name_placeholder": "First Name",
+        "last_name_placeholder": "Last Name",
+        "email_placeholder": "Main Email",
+        "phone_placeholder": "Phone Number",
+        "message_placeholder": "Text",
+        "button_text": "YES, SEND ME OFFERS & IDEAS!",
+        "loading_text": "Sending...",
+        "success_message": "Thank you! Your message has been sent successfully.",
+        "background_color": "#f1f1ee",
+        "title_color": "#FFB793",
+        "highlight_color": "#67B7A8",
+        "subtitle_color": "#090909",
+        "button_color": "#67B7A8",
+        "max_width": "1440",
+        "padding_top_desktop": 80,
+        "padding_bottom_desktop": 80,
+        "padding_top_mobile": 40,
+        "padding_bottom_mobile": 40
+      }
+    },
     "section_best_bottle_9QNCLY": {
       "type": "section-best-bottle",
       "blocks": {
@@ -819,6 +844,7 @@
     "make_personalization_Mintnf",
     "create_tequila_gj3y8z",
     "section_testimonial_UKjkTV",
+    "index_contact_X7pQrM",
     "section_best_bottle_9QNCLY",
     "create_own_tequila_DgrQXj",
     "custom_contact_form_dX6TcB",

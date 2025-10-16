@@ -1,0 +1,659 @@
+{%- assign form_id = 'index-contact-form-' | append: section.id -%}
+{% assign section_id = section.id %}
+
+<div id="{{ section_id }}" class="index-contact-section">
+  <div class="index-contact-container">
+    {% if section.settings.left_image != blank %}
+      <div class="index-contact-image-wrapper">
+        {{
+          section.settings.left_image
+          | image_url: width: 1200
+          | image_tag:
+            loading: 'lazy',
+            widths: '400, 600, 800, 1000, 1200',
+            sizes: '(min-width: 768px) 40vw, 100vw',
+            alt: section.settings.left_image.alt,
+            class: 'index-contact-image'
+        }}
+      </div>
+    {% endif %}
+
+    <div class="index-contact-form-wrapper">
+      <div class="index-contact-header">
+        {% if section.settings.title != blank %}
+          <h2 class="index-contact-title">{{ section.settings.title }}</h2>
+        {% endif %}
+
+        {% if section.settings.subtitle != blank %}
+          <div class="index-contact-subtitle">{{ section.settings.subtitle }}</div>
+        {% endif %}
+      </div>
+
+      {% form 'contact', id: form_id, class: 'index-contact-form' %}
+        <div class="form-messages">
+          {%- if form.errors -%}
+            <div class="error-message">
+              {{ form.errors | default_errors }}
+            </div>
+          {%- endif -%}
+        </div>
+
+        <div class="honeypot">
+          <input type="text" name="contact[honeypot]" tabindex="-1" autocomplete="off">
+        </div>
+
+        <div class="form-row">
+          <div class="form-field">
+            <input
+              type="text"
+              name="contact[first_name]"
+              class="form-input"
+              placeholder="{{ section.settings.first_name_placeholder | default: 'First Name' }}"
+              required
+              autocomplete="given-name"
+            >
+          </div>
+
+          <div class="form-field">
+            <input
+              type="text"
+              name="contact[last_name]"
+              class="form-input"
+              placeholder="{{ section.settings.last_name_placeholder | default: 'Last Name' }}"
+              required
+              autocomplete="family-name"
+            >
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-field">
+            <input
+              type="email"
+              name="contact[email]"
+              class="form-input"
+              placeholder="{{ section.settings.email_placeholder | default: 'Main Email' }}"
+              required
+              autocomplete="email"
+            >
+          </div>
+
+          <div class="form-field">
+            <input
+              type="tel"
+              name="contact[phone]"
+              class="form-input"
+              placeholder="{{ section.settings.phone_placeholder | default: 'Phone Number' }}"
+              autocomplete="tel"
+            >
+          </div>
+        </div>
+
+        <div class="form-field form-field-full">
+          <textarea
+            name="contact[body]"
+            class="form-input form-textarea"
+            placeholder="{{ section.settings.message_placeholder | default: 'Text' }}"
+            rows="5"
+          ></textarea>
+        </div>
+
+        <button type="submit" class="submit-button">
+          <span class="submit-text">
+            {%- if form.posted_successfully? -%}
+              <svg
+                class="success-checkmark"
+                height="24px"
+                width="24px"
+                version="1.1"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 512 512"
+                fill="currentColor"
+              >
+                <g>
+                  <polygon points="440.469,73.413 218.357,295.525 71.531,148.709 0,220.229 146.826,367.055 218.357,438.587 289.878,367.055 512,144.945"></polygon>
+                </g>
+              </svg>
+            {%- else -%}
+              {{ section.settings.button_text | default: 'YES, SEND ME OFFERS & IDEAS!' }}
+            {%- endif -%}
+          </span>
+        </button>
+
+        {%- if form.posted_successfully? -%}
+          <div class="success-message" id="success-message-{{ section.id }}">
+            {{ section.settings.success_message | default: 'Thank you! Your message has been sent successfully.' }}
+          </div>
+        {%- endif -%}
+      {% endform %}
+    </div>
+  </div>
+</div>
+
+<style>
+  :root {
+    --index-contact-bg: {{ section.settings.background_color | default: '#f1f1ee' }};
+    --index-contact-max-width: {{ section.settings.max_width | default: '1440' }}px;
+    --index-contact-padding-top-desktop: {{ section.settings.padding_top_desktop | default: 80 }}px;
+    --index-contact-padding-bottom-desktop: {{ section.settings.padding_bottom_desktop | default: 80 }}px;
+    --index-contact-padding-top-mobile: {{ section.settings.padding_top_mobile | default: 40 }}px;
+    --index-contact-padding-bottom-mobile: {{ section.settings.padding_bottom_mobile | default: 40 }}px;
+    --index-contact-title-color: {{ section.settings.title_color | default: '#FFB793' }};
+    --index-contact-highlight-color: {{ section.settings.highlight_color | default: '#67B7A8' }};
+    --index-contact-subtitle-color: {{ section.settings.subtitle_color | default: '#090909' }};
+    --index-contact-button-bg: {{ section.settings.button_color | default: '#67B7A8' }};
+  }
+
+  /* Multi-color text support */
+  #{{ section_id }} .index-contact-subtitle strong {
+    color: var(--index-contact-highlight-color);
+    font-weight: inherit;
+  }
+
+  #{{ section_id }} .index-contact-subtitle em,
+  #{{ section_id }} .index-contact-subtitle i {
+    color: var(--index-contact-highlight-color);
+    font-style: normal;
+  }
+
+  /* Mobile First Styles */
+  #{{ section_id }} {
+    background-color: var(--index-contact-bg);
+    padding: var(--index-contact-padding-top-mobile) 20px var(--index-contact-padding-bottom-mobile);
+    width: 100%;
+  }
+
+  #{{ section_id }} .index-contact-container {
+    max-width: var(--index-contact-max-width);
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  #{{ section_id }} .index-contact-image-wrapper {
+    width: 100%;
+    display: none;
+  }
+
+  #{{ section_id }} .index-contact-image {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 20px;
+  }
+
+  #{{ section_id }} .index-contact-form-wrapper {
+    width: 100%;
+  }
+
+  #{{ section_id }} .index-contact-header {
+    text-align: center;
+    margin-bottom: 30px;
+  }
+
+  #{{ section_id }} .index-contact-title {
+    font-family: 'Futura Hv BT', sans-serif;
+    font-size: 30px;
+    font-weight: 400;
+    line-height: 1.2;
+    color: var(--index-contact-title-color);
+    text-transform: uppercase;
+    margin: 0 0 10px 0;
+    letter-spacing: 0;
+  }
+
+  #{{ section_id }} .index-contact-subtitle {
+    font-family: 'Roundo', sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 1.65;
+    color: var(--index-contact-subtitle-color);
+  }
+
+  #{{ section_id }} .index-contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  #{{ section_id }} .form-messages {
+    margin-bottom: 10px;
+  }
+
+  #{{ section_id }} .success-message {
+    background: rgba(103, 183, 168, 0.1);
+    color: #67b7a8;
+    padding: 15px 20px;
+    border-radius: 10px;
+    font-family: 'Roundo', sans-serif;
+    font-weight: 600;
+    font-size: 16px;
+    border-left: 4px solid #67b7a8;
+    margin-top: 15px;
+    text-align: center;
+    animation: slideIn 0.3s ease;
+  }
+
+  #{{ section_id }} .success-checkmark {
+    display: inline-block;
+    animation: checkmarkPop 0.3s ease;
+  }
+
+  @keyframes checkmarkPop {
+    0% {
+      transform: scale(0);
+    }
+    50% {
+      transform: scale(1.2);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+
+  @keyframes slideIn {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  #{{ section_id }} .error-message {
+    background: rgba(231, 76, 60, 0.1);
+    color: #e74c3c;
+    padding: 15px 20px;
+    border-radius: 10px;
+    font-family: 'Roundo', sans-serif;
+    font-size: 14px;
+    border-left: 4px solid #e74c3c;
+  }
+
+  #{{ section_id }} .honeypot {
+    opacity: 0;
+    height: 0;
+    overflow: hidden;
+    position: absolute;
+    left: -9999px;
+  }
+
+  #{{ section_id }} .form-row {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  #{{ section_id }} .form-field {
+    flex: 1;
+  }
+
+  #{{ section_id }} .form-field-full {
+    width: 100%;
+  }
+
+  #{{ section_id }} .form-input {
+    width: 100%;
+    height: 65px;
+    background: #ffffff;
+    border: 1px solid rgba(9, 9, 9, 0.6);
+    border-radius: 90px;
+    padding: 0 30px;
+    font-family: 'Roundo', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    color: #090909;
+    outline: none;
+    box-sizing: border-box;
+    transition: border-color 0.2s ease;
+  }
+
+  #{{ section_id }} .form-textarea {
+    height: auto;
+    min-height: 120px;
+    border-radius: 30px;
+    padding: 20px 30px;
+    resize: vertical;
+  }
+
+  #{{ section_id }} .form-input::placeholder {
+    color: rgba(9, 9, 9, 0.6);
+  }
+
+  #{{ section_id }} .form-input:focus {
+    border-color: #67b7a8;
+  }
+
+  #{{ section_id }} .form-input:invalid:not(:placeholder-shown) {
+    border-color: #e74c3c;
+  }
+
+  #{{ section_id }} .submit-button {
+    width: 100%;
+    background: var(--index-contact-button-bg);
+    border: 2px solid #090909;
+    border-radius: 90px;
+    padding: 28px 40px;
+    cursor: pointer;
+    box-sizing: border-box;
+    transition: all 0.3s ease;
+  }
+
+  #{{ section_id }} .submit-button:hover,
+  #{{ section_id }} .submit-button:focus {
+    background: #FFB793;
+    transform: translateY(-2px);
+  }
+
+  #{{ section_id }} .submit-button:disabled {
+    background: #cccccc;
+    border-color: #999999;
+    cursor: not-allowed;
+    transform: none;
+  }
+
+  #{{ section_id }} .submit-text {
+    font-family: 'Futura Hv BT', sans-serif;
+    font-weight: 800;
+    font-size: 16px;
+    line-height: 1.2;
+    color: #090909;
+    text-transform: uppercase;
+    text-align: center;
+    display: block;
+    letter-spacing: 0.5px;
+  }
+
+  #{{ section_id }} .loading .submit-button {
+    opacity: 0.7;
+    pointer-events: none;
+  }
+
+  /* Desktop Styles */
+  @media (min-width: 768px) {
+    #{{ section_id }} {
+      padding: var(--index-contact-padding-top-desktop) 112px var(--index-contact-padding-bottom-desktop);
+    }
+
+    #{{ section_id }} .index-contact-container {
+      flex-direction: row;
+      align-items: center;
+      gap: 60px;
+    }
+
+    #{{ section_id }} .index-contact-image-wrapper {
+      display: block;
+      flex: 0 0 453px;
+      width: 453px;
+    }
+
+    #{{ section_id }} .index-contact-image {
+      width: 453px;
+      height: 493px;
+      object-fit: cover;
+      border-radius: 30px;
+    }
+
+    #{{ section_id }} .index-contact-form-wrapper {
+      flex: 1;
+      max-width: 588px;
+    }
+
+    #{{ section_id }} .index-contact-header {
+      text-align: left;
+      margin-bottom: 40px;
+    }
+
+    #{{ section_id }} .index-contact-title {
+      font-size: 60px;
+      margin-bottom: 16px;
+    }
+
+    #{{ section_id }} .index-contact-subtitle {
+      font-size: 20px;
+    }
+
+    #{{ section_id }} .index-contact-form {
+      gap: 20px;
+    }
+
+    #{{ section_id }} .form-row {
+      flex-direction: row;
+      gap: 20px;
+    }
+
+    #{{ section_id }} .form-input {
+      height: 65px;
+      font-size: 16px;
+    }
+
+    #{{ section_id }} .form-textarea {
+      min-height: 140px;
+    }
+
+    #{{ section_id }} .submit-button {
+      padding: 28px 60px;
+      width: 100%;
+    }
+
+    #{{ section_id }} .submit-text {
+      font-size: 18px;
+    }
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const form = document.getElementById('{{ form_id }}');
+    const successMessage = document.getElementById('success-message-{{ section.id }}');
+
+    if (form) {
+      form.addEventListener('submit', function () {
+        form.classList.add('loading');
+        const button = form.querySelector('.submit-button');
+        const submitText = button.querySelector('.submit-text');
+        const originalText = submitText.textContent;
+
+        submitText.textContent = '{{ section.settings.loading_text | default: "Sending..." }}';
+        button.disabled = true;
+
+        setTimeout(() => {
+          if (form.classList.contains('loading')) {
+            submitText.textContent = originalText;
+            button.disabled = false;
+            form.classList.remove('loading');
+          }
+        }, 5000);
+      });
+    }
+
+    if (successMessage) {
+      setTimeout(() => {
+        successMessage.style.opacity = '0';
+        successMessage.style.transform = 'translateY(-10px)';
+        setTimeout(() => {
+          successMessage.style.display = 'none';
+        }, 300);
+      }, 5000);
+    }
+  });
+</script>
+
+{% schema %}
+{
+  "name": "Index Contact",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Section Content"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "CONTACT"
+    },
+    {
+      "type": "richtext",
+      "id": "subtitle",
+      "label": "Subtitle",
+      "default": "<p>Get guidance on <strong>designing your label</strong> and access <em>exclusive offers</em>.</p>",
+      "info": "Use <strong>text</strong> or <em>text</em> for highlight color"
+    },
+    {
+      "type": "image_picker",
+      "id": "left_image",
+      "label": "Left Side Image",
+      "info": "Displayed on the left side on desktop"
+    },
+    {
+      "type": "header",
+      "content": "Form Fields"
+    },
+    {
+      "type": "text",
+      "id": "first_name_placeholder",
+      "label": "First Name Placeholder",
+      "default": "First Name"
+    },
+    {
+      "type": "text",
+      "id": "last_name_placeholder",
+      "label": "Last Name Placeholder",
+      "default": "Last Name"
+    },
+    {
+      "type": "text",
+      "id": "email_placeholder",
+      "label": "Email Placeholder",
+      "default": "Main Email"
+    },
+    {
+      "type": "text",
+      "id": "phone_placeholder",
+      "label": "Phone Placeholder",
+      "default": "Phone Number"
+    },
+    {
+      "type": "text",
+      "id": "message_placeholder",
+      "label": "Message Placeholder",
+      "default": "Text"
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button Text",
+      "default": "YES, SEND ME OFFERS & IDEAS!"
+    },
+    {
+      "type": "text",
+      "id": "loading_text",
+      "label": "Loading Text",
+      "default": "Sending..."
+    },
+    {
+      "type": "text",
+      "id": "success_message",
+      "label": "Success Message",
+      "default": "Thank you! Your message has been sent successfully."
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background Color",
+      "default": "#f1f1ee"
+    },
+    {
+      "type": "color",
+      "id": "title_color",
+      "label": "Title Color",
+      "default": "#FFB793"
+    },
+    {
+      "type": "color",
+      "id": "highlight_color",
+      "label": "Highlight Color",
+      "default": "#67B7A8",
+      "info": "Color for <strong> and <em> tags in subtitle"
+    },
+    {
+      "type": "color",
+      "id": "subtitle_color",
+      "label": "Subtitle Color",
+      "default": "#090909"
+    },
+    {
+      "type": "color",
+      "id": "button_color",
+      "label": "Button Background Color",
+      "default": "#67B7A8"
+    },
+    {
+      "type": "header",
+      "content": "Section Settings"
+    },
+    {
+      "type": "text",
+      "id": "max_width",
+      "label": "Max Width (px)",
+      "default": "1440",
+      "info": "Maximum width of the section content"
+    },
+    {
+      "type": "range",
+      "id": "padding_top_desktop",
+      "label": "Padding Top Desktop",
+      "min": 0,
+      "max": 200,
+      "step": 5,
+      "default": 80,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_desktop",
+      "label": "Padding Bottom Desktop",
+      "min": 0,
+      "max": 200,
+      "step": 5,
+      "default": 80,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mobile",
+      "label": "Padding Top Mobile",
+      "min": 0,
+      "max": 120,
+      "step": 5,
+      "default": 40,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mobile",
+      "label": "Padding Bottom Mobile",
+      "min": 0,
+      "max": 120,
+      "step": 5,
+      "default": 40,
+      "unit": "px"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Index Contact"
+    }
+  ]
+}
+{% endschema %}
