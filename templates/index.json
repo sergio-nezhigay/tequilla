@@ -546,7 +546,7 @@
         "button_color": "#67b7a8",
         "max_width": "1440",
         "padding_top_desktop": 100,
-        "padding_bottom_desktop": 0,
+        "padding_bottom_desktop": 50,
         "padding_top_mobile": 35,
         "padding_bottom_mobile": 15
       }
