@@ -1,6 +1,6 @@
 {% assign section_id = section.id %}
 
-<section id="{{ section_id }}" class="inside-bottle-section">
+<div id="{{ section_id }}" class="inside-bottle-section">
   <div class="inside-bottle-container">
     {% if section.settings.title != blank %}
       <h2 class="inside-bottle-title">{{ section.settings.title }}</h2>
@@ -13,52 +13,53 @@
     {% if section.settings.attribution != blank %}
       <div class="inside-bottle-attribution">{{ section.settings.attribution }}</div>
     {% endif %}
+    {% comment %}
+      <div class="inside-bottle-cards-wrapper">
+        <div id="insideBottleSwiper" class="inside-bottle-cards swiper">
+          <div class="swiper-wrapper">
+            {% for block in section.blocks %}
+              {% case block.type %}
+                {% when 'tasting_card' %}
+                  <div class="inside-bottle-card swiper-slide" {{ block.shopify_attributes }}>
+                    {% if block.settings.card_image != blank %}
+                      <div class="card-image-wrapper">
+                        {{
+                          block.settings.card_image
+                          | image_url: width: 800
+                          | image_tag:
+                            loading: 'lazy',
+                            widths: '300, 400, 600, 800',
+                            sizes: '(min-width: 768px) 33vw, 90vw',
+                            alt: block.settings.card_image.alt,
+                            class: 'card-image'
+                        }}
+                        {% if block.settings.card_label != blank %}
+                          <div class="card-label">{{ block.settings.card_label }}</div>
+                        {% endif %}
+                      </div>
+                    {% endif %}
+                    {% if block.settings.card_description != blank %}
+                      <div class="card-description">{{ block.settings.card_description }}</div>
+                    {% endif %}
+                  </div>
+              {% endcase %}
+            {% endfor %}
+          </div>
 
-    <div class="inside-bottle-cards-wrapper">
-      <div id="insideBottleSwiper" class="inside-bottle-cards swiper">
-        <div class="swiper-wrapper">
-          {% for block in section.blocks %}
-            {% case block.type %}
-              {% when 'tasting_card' %}
-                <div class="inside-bottle-card swiper-slide" {{ block.shopify_attributes }}>
-                  {% if block.settings.card_image != blank %}
-                    <div class="card-image-wrapper">
-                      {{
-                        block.settings.card_image
-                        | image_url: width: 800
-                        | image_tag:
-                          loading: 'lazy',
-                          widths: '300, 400, 600, 800',
-                          sizes: '(min-width: 768px) 33vw, 90vw',
-                          alt: block.settings.card_image.alt,
-                          class: 'card-image'
-                      }}
-                      {% if block.settings.card_label != blank %}
-                        <div class="card-label">{{ block.settings.card_label }}</div>
-                      {% endif %}
-                    </div>
-                  {% endif %}
-                  {% if block.settings.card_description != blank %}
-                    <div class="card-description">{{ block.settings.card_description }}</div>
-                  {% endif %}
-                </div>
-            {% endcase %}
-          {% endfor %}
-        </div>
-
-        <!-- Navigation arrows for mobile -->
-        <div class="swiper-button-prev inside-bottle-prev">
-          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
-            <path d="M12 5L7 10L12 15" stroke="#090909" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </div>
-        <div class="swiper-button-next inside-bottle-next">
-          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
-            <path d="M8 5L13 10L8 15" stroke="#090909" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
+          <!-- Navigation arrows for mobile -->
+          <div class="swiper-button-prev inside-bottle-prev">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+              <path d="M12 5L7 10L12 15" stroke="#090909" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <div class="swiper-button-next inside-bottle-next">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+              <path d="M8 5L13 10L8 15" stroke="#090909" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
         </div>
       </div>
-    </div>
+    {% endcomment %}
 
     {% if section.settings.cta_text != blank and section.settings.cta_url != blank %}
       <div class="inside-bottle-cta">
@@ -68,7 +69,7 @@
       </div>
     {% endif %}
   </div>
-</section>
+</div>
 
 <style>
   :root {
@@ -169,8 +170,9 @@
   #{{ section_id }} .card-image-wrapper {
     position: relative;
     overflow: hidden;
-    width: 250px;
-    height: 298px;
+    width: 71.4%;
+    height: 100%;
+    aspect-ratio: 392 / 466;
     margin: 0 auto;
     border-radius: 20px;
   }
@@ -406,7 +408,7 @@
       if (window.innerWidth < 768 && !swiperInstance) {
         swiperInstance = new Swiper('#insideBottleSwiper', {
           slidesPerView: 1,
-          spaceBetween: 20,
+          spaceBetween: 0,
           navigation: {
             nextEl: '.inside-bottle-next',
             prevEl: '.inside-bottle-prev',
