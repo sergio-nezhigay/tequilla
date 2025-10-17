@@ -17,9 +17,9 @@
         "highlighted_text_2": "BOTTLE",
         "description": "<p>At InBarrel, we believe the best stories deserve their own bottle.</p>",
         "primary_button_text": "CREATE YOUR OWN TEQUILA",
-        "primary_button_url": "shopify://collections",
+        "primary_button_url": "/collections/all",
         "secondary_button_text": "SCHEDULE A CALL!",
-        "secondary_button_url": "shopify://collections/all",
+        "secondary_button_url": "/pages/contact",
         "create_tequila_image": "shopify://shop_images/round_bottle_1_289b4534-68f1-411f-b6d8-ffb326c4c661.png",
         "left_leaf_image": "shopify://shop_images/index-left-big.svg",
         "right_leaf_image": "shopify://shop_images/index-right-big.svg",
@@ -66,6 +66,8 @@
         "title_size_mobile": 30,
         "uploaded_video": "https://cdn.shopify.com/videos/c/o/v/8b5353e9f64043ae8b09b0b9809fe738.mp4",
         "video_thumbnail": "shopify://shop_images/Generated_Image_September_03_2025_-_1_40PM.webp",
+        "cta_text": "CREATE YOUR OWN TEQUILA",
+        "cta_url": "/collections/all",
         "cta_font_size_desktop": 18,
         "cta_font_size_mobile": 16
       }
@@ -174,21 +176,17 @@
           }
         }
       },
-      "block_order": [
-        "step_card_1",
-        "step_card_2",
-        "step_card_3"
-      ],
+      "block_order": ["step_card_1", "step_card_2", "step_card_3"],
       "settings": {
         "background_color": "#f1f1ee",
         "max_width": "1440",
         "title_color": "#ffffff",
         "text_color": "#ffffff",
         "primary_button_text": "CREATE YOUR OWN TEQUILA",
-        "primary_button_url": "",
+        "primary_button_url": "/collections/all",
         "primary_button_color": "#67b7a8",
         "secondary_button_text": "BOOK A BUSINESS CONSULTATION",
-        "secondary_button_url": "",
+        "secondary_button_url": "/pages/corporate",
         "secondary_button_color": "#ffb793",
         "padding_top_desktop": 60,
         "padding_bottom_desktop": 60,
@@ -224,17 +222,13 @@
           }
         }
       },
-      "block_order": [
-        "tasting_card_1",
-        "tasting_card_2",
-        "tasting_card_3"
-      ],
+      "block_order": ["tasting_card_1", "tasting_card_2", "tasting_card_3"],
       "settings": {
         "title": "<p><strong>INSIDE</strong> THE BOTTLE</p>",
         "subtitle": "<p>Featuring one of the <em>Top 20 Tequilas</em> in the World</p>",
         "attribution": "(Agave Matchmaker, #17)",
         "cta_text": "CREATE YOUR OWN TEQUILA",
-        "cta_url": "shopify://collections",
+        "cta_url": "/collections/all",
         "background_color": "#f1f1ee",
         "title_color": "#090909",
         "highlight_color": "#ffb793",
@@ -425,11 +419,7 @@
           }
         }
       },
-      "block_order": [
-        "block_ApXy79",
-        "block_JczB79",
-        "block_qJP74a"
-      ],
+      "block_order": ["block_ApXy79", "block_JczB79", "block_qJP74a"],
       "disabled": true,
       "name": "Create tequila",
       "settings": {
@@ -576,11 +566,7 @@
           }
         }
       },
-      "block_order": [
-        "block_VrDQRN",
-        "block_nC4JMj",
-        "block_YjjXY4"
-      ],
+      "block_order": ["block_VrDQRN", "block_nC4JMj", "block_YjjXY4"],
       "disabled": true,
       "name": "Best bottle",
       "settings": {
