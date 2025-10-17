@@ -139,7 +139,7 @@
         "title_color": "#090909",
         "background_color": "#f1f1ee",
         "max_width": "1440",
-        "scroll_speed": 7,
+        "scroll_speed": 15,
         "pause_on_hover": true,
         "padding_top_desktop": 65,
         "padding_bottom_desktop": 35,
