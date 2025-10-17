@@ -278,12 +278,14 @@
     border: 2px solid #090909;
     transition: all 0.3s ease;
     letter-spacing: 0.5px;
-    width: 100%;s
+    width: 100%;
   }
 
-  #{{ section_id }} .inside-bottle-button:hover {
-    background-color: #FFB793;
-    transform: translateY(-2px);
+  #{{ section_id }} .inside-bottle-button:hover,
+  #{{ section_id }} .inside-bottle-button:focus {
+    background: #FFB793;
+    color: #090909;
+    border-color: #090909;
   }
 
   /* Responsive scaling for smaller screens */

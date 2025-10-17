@@ -189,7 +189,7 @@
     text-decoration: none;
     border-radius: 50px;
     border: 2px solid #090909;
-    transition: opacity 0.3s ease, transform 0.2s ease;
+    transition: all 0.3s ease;
     text-align: center;
     letter-spacing: 0.5px;
     width: 100%;
@@ -208,9 +208,18 @@
     min-width: 75%;
   }
 
-  #{{ section_id }} .cta-button:hover {
-    opacity: 0.9;
-    transform: translateY(-2px);
+  #{{ section_id }} .cta-button-primary:hover,
+  #{{ section_id }} .cta-button-primary:focus {
+    background: #FFB793;
+    color: #090909;
+    border-color: #090909;
+  }
+
+  #{{ section_id }} .cta-button-secondary:hover,
+  #{{ section_id }} .cta-button-secondary:focus {
+    background: #E69A72;
+    color: #090909;
+    border-color: #090909;
   }
 
   /* Desktop Styles */
