@@ -106,12 +106,9 @@
       animation-duration: calc(var(--marquee-duration, 30s));
     }
 
-    #{{ section_id }} .as-seen-in-track {
+    #{{ section_id }} .as-seen-in-track:hover {
       animation-play-state: {% if section.settings.pause_on_hover %}paused{% else %}running{% endif %};
     }
-    {% comment %}#{{ section_id }} .as-seen-in-track:hover {
-      animation-play-state: {% if section.settings.pause_on_hover %}paused{% else %}running{% endif %};
-    }{% endcomment %}
 
     @keyframes marquee {
       from {
@@ -309,10 +306,10 @@
       "type": "range",
       "id": "scroll_speed",
       "label": "Scroll Speed (Desktop)",
-      "min": 0,
+      "min": 1,
       "max": 100,
-      "step": 5,
-      "default": 0,
+      "step": 1,
+      "default": 9,
       "unit": "px",
       "info": "Speed of the marquee animation in pixels per second"
     },

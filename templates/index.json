@@ -139,7 +139,7 @@
         "title_color": "#090909",
         "background_color": "#f1f1ee",
         "max_width": "1440",
-        "scroll_speed": 0,
+        "scroll_speed": 7,
         "pause_on_hover": true,
         "padding_top_desktop": 65,
         "padding_bottom_desktop": 35,
@@ -176,7 +176,11 @@
           }
         }
       },
-      "block_order": ["step_card_1", "step_card_2", "step_card_3"],
+      "block_order": [
+        "step_card_1",
+        "step_card_2",
+        "step_card_3"
+      ],
       "settings": {
         "background_color": "#f1f1ee",
         "max_width": "1440",
@@ -222,7 +226,11 @@
           }
         }
       },
-      "block_order": ["tasting_card_1", "tasting_card_2", "tasting_card_3"],
+      "block_order": [
+        "tasting_card_1",
+        "tasting_card_2",
+        "tasting_card_3"
+      ],
       "settings": {
         "title": "<p><strong>INSIDE</strong> THE BOTTLE</p>",
         "subtitle": "<p>Featuring one of the <em>Top 20 Tequilas</em> in the World</p>",
@@ -419,7 +427,11 @@
           }
         }
       },
-      "block_order": ["block_ApXy79", "block_JczB79", "block_qJP74a"],
+      "block_order": [
+        "block_ApXy79",
+        "block_JczB79",
+        "block_qJP74a"
+      ],
       "disabled": true,
       "name": "Create tequila",
       "settings": {
@@ -566,7 +578,11 @@
           }
         }
       },
-      "block_order": ["block_VrDQRN", "block_nC4JMj", "block_YjjXY4"],
+      "block_order": [
+        "block_VrDQRN",
+        "block_nC4JMj",
+        "block_YjjXY4"
+      ],
       "disabled": true,
       "name": "Best bottle",
       "settings": {
