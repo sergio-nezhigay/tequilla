@@ -222,12 +222,15 @@
       border: 2px solid var(--text-primary);
       border-radius: 90px;
       text-decoration: none;
-      transition: all 0.2s ease;
+      transition: all 0.3s ease;
       flex-shrink: 0;
+      background: transparent;
     }
 
-    .shopify-section .site-footer .social-link:hover {
-      box-shadow: 0 4px 12px rgba(9, 9, 9, 0.15);
+    .shopify-section .site-footer .social-link:hover,
+    .shopify-section .site-footer .social-link:focus {
+      background: var(--text-highlight);
+      border-color: var(--text-primary);
     }
 
     .shopify-section .site-footer .social-link span {

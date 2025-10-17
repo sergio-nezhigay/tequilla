@@ -31,6 +31,24 @@
   height: 60px;
   border: 1px solid #090909;
   border-radius: 50%;
+  background: transparent;
+  transition: all 0.3s ease;
+}
+
+.swiper-button-next.swiper-button-next-testimonial:hover,
+.swiper-button-prev.swiper-button-prev-testimonial:hover {
+  background: #67b7a8;
+  border-color: #090909;
+}
+
+.swiper-button-next.swiper-button-next-testimonial svg,
+.swiper-button-prev.swiper-button-prev-testimonial svg {
+  transition: fill 0.3s ease;
+}
+
+.swiper-button-next.swiper-button-next-testimonial:hover svg path,
+.swiper-button-prev.swiper-button-prev-testimonial:hover svg path {
+  fill: #090909;
 }
 
 .swiper-button-next.swiper-button-next-testimonial svg {
