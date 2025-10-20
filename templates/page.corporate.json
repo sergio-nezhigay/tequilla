@@ -21,7 +21,7 @@
         "highlighted_text_2": "",
         "description": "<p> InBarrel lets you create your own high-quality, additive-free tequila brand. With a minimum order of only 3 bottles, these are perfect for you, your business, or for building your very own brand.<\/p>",
         "primary_button_text": "Create your own tequila",
-        "primary_button_url": "shopify:\/\/pages\/our-tequila",
+        "primary_button_url": "shopify:\/\/products\/your-tequila",
         "secondary_button_text": "SCHEDULE A CALL!",
         "secondary_button_url": "shopify:\/\/pages\/contact",
         "background_color": "#f1f1ee",
@@ -77,7 +77,7 @@
         "uploaded_video": "https:\/\/cdn.shopify.com\/videos\/c\/o\/v\/8b5353e9f64043ae8b09b0b9809fe738.mp4",
         "video_thumbnail": "shopify:\/\/shop_images\/Generated_Image_September_03_2025_-_1_40PM.webp",
         "cta_text": "Create your own tequila",
-        "cta_url": "shopify:\/\/pages\/our-tequila",
+        "cta_url": "shopify:\/\/products\/your-tequila",
         "cta_font_size_desktop": 18,
         "cta_font_size_mobile": 16
       }
@@ -234,7 +234,7 @@
         "step3_text": "3. You Deliver a |#090909---Gift to Remember|#FFB793",
         "step3_details": "Whether it's for a wedding, a client, or your home bar—this is a gift that stands out.",
         "cta_text": "Book a Business Consultation",
-        "cta_link": "shopify:\/\/products\/your-tequila"
+        "cta_link": "shopify:\/\/pages\/corporate"
       }
     },
     "index_product_showcase": {
@@ -340,7 +340,7 @@
         "image": "shopify:\/\/shop_images\/a6a6f043259b73c36a9ad02c7d27c09ffffb6d24.jpg",
         "title": "TELL US ABOUT YOUR PROJECT — WE'LL HANDLE THE REST.",
         "button_text": "GET IN TOUCH",
-        "button_url": "",
+        "button_url": "shopify:\/\/pages\/contact",
         "background_color": "#f4d5d0",
         "text_color": "#2c2c2c"
       }
@@ -384,7 +384,7 @@
         "background_color": "#f1f1ee",
         "title": "<p><strong>Create<\/strong> a Tequila to <em>be remembered<\/em><\/p>",
         "text_btn": "Request special offers, tips ideas!",
-        "main_url": "shopify:\/\/pages\/our-tequila",
+        "main_url": "shopify:\/\/pages\/contact",
         "padding_top": 100,
         "padding_bottom": 0,
         "padding_top_mob": 40,
@@ -509,9 +509,9 @@
         "background_color": "#f1f1ee",
         "image": "shopify:\/\/shop_images\/Rectangle_89.png",
         "title": "<p>The <strong>best bottle<\/strong> is always the one <em>you create<\/em>.<\/p>",
-        "title_block": "<p>Here’s how we help you do it:<\/p>",
+        "title_block": "<p>Here's how we help you do it:<\/p>",
         "text_btn": "Create your own tequila",
-        "main_url": "shopify:\/\/pages\/our-tequila",
+        "main_url": "shopify:\/\/products\/your-tequila",
         "padding_top": 100,
         "padding_bottom": 0,
         "padding_top_mob": 40,
@@ -534,7 +534,7 @@
         "bottle_image": "shopify:\/\/shop_images\/975c6be43f923294120e4c588fee72685f9ed177.png",
         "decoration_image": "shopify:\/\/shop_images\/Group_72_dddd74f8-e058-4765-a103-5c39a9c3f2d4.png",
         "cta_text": "Create your own tequila",
-        "cta_url": "",
+        "cta_url": "shopify:\/\/products\/your-tequila",
         "background_color": "#fdd8c6",
         "text_color": "#090909",
         "highlight_color": "#67b7a8",
