@@ -37,6 +37,9 @@ class StepManager {
 
     // Initialize pre-steps functionality
     this.initPreSteps();
+
+    // Initialize first-step buttons
+    this.initFirstStepButtons();
   }
 
   moveToStep(step) {
@@ -157,6 +160,10 @@ class StepManager {
     if (prevBtn) {
       prevBtn.addEventListener("click", () => {
         if (this.currentStep > 1) {
+          // If going from step 2 to step 1, reset the canvas
+          if (this.currentStep === 2) {
+            this.resetCanvasToStart();
+          }
           this.moveToStep(this.currentStep - 1);
         }
       });
@@ -1404,6 +1411,28 @@ class StepManager {
 
     // Re-enable modal opening functions globally
     window.modalDisabled = false;
+  }
+
+  resetCanvasToStart() {
+    // Reset the canvas to its initial state
+    if (window.customizerCanvas) {
+      window.customizerCanvas.resetToStart();
+    }
+  }
+
+  initFirstStepButtons() {
+    // Find all elements with data-first-step attribute
+    const firstStepButtons = document.querySelectorAll("[data-first-step]");
+
+    firstStepButtons.forEach((button) => {
+      button.addEventListener("click", (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+
+        // Navigate to step 1
+        this.moveToStep(1);
+      });
+    });
   }
 }
 

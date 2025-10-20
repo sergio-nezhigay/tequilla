@@ -70,3 +70,41 @@
 .dev-theme-option-wrapper.active .dev-theme-option__text {
   color: #67b7a8;
 }
+
+/* Custom upload option styling */
+.dev-theme-option--custom-upload {
+  border-radius: 60px;
+  border: 0.5px solid var(--grey-str, #d9d9d9);
+  width: 60px;
+  height: 60px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f8f8f8;
+  transition: all 0.3s ease;
+}
+
+.dev-theme-option--custom-upload svg {
+  width: 24px;
+  height: 24px;
+  color: #666;
+  transition: all 0.3s ease;
+}
+
+.dev-theme-option-wrapper:hover .dev-theme-option--custom-upload {
+  background: #e8f5f3;
+}
+
+.dev-theme-option-wrapper:hover .dev-theme-option--custom-upload svg {
+  color: #67b7a8;
+}
+
+.dev-theme-option-wrapper.active .dev-theme-option--custom-upload {
+  background: #e8f5f3;
+  border-color: #67b7a8;
+}
+
+.dev-theme-option-wrapper.active .dev-theme-option--custom-upload svg {
+  color: #67b7a8;
+}

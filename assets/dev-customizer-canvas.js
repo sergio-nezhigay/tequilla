@@ -96,6 +96,8 @@ class CustomizerCanvas {
         }, 100); // Small delay to ensure window resize is complete
       }
     });
+
+    // Don't set custom upload as default - let user choose
   }
 
   initTextManager() {
@@ -1096,6 +1098,12 @@ class CustomizerCanvas {
   drawBackground() {
     if (!this.backgroundImage) return;
 
+    // Hide placeholder when background image is set
+    const placeholder = document.getElementById("canvas-placeholder");
+    if (placeholder) {
+      placeholder.style.display = "none";
+    }
+
     // Get display dimensions (CSS pixels, not scaled by DPR)
     const displayWidth = this.canvas.width / (window.devicePixelRatio || 2);
     const displayHeight = this.canvas.height / (window.devicePixelRatio || 2);
@@ -1126,6 +1134,14 @@ class CustomizerCanvas {
     );
   }
 
+  showPlaceholder() {
+    // Show placeholder when no background image is set
+    const placeholder = document.getElementById("canvas-placeholder");
+    if (placeholder) {
+      placeholder.style.display = "flex";
+    }
+  }
+
   redraw() {
     // Get display dimensions
     const displayWidth = this.canvas.width / (window.devicePixelRatio || 2);
@@ -1134,8 +1150,12 @@ class CustomizerCanvas {
     // Clear and redraw everything
     this.ctx.clearRect(0, 0, displayWidth, displayHeight);
 
-    // Draw background
-    this.drawBackground();
+    // Draw background if available, otherwise show placeholder
+    if (this.backgroundImage) {
+      this.drawBackground();
+    } else {
+      this.showPlaceholder();
+    }
 
     // Draw uploaded images
     this.drawCanvasImages();
@@ -1153,6 +1173,49 @@ class CustomizerCanvas {
     document.addEventListener("themeSelected", (e) => {
       this.applyTheme(e.detail);
     });
+  }
+
+  setCustomUploadAsDefault() {
+    // Find the custom upload option and set it as selected by default
+    const customUploadOption = document.querySelector(
+      '[data-theme-id="custom-upload"]'
+    );
+    if (customUploadOption) {
+      // Add selected class to custom upload option
+      const wrapper = customUploadOption.querySelector(
+        ".dev-theme-option-wrapper"
+      );
+      if (wrapper) {
+        wrapper.classList.add("selected");
+      }
+    }
+  }
+
+  resetToStart() {
+    // Clear background image
+    this.backgroundImage = null;
+    this.backgroundImageData = null;
+
+    // Clear all canvas images
+    this.canvasImages = [];
+
+    // Clear all text elements
+    if (this.textManager) {
+      this.textManager.texts = [];
+    }
+
+    // Clear any selected theme (including custom upload)
+    const selectedThemes = document.querySelectorAll(
+      ".dev-theme-option-wrapper.selected"
+    );
+    selectedThemes.forEach((theme) => {
+      theme.classList.remove("selected");
+    });
+
+    // Redraw canvas to show placeholder
+    this.redraw();
+
+    console.log("🔄 Canvas reset to start state");
   }
 
   applyTheme(themeData) {
@@ -2493,10 +2556,13 @@ async function uploadImageToAPI(file) {
   formData.append("file", file);
 
   try {
-    const response = await fetch("http://0.0.0.0:8000/upload-to-shopify/", {
-      method: "POST",
-      body: formData,
-    });
+    const response = await fetch(
+      "https://inbarell-backend.evdev.dev/upload-to-shopify/",
+      {
+        method: "POST",
+        body: formData,
+      }
+    );
 
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`);
@@ -2530,11 +2596,15 @@ async function addToCartWithImage(imageUrl) {
       throw new Error("Product variant ID not found");
     }
 
+    // Get quantity from customizer quantity selector
+    const quantityInput = document.querySelector(".quantity-input");
+    const quantity = quantityInput ? parseInt(quantityInput.value) || 3 : 3;
+
     const cartData = {
       items: [
         {
           id: productVariantId,
-          quantity: 1,
+          quantity: quantity,
           properties: {
             "Custom Image": imageUrl,
           },
@@ -2660,6 +2730,28 @@ function initThemeSelection() {
       const themeTitle =
         this.querySelector(".dev-theme-option__text")?.textContent ||
         "Unknown Theme";
+
+      // Handle custom upload option
+      if (themeId === "custom-upload") {
+        // Add selected class to custom upload option
+        const customUploadOption = document.querySelector(
+          '[data-theme-id="custom-upload"]'
+        );
+        if (customUploadOption) {
+          const wrapper = customUploadOption.querySelector(
+            ".dev-theme-option-wrapper"
+          );
+          if (wrapper) {
+            wrapper.classList.add("selected");
+          }
+        }
+
+        // Trigger file upload for custom upload option using canvas method
+        if (window.customizerCanvas) {
+          window.customizerCanvas.triggerFileUpload();
+        }
+        return;
+      }
 
       // Parse color themes data
       let parsedColors = [];

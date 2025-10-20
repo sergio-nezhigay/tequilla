@@ -4,6 +4,9 @@
   {% if attribute %}
     data-{{ attribute }}
   {% endif %}
+  {% if data_first_step %}
+    data-first-step
+  {% endif %}
   class="
     clear-text {{ type }}-type {{ class }}
     {% if btn == 'primary' %}
