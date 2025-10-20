@@ -17,7 +17,7 @@
         "highlighted_text_2": "BOTTLE",
         "description": "<p>At InBarrel, we believe the best stories deserve their own bottle.</p>",
         "primary_button_text": "CREATE YOUR OWN TEQUILA",
-        "primary_button_url": "/collections/all",
+        "primary_button_url": "/products/your-tequila",
         "secondary_button_text": "SCHEDULE A CALL!",
         "secondary_button_url": "/pages/contact",
         "create_tequila_image": "shopify://shop_images/round_bottle_1_289b4534-68f1-411f-b6d8-ffb326c4c661.png",
@@ -67,7 +67,7 @@
         "uploaded_video": "https://cdn.shopify.com/videos/c/o/v/8b5353e9f64043ae8b09b0b9809fe738.mp4",
         "video_thumbnail": "shopify://shop_images/Generated_Image_September_03_2025_-_1_40PM.webp",
         "cta_text": "CREATE YOUR OWN TEQUILA",
-        "cta_url": "/collections/all",
+        "cta_url": "/products/your-tequila",
         "cta_font_size_desktop": 18,
         "cta_font_size_mobile": 16
       }
@@ -187,7 +187,7 @@
         "title_color": "#ffffff",
         "text_color": "#ffffff",
         "primary_button_text": "CREATE YOUR OWN TEQUILA",
-        "primary_button_url": "/collections/all",
+        "primary_button_url": "/products/your-tequila",
         "primary_button_color": "#67b7a8",
         "secondary_button_text": "BOOK A BUSINESS CONSULTATION",
         "secondary_button_url": "/pages/corporate",
@@ -236,7 +236,7 @@
         "subtitle": "<p>Featuring one of the <em>Top 20 Tequilas</em> in the World</p>",
         "attribution": "(Agave Matchmaker, #17)",
         "cta_text": "CREATE YOUR OWN TEQUILA",
-        "cta_url": "/collections/all",
+        "cta_url": "/products/your-tequila",
         "background_color": "#f1f1ee",
         "title_color": "#090909",
         "highlight_color": "#ffb793",
@@ -295,7 +295,7 @@
         "step3_text": "3. You Deliver a |#090909---Gift to Remember|#FFB793",
         "step3_details": "Whether it's for a wedding, a client, or your home bar—this is a gift that stands out.",
         "cta_text": "Book a Business Consultation",
-        "cta_link": "shopify://collections/all"
+        "cta_link": "shopify://products/your-tequila"
       }
     },
     "index_product_showcase": {
@@ -354,7 +354,7 @@
         "description": "<p>Distilled in the heart of Jalisco, our tequila is:<br/>- 100% Blue Weber Agave<br/>- Crisp, smooth, and balanced<br/>- Bottled unaged for a clean, authentic blanco profile</p>",
         "description_color": "#090909",
         "button_text": "CREATE YOUR OWN TEQUILA",
-        "button_link": "shopify://collections/all",
+        "button_link": "shopify://products/your-tequila",
         "tasting_title_accent": "TASTING",
         "tasting_title_main": "NOTES",
         "tasting_accent_color": "#6ebdb0",
